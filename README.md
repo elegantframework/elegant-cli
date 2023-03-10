@@ -1,2 +1,2 @@
-# elegant
-A utility-first CMS framework for rapidly building expressive and elegant static content web applications.
+# Fractal
+ Fractal is a content management framework with expressive, elegant syntax. 
