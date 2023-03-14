@@ -9,7 +9,7 @@ const arg = require('arg');
 
 clear();
 
-fs.cp('./source/elegant-docs/', './', { recursive: true }, (err) => {
+fs.cp('node_modules/elegant-cli/source/elegant-docs/', './', { recursive: true }, (err) => {
   if (err) {
     console.error(err);
   }

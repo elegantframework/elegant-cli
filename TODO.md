@@ -22,6 +22,8 @@
     - Figure out how to take args.. --docs blog
     - No args is a full basic scaffold
 
+- Write some tests for the initial cli command? To verify it's good and put a build status on the repo
+
 -- DOCUMENT THE DOCS FEATURES!!! How to create pages and stuff. How to set and change config
 
 - Add sitemap config to docusarus
