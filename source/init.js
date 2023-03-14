@@ -24,14 +24,11 @@ fs.cp('node_modules/elegant-cli/source/elegant-docs/.env.example', './.env', (er
 });
 
 // copy the git ignore file over
-fs.cp('node_modules/elegant-cli/source/elegant-docs/.gitignore', './.gitignore', (err) => {
+fs.cp('node_modules/elegant-cli/source/elegant-docs/.gitignore.example', './.gitignore', (err) => {
   if (err) {
     console.error(err);
   }
 });
-
-// install the required packages for the user
-shell.exec("npm install");
 
 console.log(
   chalk.yellow.bgBlack(
