@@ -1,7 +1,8 @@
 {
   "name": "elegant-cli",
-  "version": "0.1.3",
-  "description": "A utility-first CMS framework for rapidly building expressive and elegant static content web applications.",  "scripts": {
+  "version": "0.1.4",
+  "description": "A utility-first CMS framework for rapidly building expressive and elegant static content web applications.",
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,7 +28,8 @@
     "clear": "^0.1.0",
     "commander": "^10.0.0",
     "figlet": "^1.5.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "shelljs": "^0.8.5"
   },
   "bin": {
     "elegant-docs-init": "./source/init.js"

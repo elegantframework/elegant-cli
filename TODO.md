@@ -1,6 +1,8 @@
 - Once the docs project has been created with the cli, wipe it out and do it again
     - Reinstall it from scratch, and document every step
 
+        - npm install -D elegant-cli
+
 - Create some inital docs
 
     - Prologue - dir
