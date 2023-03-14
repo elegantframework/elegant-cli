@@ -1,10 +1,12 @@
-- Once the docs project has been created with the cli, wipe it out and do it again
-    - Reinstall it from scratch, and document every step
+- Finish the install doc.
+    - At the end of the doc, pick back up with 'Next, you're ready to [start taking your next steps into the Laravel ecosystem](#next-steps). '
 
-        - npm install elegant-cli --save-dev
-        - npx elegant-docs-init
-        - npm install
-        - npm run start
+    - Follow into a config section. Document how we use .env files .... Do we need to consider next here?
+
+    - Document how a user creates a new doc file
+
+
+- List some inital features of v1 under the Why Elegant tab
 
 - Create some inital docs
 
@@ -14,8 +16,6 @@
     - Getting Started - dir
         Installation.md
         Configuration
-
-- Follow the laravel docs.. Create a nice starting point for the Elegant starter docs
 
 
 
@@ -34,10 +34,18 @@
 - Add site translations
 - Add algolia config
 
+- Enable doc versions.
+    - Go back and update any doc links to use the versioning url
+    - Document how a user would set up their own versioning 
+
+- Set up site translations
+    - Document how a user would set up translations
+
+- Take a look back at the example docusaurus docs site, and bring over alot of those features.. How to update your site, the category.json file, markdown features.
+
 - A regular docs init command should download our docs site, but a summarized version of the docs as an example for devs
     - THe docusarus built site should have our Elegant Readme
 
-- Create an init args flag that will allow a user to download our full docs site as an example
 
 - Add built in 508 compliance and testing  - Axe, Jest, Storybook.. Use Aria-labels
 

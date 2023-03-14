@@ -44,7 +44,9 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             process.env.APP_REPOSITORY,
+            routeBasePath: '/docs/',
         },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
