@@ -14,6 +14,12 @@ fs.cp('node_modules/elegant-cli/source/elegant-docs/', './', { recursive: true }
   }
 });
 
+fs.cp('node_modules/elegant-cli/source/elegant-docs/.env.example', './.env', { recursive: true }, (err) => {
+  if (err) {
+    console.error(err);
+  }
+});
+
 console.log(
   chalk.yellow.bgBlack(
     figlet.textSync("Let's create some docs!", { horizontalLayout: 'full' })

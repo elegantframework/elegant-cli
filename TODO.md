@@ -1,3 +1,6 @@
+- Once the docs project has been created with the cli, wipe it out and do it again
+    - Reinstall it from scratch, and document every step
+
 - Create some inital docs
 
     - Prologue - dir
@@ -8,19 +11,13 @@
         Configuration
 
 - Follow the laravel docs.. Create a nice starting point for the Elegant starter docs
-    - Finish the cli command to be usable on the main Elegant repo to start our site
-
-- Finish elegant init cli command
-    - Start with no args, install docusarus with stubbed env file
-
-    - Copy the docusarus project into the users folder on init command? Use npm exec and shell functions
 
 
-            ~~~~~~~~> Finishing the above could be used to build the Elegant MVP fast.
-                        Release this as version 1, reiterate on the features below
 
-    - Figure out how to take args.. --docs blog
-    - No args is a full basic scaffold
+- Figure out how to take args.. --docs blog
+- No args is a full basic scaffold
+
+- Add args to docs init cli command.. --demo for a small amount of docs, --full for all the docs
 
 - Write some tests for the initial cli command? To verify it's good and put a build status on the repo
 

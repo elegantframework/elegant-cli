@@ -1,6 +1,6 @@
 {
   "name": "elegant-cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A utility-first CMS framework for rapidly building expressive and elegant static content web applications.",  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
