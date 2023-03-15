@@ -46,22 +46,22 @@ else
   outputPath = "./test/"
 }
 
-// copy the git ignore file over
-fs.cp(module_path + 'source/elegant-docs/.gitignore.example', outputPath + '.gitignore', (err) => {
-  if (err) {
-    console.error(err);
-  }
-});
-
 // copy the docs project into the users project
-fs.cp(module_path + 'source/elegant-docs/', outputPath + './', { recursive: true }, (err) => {
+fs.cp(module_path + 'source/elegant-docs/', outputPath, { recursive: true }, (err) => {
   if (err) {
     console.error(err);
   }
 });
 
 // copy the sample env file into the users project as their env file
-fs.cp(module_path + 'source/elegant-docs/.env.example', outputPath + './.env', (err) => {
+fs.cp(module_path + 'source/elegant-docs/.env.example', outputPath + '.env', (err) => {
+  if (err) {
+    console.error(err);
+  }
+});
+
+// copy the git ignore file over
+fs.cp(module_path + 'source/elegant-docs/.gitignore.example', outputPath + '.gitignore', (err) => {
   if (err) {
     console.error(err);
   }
