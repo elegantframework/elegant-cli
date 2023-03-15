@@ -8,6 +8,11 @@
   The Elegant documentation. A utility-first CMS framework for rapidly building expressive and elegant static content web applications.
 </p>
 
+<p align="center">
+<a href="https://github.com/elegantframework/elegant/actions"><img src="https://github.com/elegantframework/elegant/actions/workflows/jest.yml/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
+
 ------
 
 ## Documentation
