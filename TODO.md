@@ -1,3 +1,8 @@
+- Finish the init script, with unit testing
+
+- Set up docs.elegantframework.com with the docs
+    - Document each step.. Take screenshots of the vercel dashboard steps
+
 - Document how a user creates a new doc file
 
 - Create an e2e test that goes to the local host url and verifys the doc exists.. This help validate any future upgrades
@@ -16,6 +21,13 @@ x`
 
 ~~~~~~~~~~~~>
 
+- Write a shell script that init uses to rm the example gitignore file, and runs npm install
+
+- Add the doc footer back.. Add NPM, IH, and GitHub links for now as placeholders
+
+- Write a doc on jest testing.. (Since this is a feature of Elegant, and not included in docusaurus)
+
+- Expand on the idea in the docs that Elegant is SEO friendly, lightining fast, and cheap and easy to host.
 
 - Figure out how to take args.. --docs blog
 - No args is a full basic scaffold
