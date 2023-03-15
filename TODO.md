@@ -1,3 +1,5 @@
+- Create an e2e test that goes to the local host url and verifys the doc exists.. This help validate any future upgrades
+
 - Finish the install doc.
     - At the end of the doc, pick back up with 'Next, you're ready to [start taking your next steps into the Laravel ecosystem](#next-steps). '
 
@@ -18,6 +20,23 @@
         Configuration
 
 
+~~~~~~~~~> To offically release v1-alpha
+
+    - Finish install doc
+    - Write method to take a --dir arg on init
+    - Install and configure jest intergration test
+    - Write test to init the docs.. Use the arg above to set and destory the test doc during testing
+x`
+    - Features that would be nice, but not required are below
+        - Add versioning
+        - Add a github build step
+        - Have the build verified as passing
+        - Add a badge and other bling to the repo readme's
+
+    - Create an official github release
+
+~~~~~~~~~~~~>
+
 
 - Figure out how to take args.. --docs blog
 - No args is a full basic scaffold
@@ -25,6 +44,8 @@
 - Add args to docs init cli command.. --demo for a small amount of docs, --full for all the docs
 
 - Write some tests for the initial cli command? To verify it's good and put a build status on the repo
+
+- Add jest to the e2e testing to the docs piece?
 
 -- DOCUMENT THE DOCS FEATURES!!! How to create pages and stuff. How to set and change config
 

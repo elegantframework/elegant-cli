@@ -10,7 +10,7 @@ title: "Installation"
     - [Why Elegant?](#why-elegant)
 - [Your First Elegant Project](#your-first-elegant-project)
 - [Initial Configuration](#initial-configuration)
-- [Environment Based Configuration](#environment-based-configuration)
+    - [Environment Based Configuration](#environment-based-configuration)
 
 <a name="meet-elegant"></a>
 
@@ -73,3 +73,5 @@ Since many of Elegant's configuration option values may vary depending on whethe
 
 Your `.env` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gains access to your source control repository, since any sensitive credentials would get exposed.
 
+> **Note**  
+> For more information about the `.env` file and environment based configuration, check out the full [configuration documentation](/docs/{{version}}/configuration#environment-configuration).
