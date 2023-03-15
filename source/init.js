@@ -34,22 +34,34 @@ if(params[0] !== undefined && params[0] !== '')
   }
 }
 
+// set our node module path
+let module_path = '';
+
+if(process.env.JEST_WORKER_ID === undefined && process.env.NODE_ENV !== 'test')
+{
+  module_path = 'node_modules/elegant-cli/';
+}
+else
+{
+  outputPath = "./test/"
+}
+
 // copy the git ignore file over
-fs.cp('node_modules/elegant-cli/source/elegant-docs/.gitignore.example', outputPath + '.gitignore', (err) => {
+fs.cp(module_path + 'source/elegant-docs/.gitignore.example', outputPath + '.gitignore', (err) => {
   if (err) {
     console.error(err);
   }
 });
 
 // copy the docs project into the users project
-fs.cp('node_modules/elegant-cli/source/elegant-docs/', outputPath + './', { recursive: true }, (err) => {
+fs.cp(module_path + 'source/elegant-docs/', outputPath + './', { recursive: true }, (err) => {
   if (err) {
     console.error(err);
   }
 });
 
 // copy the sample env file into the users project as their env file
-fs.cp('node_modules/elegant-cli/source/elegant-docs/.env.example', outputPath + './.env', (err) => {
+fs.cp(module_path + 'source/elegant-docs/.env.example', outputPath + './.env', (err) => {
   if (err) {
     console.error(err);
   }
