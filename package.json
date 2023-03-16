@@ -1,6 +1,6 @@
 {
   "name": "elegant-cli",
-  "version": "0.1.13",
+  "version": "1.1.2",
   "description": "A utility-first CMS framework for rapidly building expressive and elegant static content web applications.",
   "scripts": {
     "test": "jest"
