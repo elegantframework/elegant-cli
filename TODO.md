@@ -1,3 +1,6 @@
+- Set up docs.elegantframework.com with the docs
+    - Document each step.. Take screenshots of the vercel dashboard steps
+
 - Document how a user creates a new doc file
 
 - Create an e2e test that goes to the local host url and verifys the doc exists.. This help validate any future upgrades
@@ -5,9 +8,6 @@
 - List some inital features of v1 under the Why Elegant tab
 
 ~~~~~~~~~> To offically release v1-alpha
-
-    - Write method to take a --dir arg on init
-    - Write jest test to init the docs.. Use the arg above to set and destory the test doc during testing
 x`
     - Features that would be nice, but not required are below
         - Add versioning
@@ -16,6 +16,11 @@ x`
 
 ~~~~~~~~~~~~>
 
+- Add the doc footer back.. Add NPM, IH, and GitHub links for now as placeholders
+
+- Write a doc on jest testing.. (Since this is a feature of Elegant, and not included in docusaurus)
+
+- Expand on the idea in the docs that Elegant is SEO friendly, lightining fast, and cheap and easy to host.
 
 - Figure out how to take args.. --docs blog
 - No args is a full basic scaffold

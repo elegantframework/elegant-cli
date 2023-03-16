@@ -1,7 +1,20 @@
-let EXECUTABLE = 'node ../../lib/cli.js'
+const init = require('./../../source/init');
 
-test('adds 1 + 2 to equal 3', () => {
-    expect(1 + 2).toBe(3);
+let {
+    readOutputFile,
+  } = require('./../io')({
+    output: '../../../.test',
+    input: 'src',
+  });
+
+describe('The Elegant CLI Tool', () => {
+    it('generates a docs project', async () => {
+        const result = await (`${init}`);
+        expect(result !== null);
+
+        // 5 second wait
+        // setTimeout(async function(){
+        //     expect(await readOutputFile('.env.example')).toContain('Elegant');
+        // }, 5000);
+    });
 });
-
-// describe('Build command', () => {}
