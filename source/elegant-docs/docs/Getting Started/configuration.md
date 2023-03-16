@@ -34,7 +34,7 @@ Your `.env` file should not be committed to your application's source control, s
 If you need to define an environment variable with a value that contains spaces, you may do so by enclosing the value in double quotes:
 
 ```ini
-APP_NAME="My Application"
+NEXT_PUBLIC_APP_NAME="My Application"
 ```
 
 <a name="retrieving-environment-configuration"></a>
@@ -43,8 +43,10 @@ APP_NAME="My Application"
 
 All of the variables listed in the `.env` file will be loaded into the `process.env` Node super-global variable when your application is built. However, you may use the `env` function to retrieve values from these variables in your configuration files. 
 
-To access the `APP_NAME` environment variable in your application, simply reference the super Node super-global environment variable:
+To access the `NEXT_PUBLIC_APP_NAME` environment variable in your application, simply reference the super Node super-global environment variable:
 
 ```nothing
-let title = process.env.APP_NAME
+let title = process.env.NEXT_PUBLIC_APP_NAME
 ```
+> **Note**  
+> We have prefixed the environment variables within your `.env` file with `NEXT_PUBLIC_` to make this application compatible with Vercel.com hosting and Next.js. For more information, please visit [Vercel.com](https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser).
