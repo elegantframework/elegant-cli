@@ -7,12 +7,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: process.env.APP_NAME,
-  tagline: process.env.APP_DESCRIPTION,
+  title: process.env.NEXT_PUBLIC_APP_NAME,
+  tagline: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: process.env.APP_URL,
+  url: process.env.NEXT_PUBLIC_APP_URL,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -42,7 +42,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Remove this to remove the "edit this page" links.
           editUrl:
-            process.env.APP_REPOSITORY
+            process.env.NEXT_PUBLIC_APP_REPOSITORY
         },
         blog: false,
         theme: {
@@ -58,9 +58,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: process.env.APP_NAME,
+        title: process.env.NEXT_PUBLIC_APP_NAME,
         logo: {
-          alt: process.env.APP_NAME + ' Logo',
+          alt: process.env.NEXT_PUBLIC_APP_NAME + ' Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -71,7 +71,7 @@ const config = {
           //   label: 'Tutorial',
           // },
           {
-            href: process.env.APP_REPOSITORY,
+            href: process.env.NEXT_PUBLIC_APP_REPOSITORY,
             label: 'GitHub',
             position: 'right',
           },
@@ -116,7 +116,7 @@ const config = {
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()} ${process.env.APP_NAME}, Inc. Built with <a href='http://elegantframework.com/' aria-label='Built with the Elegant Framework'>Elegant</a>.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ${process.env.NEXT_PUBLIC_APP_NAME}, Inc. Built with <a href='http://elegantframework.com/' aria-label='Built with the Elegant Framework'>Elegant</a>.`,
       },
       prism: {
         theme: lightCodeTheme,
