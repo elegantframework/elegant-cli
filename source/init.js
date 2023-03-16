@@ -43,18 +43,18 @@ if(process.env.JEST_WORKER_ID === undefined && process.env.NODE_ENV !== 'test')
 }
 else
 {
-  // delete any existing test artifacts
-  const directory = outputPath;
+  // // delete any existing test artifacts
+  // const directory = outputPath;
 
-  fs.readdir(directory, (err, files) => {
-    if (err) throw err;
+  // fs.readdir(directory, (err, files) => {
+  //   if (err) throw err;
   
-    for (const file of files) {
-      fs.unlink(path.join(directory, file), (err) => {
-        if (err) throw err;
-      });
-    }
-  });
+  //   for (const file of files) {
+  //     fs.unlink(path.join(directory, file), (err) => {
+  //       if (err) throw err;
+  //     });
+  //   }
+  // });
 
   outputPath = "./.test/";
 }
