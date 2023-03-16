@@ -1,5 +1,20 @@
+~~~~~~~~~> To offically release v1-alpha
+
+    - Create an official github release --- DONE
+
+    - create new v1.0-alpha branch
+    - set as default branch
+
+    - set up demo.elegant site?
+
+    - update the main readme file with some better looking content.. A screenshot... Currently dull and boring
+
+~~~~~~~~~~~~>
+
 - Set up docs.elegantframework.com with the docs
     - Document each step.. Take screenshots of the vercel dashboard steps
+
+- Set up and post on ih... Post on startup school
 
 - Document how a user creates a new doc file
 
@@ -7,14 +22,6 @@
 
 - List some inital features of v1 under the Why Elegant tab
 
-~~~~~~~~~> To offically release v1-alpha
-x`
-    - Features that would be nice, but not required are below
-        - Add versioning
-
-    - Create an official github release
-
-~~~~~~~~~~~~>
 
 - Add the doc footer back.. Add NPM, IH, and GitHub links for now as placeholders
 
