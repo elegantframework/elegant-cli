@@ -1,18 +1,20 @@
-const fs = require('fs');
-const exec = require('child_process');
 const init = require('./../../source/init');
 
-describe('The Elegant CLI Tool', () => {
-    test('adds 1 + 2 to equal 3', () => {
-        expect(1 + 2).toBe(3);
-    });
+let {
+    readOutputFile,
+  } = require('./../io')({
+    output: '../../../.test',
+    input: 'src',
+  });
 
-    it('generates a docs project', async (done) => {
-        const script = init;
-        await exec(script, () => {
-          const result = fs.readdirSync('/test')
-          expect(result != null);
-          done();
-        })
+describe('The Elegant CLI Tool', () => {
+    it('generates a docs project', async () => {
+        const result = await (`${init}`);
+        expect(result !== null);
+
+        // 1 second wait
+        setTimeout(async function(){
+            expect(await readOutputFile('.env.example')).toContain('Elegant');
+        }, 5000);
     });
 });

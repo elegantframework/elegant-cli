@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
 const params = process.argv.slice(2)
-const shell = require('shelljs');
+const path = require("path");
 
 clear();
 
@@ -43,27 +43,47 @@ if(process.env.JEST_WORKER_ID === undefined && process.env.NODE_ENV !== 'test')
 }
 else
 {
-  outputPath = "./test/"
+  // delete any existing test artifacts
+  const directory = outputPath;
+
+  fs.readdir(directory, (err, files) => {
+    if (err) throw err;
+  
+    for (const file of files) {
+      fs.unlink(path.join(directory, file), (err) => {
+        if (err) throw err;
+      });
+    }
+  });
+
+  outputPath = "./.test/";
 }
 
 // copy the docs project into the users project
-fs.cp(module_path + 'source/elegant-docs/', outputPath, { recursive: true }, (err) => {
+fs.cp(module_path + 'source/elegant-docs/', outputPath, { recursive: true}, (err) => {
   if (err) {
     console.error(err);
   }
-});
+  else
+  {
+    // copy the sample env file into the users project as their env file
+    fs.cp(module_path + 'source/elegant-docs/.env.example', outputPath + '.env', (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
 
-// copy the sample env file into the users project as their env file
-fs.cp(module_path + 'source/elegant-docs/.env.example', outputPath + '.env', (err) => {
-  if (err) {
-    console.error(err);
-  }
-});
+    // copy the git ignore file over
+    fs.cp(module_path + 'source/elegant-docs/.gitignore.example', outputPath + '.gitignore', (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
 
-// copy the git ignore file over
-fs.cp(module_path + 'source/elegant-docs/.gitignore.example', outputPath + '.gitignore', (err) => {
-  if (err) {
-    console.error(err);
+    // delete the example git ignore file
+    fs.unlink(outputPath + '.gitignore.example', function(err,results){
+      // do nothing
+     });
   }
 });
 
