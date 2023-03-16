@@ -1,5 +1,3 @@
-- Finish the init script, with unit testing
-
 - Set up docs.elegantframework.com with the docs
     - Document each step.. Take screenshots of the vercel dashboard steps
 
@@ -10,9 +8,6 @@
 - List some inital features of v1 under the Why Elegant tab
 
 ~~~~~~~~~> To offically release v1-alpha
-
-    - Write method to take a --dir arg on init
-    - Write jest test to init the docs.. Use the arg above to set and destory the test doc during testing
 x`
     - Features that would be nice, but not required are below
         - Add versioning
@@ -20,8 +15,6 @@ x`
     - Create an official github release
 
 ~~~~~~~~~~~~>
-
-- Write a shell script that init uses to rm the example gitignore file, and runs npm install
 
 - Add the doc footer back.. Add NPM, IH, and GitHub links for now as placeholders
 

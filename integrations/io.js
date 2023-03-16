@@ -19,7 +19,7 @@ function getWatcherOptions() {
 
 module.exports = function ({
   /** Output directory, relative to the tool. */
-  output = 'test',
+  output = 'dist',
 
   /** Input directory, relative to the tool. */
   input = 'src',
