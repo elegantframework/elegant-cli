@@ -1,9 +1,8 @@
 ~~~~~~~~~> To offically release v1-alpha
 
-    - Create an official github release --- DONE
+    - Wipe out the current docs project.. Download the new npm package and re init
 
-    - create new v1.0-alpha branch
-    - set as default branch
+    - Publish
 
     - set up demo.elegant site?
 
