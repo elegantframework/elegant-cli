@@ -1,5 +1,7 @@
 --- Temp guide to how to host elegant docs
 
+List each step as Step 1: Step 2:
+
 We use Vercel --- 
 
 Vercel is an end-to-end platform for developers, that allows you to create and deploy your web application.
@@ -33,8 +35,20 @@ Wait for the build and deployment steps to complete. Inspect the build console o
 
 
 
+How to connect your domain to Vercel.
+
+  Go to your project on the Vercel platform. In the Overview tab of your Vercel project, click on the “View Domains” button.
+
+    Type your domain name in and click add
+
+    - Follow any instructions provided by Vercel to finish setting up your domain
+
+
+Once the configuration is set up correctly, you will no longer see the invalid message and instead you will see “Valid Configuration” and the redirect to your domain.
+
+
+
     - Configuring vercel
         - you have to set up your domain
 
 
-        - Create a new docs project in vercel

@@ -1,19 +1,19 @@
 ~~~~~~~~~> To offically release v1-alpha
 
-    - Wipe out the current docs project.. Download the new npm package and re init
-
-    - Publish
-
     - set up demo.elegant site?
 
     - update the main readme file with some better looking content.. A screenshot... Currently dull and boring
 
+    - Add a main readme to the Elegant github page
+
 ~~~~~~~~~~~~>
 
-- Set up docs.elegantframework.com with the docs
-    - Document each step.. Take screenshots of the vercel dashboard steps
+- update the seo title of the docs site.. Look at env vars, name and description.. We could do Hello World - Elegant - The CMS framework 
 
-- Set up and post on ih... Post on startup school
+    - Write up a final doc of deploying to Vercel with screenshots
+        - Move the images to a final dir in the project.. Consult the fillify docs for why the folder is named the way it is.. Has to do with the redirects
+
+- Set up and post on ih... Post on startup school.. Post on medium
 
 - Document how a user creates a new doc file
 
@@ -59,6 +59,8 @@
 - Update docusarus cli commands to be elegant commands
 - Use docusaurus dev build and other cli commands
 - Document those cli commands
+
+- Blog on medium
 
 
 
