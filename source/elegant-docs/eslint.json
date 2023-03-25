@@ -1,0 +1,18 @@
+{
+    "root": true,
+    "extends": ["next/core-web-vitals", "plugin:storybook/recommended", "react-app"],
+    "plugins": ["testing-library"],
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/**/*.[jt]s?(x)",
+          "**/?(*.)+(spec|test).[jt]s?(x)"
+        ],
+        "extends": ["plugin:testing-library/react"]
+      }
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "jsx-a11y/anchor-is-valid": "off"
+    }
+}

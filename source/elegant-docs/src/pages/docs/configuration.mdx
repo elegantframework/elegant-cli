@@ -1,0 +1,50 @@
+---
+title: Configuration
+slug: /configuration
+sidebar_position: 2
+sidebar_label: Configuration
+---
+
+- [Environment Configuration](#environment-configuration)
+    - [Retrieving Environment Configuration](#retrieving-environment-configuration)
+
+<a name="environment-configuration"></a>
+
+## Environment Configuration
+
+It is often helpful to have different configuration values based on the environment where the application is running. For example, you may wish to use a different Google Analytics tag locally than you do on your production server.
+
+To make this a cinch, Elegant utilizes the [DotEnv](https://github.com/motdotla/dotenv) NPM library. In a fresh Elegant installation, the root directory of your application will contain a `.env.example` file that defines many common environment variables. During the Elegant installation process, this file will automatically be copied to `.env`.
+
+Elegant's default `.env` file contains some common configuration values that may differ based on whether your application is running locally or on a production web server.
+
+If you are developing with a team, you may wish to continue including a `.env.example` file with your application. By putting placeholder values in the example configuration file, other developers on your team can clearly see which environment variables are needed to run your application.
+
+> **Note**  
+> Any variable in your `.env` file can be overridden by external environment variables such as server-level or system-level environment variables.
+
+<a name="environment-file-security"></a>
+
+## Environment File Security
+
+Your `.env` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gains access to your source control repository, since any sensitive credentials would get exposed.
+
+If you need to define an environment variable with a value that contains spaces, you may do so by enclosing the value in double quotes:
+
+```ini
+NEXT_PUBLIC_APP_NAME="My Application"
+```
+
+<a name="retrieving-environment-configuration"></a>
+
+###  Retrieving Environment Configuration
+
+All of the variables listed in the `.env` file will be loaded into the `process.env` Node super-global variable when your application is built. However, you may use the `env` function to retrieve values from these variables in your configuration files. 
+
+To access the `NEXT_PUBLIC_APP_NAME` environment variable in your application, simply reference the super Node super-global environment variable:
+
+```nothing
+let title = process.env.NEXT_PUBLIC_APP_NAME
+```
+> **Note**  
+> We have prefixed the environment variables within your `.env` file with `NEXT_PUBLIC_` to make this application compatible with Vercel.com hosting and Next.js. For more information, please visit [Vercel.com](https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser).
