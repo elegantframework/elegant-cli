@@ -169,7 +169,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                   className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
                   onContextMenu={(e) => {
                     e.preventDefault()
-                    Router.push('/brand')
+                    // Router.push('/brand')
                   }}
                 >
                   <span className="sr-only">{process.env.NEXT_PUBLIC_APP_NAME} home page</span>

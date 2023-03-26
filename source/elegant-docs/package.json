@@ -6,7 +6,7 @@
     "start": "next start",
     "export": "next build && next export",
     "format": "prettier '{src,remark,scripts}/**/*.{css,js,mdx}' --write",
-    "test": "jest --watch",
+    "test": "jest --watch --verbose ./__tests__ ./src",
     "test:ci": "jest --ci",
     "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",

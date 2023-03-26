@@ -3,7 +3,9 @@
   "version": "1.1.4",
   "description": "A utility-first CMS framework for rapidly building expressive and elegant static content web applications.",
   "scripts": {
-    "test": "jest"
+    "dev": "cd source/elegant-docs && npm run dev",
+    "test": "jest --watch --verbose ./integrations --detectOpenHandles --forceExit && cd source/elegant-docs && npm run test:ci",
+    "test:ci": "jest --ci ./integrations --detectOpenHandles --forceExit && cd source/elegant-docs && npm run test:ci"
   },
   "repository": {
     "type": "git",
