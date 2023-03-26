@@ -10,6 +10,7 @@ import Head from 'next/head'
 import { ResizeObserver } from '@juggle/resize-observer'
 import 'intersection-observer'
 import { SearchProvider } from '@/components/Search'
+import TwitterMeta from '@/components/Meta/TwitterMeta';
 
 if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
   window.ResizeObserver = ResizeObserver
@@ -78,9 +79,8 @@ export default function App({ Component, pageProps, router }) {
       {meta.ogDescription && <OgDescription>{meta.ogDescription}</OgDescription>}
       <Head>
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-        <meta key="twitter:site" name="twitter:site" content="@tailwindcss" />
         <meta key="twitter:image" name="twitter:image" content={image} />
-        <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
+        <TwitterMeta twitterHandle={process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE}/>
         <meta
           key="og:url"
           property="og:url"

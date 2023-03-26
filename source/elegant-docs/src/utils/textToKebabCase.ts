@@ -3,7 +3,7 @@
  * @param str A normal string.
  * @returns A kebab cased string.
  */
-const textToKebabCase = (str: string) => {
+const TextToKebabCase = (str: string) => {
     const words = str.split(" ");
 
     return words.map((word) => { 
@@ -11,4 +11,4 @@ const textToKebabCase = (str: string) => {
     }).join(" ");
 };
 
-export default textToKebabCase;
+export default TextToKebabCase;

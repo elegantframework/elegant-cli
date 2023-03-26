@@ -3,8 +3,8 @@
  * @param str A simple string.
  * @returns A title case string.
  */
-const textToTitleCase = (str: string) => {
+const TextToTitleCase = (str: string) => {
     return str.replace(/(?:^|-)([a-z])/gi, (m, p1) => ` ${p1.toUpperCase()}`).trim()
 };
 
-export default textToTitleCase;
+export default TextToTitleCase;

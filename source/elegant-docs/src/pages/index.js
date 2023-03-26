@@ -9,7 +9,7 @@ import styles from './index.module.css';
 import clsx from 'clsx';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
-import textToKebabCase from "./../utils/textToKebabCase";
+import TextToKebabCase from "./../utils/textToKebabCase";
 
 
 Home.layoutProps = {
@@ -25,14 +25,14 @@ export default function Home() {
         <meta
           key="twitter:title"
           name="twitter:title"
-          content={process.env.NEXT_PUBLIC_APP_NAME + " - " + textToKebabCase(process.env.NEXT_PUBLIC_APP_TAGLINE)}
+          content={process.env.NEXT_PUBLIC_APP_NAME + " - " + TextToKebabCase(process.env.NEXT_PUBLIC_APP_TAGLINE)}
         />
         <meta
           key="og:title"
           property="og:title"
-          content={process.env.NEXT_PUBLIC_APP_NAME + " - " + textToKebabCase(process.env.NEXT_PUBLIC_APP_TAGLINE)}
+          content={process.env.NEXT_PUBLIC_APP_NAME + " - " + TextToKebabCase(process.env.NEXT_PUBLIC_APP_TAGLINE)}
         />
-        <title>{process.env.NEXT_PUBLIC_APP_NAME + " - " + textToKebabCase(process.env.NEXT_PUBLIC_APP_TAGLINE)}</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME + " - " + TextToKebabCase(process.env.NEXT_PUBLIC_APP_TAGLINE)}</title>
       </Head>
       <div className="mb-20 overflow-hidden sm:mb-32 md:mb-40">
         <Header />
