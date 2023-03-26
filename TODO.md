@@ -10,17 +10,6 @@
     - fix current logo spacing between shapes and text
     - generate the mini logo into a 70x70 png to be converted into a favicon
     
-    favicons
-        - android-chrome 192 and 256px - light
-        - apple touch - light 
-        - browerconfig.xml
-        - favicon - 16 and 32
-        - favicon.ico
-        mstile- 150x150 png
-        safari-pinned-tab.svg
-        site.webmanifest
-
-- disable versioning
 
 - check mobile design.. Make sure everything is working
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { VersionSwitcher } from '@/components/VersionSwitcher'
+import VersionSwitcher from '@/components/Header/VersionSwitcher'
 import { SearchButton } from '@/components/Search'
 import Router from 'next/router'
 import { Logo } from '@/components/Logo'
@@ -176,7 +176,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                   <Logo className="w-auto h-7" />
                 </a>
               </Link>
-              <VersionSwitcher />
+              {/* <VersionSwitcher /> */}
               <div className="relative hidden lg:flex items-center ml-auto">
                 <nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
                   <ul className="flex space-x-8">

@@ -2,8 +2,6 @@ import React from "react";
 import renderer from 'react-test-renderer';
 import TwitterMeta from "./TwitterMeta";
 
-
-
 describe("Twitter meta card component", () => {
     it('renders a twitter creator card if a creator is provided',() => {
         const card = renderer
