@@ -6,7 +6,6 @@ import clsx from 'clsx'
 import { fit } from '@/utils/fit'
 import { debounce } from 'debounce'
 import { useMedia } from '@/hooks/useMedia'
-import colors from 'tailwindcss/colors'
 
 const CHAR_DELAY = 75
 const GROUP_DELAY = 1000
@@ -225,7 +224,7 @@ export function Hero() {
                 >
                   <motion.div layout={layout} className="mb-4" transition={TRANSITION}>
                     <Words bolder={step >= 3} layout={layout} transition={TRANSITION}>
-                      “Tailwind CSS is the only framework that I've seen scale on large teams. It’s
+                      “Elegant is the only framework that I've seen scale on large teams. It’s
                       easy to customize, adapts to any design, and the build size is tiny.”
                     </Words>
                   </motion.div>

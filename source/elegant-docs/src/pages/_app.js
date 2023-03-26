@@ -57,8 +57,8 @@ export default function App({ Component, pageProps, router }) {
     meta.metaDescription || meta.description || 'Documentation for the Tailwind CSS framework.'
   let image = meta.ogImage ?? meta.image
   image = image
-    ? `https://tailwindcss.com${image.default?.src ?? image.src ?? image}`
-    : `https://tailwindcss.com/api/og?path=${router.pathname}`
+    ? `${process.env.NEXT_PUBLIC_APP_URL}${image.default?.src ?? image.src ?? image}`
+    : `${process.env.NEXT_PUBLIC_APP_URL}/api/og?path=${router.pathname}`
 
   if (router.pathname.startsWith('/examples/')) {
     return <Component {...pageProps} />
@@ -84,7 +84,7 @@ export default function App({ Component, pageProps, router }) {
         <meta
           key="og:url"
           property="og:url"
-          content={`https://tailwindcss.com${router.pathname}`}
+          content={`${process.env.NEXT_PUBLIC_APP_URL}${router.pathname}`}
         />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:image" property="og:image" content={image} />
