@@ -1,17 +1,8 @@
 ~~~~~~> To Launch 1.2
 
-- Disable algolia search for launch ... from mobile on home page
-
-- Disable blog email signup for launch .. check mobile
-
-- disable brand policy page for now .. Add built with elegant in it's place
-
-- get a logo
-    - fix current logo spacing between shapes and text
-    - generate the mini logo into a 70x70 png to be converted into a favicon
+- fix current logo spacing between shapes and text
+- generate the mini logo into a 70x70 png to be converted into a favicon
     
-
-- check mobile design.. Make sure everything is working
 
 - write 2 blogs posts.. One documenting the first docusauras launch.. announcing with a screenshot before migration to 1.2
     - 2nd blog post announces 1.2

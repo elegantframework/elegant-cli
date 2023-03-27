@@ -248,7 +248,7 @@ export function Hero() {
                           : 'text-black dark:text-slate-300'
                       )}
                     >
-                      Sarah Dayan
+                      Jane Doe
                     </motion.p>
                     <motion.p
                       layout={layout}
@@ -261,7 +261,7 @@ export function Hero() {
                           : 'text-black dark:text-slate-300'
                       )}
                     >
-                      Staff Engineer, Algolia
+                      Staff Engineer, Big Search Company
                     </motion.p>
                   </motion.div>
                 </motion.div>
@@ -270,11 +270,7 @@ export function Hero() {
           </AnimateSharedLayout>
         </div>
       }
-      right={
-        <CodeWindow className="!h-auto max-h-[none]">
-          
-        </CodeWindow>
-      }
+      right={null}
     />
   )
 }
