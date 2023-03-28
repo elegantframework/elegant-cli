@@ -54,16 +54,16 @@ export default function App({ Component, pageProps, router }) {
     : {}
   const showHeader = router.pathname !== '/'
   const meta = Component.layoutProps?.meta || {}
-  const description =
-    meta.metaDescription || meta.description || 'Documentation for the Tailwind CSS framework.'
+  const description = meta.metaDescription || meta.description || 'Documentation for the Elegant Framework.';
   let image = meta.ogImage ?? meta.image
   image = image
     ? `${process.env.NEXT_PUBLIC_APP_URL}${image.default?.src ?? image.src ?? image}`
     : `${process.env.NEXT_PUBLIC_APP_URL}/api/og?path=${router.pathname}`
 
-  if (router.pathname.startsWith('/examples/')) {
-    return <Component {...pageProps} />
-  }
+  //@TODO: delete me
+  // if (router.pathname.startsWith('/examples/')) {
+  //   return <Component {...pageProps} />
+  // }
 
   let section =
     meta.section ||
@@ -73,9 +73,13 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <>
-      <Title>{meta.metaTitle || meta.title}</Title>
+      <Title>
+        {meta.metaTitle || meta.title}
+      </Title>
       {meta.ogTitle && <OgTitle>{meta.ogTitle}</OgTitle>}
-      <Description>{description}</Description>
+      <Description>
+        {description}
+      </Description>
       {meta.ogDescription && <OgDescription>{meta.ogDescription}</OgDescription>}
       <Head>
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />

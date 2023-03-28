@@ -21,8 +21,8 @@ const TwitterMeta = ({twitterHandle}: Props) =>
 
     return(
         <>
-            <meta key="twitter:site" name="twitter:site" content="@tailwindcss" />
-            <meta key="twitter:creator" name="twitter:creator" content="@tailwindcss" />
+            <meta key="twitter:site" name="twitter:site" content="@thebrandonowens" />
+            <meta key="twitter:creator" name="twitter:creator" content="@thebrandonowens" />
         </> 
     );
 }

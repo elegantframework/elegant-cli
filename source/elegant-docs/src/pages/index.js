@@ -1,6 +1,6 @@
 import { SearchButton } from '@/components/Search';
 import { Hero } from '@/components/home/Hero';
-import { Logo } from '@/components/Logo';
+import Logo from '@/components/Logo/Logo';
 import { Footer } from '@/components/home/Footer';
 import NextLink from 'next/link';
 import Head from 'next/head';
