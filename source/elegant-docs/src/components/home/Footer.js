@@ -5,9 +5,9 @@ const footerNav = [
   {
     Community: [
       { title: 'GitHub', href: process.env.NEXT_PUBLIC_APP_REPOSITORY },
-      { title: 'Discord', href: '/discord' },
-      { title: 'Twitter', href: 'https://twitter.com/tailwindcss' },
-      { title: 'YouTube', href: 'https://www.youtube.com/tailwindlabs' },
+      { title: 'Indie Hackers', href: 'https://www.indiehackers.com/product/elegant-framework' },
+      { title: 'Twitter', href: 'https://twitter.com/thebrandonowens' },
+      { title: 'Reddit', href: 'https://www.reddit.com/r/elegantframework/' },
     ],
   },
 ]

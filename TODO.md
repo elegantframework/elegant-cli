@@ -1,7 +1,4 @@
 ~~~~~~> To Launch 1.2
-
-- fix current logo spacing between shapes and text
-- generate the mini logo into a 70x70 png to be converted into a favicon
     
 
 - write 2 blogs posts.. One documenting the first docusauras launch.. announcing with a screenshot before migration to 1.2
@@ -10,6 +7,12 @@
 - create a splash landing page
 
 - update build-rss.js
+
+- update footer links.. remove any tw references
+
+- do a code scan for tw and delete
+
+- update primary blue to match new purple?
 
 ~~~~~~> Post launch
 
