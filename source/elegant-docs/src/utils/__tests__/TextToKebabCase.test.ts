@@ -1,6 +1,6 @@
 import TextToKebabCase from "../textToKebabCase";
 
-describe('Kebab To Title Case', () => {
+describe('Text To kebab Case', () => {
     it('changes a string to kebab case',() => {
 
       let result = TextToKebabCase("hello world");

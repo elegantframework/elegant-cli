@@ -24,6 +24,8 @@
 
 - Re add cypress and e2e testing back
 
+- Remove elegant-cli from inside package.json of the elegant source code
+
 ~~~~~~~ General
 
 - make docs sidebar links collapsible like laravel.com
