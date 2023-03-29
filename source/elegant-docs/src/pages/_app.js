@@ -55,15 +55,10 @@ export default function App({ Component, pageProps, router }) {
   const showHeader = router.pathname !== '/'
   const meta = Component.layoutProps?.meta || {}
   const description = meta.metaDescription || meta.description || 'Documentation for the Elegant Framework.';
-  let image = meta.ogImage ?? meta.image
+  let image = meta.ogImage ?? meta.image;
   image = image
     ? `${process.env.NEXT_PUBLIC_APP_URL}${image.default?.src ?? image.src ?? image}`
     : `${process.env.NEXT_PUBLIC_APP_URL}/api/og?path=${router.pathname}`
-
-  //@TODO: delete me
-  // if (router.pathname.startsWith('/examples/')) {
-  //   return <Component {...pageProps} />
-  // }
 
   let section =
     meta.section ||

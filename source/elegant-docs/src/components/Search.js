@@ -43,7 +43,7 @@ export function SearchProvider({ children }) {
   return (
     <>
       <Head>
-        <link rel="preconnect" href={`https://${APP_ID}-dsn.algolia.net`} crossOrigin="true" />
+        {/* <link rel="preconnect" href={`https://${APP_ID}-dsn.algolia.net`} crossOrigin="true" /> */}
       </Head>
       <SearchContext.Provider
         value={{

@@ -3,11 +3,11 @@
 exports[`Twitter meta card component renders a twitter creator card if a creator is provided 1`] = `
 [
   <meta
-    content="@tailwindcss"
+    content="@thebrandonowens"
     name="twitter:site"
   />,
   <meta
-    content="@tailwindcss"
+    content="@thebrandonowens"
     name="twitter:creator"
   />,
 ]
