@@ -1,4 +1,4 @@
-import TextToKebabCase from "../textToKebabCase";
+import TextToKebabCase from "../TextToKebabCase";
 
 describe('Text To kebab Case', () => {
     it('changes a string to kebab case',() => {
