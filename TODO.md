@@ -10,6 +10,8 @@
 
 - do a code scan for tw and delete
 
+- add email signup to home page.. Create CTA: "Sign up for your free blog today"
+
 - update primary blue to match new purple?
 
 ~~~~~~> Post launch
