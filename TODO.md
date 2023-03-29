@@ -6,8 +6,6 @@
 
 - create a splash landing page
 
-- update build-rss.js
-
 - update footer links.. remove any tw references
 
 - do a code scan for tw and delete

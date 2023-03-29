@@ -182,7 +182,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
         title={meta.title}
         description={meta.description}
         repo={meta.repo}
-        badge={{ key: 'Tailwind CSS version', value: meta.featureVersion }}
+        badge={{ key: 'Elegant Framework version', value: meta.featureVersion }}
         section={section}
       />
       <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
@@ -208,7 +208,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
 
       <DocsFooter previous={prev} next={next}>
         <Link
-          href={`https://github.com/tailwindlabs/tailwindcss.com/edit/master/src/pages${router.pathname}.mdx`}
+          href={`${process.env.NEXT_PUBLIC_APP_REPOSITORY}/edit/main/src/pages${router.pathname}.mdx`}
         >
           <a className="hover:text-slate-900 dark:hover:text-slate-400">Edit this page on GitHub</a>
         </Link>

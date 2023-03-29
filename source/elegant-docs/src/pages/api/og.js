@@ -202,7 +202,7 @@ export default async function handler(req, res) {
     let path = req.query.path.replace(/\/+$/, '')
     if (path === '') path = '/'
 
-    let url = `https://tailwindcss.com${path}`
+    let url = `${process.env.NEXT_PUBLIC_APP_URL}${path}`
     let { data, statusCode } = await get(url)
     let body = data.toString()
 
@@ -218,7 +218,7 @@ export default async function handler(req, res) {
     let $ = cheerio.load(body)
     let title = $('title')
       .text()
-      .replace(/ [-–] Tailwind CSS$/, '')
+      .replace(/ [-–] Elegant Framework$/, '')
 
     if (!title) {
       res.statusCode = 500
