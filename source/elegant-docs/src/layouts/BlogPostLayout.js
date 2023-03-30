@@ -115,7 +115,7 @@ export function BlogPostLayout({ children, meta }) {
               </section> */}
               <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
                 <div className='pt-8 pb-10 text-center text-slate-500 dark:border-slate-200/5'>
-                  Built with <a href='http://elegantframework.com/' 
+                  Built with <a href='https://elegantframework.com/' 
                       aria-label='Built with the Elegant Framework'
                       className='font-semibold hover:text-sky-500 dark:hover:text-sky-400'
                     >

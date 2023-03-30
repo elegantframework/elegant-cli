@@ -72,7 +72,7 @@ const Header = () => {
         <div className="relative pt-6 lg:pt-8 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
           <Logo className="w-auto h-7" />
           <div className="flex items-center">
-            <SearchButton className="text-slate-500 hover:text-slate-600 w-8 h-8 -my-1 flex items-center justify-center md:hidden dark:hover:text-slate-300">
+            {/* <SearchButton className="text-slate-500 hover:text-slate-600 w-8 h-8 -my-1 flex items-center justify-center md:hidden dark:hover:text-slate-300">
               <span className="sr-only">Search</span>
               <svg
                 width="24"
@@ -87,7 +87,7 @@ const Header = () => {
                 <path d="m19 19-3.5-3.5" />
                 <circle cx="11" cy="11" r="6" />
               </svg>
-            </SearchButton>
+            </SearchButton> */}
             <NavPopover className="-my-1 ml-2 -mr-1" display="md:hidden" />
             <div className="hidden md:flex items-center">
               <nav>

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export function Title({ suffix = 'Tailwind CSS', children }) {
+export function Title({ suffix = 'Elegant Framework', children }) {
   let title = children + (suffix ? ` - ${suffix}` : '')
 
   return (
@@ -13,7 +13,7 @@ export function Title({ suffix = 'Tailwind CSS', children }) {
   )
 }
 
-export function OgTitle({ suffix = 'Tailwind CSS', children }) {
+export function OgTitle({ suffix = 'Elegant Framework', children }) {
   let title = children + (suffix ? ` - ${suffix}` : '')
 
   return (

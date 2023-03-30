@@ -7,7 +7,7 @@ const { withSyntaxHighlighting } = require('./remark/withSyntaxHighlighting')
 const { withNextLinks } = require('./remark/withNextLinks')
 const { withLinkRoles } = require('./rehype/withLinkRoles')
 const minimatch = require('minimatch')
-const withExamples = require('./remark/withExamples')
+
 const {
   highlightCode,
   fixSelectorEscapeTokens,
@@ -174,7 +174,6 @@ module.exports = withBundleAnalyzer({
             : {
                 remarkPlugins: [
                   withPrevalInstructions,
-                  withExamples,
                   withTableOfContents,
                   withSyntaxHighlighting,
                   withNextLinks,

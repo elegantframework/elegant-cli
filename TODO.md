@@ -1,5 +1,6 @@
 ~~~~~~> To Launch 1.2
-    
+
+- find the rss feed console error that is generated locally. It says it's looking for the old blog posts still for some reason    
 
 - write 2 blogs posts.. One documenting the first docusauras launch.. announcing with a screenshot before migration to 1.2
     - 2nd blog post announces 1.2
@@ -27,6 +28,10 @@
 - Re add cypress and e2e testing back
 
 - Remove elegant-cli from inside package.json of the elegant source code
+
+- add back "npm run format" to the elegant source package...     "format": "prettier '{src,remark}/**/*.{css,js,mdx}' --write",
+
+- set up proper linting and auto fixing
 
 ~~~~~~~ General
 
