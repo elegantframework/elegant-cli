@@ -7,13 +7,11 @@
 
 - verify there aren't any references to TW in the app
 
-- update the elegant cli command, and docs
-
 ~~~~~~> Post launch
 
-- write a blog post announcing the new release of the version
-
 - write upgrade guide from 1 to 2
+
+- write a blog post announcing the new release of the version.. link to upgrade guide
 
 - add email signup to home page.. Create CTA: "Sign up for your free blog today"
 

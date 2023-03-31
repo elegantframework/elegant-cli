@@ -116,159 +116,160 @@ export function Hero() {
   }, [wide, finished])
 
   useEffect(() => {
-    const observer = new window.ResizeObserver(
-      debounce(() => {
-        if (containerRef.current) {
-          setContainerRect(containerRef.current.getBoundingClientRect())
-        }
-      }, 500)
-    )
-    observer.observe(containerRef.current)
-    return () => {
-      observer.disconnect()
-    }
+    // const observer = new window.ResizeObserver(
+    //   debounce(() => {
+    //     if (containerRef.current) {
+    //       setContainerRect(containerRef.current.getBoundingClientRect())
+    //     }
+    //   }, 500)
+    // )
+    // observer.observe(containerRef.current)
+    // return () => {
+    //   observer.disconnect()
+    // }
   }, [])
 
   return (
     <Layout
       left={
-        <div ref={containerRef} className="lg:-mr-18">
-          <AnimateSharedLayout>
-            <motion.div
-              layout={layout}
-              className="relative z-10 rounded-lg shadow-xl text-slate-900 mx-auto sm:w-[23.4375rem] dark:text-slate-300"
-              initial={false}
-              animate={
-                containerRect?.width
-                  ? {
-                      width: !supportsMd || wide ? containerRect.width : 375,
-                    }
-                  : {}
-              }
-              transition={TRANSITION}
-            >
-              <motion.div
-                layout={layout}
-                transition={TRANSITION}
-                className={clsx(
-                  'bg-white rounded-lg overflow-hidden ring-1 ring-slate-900/5 dark:bg-slate-800 dark:highlight-white/5 dark:ring-0',
-                  {
-                    flex: step >= 8 && md,
-                    'p-8': step >= 0,
-                    'text-center': (step >= 7 && !md) || (step < 14 && md),
-                  }
-                )}
-              >
-                <motion.div
-                  layout={layout}
-                  className={clsx(
-                    'absolute z-20 top-1/2 right-0 xl:right-auto xl:left-0 text-black rounded-full -mt-4 -mr-4 xl:mr-0 xl:-ml-4 pointer-events-none',
-                    { invisible: !supportsMd }
-                  )}
-                  initial={{ opacity: 0 }}
-                  animate={cursorControls}
-                  transition={{ default: TRANSITION, opacity: { duration: 0.25 } }}
-                >
-                  <svg className="h-8 w-8" viewBox="0 0 100 100">
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="40"
-                      stroke="rgba(255, 255, 255, 0.5)"
-                      strokeWidth="8"
-                      fill="rgba(0, 0, 0, 0.5)"
-                    />
-                  </svg>
-                </motion.div>
-                <motion.div
-                  layout={layout}
-                  initial={false}
-                  animate={{
-                    ...((step >= 1 && step < 11) || (step >= 11 && !md && !finished)
-                      ? { borderRadius: 96 / 2 }
-                      : { borderRadius: 0 }),
-                  }}
-                  transition={TRANSITION}
-                  className={clsx(
-                    'relative z-10 overflow-hidden flex-none',
-                    step >= 10 && md ? '-m-8 mr-8' : step >= 2 ? 'mx-auto' : undefined,
-                    step >= 12 && md ? 'w-48' : 'w-24',
-                    step >= 13 && md ? 'h-auto' : 'h-24'
-                  )}
-                >
-                  <motion.img
-                    ref={imageRef}
-                    layout={layout}
-                    transition={TRANSITION}
-                    src={require('@/img/sarah-dayan.jpg').default.src}
-                    decoding="async"
-                    alt=""
-                    className={clsx('absolute max-w-none object-cover bg-slate-100', {
-                      'rounded-full': finished && !md,
-                    })}
-                    style={
-                      finished
-                        ? { top: 0, left: 0, width: '100%', height: '100%' }
-                        : step >= 13 && md
-                        ? fit(192, containerRect.height, 384, 512)
-                        : step >= 12 && md
-                        ? fit(192, 96, 384, 512)
-                        : fit(96, 96, 384, 512)
-                    }
-                  />
-                </motion.div>
-                <motion.div
-                  layout={layout}
-                  className={step >= 10 && md ? '' : 'pt-6'}
-                  transition={TRANSITION}
-                >
-                  <motion.div layout={layout} className="mb-4" transition={TRANSITION}>
-                    <Words bolder={step >= 3} layout={layout} transition={TRANSITION}>
-                      “Elegant is the only framework that I've seen scale on large teams. It’s
-                      easy to customize, adapts to any design, and the build size is tiny.”
-                    </Words>
-                  </motion.div>
-                  <motion.div
-                    className={`flex flex-col ${
-                      (step >= 7 && !md) || (step < 14 && md) ? 'items-center' : 'items-start'
-                    }`}
-                    style={{
-                      ...(step >= 4 ? { fontWeight: 500 } : { fontWeight: 400 }),
-                    }}
-                    transition={TRANSITION}
-                  >
-                    <motion.p
-                      layout={layout}
-                      initial={false}
-                      transition={TRANSITION}
-                      className={clsx(
-                        'transition-colors duration-500',
-                        step >= 5
-                          ? 'text-sky-500 dark:text-sky-400'
-                          : 'text-black dark:text-slate-300'
-                      )}
-                    >
-                      Jane Doe
-                    </motion.p>
-                    <motion.p
-                      layout={layout}
-                      initial={false}
-                      transition={TRANSITION}
-                      className={clsx(
-                        'transition-colors duration-500',
-                        step >= 6
-                          ? 'text-slate-700 dark:text-slate-500'
-                          : 'text-black dark:text-slate-300'
-                      )}
-                    >
-                      Staff Engineer, Big Search Company
-                    </motion.p>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </AnimateSharedLayout>
-        </div>
+        // <div ref={containerRef} className="lg:-mr-18">
+        //   <AnimateSharedLayout>
+        //     <motion.div
+        //       layout={layout}
+        //       className="relative z-10 rounded-lg shadow-xl text-slate-900 mx-auto sm:w-[23.4375rem] dark:text-slate-300"
+        //       initial={false}
+        //       animate={
+        //         containerRect?.width
+        //           ? {
+        //               width: !supportsMd || wide ? containerRect.width : 375,
+        //             }
+        //           : {}
+        //       }
+        //       transition={TRANSITION}
+        //     >
+        //       <motion.div
+        //         layout={layout}
+        //         transition={TRANSITION}
+        //         className={clsx(
+        //           'bg-white rounded-lg overflow-hidden ring-1 ring-slate-900/5 dark:bg-slate-800 dark:highlight-white/5 dark:ring-0',
+        //           {
+        //             flex: step >= 8 && md,
+        //             'p-8': step >= 0,
+        //             'text-center': (step >= 7 && !md) || (step < 14 && md),
+        //           }
+        //         )}
+        //       >
+        //         <motion.div
+        //           layout={layout}
+        //           className={clsx(
+        //             'absolute z-20 top-1/2 right-0 xl:right-auto xl:left-0 text-black rounded-full -mt-4 -mr-4 xl:mr-0 xl:-ml-4 pointer-events-none',
+        //             { invisible: !supportsMd }
+        //           )}
+        //           initial={{ opacity: 0 }}
+        //           animate={cursorControls}
+        //           transition={{ default: TRANSITION, opacity: { duration: 0.25 } }}
+        //         >
+        //           <svg className="h-8 w-8" viewBox="0 0 100 100">
+        //             <circle
+        //               cx="50"
+        //               cy="50"
+        //               r="40"
+        //               stroke="rgba(255, 255, 255, 0.5)"
+        //               strokeWidth="8"
+        //               fill="rgba(0, 0, 0, 0.5)"
+        //             />
+        //           </svg>
+        //         </motion.div>
+        //         <motion.div
+        //           layout={layout}
+        //           initial={false}
+        //           animate={{
+        //             ...((step >= 1 && step < 11) || (step >= 11 && !md && !finished)
+        //               ? { borderRadius: 96 / 2 }
+        //               : { borderRadius: 0 }),
+        //           }}
+        //           transition={TRANSITION}
+        //           className={clsx(
+        //             'relative z-10 overflow-hidden flex-none',
+        //             step >= 10 && md ? '-m-8 mr-8' : step >= 2 ? 'mx-auto' : undefined,
+        //             step >= 12 && md ? 'w-48' : 'w-24',
+        //             step >= 13 && md ? 'h-auto' : 'h-24'
+        //           )}
+        //         >
+        //           <motion.img
+        //             ref={imageRef}
+        //             layout={layout}
+        //             transition={TRANSITION}
+        //             src={require('@/img/sarah-dayan.jpg').default.src}
+        //             decoding="async"
+        //             alt=""
+        //             className={clsx('absolute max-w-none object-cover bg-slate-100', {
+        //               'rounded-full': finished && !md,
+        //             })}
+        //             style={
+        //               finished
+        //                 ? { top: 0, left: 0, width: '100%', height: '100%' }
+        //                 : step >= 13 && md
+        //                 ? fit(192, containerRect.height, 384, 512)
+        //                 : step >= 12 && md
+        //                 ? fit(192, 96, 384, 512)
+        //                 : fit(96, 96, 384, 512)
+        //             }
+        //           />
+        //         </motion.div>
+        //         <motion.div
+        //           layout={layout}
+        //           className={step >= 10 && md ? '' : 'pt-6'}
+        //           transition={TRANSITION}
+        //         >
+        //           <motion.div layout={layout} className="mb-4" transition={TRANSITION}>
+        //             <Words bolder={step >= 3} layout={layout} transition={TRANSITION}>
+        //               “Elegant is the only framework that I've seen scale on large teams. It’s
+        //               easy to customize, adapts to any design, and the build size is tiny.”
+        //             </Words>
+        //           </motion.div>
+        //           <motion.div
+        //             className={`flex flex-col ${
+        //               (step >= 7 && !md) || (step < 14 && md) ? 'items-center' : 'items-start'
+        //             }`}
+        //             style={{
+        //               ...(step >= 4 ? { fontWeight: 500 } : { fontWeight: 400 }),
+        //             }}
+        //             transition={TRANSITION}
+        //           >
+        //             <motion.p
+        //               layout={layout}
+        //               initial={false}
+        //               transition={TRANSITION}
+        //               className={clsx(
+        //                 'transition-colors duration-500',
+        //                 step >= 5
+        //                   ? 'text-sky-500 dark:text-sky-400'
+        //                   : 'text-black dark:text-slate-300'
+        //               )}
+        //             >
+        //               Jane Doe
+        //             </motion.p>
+        //             <motion.p
+        //               layout={layout}
+        //               initial={false}
+        //               transition={TRANSITION}
+        //               className={clsx(
+        //                 'transition-colors duration-500',
+        //                 step >= 6
+        //                   ? 'text-slate-700 dark:text-slate-500'
+        //                   : 'text-black dark:text-slate-300'
+        //               )}
+        //             >
+        //               Staff Engineer, Big Search Company
+        //             </motion.p>
+        //           </motion.div>
+        //         </motion.div>
+        //       </motion.div>
+        //     </motion.div>
+        //   </AnimateSharedLayout>
+        // </div>
+        null
       }
       right={null}
     />
