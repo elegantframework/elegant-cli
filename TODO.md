@@ -1,17 +1,21 @@
 ~~~~~~> To Launch 1.2   
 
-- write 2 blogs posts.. One documenting the first docusauras launch.. announcing with a screenshot before migration to 1.2
-    - 2nd blog post announces 1.2
+- write the first blog post announcing Elegant -  One documenting the first docusauras launch.. announcing with a screenshot before migration to 1.2
+
 
 - create a splash landing page
 
 - verify there aren't any references to TW in the app
 
+- update the elegant cli command, and docs
+
+~~~~~~> Post launch
+
+- write a blog post announcing the new release of the version
+
 - add email signup to home page.. Create CTA: "Sign up for your free blog today"
 
 - update primary blue to match new purple?
-
-~~~~~~> Post launch
 
 - add back the brand policy generator page
 

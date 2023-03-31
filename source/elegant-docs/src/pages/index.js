@@ -128,7 +128,7 @@ const Header = () => {
             static web applications.
           </p>
           <div className='mt-6 sm:mt-10 flex justify-center space-x-6 text-sm'>
-            <div className='ml-2 hidden rounded-full bg-sky-500 px-1.5 py-0.5 text-xs text-white sm:block'>
+            {/* <div className='ml-2 hidden rounded-full bg-sky-500 px-1.5 py-0.5 text-xs text-white sm:block'>
               Hello World
             </div>
             <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
@@ -136,14 +136,14 @@ const Header = () => {
             </span>
             <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800">
               Badge
-            </span>
+            </span> */}
           </div>
           <div className="mt-6 sm:mt-10 flex justify-center space-x-6 text-sm">
-            <NextLink href="/docs/installation">
+            {/* <NextLink href="/docs/installation">
               <a className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400">
                 Get started
               </a>
-            </NextLink>
+            </NextLink> */}
             {/* <SearchButton className="hidden sm:flex items-center w-72 text-left space-x-3 px-4 h-12 bg-white ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm rounded-lg text-slate-400 dark:bg-slate-800 dark:ring-0 dark:text-slate-300 dark:highlight-white/5 dark:hover:bg-slate-700">
               {( actionKey ) => (
                 <>
