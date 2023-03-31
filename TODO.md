@@ -13,6 +13,8 @@
 
 - write a blog post announcing the new release of the version
 
+- write upgrade guide from 1 to 2
+
 - add email signup to home page.. Create CTA: "Sign up for your free blog today"
 
 - update primary blue to match new purple?
