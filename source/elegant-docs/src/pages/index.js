@@ -62,7 +62,7 @@ const Header = () => {
           )}
         >
           <div
-            className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom dark:border-b dark:border-slate-100/5"
+            className="absolute inset-0 bg-[bottom_1px_center] dark:bg-bottom dark:border-b dark:border-slate-100/5"
             style={{
               maskImage: 'linear-gradient(to bottom, transparent, black)',
               WebkitMaskImage: 'linear-gradient(to bottom, transparent, black)',

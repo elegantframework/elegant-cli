@@ -88,9 +88,9 @@ export function BlogPostLayout({ children, meta }) {
             </article>
           </main>
           <footer className="mt-16">
-            <div className="relative">
-              <img
-                src={require('@/img/beams/blog-post-form@80.jpg').default.src}
+          <div className="relative">
+              {/* <img
+                src={require('@/img/beams/blog-post-form-light.jpg').default.src}
                 alt=""
                 className="absolute top-px sm:left-auto sm:right-0 left-1/4 dark:hidden max-w-none"
                 width="476"
@@ -102,7 +102,7 @@ export function BlogPostLayout({ children, meta }) {
                 className="absolute top-px -left-1/4 sm:left-0 hidden dark:block max-w-none"
                 width="1429"
                 decoding="async"
-              />
+              /> */}
               {/* <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
                 <h2 className="text-xl font-semibold text-slate-900 tracking-tight dark:text-white">
                   Get all of our updates directly to your&nbsp;inbox.
@@ -113,6 +113,8 @@ export function BlogPostLayout({ children, meta }) {
                   <NewsletterForm action="https://app.convertkit.com/forms/3181881/subscriptions" />
                 </div>
               </section> */}
+            </div>
+            <div className="relative">
               <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
                 <div className='pt-8 pb-10 text-center text-slate-500 dark:border-slate-200/5'>
                   Built with <a href='https://elegantframework.com/' 

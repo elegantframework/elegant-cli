@@ -126,9 +126,9 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
       <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
         <div className="w-[108rem] flex-none flex justify-end">
           <picture>
-            <source srcSet={require('@/img/beams/docs@30.avif').default.src} type="image/avif" />
+            <source srcSet={require('@/img/beams/docs-light.avif').default.src} type="image/avif" />
             <img
-              src={require('@/img/beams/docs@tinypng.png').default.src}
+              src={require('@/img/beams/docs-light.png').default.src}
               alt=""
               className="w-[71.75rem] flex-none max-w-none dark:hidden"
               decoding="async"
