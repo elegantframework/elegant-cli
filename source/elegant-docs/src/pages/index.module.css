@@ -4,6 +4,6 @@
 }
 
 :global(.dark) .beams {
-  background-image: url('../img/beams/hero-dark@90.jpg');
+  background-image: url('../img/beams/hero-dark.jpg');
   background-size: 86.125rem;
 }

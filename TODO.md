@@ -1,15 +1,11 @@
-~~~~~~> To Launch 1.2
-
-- find the rss feed console error that is generated locally. It says it's looking for the old blog posts still for some reason    
+~~~~~~> To Launch 1.2   
 
 - write 2 blogs posts.. One documenting the first docusauras launch.. announcing with a screenshot before migration to 1.2
     - 2nd blog post announces 1.2
 
 - create a splash landing page
 
-- update footer links.. remove any tw references
-
-- do a code scan for tw and delete
+- verify there aren't any references to TW in the app
 
 - add email signup to home page.. Create CTA: "Sign up for your free blog today"
 
