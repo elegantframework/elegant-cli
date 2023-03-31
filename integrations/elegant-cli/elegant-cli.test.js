@@ -1,14 +1,14 @@
-const init = require('./../../source/init');
+const init = require('../../source/init');
 
 let {
     readOutputFile,
-  } = require('./../io')({
+  } = require('../io')({
     output: '../../../.test',
     input: 'src',
   });
 
 describe('The Elegant CLI Tool', () => {
-    it('generates a docs project', async () => {
+    it('generates an Elegant project', async () => {
         const result = await (`${init}`);
         expect(result !== null);
 

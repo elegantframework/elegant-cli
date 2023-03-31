@@ -44,28 +44,28 @@ if(process.env.JEST_WORKER_ID === undefined && process.env.NODE_ENV !== 'test')
 else
 {
   // delete any previous build artifacts
-  fs.rm(module_path + '.dist/.docusaurus/', { recursive: true }, () => {});
+  fs.rm(module_path + '.dist/.next/', { recursive: true }, () => {});
   fs.rm(module_path + '.dist/', { recursive: true }, () => {});
 
   outputPath = "./.dist/";
 }
 
 // copy the docs project into the users project
-fs.cp(module_path + 'source/elegant-docs/', outputPath, { recursive: true}, (err) => {
+fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => {
   if (err) {
     
   }
   else
   {
     // copy the sample env file into the users project as their env file
-    fs.cp(module_path + 'source/elegant-docs/.env.example', outputPath + '.env', (err) => {
+    fs.cp(module_path + 'source/elegant/.env.example', outputPath + '.env', (err) => {
       if (err) {
         console.error(err);
       }
     });
 
     // copy the git ignore file over
-    fs.cp(module_path + 'source/elegant-docs/.gitignore.example', outputPath + '.gitignore', (err) => {
+    fs.cp(module_path + 'source/elegant/.gitignore.example', outputPath + '.gitignore', (err) => {
       if (err) {
         console.error(err);
       }
@@ -77,9 +77,3 @@ fs.cp(module_path + 'source/elegant-docs/', outputPath, { recursive: true}, (err
      });
   }
 });
-
-console.log(
-  chalk.green.bgBlack(
-    figlet.textSync("Let's create some docs :)")
-  )
-);
