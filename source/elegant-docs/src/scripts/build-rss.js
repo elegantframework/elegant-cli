@@ -15,8 +15,8 @@ export default function buildRss() {
     id: blogUrl,
     link: blogUrl,
     language: 'en',
-    image: `${baseUrl}/favicons/favicon-32x32.png?v=3`,
-    favicon: `${baseUrl}/favicons/favicon.ico?v=3`,
+    image: `${baseUrl}/favicons/favicon-32x32.png?v=4`,
+    favicon: `${baseUrl}/favicons/favicon.ico?v=4`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Elegant, Inc.`,
     feedLinks: {
       rss: `${baseUrl}/feeds/feed.xml`,

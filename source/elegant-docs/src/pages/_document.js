@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import MetaTitle from '@/utils/MetaTitle';
 
-const FAVICON_VERSION = 3
+const FAVICON_VERSION = 4;
 
 function v(href) {
   return `${href}?v=${FAVICON_VERSION}`
