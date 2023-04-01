@@ -9,13 +9,13 @@
 
 ~~~~~~> Post launch
 
-- update frakework vercel setup to not use npm install --force after we upgrade mdx-js
-
 - write upgrade guide from 1 to 2
 
 - write a blog post announcing the new release of the version.. link to upgrade guide
 
 - add email signup to home page.. Create CTA: "Sign up for your free blog today"
+
+- clean up the tailwind config.. Make it use just default like a user would expect
 
 - update primary blue to match new purple?
 
