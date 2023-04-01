@@ -28,10 +28,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Install required deps for elegant framework subfolder
-      - name: Install Dependencies
-        run:  cd source/elegant && npm install
-
       # Finally, run our tests
       - name: Run the tests
         run: npm run test:ci

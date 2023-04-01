@@ -15,6 +15,8 @@
 
 - add email signup to home page.. Create CTA: "Sign up for your free blog today"
 
+- clean up the tailwind config.. Make it use just default like a user would expect
+
 - update primary blue to match new purple?
 
 - add back the brand policy generator page
