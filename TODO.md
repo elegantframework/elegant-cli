@@ -21,6 +21,8 @@
 
 - add back the brand policy generator page
 
+- set to require nodejs 16 for now
+
 - Reenable algolia search.. Write a doc on how to use algolia with elegant
 
 - Reenable blog email signup.. Write a doc on how to connect that service up
