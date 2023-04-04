@@ -1,23 +1,32 @@
-~~~~~~> To Launch 1.2   
+~~~~~~> Working 
 
-- write the first blog post announcing Elegant -  One documenting the first docusauras launch.. announcing with a screenshot before migration to 1.2
+- add email signup to home page.. Create CTA: "Sign up for your free blog today"
+    - write a doc on how to connect up convertkit
 
+- write a blog post announcing the new elegant
+    - how it's on next.js, tailwind
+    - uses MDX
+    - has full dark mode support
+    - has some initial jest testing with ci integration
+    - write what our plans our
 
-- create a splash landing page
+- cleanup any references to TW in the app
 
-- verify there aren't any references to TW in the app
+- upgrade colors to be dynamic with the theme
 
-~~~~~~> Post launch
+~~~~~~> To next release
 
-- write upgrade guide from 1 to 2
+- write upgrade guide 2.0 to 2.1
 
 - write a blog post announcing the new release of the version.. link to upgrade guide
 
-- add email signup to home page.. Create CTA: "Sign up for your free blog today"
+
+~~~~~~> Post launch
+
+
 
 - clean up the tailwind config.. Make it use just default like a user would expect
 
-- update primary blue to match new purple?
 
 - add back the brand policy generator page
 
@@ -36,6 +45,10 @@
 - add back "npm run format" to the elegant source package...     "format": "prettier '{src,remark}/**/*.{css,js,mdx}' --write",
 
 - set up proper linting and auto fixing
+
+ - update the main readme file with some better looking content.. A screenshot... Currently dull and boring
+
+- Add a main readme to the Elegant github page
 
 ~~~~~~~ General
 
@@ -95,19 +108,6 @@ Dang feedback - Landing page isn't clear to users what our product is
 
 
 
-
-~~~~~~~~~> Review and delete
-
-    - set up demo.elegant site?
-
-    - update the main readme file with some better looking content.. A screenshot... Currently dull and boring
-
-    - Add a main readme to the Elegant github page
-
-~~~~~~~~~~~~>
-
-- document how I created the logo?
-
 - document using the pwa icons generator
 
 - update the seo title of the docs site.. Look at env vars, name and description.. We could do Hello World - Elegant - The CMS framework 
@@ -115,13 +115,11 @@ Dang feedback - Landing page isn't clear to users what our product is
     - Write up a final doc of deploying to Vercel with screenshots
         - Move the images to a final dir in the project.. Consult the fillify docs for why the folder is named the way it is.. Has to do with the redirects
 
-- Set up and post on ih... Post on startup school.. Post on medium
-
 - Document how a user creates a new doc file
 
 - Create an e2e test that goes to the local host url and verifys the doc exists.. This help validate any future upgrades
 
-- List some inital features of v1 under the Why Elegant tab
+- List some inital features of under the Why Elegant tab
 
 
 - Add the doc footer back.. Add NPM, IH, and GitHub links for now as placeholders
@@ -137,8 +135,8 @@ Dang feedback - Landing page isn't clear to users what our product is
 
 -- DOCUMENT THE DOCS FEATURES!!! How to create pages and stuff. How to set and change config
 
-- Add sitemap config to docusarus
-- Add google analytics config to docusarus
+- Add sitemap 
+- Add google analytics 
 - Add doc versions
 - Add site translations
 - Add algolia config
@@ -158,11 +156,6 @@ Dang feedback - Landing page isn't clear to users what our product is
 
 - Add built in 508 compliance and testing  - Axe, Jest, Storybook.. Use Aria-labels
 
-- Update docusarus cli commands to be elegant commands
-- Use docusaurus dev build and other cli commands
-- Document those cli commands
-
-- Blog on medium
 
 
 
