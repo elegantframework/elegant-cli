@@ -1,7 +1,7 @@
 {
   "name": "elegant-cli",
-  "version": "2.0.2",
-  "description": "A utility-first CMS framework for rapidly building expressive and elegant static content web applications.",
+  "version": "2.1.0",
+  "description": "Elegant is a content creation framework for rapidly building beautiful and expressive web applications.",
   "scripts": {
     "build:elegant": "cd source/elegant && npm run build",
     "dev": "cd source/elegant && npm run dev",
@@ -19,7 +19,9 @@
     "docusaurus",
     "storybook",
     "tailwindcss",
-    "jest"
+    "jest",
+    "elegant",
+    "elegant framework"
   ],
   "author": "Brandon Owens",
   "license": "MIT",
