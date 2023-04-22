@@ -1,4 +1,5 @@
 import { SearchButton } from '@/components/Search';
+import { NewsletterForm } from '@/components/NewsletterForm/NewsletterForm';
 import { Hero } from '@/components/home/Hero';
 import Logo from '@/components/Logo/Logo';
 import { Footer } from '@/components/home/Footer';
@@ -122,60 +123,59 @@ const Header = () => {
           </h1>
           <p className="mt-6 text-lg text-slate-600 text-center max-w-3xl mx-auto dark:text-slate-400">
             A utility-first CMS framework for rapidly building{' '}
-            <code className="font-mono font-medium text-sky-500 dark:text-sky-400">expressive</code>{' '}
+            <code className="font-mono font-medium text-primary-500 dark:text-primary-400">expressive</code>{' '}
             and{' '}
-            <code className="font-mono font-medium text-sky-500 dark:text-sky-400">elegant</code>{' '}
-            static web applications.
+            <code className="font-mono font-medium text-primary-500 dark:text-primary-400">elegant</code>{' '}
+            web applications.
           </p>
-          <div className='mt-6 sm:mt-10 flex justify-center space-x-6 text-sm'>
-            {/* <div className='ml-2 hidden rounded-full bg-sky-500 px-1.5 py-0.5 text-xs text-white sm:block'>
-              Hello World
-            </div>
-            <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-              Badge
-            </span>
-            <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-medium text-green-800">
-              Badge
-            </span> */}
-          </div>
-          <div className="mt-6 sm:mt-10 flex justify-center space-x-6 text-sm">
+          <div className="mt-6 sm:mt-10 md:flex justify-center md:space-x-6 text-sm max-w-3xl mx-auto">
+            <form 
+              action={"https://app.convertkit.com/forms/5032790/subscriptions"} 
+              method="post"
+              target="_blank"
+              className="md:flex flex-wrap md:-mx-2 w-full md:max-w-xl"
+            >
+              <div className="md:px-2 grow-[9999] basis-64">
+                <div className="group relative">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="w-6 h-full absolute inset-y-0 left-3 text-slate-400 pointer-events-none group-focus-within:text-primary-500 dark:group-focus-within:text-slate-400"
+                    >
+                      <path d="M5 7.92C5 6.86 5.865 6 6.931 6h10.138C18.135 6 19 6.86 19 7.92v8.16c0 1.06-.865 1.92-1.931 1.92H6.931A1.926 1.926 0 0 1 5 16.08V7.92Z" />
+                      <path d="m6 7 6 5 6-5" />
+                    </svg>
+                    <input
+                      name="email_address"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      aria-label="Email address"
+                      className="appearance-none shadow rounded-md mb-5 md:mb-0 ring-1 ring-slate-900/5 leading-5 sm:text-sm border border-transparent py-2 h-12 w-full placeholder:text-slate-400 pl-12 pr-3 block w-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white dark:bg-primary-700/20 dark:ring-primary-200/20 dark:focus:ring-primary-500 dark:text-white"
+                      placeholder="Email address"
+                    />
+                </div>
+              </div>
+              <div className="md:px-2 grow flex">
+                <button
+                  type="submit"
+                  className="bg-primary-500 flex-auto shadow text-white rounded-md mb-5 md:mb-0 text-sm border-y border-transparent py-2 font-semibold px-12 h-12 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700"
+                >
+                    Sign Up
+                </button>
+              </div>
+            </form>
+            <div className='border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-600 md:mx-3 mb-5 md:mb-0'></div>
             <NextLink href="/docs/installation">
-              <a className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400">
-                Get started
+              <a className="bg-secondary-500 hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto min-w-[128px] dark:bg-secondary-500 dark:highlight-white/20 dark:hover:bg-secondary-400">
+                Get Started
               </a>
             </NextLink>
-            {/* <SearchButton className="hidden sm:flex items-center w-72 text-left space-x-3 px-4 h-12 bg-white ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm rounded-lg text-slate-400 dark:bg-slate-800 dark:ring-0 dark:text-slate-300 dark:highlight-white/5 dark:hover:bg-slate-700">
-              {( actionKey ) => (
-                <>
-                  <svg
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="flex-none text-slate-300 dark:text-slate-400"
-                    aria-hidden="true"
-                  >
-                    <path d="m19 19-3.5-3.5" />
-                    <circle cx="11" cy="11" r="6" />
-                  </svg>
-                  <span className="flex-auto">Quick search...</span>
-                  {actionKey && (
-                    <kbd className="font-sans font-semibold dark:text-slate-500">
-                      <abbr
-                        title={actionKey[1]}
-                        className="no-underline text-slate-300 dark:text-slate-500"
-                      >
-                        {actionKey[0]}
-                      </abbr>{' '}
-                      K
-                    </kbd>
-                  )}
-                </>
-              )}
-            </SearchButton> */}
           </div>
         </div>
       </div>

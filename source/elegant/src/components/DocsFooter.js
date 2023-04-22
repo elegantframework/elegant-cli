@@ -53,8 +53,8 @@ export function DocsFooter({ children, previous, next }) {
           <p>Copyright &copy; {new Date().getFullYear()} Elegant, Inc.</p>
           <p className="sm:ml-4 sm:pl-4 sm:border-l sm:border-slate-200 dark:sm:border-slate-200/5">
             Built with <a href='http://elegantframework.com/' 
-                      aria-label='Built with the Elegant Framework'
-                      className='font-semibold hover:text-sky-500 dark:hover:text-sky-400'
+                      aria-label='Built with the Elegant framework'
+                      className='font-semibold hover:text-primary-500 dark:hover:text-primary-400'
                     >
                       Elegant
                     </a>.

@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
-import { useState } from 'react'
+import { Frame } from '@/components/Editor'
 
 /**
  * @typedef {React.ReactElement<{ filename?: string }>} CodeBlock
@@ -84,51 +85,64 @@ function TabItem({ children, selectedIndex, myIndex, marker }) {
   )
 }
 
+let snippetGroupWrappers = {
+  plain({ children }) {
+    return <div className="not-prose bg-slate-800 rounded-xl shadow-md">{children}</div>
+  },
+  framed({ children, ...props }) {
+    return (
+      <Frame {...props}>
+        <div className="not-prose bg-slate-800 rounded-tl-xl shadow-md">{children}</div>
+      </Frame>
+    )
+  },
+}
+
 /**
  * Group multiple code blocks into a tabbed UI
  *
  * @param {object} props
  * @param {CodeBlock[]} props.children
  */
-export function SnippetGroup({ children, actions }) {
+export function SnippetGroup({ children, style = 'plain', actions, ...props }) {
   let [selectedIndex, setSelectedIndex] = useState(0)
 
+  let Wrapper = snippetGroupWrappers[style]
+
   return (
-    <Tab.Group
-      as="div"
-      onChange={setSelectedIndex}
-      className="not-prose bg-slate-800 rounded-xl shadow-md"
-    >
-      <div className="flex">
-        <Tab.List className="flex text-slate-400 text-xs leading-6 overflow-hidden rounded-tl-xl pt-2">
-          {children.map((child, tabIndex) => (
-            <TabItem key={child.props.filename} myIndex={tabIndex} selectedIndex={selectedIndex}>
-              {child.props.filename}
-            </TabItem>
-          ))}
-        </Tab.List>
-        <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
-          <div
-            className={clsx(
-              'flex-auto flex justify-end bg-slate-700/50 border-y border-slate-500/30 pr-4',
-              selectedIndex === children.length - 1 ? 'rounded-tl border-l' : ''
-            )}
-          />
+    <Wrapper {...props}>
+      <Tab.Group as="div" onChange={setSelectedIndex}>
+        <div className="flex">
+          <Tab.List className="flex text-slate-400 text-xs leading-6 overflow-hidden rounded-tl-xl pt-2">
+            {children.map((child, tabIndex) => (
+              <TabItem key={child.props.filename} myIndex={tabIndex} selectedIndex={selectedIndex}>
+                {child.props.filename}
+              </TabItem>
+            ))}
+          </Tab.List>
+          <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
+            <div
+              className={clsx(
+                'flex-auto flex justify-end bg-slate-700/50 border-y border-slate-500/30 pr-4',
+                selectedIndex === children.length - 1 ? 'rounded-tl border-l' : ''
+              )}
+            />
+          </div>
+          {actions ? (
+            <div className="absolute top-2 right-4 h-8 flex">{actions({ selectedIndex })}</div>
+          ) : null}
         </div>
-        {actions ? (
-          <div className="absolute top-2 right-4 h-8 flex">{actions({ selectedIndex })}</div>
-        ) : null}
-      </div>
-      <Tab.Panels className="flex overflow-auto">
-        {children.map((child) => (
-          <Tab.Panel
-            key={child.props.filename}
-            className="flex-none min-w-full p-5 text-sm leading-6 text-slate-50 ligatures-none"
-          >
-            {child.props.children}
-          </Tab.Panel>
-        ))}
-      </Tab.Panels>
-    </Tab.Group>
+        <Tab.Panels className="flex overflow-auto">
+          {children.map((child) => (
+            <Tab.Panel
+              key={child.props.filename}
+              className="flex-none min-w-full p-5 text-sm leading-6 text-slate-50 ligatures-none"
+            >
+              {child.props.children}
+            </Tab.Panel>
+          ))}
+        </Tab.Panels>
+      </Tab.Group>
+    </Wrapper>
   )
 }

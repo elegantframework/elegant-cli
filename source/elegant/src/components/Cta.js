@@ -21,7 +21,7 @@ export function Cta({ description, href, label }) {
         </span>
       </span>
       <span className="flex-none flex justify-center w-full sm:w-auto sm:ml-6 md:ml-8 lg:w-full lg:ml-0 xl:w-auto xl:ml-8">
-        <Button href={href} darkColor="sky">
+        <Button href={href} darkColor="primary">
           {label}
         </Button>
       </span>

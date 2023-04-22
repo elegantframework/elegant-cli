@@ -18,7 +18,7 @@ const VersionSwitcher = () => {
             </Menu.Button>
             <Menu.Items className="absolute top-full mt-1 py-2 w-40 rounded-lg bg-white shadow ring-1 ring-slate-900/5 text-sm leading-6 font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:highlight-white/5">
                 <Menu.Item disabled>
-                    <span className="flex items-center justify-between px-3 py-1 text-sky-500 dark:text-sky-400">
+                    <span className="flex items-center justify-between px-3 py-1 text-primary-500 dark:text-primary-400">
                     v{'3.2.7'}
                     <svg width="24" height="24" fill="none" aria-hidden="true">
                         <path

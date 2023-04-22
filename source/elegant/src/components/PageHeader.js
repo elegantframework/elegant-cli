@@ -5,7 +5,7 @@ export function PageHeader({ title, description, repo, badge = {}, section }) {
     <header id="header" className="relative z-20">
       <div>
         {section && (
-          <p className="mb-2 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400">
+          <p className="mb-2 text-sm leading-6 font-semibold text-primary-500 dark:text-primary-400">
             {section}
           </p>
         )}

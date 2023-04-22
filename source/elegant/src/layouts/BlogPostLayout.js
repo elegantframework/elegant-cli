@@ -1,5 +1,5 @@
 import { Widont } from '@/components/home/common'
-import { NewsletterForm } from '@/components/NewsletterForm'
+import { NewsletterForm } from '@/components/NewsletterForm/NewsletterForm'
 import { formatDate } from '@/utils/formatDate'
 import { mdxComponents } from '@/utils/mdxComponents'
 import { MDXProvider } from '@mdx-js/react'
@@ -72,7 +72,7 @@ export function BlogPostLayout({ children, meta }) {
                         <div className="mt-1">
                           <a
                             href={`https://twitter.com/${author.twitter}`}
-                            className="text-sky-500 hover:text-sky-600 dark:text-sky-400"
+                            className="text-primary-500 hover:text-primary-600 dark:text-primary-400"
                           >
                             @{author.twitter}
                           </a>
@@ -103,23 +103,14 @@ export function BlogPostLayout({ children, meta }) {
                 width="1429"
                 decoding="async"
               /> */}
-              {/* <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
-                <h2 className="text-xl font-semibold text-slate-900 tracking-tight dark:text-white">
-                  Get all of our updates directly to your&nbsp;inbox.
-                  <br />
-                  Sign up for our newsletter.
-                </h2>
-                <div className="mt-5 max-w-md">
-                  <NewsletterForm action="https://app.convertkit.com/forms/3181881/subscriptions" />
-                </div>
-              </section> */}
+              <NewsletterBlock action={process.env.NEXT_PUBLIC_CONVERTKIT_ACTION_URL}/>
             </div>
             <div className="relative">
               <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
                 <div className='pt-8 pb-10 text-center text-slate-500 dark:border-slate-200/5'>
                   Built with <a href='https://elegantframework.com/' 
-                      aria-label='Built with the Elegant Framework'
-                      className='font-semibold hover:text-sky-500 dark:hover:text-sky-400'
+                      aria-label='Built with the Elegant framework'
+                      className='font-semibold hover:text-primary-500 dark:hover:text-primary-400'
                     >
                       Elegant
                     </a>.
@@ -132,3 +123,29 @@ export function BlogPostLayout({ children, meta }) {
     </div>
   )
 }
+
+/**
+ * A newsletter signup form.
+ * @param {string} action an action url to handle the for submission.
+ * @returns An html section containing a newsletter signup form.
+ */
+const NewsletterBlock = ({action}) => {
+  // if a url to handle the newsletter click has been provided
+  // allow the newsletter sign up section to be displayed.
+  if(action !== undefined && action.length > 0)
+  {
+    return(
+      <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
+        <h2 className="text-xl font-semibold text-slate-900 tracking-tight dark:text-white">
+          Get all of our updates directly to your inbox.
+          <br />
+          Sign up for our newsletter.
+        </h2>
+        <div className="mt-5 max-w-md">
+          <NewsletterForm action={action} />
+        </div>
+      </section>
+    );
+  }
+  return null;
+};

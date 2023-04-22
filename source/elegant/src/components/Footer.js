@@ -16,7 +16,7 @@ function FooterContent() {
     <div className="text-center">
       <Logo className="h-4 w-auto mx-auto" />
       <p className="mt-4 text-sm leading-6 text-slate-500">
-        &copy; {new Date().getFullYear()} Elegant Framework Inc. All rights reserved.
+        &copy; {new Date().getFullYear()} Elegant Inc, All rights reserved.
       </p>
     </div>
   )

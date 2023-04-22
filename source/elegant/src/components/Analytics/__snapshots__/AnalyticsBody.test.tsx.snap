@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Analytics Body component renders an analytics body when an env var is passed in 1`] = `null`;
+
+exports[`Analytics Body component renders nothing when no env var is passed in  1`] = `null`;
