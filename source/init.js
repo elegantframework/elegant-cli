@@ -77,10 +77,11 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
      });
 
     console.log(
+      '\n',
       chalk.green("Your project has been successfully created in " + outputPath),
       '\n',
       '\n',
-      chalk.white("The next steps are to run `npm install`, and then `npm run dev`"),
+      chalk.white("The next steps are to run `npm install`, and then `npm run dev`."),
       '\n',
       '\n',
       chalk.white("For more information, check out our install guide: "),chalk.underline.white("https://www.elegantframework.com/docs/installation#your-first-elegant-application"),
