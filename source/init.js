@@ -76,14 +76,10 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       // do nothing
      });
 
-    // copy over .npmrc
-    fs.cp(module_path + 'source/elegant/.npmrc', outputPath + '.npmrc', (err) => {
-      if (err) {
-        console.error(err);
-      }
-    });
-
-    console.log("Your project has been successfully created!");
-    console.log("Thank you for your supporting Elegant :)");
+    console.log(
+      chalk.green("Your project has been successfully created in the following directory: " + outputPath),
+      '\n',
+      chalk.bgBlue.white("Thank you for your supporting Elegant :)")
+    );
   }
 });
