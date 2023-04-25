@@ -82,5 +82,8 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
         console.error(err);
       }
     });
+
+    console.log("Your project has been successfully created!");
+    console.log("Thank you for your supporting Elegant :)");
   }
 });
