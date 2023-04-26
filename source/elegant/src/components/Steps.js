@@ -29,9 +29,10 @@ export function Steps({ intro, steps, code, level = 2 }) {
           <li
             key={step.title}
             className={clsx(
-              'relative pl-10 xl:grid grid-cols-5 gap-16 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5 dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none dark:before:highlight-white/5',
+              'relative pl-10 gap-16 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5 dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none dark:before:highlight-white/5 list-none',
               index !== steps.length - 1 &&
-                'pb-8 after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 dark:after:bg-slate-200/5'
+                'pb-8 after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 dark:after:bg-slate-200/5',
+              step.code && 'xl:grid grid-cols-5' 
             )}
             style={{ counterIncrement: 'step' }}
           >
@@ -44,6 +45,11 @@ export function Steps({ intro, steps, code, level = 2 }) {
               </div>
             </div>
             {step.code && <Snippet code={step.code} highlightedCode={code[index]} />}
+            {step.image && 
+              <div className="my-8 shadow-xl">
+                <img className="rounded-xl" src={step.image.src} alt={step.image.title}/>
+              </div>
+            }
           </li>
         ))}
       </ol>
@@ -71,7 +77,7 @@ function CopyButton({ code }) {
         type="button"
         className={clsx({
           'text-slate-500 hover:text-slate-400': state === 'idle',
-          'text-sky-400': state === 'copied',
+          'text-primary-400': state === 'copied',
         })}
         onClick={() => {
           navigator.clipboard.writeText(redent(code.replace(/^[+>-]/gm, ' '))).then(() => {
@@ -102,14 +108,14 @@ function CopyButton({ code }) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Alert className="relative bg-sky-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
+        <Alert className="relative bg-primary-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
           Copied
           <svg
             aria-hidden="true"
             width="16"
             height="6"
             viewBox="0 0 16 6"
-            className="text-sky-500 absolute top-full left-1/2 -mt-px -ml-2"
+            className="text-primary-500 absolute top-full left-1/2 -mt-px -ml-2"
           >
             <path
               fillRule="evenodd"
@@ -182,7 +188,7 @@ function Snippet({ code, highlightedCode }) {
 function TabBar({ name, children }) {
   return (
     <div className="relative flex text-slate-400 text-xs leading-6">
-      <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
+      <div className="mt-2 flex-none text-primary-300 border-t border-b border-t-transparent border-b-primary-300 px-4 py-1 flex items-center">
         {name}
       </div>
       <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">

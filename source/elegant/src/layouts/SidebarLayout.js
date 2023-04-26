@@ -14,7 +14,7 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
       <Link href={isPublished ? href : fallbackHref}>
         <a
           className={clsx('block border-l pl-4 -ml-px', {
-            'text-sky-500 border-current font-semibold dark:text-sky-400': isActive,
+            'text-primary-500 border-current font-semibold dark:text-primary-400': isActive,
             'border-transparent hover:border-slate-400 dark:hover:border-slate-500': !isActive,
             'text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300':
               !isActive && isPublished,
@@ -201,7 +201,7 @@ const TopLevelAnchor = forwardRef(
             'group flex items-center lg:text-sm lg:leading-6',
             className,
             isActive
-              ? 'font-semibold text-sky-500 dark:text-sky-400'
+              ? 'font-semibold text-primary-500 dark:text-primary-400'
               : 'font-medium text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300'
           )}
         >

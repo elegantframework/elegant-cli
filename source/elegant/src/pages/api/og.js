@@ -218,7 +218,7 @@ export default async function handler(req, res) {
     let $ = cheerio.load(body)
     let title = $('title')
       .text()
-      .replace(/ [-–] Elegant Framework$/, '')
+      .replace(/ [-–] Elegant framework$/, '')
 
     if (!title) {
       res.statusCode = 500

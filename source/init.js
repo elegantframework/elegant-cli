@@ -76,11 +76,20 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       // do nothing
      });
 
-    // copy over .npmrc
-    fs.cp(module_path + 'source/elegant/.npmrc', outputPath + '.npmrc', (err) => {
-      if (err) {
-        console.error(err);
-      }
-    });
+    console.log(
+      '\n',
+      chalk.green("Your project has been successfully created in " + outputPath),
+      '\n',
+      '\n',
+      chalk.white("The next steps are to run `npm install`, and then `npm run dev`."),
+      '\n',
+      '\n',
+      chalk.white("For more information, check out our install guide: "),chalk.underline.white("https://www.elegantframework.com/docs/installation#your-first-elegant-application"),
+      '\n',
+      '\n',
+      chalk.bgBlue.bold.white("Thank you for supporting Elegant :)"),
+      '\n',
+      '\n'
+    );
   }
 });

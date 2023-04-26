@@ -1,4 +1,4 @@
-import { NewsletterForm } from '@/components/NewsletterForm'
+import { NewsletterForm } from '@/components/NewsletterForm/NewsletterForm'
 import { Widont } from '@/components/Widont'
 import { getAllPostPreviews } from '@/utils/getAllPosts'
 import Link from 'next/link'
@@ -16,12 +16,9 @@ export default function Blog() {
           Latest Updates
         </h1>
         <p className="text-lg text-slate-700 dark:text-slate-400">
-          <Widont>All the latest Elegant Framework news, straight from the team.</Widont>
+          <Widont>All the latest Elegant news, straight from the team.</Widont>
         </p>
-        {/* <section className="mt-3 max-w-sm sm:mx-auto sm:px-4">
-          <h2 className="sr-only">Sign up for our newsletter</h2>
-          <NewsletterForm action="https://app.convertkit.com/forms/3181837/subscriptions" />
-        </section> */}
+        <NewsletterSignupBlock action={process.env.NEXT_PUBLIC_CONVERTKIT_ACTION_URL}/>
       </header>
       <div className="relative sm:pb-12 sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
         <div className="hidden absolute top-3 bottom-0 right-full mr-7 md:mr-[3.25rem] w-px bg-slate-200 dark:bg-slate-800 sm:block" />
@@ -57,13 +54,13 @@ export default function Blog() {
                 </dl>
               </div>
               <Link href={`/blog/${slug}`}>
-                <a className="flex items-center text-sm text-sky-500 font-medium">
+                <a className="flex items-center text-sm text-primary-500 font-medium">
                   <span className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl" />
                   <span className="relative">
                     Read more<span className="sr-only">, {meta.title}</span>
                   </span>
                   <svg
-                    className="relative mt-px overflow-visible ml-2.5 text-sky-300 dark:text-sky-700"
+                    className="relative mt-px overflow-visible ml-2.5 text-primary-300 dark:text-primary-700"
                     width="3"
                     height="6"
                     viewBox="0 0 3 6"
@@ -99,3 +96,22 @@ export async function getStaticProps() {
 
   return { props: {} }
 }
+
+/**
+ * A newsletter signup form.
+ * @param {string} action an action url to handle the for submission.
+ * @returns An html section containing a newsletter signup form.
+ */
+const NewsletterSignupBlock = ({action}) => {
+  // if a url to handle the newsletter click has been provided
+  // allow the newsletter sign up section to be displayed.
+  if(action !== undefined && action.length > 0){
+    return(
+      <section className="mt-3 max-w-sm sm:mx-auto sm:px-4">
+        <h2 className="sr-only">Sign up for our newsletter</h2>
+        <NewsletterForm action={action}/>
+      </section>
+    );
+  }
+  return null;
+};

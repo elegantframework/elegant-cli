@@ -1,16 +1,19 @@
-import '../css/fonts.css'
-import '../css/main.css'
-import 'focus-visible'
-import { useState, useEffect, Fragment } from 'react'
-import { Header } from '@/components/Header'
-import { Description, OgDescription, OgTitle, Title } from '@/components/Meta'
-import Router from 'next/router'
-import ProgressBar from '@badrap/bar-of-progress'
-import Head from 'next/head'
-import { ResizeObserver } from '@juggle/resize-observer'
-import 'intersection-observer'
-import { SearchProvider } from '@/components/Search'
+import '../css/fonts.css';
+import '../css/main.css';
+import 'focus-visible';
+import { useState, useEffect, Fragment } from 'react';
+import { Header } from '@/components/Header';
+import { Description, OgDescription, OgTitle, Title } from '@/components/Meta';
+import Router from 'next/router';
+import ProgressBar from '@badrap/bar-of-progress';
+import Head from 'next/head';
+import { ResizeObserver } from '@juggle/resize-observer';
+import 'intersection-observer';
+import { SearchProvider } from '@/components/Search';
 import TwitterMeta from '@/components/Meta/TwitterMeta';
+import AnalyticsHead from '@/components/Analytics/AnalyticsHead';
+import AnalyticsBody from '@/components/Analytics/AnalyticsBody';
+import * as gtag from '@/utils/analytics/gtag';
 
 if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
   window.ResizeObserver = ResizeObserver
@@ -18,7 +21,7 @@ if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
 
 const progress = new ProgressBar({
   size: 2,
-  color: '#38bdf8',
+  color: '#7c3aed',
   className: 'bar-of-progress',
   delay: 100,
 })
@@ -46,7 +49,23 @@ export default function App({ Component, pageProps, router }) {
     return () => {
       Router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [navIsOpen])
+  }, [navIsOpen]);
+
+  /**
+   * Fire a page view analytics event when a user navigates to a new page
+   */
+  useEffect(() => {
+    if(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID !== undefined && process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID !== ''){
+      const handleRouteChange = (url) => {
+        gtag.pageview(url);
+      }
+      router.events.on('routeChangeComplete', handleRouteChange);
+
+      return () => {
+        router.events.off('routeChangeComplete', handleRouteChange);
+      }
+    }
+  }, [router.events]);
 
   const Layout = Component.layoutProps?.Layout || Fragment
   const layoutProps = Component.layoutProps?.Layout
@@ -54,7 +73,7 @@ export default function App({ Component, pageProps, router }) {
     : {}
   const showHeader = router.pathname !== '/'
   const meta = Component.layoutProps?.meta || {}
-  const description = meta.metaDescription || meta.description || 'Documentation for the Elegant Framework.';
+  const description = meta.metaDescription || meta.description || 'Documentation for the Elegant framework.';
   let image = meta.ogImage ?? meta.image;
   image = image
     ? `${process.env.NEXT_PUBLIC_APP_URL}${image.default?.src ?? image.src ?? image}`
@@ -90,6 +109,7 @@ export default function App({ Component, pageProps, router }) {
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feeds/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON Feed" href="/feeds/feed.json" />
+        <AnalyticsHead googleAnalyticsID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/>
       </Head>
       <SearchProvider>
         {showHeader && (
@@ -102,6 +122,7 @@ export default function App({ Component, pageProps, router }) {
           />
         )}
         <Layout {...layoutProps}>
+          <AnalyticsBody googleAnalyticsID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/>
           <Component section={section} {...pageProps} />
         </Layout>
       </SearchProvider>

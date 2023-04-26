@@ -1,10 +1,11 @@
-import Link from 'next/link'
-import VersionSwitcher from '@/components/Header/VersionSwitcher'
-import { SearchButton } from '@/components/Search'
-import Router from 'next/router'
-import Logo from '@/components/Logo/Logo'
-import { Dialog } from '@headlessui/react'
-import { useEffect, useState } from 'react'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import VersionSwitcher from '@/components/Header/VersionSwitcher';
+import { SearchButton } from '@/components/Search';
+import Router from 'next/router';
+import Logo from '@/components/Logo/Logo';
+import { Dialog } from '@headlessui/react';
+import { useEffect, useState } from 'react';
 import clsx from 'clsx'
 import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 
@@ -69,7 +70,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
             <li>
               <a
                 href={process.env.NEXT_PUBLIC_APP_REPOSITORY}
-                className="hover:text-sky-500 dark:hover:text-sky-400"
+                className="hover:text-primary-500 dark:hover:text-primary-400"
                 target="_blank"
               >
                 GitHub
@@ -86,16 +87,33 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
 }
 
 export function NavItems() {
+  const router = useRouter();
   return (
     <>
       <li>
         <Link href="/docs/installation">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">Docs</a>
+          <a className={
+              clsx(
+                'hover:text-primary-500 dark:hover:text-primary-400', 
+                (router.pathname.indexOf('/docs/') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
+              )
+            }
+          >
+            Docs
+          </a>
         </Link>
       </li>
       <li>
         <Link href="/blog">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">Blog</a>
+          <a className={
+              clsx(
+                'hover:text-primary-500 dark:hover:text-primary-400', 
+                (router.pathname.indexOf('/blog') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
+              )
+            }
+          >
+            Blog
+          </a>
         </Link>
       </li>
     </>

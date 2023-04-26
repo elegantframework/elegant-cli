@@ -51,7 +51,7 @@ function TableOfContents({ tableOfContents, currentSection }) {
                     'block py-1',
                     pageHasSubsections ? 'font-medium' : '',
                     isActive(section)
-                      ? 'font-medium text-sky-500 dark:text-sky-400'
+                      ? 'font-medium text-primary-500 dark:text-primary-400'
                       : 'hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300'
                   )}
                 >
@@ -66,7 +66,7 @@ function TableOfContents({ tableOfContents, currentSection }) {
                     className={clsx(
                       'group flex items-start py-1',
                       isActive(subsection)
-                        ? 'text-sky-500 dark:text-sky-400'
+                        ? 'text-primary-500 dark:text-primary-400'
                         : 'hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300'
                     )}
                   >
@@ -182,7 +182,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
         title={meta.title}
         description={meta.description}
         repo={meta.repo}
-        badge={{ key: 'Elegant Framework version', value: meta.featureVersion }}
+        badge={{ key: 'Elegant framework version', value: meta.featureVersion }}
         section={section}
       />
       <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
