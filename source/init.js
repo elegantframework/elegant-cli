@@ -76,6 +76,19 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       // do nothing
      });
 
+     // copy the .npmrc file over
+    fs.cp(module_path + 'source/elegant/.npmrc.example', outputPath + '.npmrc', (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+
+    // delete the example .npmrc file
+    fs.unlink(outputPath + '.npmrc.example', function(err,results){
+      // do nothing
+     });
+
+
     console.log(
       '\n',
       chalk.green("Your project has been successfully created in " + outputPath),
