@@ -14,6 +14,7 @@ import TwitterMeta from '@/components/Meta/TwitterMeta';
 import AnalyticsHead from '@/components/Analytics/AnalyticsHead';
 import AnalyticsBody from '@/components/Analytics/AnalyticsBody';
 import * as gtag from '@/utils/analytics/gtag';
+import socialCardLarge from '@/img/social-card-large.jpg';
 
 if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
   window.ResizeObserver = ResizeObserver
@@ -67,17 +68,23 @@ export default function App({ Component, pageProps, router }) {
     }
   }, [router.events]);
 
+  // The type of layout a page should use.. Ex. BasicLayout, BlogPostLayout, etc..
   const Layout = Component.layoutProps?.Layout || Fragment
   const layoutProps = Component.layoutProps?.Layout
     ? { layoutProps: Component.layoutProps, navIsOpen, setNavIsOpen }
     : {}
-  const showHeader = router.pathname !== '/'
-  const meta = Component.layoutProps?.meta || {}
+
+  // Show the sticky header
+  let stickyHeader =  (Component.layoutProps?.stickyHeader ?? true);
+
+  const meta = Component.layoutProps?.meta || {};
+
+  // The meta description field
   const description = meta.metaDescription || meta.description || 'Documentation for the Elegant framework.';
   let image = meta.ogImage ?? meta.image;
   image = image
     ? `${process.env.NEXT_PUBLIC_APP_URL}${image.default?.src ?? image.src ?? image}`
-    : `${process.env.NEXT_PUBLIC_APP_URL}/api/og?path=${router.pathname}`
+    : `${process.env.NEXT_PUBLIC_APP_URL}${socialCardLarge.src}`
 
   let section =
     meta.section ||
@@ -112,7 +119,7 @@ export default function App({ Component, pageProps, router }) {
         <AnalyticsHead googleAnalyticsID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/>
       </Head>
       <SearchProvider>
-        {showHeader && (
+        {stickyHeader && (
           <Header
             hasNav={Boolean(Component.layoutProps?.Layout?.nav)}
             navIsOpen={navIsOpen}

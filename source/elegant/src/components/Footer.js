@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import Logo from '@/components/Logo/Logo'
+import Logo from '@/components/Logos/Logo'
 
 export function Footer({ className }) {
   return (

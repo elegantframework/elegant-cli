@@ -11,35 +11,41 @@ title: Creating Documentation
 
 Often one of the biggest challenges when starting a new project or application is creating and maintaining documentation for users and developers. Elegant provides a simple, and powerful tool for creating and managing beautiful documentation. 
 
+To learn more about the benefits of using Markdown, check out our more detailed writeup on the power of [Markdown](/blog/2023-04-20-the-future-is-markdown).
+
 <a name="creating-documentation-with-markdown"></a>
 
 ## Creating Documentation with Markdown
 
-To get started, create a new Markdown file, `elegant.md`, and place it under the `docs` directory.
+To get started, create a new Markdown file, `elegant.mdx`, and place it under the `src/pages/docs/` directory within your project.
 
 ```bash
 website # root directory of your site
-├── docs
-│   └── elegant.md
+├── css
 ├── src
-│   └── css
+│    └── pages
+│         └── docs
+│              └── elegant.mdx
 ├── .env
-├── .package.json
+├── next.config.js
+├── package.json
+├── tailwind.config.js
 ├── ...
 ```
 
-Add the following Markdown to our sample `elegant.md` file.
+Add the following Markdown to our sample `elegant.mdx` file.
 
 ```md
 ---
+title: Hello World
 description: Create a beautiful documentation page with static rich content.
 ---
 
-# Hello from Elegant
+## Hello from Elegant
 
 Are you ready to create beautiful documentation for your project or application?
 
-## Headers
+### Headers
 
 will show up on the table of contents on the upper right
 
