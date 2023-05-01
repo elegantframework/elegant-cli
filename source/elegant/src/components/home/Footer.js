@@ -1,14 +1,28 @@
 import Link from 'next/link';
-import Logo from '@/components/Logo/Logo'
+import Logo from '@/components/Logos/Logo'
 
 const footerNav = [
   {
     Community: [
-      { title: 'GitHub', href: process.env.NEXT_PUBLIC_APP_REPOSITORY },
-      { title: 'Indie Hackers', href: 'https://www.indiehackers.com/product/elegant-framework' },
-      { title: 'Twitter', href: 'https://twitter.com/thebrandonowens' },
-      { title: 'Reddit', href: 'https://www.reddit.com/r/elegantframework/' },
+      { title: 'GitHub', href: process.env.NEXT_PUBLIC_APP_REPOSITORY, external: true },
+      { title: 'Indie Hackers', href: 'https://www.indiehackers.com/product/elegant-framework', external: true },
+      { title: 'Twitter', href: 'https://twitter.com/thebrandonowens', external: true },
+      { title: 'Reddit', href: 'https://www.reddit.com/r/elegantframework/', external: true },
     ],
+    Features: [
+      { title: 'Theme Customization', href: 'https://elegantframework.com/experts/docs/theme/' },
+      { title: 'Easy Configuration', href: 'https://elegantframework.com/experts/docs/configuration/' },
+      { title: 'Affordable Hosting', href: 'https://elegantframework.com/experts/docs/deployment/' },
+      { title: 'Safe & Fast', href: 'https://elegantframework.com/experts/blog/2023-04-20-the-future-is-markdown'}
+    ],
+    Services: [
+      { title: 'Google Analytics', href: 'https://elegantframework.com/experts/docs/google-analytics/' },
+      { title: 'ConvertKit', href: 'https://elegantframework.com/experts/docs/convertkit/' },
+      { title: 'Vercel', href: 'https://elegantframework.com/experts/docs/deployment/' },
+    ],
+    Resources: [
+      { title: 'Website Design Services', href: 'https://elegantframework.com/experts' },
+    ]
   },
 ]
 
@@ -29,7 +43,10 @@ export function Footer() {
                     {items.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href} passHref>
-                          <a className="hover:text-slate-900 dark:hover:text-slate-300" target="_blank" rel="noopener noreferrer">
+                          <a className="hover:text-slate-900 dark:hover:text-slate-300" 
+                             target={item.external === true ? "_blank" : ""} 
+                             rel={item.external === true ? "noopener noreferrer" : ""}
+                          >
                             {item.title}
                           </a>
                         </Link>
