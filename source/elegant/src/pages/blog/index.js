@@ -1,4 +1,4 @@
-import { NewsletterForm } from '@/components/NewsletterForm/NewsletterForm'
+import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm'
 import { Widont } from '@/components/Widont'
 import { getAllPostPreviews } from '@/utils/getAllPosts'
 import Link from 'next/link'

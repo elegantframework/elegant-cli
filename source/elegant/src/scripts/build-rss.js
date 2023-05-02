@@ -1,9 +1,10 @@
-import fs from 'fs'
-import ReactDOMServer from 'react-dom/server'
-import { MDXProvider } from '@mdx-js/react'
-import { Feed } from 'feed'
-import { getAllPosts } from '@/utils/getAllPosts'
-import { mdxComponents } from '@/utils/mdxComponents'
+import fs from 'fs';
+import ReactDOMServer from 'react-dom/server';
+import { MDXProvider } from '@mdx-js/react';
+import { Feed } from 'feed';
+import { getAllPosts } from '@/utils/getAllPosts';
+import { mdxComponents } from '@/utils/mdxComponents';
+import socialCardLarge from '@/img/social-card-large.jpg';
 
 export default function buildRss() {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
@@ -41,7 +42,7 @@ export default function buildRss() {
     let image = meta.ogImage ?? meta.image
     image = image
       ? `${baseUrl}${image.default?.src ?? image.src ?? image}`
-      : `${baseUrl}/api/og?path=/blog/${slug}`
+      : `${baseUrl}${socialCardLarge.src}`
 
     feed.addItem({
       title: meta.title,

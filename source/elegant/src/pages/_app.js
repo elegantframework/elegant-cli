@@ -10,9 +10,9 @@ import Head from 'next/head';
 import { ResizeObserver } from '@juggle/resize-observer';
 import 'intersection-observer';
 import { SearchProvider } from '@/components/Search';
-import TwitterMeta from '@/components/Meta/TwitterMeta';
-import AnalyticsHead from '@/components/Analytics/AnalyticsHead';
-import AnalyticsBody from '@/components/Analytics/AnalyticsBody';
+import TwitterMeta from '@/components/core/Meta/TwitterMeta';
+import AnalyticsHead from '@/components/core/Analytics/AnalyticsHead';
+import AnalyticsBody from '@/components/core/Analytics/AnalyticsBody';
 import * as gtag from '@/utils/analytics/gtag';
 import socialCardLarge from '@/img/social-card-large.jpg';
 

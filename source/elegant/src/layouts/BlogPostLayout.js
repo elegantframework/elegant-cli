@@ -1,5 +1,5 @@
 import { Widont } from '@/components/home/common'
-import { NewsletterForm } from '@/components/NewsletterForm/NewsletterForm'
+import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm'
 import { formatDate } from '@/utils/formatDate'
 import { mdxComponents } from '@/utils/mdxComponents'
 import { MDXProvider } from '@mdx-js/react'

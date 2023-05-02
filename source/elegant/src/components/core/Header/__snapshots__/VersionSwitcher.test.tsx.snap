@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Version Switcher header component renders a version switcher component 1`] = `
+<div
+  className="relative"
+  data-headlessui-state=""
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5"
+    data-headlessui-state=""
+    id="headlessui-menu-button-1"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    type="button"
+  >
+    v
+    3.2.7
+    <svg
+      aria-hidden="true"
+      className="ml-2 overflow-visible"
+      height="3"
+      width="6"
+    >
+      <path
+        d="M0 0L3 3L6 0"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  </button>
+</div>
+`;
