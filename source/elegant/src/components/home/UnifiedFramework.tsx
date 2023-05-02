@@ -1,8 +1,8 @@
 import React from "react";
-import ReactLogo from "../Logos/ReactLogo";
-import NextJsLogo from "../Logos/NextJsLogo";
-import TailwindCSSLogo from "../Logos/TailwindCSSLogo";
-import MDXLogo from "../Logos/MDXLogo";
+import ReactLogo from "../core/Logos/ReactLogo";
+import NextJsLogo from "../core/Logos/NextJsLogo";
+import TailwindCSSLogo from "../core/Logos/TailwindCSSLogo";
+import MDXLogo from "../core/Logos/MDXLogo";
 import Link from "next/link";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 

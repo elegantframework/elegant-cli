@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { CodeWindow } from '@/components/CodeWindow';
 import { SearchButton } from '@/components/Search';
-import { NewsletterForm } from '@/components/NewsletterForm/NewsletterForm';
+import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm';
 import UnifiedFramework from '@/components/home/UnifiedFramework';
-import Logo from '@/components/Logos/Logo';
+import Logo from '@/components/core/Logos/Logo';
 import { Footer } from '@/components/home/Footer';
 import NextLink from 'next/link';
 import Head from 'next/head';
@@ -13,6 +13,7 @@ import styles from './index.module.css';
 import clsx from 'clsx';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
+import elegantRome from '@/img/splash/elegant_rome.jpg';
 import MetaTitle from '@/utils/MetaTitle';
 import { tokens, code } from '@/components/home/hero.html?highlight'
 

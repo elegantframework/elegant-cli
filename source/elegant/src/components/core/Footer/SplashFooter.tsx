@@ -1,4 +1,4 @@
-import Logo from "@/components/Logos/Logo";
+import Logo from "@/components/core/Logos/Logo";
 import { NavigationLink, NavigationSection } from "@/types/Navigation";
 import Link from "next/link";
 
