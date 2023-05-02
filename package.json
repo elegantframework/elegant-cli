@@ -1,6 +1,6 @@
 {
   "name": "elegant-cli",
-  "version": "2.1.1-prerelease.9",
+  "version": "2.1.1-prerelease.10",
   "description": "Elegant is a content creation framework for rapidly building beautiful and expressive web applications.",
   "scripts": {
     "build:elegant": "cd source/elegant && npm run build",
