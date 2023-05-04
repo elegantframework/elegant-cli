@@ -1,0 +1,85 @@
+---
+title: Theme Customization
+description: Customizing the included theme for your project.
+---
+
+- [Introduction](#introduction)
+- [Configuration](#configuration)
+    - [Colors](#colors)
+
+<a name="introduction"></a>
+
+## Introduction
+
+To give you a head start building your next server-side rendering React application, we have included a starter theme created with Tailwind CSS.
+
+[Tailwind CSS](https://www.elegantframework.com/blog/2023-04-05-elegant-framework-v2-0-alpha#tailwind_css) allows us to easily create perfectly crafted themes that implement standards and best practices from the best frontend designers and developers.
+
+<a name="configuration"></a>
+
+## Configuration
+
+The theme section of your tailwind.config.js file is where you define your project’s color palette, type scale, fonts, breakpoints, border radius values, and more.
+
+```js tailwind.config.js
+module.exports = {
+  theme: {
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    colors: {
+      'blue': '#1fb6ff',
+      'purple': '#7e5bef',
+      'pink': '#ff49db',
+      'orange': '#ff7849',
+      'green': '#13ce66',
+      'yellow': '#ffc82c',
+      'gray-dark': '#273444',
+      'gray': '#8492a6',
+      'gray-light': '#d3dce6',
+    },
+    fontFamily: {
+      sans: ['Graphik', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
+    extend: {
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+      }
+    }
+  }
+}
+```
+
+<a name="colors"></a>
+
+### Colors
+
+The `colors` key allows you to customize the global color palette for your project.
+
+```js tailwind.config.js
+const colors = require('tailwindcss/colors');
+
+module.exports = {
+  theme: {
+    // ...
+    extend: {
+        colors: {
+            primary: colors.indigo,
+            secondary: colors.sky,
+            transparent: 'transparent',
+            black: '#000',
+            white: '#fff',
+            // ...
+        },
+    },
+  }
+}
+```

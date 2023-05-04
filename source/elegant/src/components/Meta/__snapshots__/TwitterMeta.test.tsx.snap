@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Twitter meta card component renders a twitter creator card if a creator is provided 1`] = `
+[
+  <meta
+    content="@thebrandonowens"
+    name="twitter:site"
+  />,
+  <meta
+    content="@thebrandonowens"
+    name="twitter:creator"
+  />,
+]
+`;
+
+exports[`Twitter meta card component renders nothing if a handle is not provided 1`] = `null`;
