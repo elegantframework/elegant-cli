@@ -41,7 +41,7 @@ export default function buildRss() {
 
     let image = meta.ogImage ?? meta.image
     image = image
-      ? `${baseUrl}${image.default?.src ?? image.src ?? image}`
+      ? `${baseUrl}${image.src ?? image}`
       : `${baseUrl}${socialCardLarge.src}`
 
     feed.addItem({

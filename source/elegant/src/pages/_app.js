@@ -81,10 +81,13 @@ export default function App({ Component, pageProps, router }) {
 
   // The meta description field
   const description = meta.metaDescription || meta.description || 'Documentation for the Elegant framework.';
+
+  // Set the social share image
   let image = meta.ogImage ?? meta.image;
+
   image = image
-    ? `${process.env.NEXT_PUBLIC_APP_URL}${image.default?.src ?? image.src ?? image}`
-    : `${process.env.NEXT_PUBLIC_APP_URL}${socialCardLarge.src}`
+    ? `${image.src ?? image}`
+    : `${socialCardLarge.src}`
 
   let section =
     meta.section ||
