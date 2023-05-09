@@ -2,15 +2,16 @@ import '../css/fonts.css';
 import '../css/main.css';
 import 'focus-visible';
 import { useState, useEffect, Fragment } from 'react';
+import { BrandJsonLd, LogoJsonLd, SocialProfileJsonLd, WebPageJsonLd } from 'next-seo';
+import SeoLogo from './../../public/favicons/apple-icon-180x180.png';
 import { Header } from '@/components/Header';
-import { Description, OgDescription, OgTitle, Title } from '@/components/Meta';
 import Router from 'next/router';
 import ProgressBar from '@badrap/bar-of-progress';
+import Seo from "@/components/core/Seo/Seo";
 import Head from 'next/head';
 import { ResizeObserver } from '@juggle/resize-observer';
 import 'intersection-observer';
 import { SearchProvider } from '@/components/Search';
-import TwitterMeta from '@/components/core/Meta/TwitterMeta';
 import AnalyticsHead from '@/components/core/Analytics/AnalyticsHead';
 import AnalyticsBody from '@/components/core/Analytics/AnalyticsBody';
 import * as gtag from '@/utils/analytics/gtag';
@@ -69,7 +70,8 @@ export default function App({ Component, pageProps, router }) {
   }, [router.events]);
 
   // The type of layout a page should use.. Ex. BasicLayout, BlogPostLayout, etc..
-  const Layout = Component.layoutProps?.Layout || Fragment
+  const Layout = Component.layoutProps?.Layout || Fragment;
+
   const layoutProps = Component.layoutProps?.Layout
     ? { layoutProps: Component.layoutProps, navIsOpen, setNavIsOpen }
     : {}
@@ -77,17 +79,20 @@ export default function App({ Component, pageProps, router }) {
   // Show the sticky header
   let stickyHeader =  (Component.layoutProps?.stickyHeader ?? true);
 
+  // the page meta data
   const meta = Component.layoutProps?.meta || {};
 
-  // The meta description field
-  const description = meta.metaDescription || meta.description || 'Documentation for the Elegant framework.';
-
   // Set the social share image
-  let image = meta.ogImage ?? meta.image;
+  let image = socialCardLarge.src;
+  image = meta.ogImage ?? meta.image;
 
-  image = image
-    ? `${image.src ?? image}`
-    : `${socialCardLarge.src}`
+  // set the page type
+  let pageType = Component.layoutProps?.pageType ? Component.layoutProps.pageType : "website";
+
+  // blog posts will have a description
+  if(meta.image && meta.description){
+    pageType = "article";
+  }
 
   let section =
     meta.section ||
@@ -95,32 +100,101 @@ export default function App({ Component, pageProps, router }) {
       items.find(({ href }) => href === router.pathname)
     )?.[0]
 
+  // is this app for a business? 
+  let appType = "Organization";
+
+  if(
+    process.env.NEXT_PUBLIC_APP_TYPE_ORGANIZATION !== undefined && 
+    process.env.NEXT_PUBLIC_APP_TYPE_ORGANIZATION === false
+  ){
+    appType = "Person";
+  }
+
+  // if their are social links provided, activate the Social schema data
+  let socialSchema = [];
+  {
+    process.env.NEXT_PUBLIC_APP_TWITTER_URL !== undefined && 
+    process.env.NEXT_PUBLIC_APP_TWITTER_URL !== "" ?
+      socialSchema.push(process.env.NEXT_PUBLIC_APP_TWITTER_URL) : null
+  }
+  {
+    process.env.NEXT_PUBLIC_APP_FACEBOOK_URL !== undefined && 
+    process.env.NEXT_PUBLIC_APP_FACEBOOK_URL !== "" ?
+      socialSchema.push(process.env.NEXT_PUBLIC_APP_FACEBOOK_URL) : null
+  }
+  {
+    process.env.NEXT_PUBLIC_APP_INSTAGRAM_URL !== undefined && 
+    process.env.NEXT_PUBLIC_APP_INSTAGRAM_URL !== "" ?
+      socialSchema.push(process.env.NEXT_PUBLIC_APP_INSTAGRAM_URL) : null
+  }
+  {
+    process.env.NEXT_PUBLIC_APP_YOUTUBE_URL !== undefined && 
+    process.env.NEXT_PUBLIC_APP_YOUTUBE_URL !== "" ?
+      socialSchema.push(process.env.NEXT_PUBLIC_APP_YOUTUBE_URL) : null
+  }
+  {
+    process.env.NEXT_PUBLIC_APP_LINKEDIN_URL !== undefined && 
+    process.env.NEXT_PUBLIC_APP_LINKEDIN_URL !== "" ?
+      socialSchema.push(process.env.NEXT_PUBLIC_APP_LINKEDIN_URL) : null
+  }
+
+  // set our url
+  let url = process.env.NEXT_PUBLIC_APP_URL;
+
+  if(
+    process.env.NEXT_PUBLIC_VERCEL_URL !== undefined &&
+    process.env.NEXT_PUBLIC_VERCEL_ENV !== undefined &&
+    process.env.NEXT_PUBLIC_VERCEL_ENV !== "production"
+  ){
+    url = "https://" + process.env.NEXT_PUBLIC_VERCEL_URL;
+  }
+
+  // if we have social data, turn on the schema object
+  let socialProfile;
+
+  if(socialSchema.length > 0)
+  {
+    socialProfile = (
+      <SocialProfileJsonLd 
+        type={appType}
+        name={process.env.NEXT_PUBLIC_APP_NAME}
+        url={url}
+        sameAs={socialSchema}
+      />
+    );
+  }
+
   return (
     <>
-      <Title>
-        {meta.metaTitle || meta.title}
-      </Title>
-      {meta.ogTitle && <OgTitle>{meta.ogTitle}</OgTitle>}
-      <Description>
-        {description}
-      </Description>
-      {meta.ogDescription && <OgDescription>{meta.ogDescription}</OgDescription>}
       <Head>
-        <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-        <meta key="twitter:image" name="twitter:image" content={image} />
-        <TwitterMeta twitterHandle={process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE}/>
-        <meta
-          key="og:url"
-          property="og:url"
-          content={`${process.env.NEXT_PUBLIC_APP_URL}${router.pathname}`}
-        />
-        <meta key="og:type" property="og:type" content="article" />
-        <meta key="og:image" property="og:image" content={image} />
-        <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feeds/feed.xml" />
-        <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/atom.xml" />
-        <link rel="alternate" type="application/json" title="JSON Feed" href="/feeds/feed.json" />
         <AnalyticsHead googleAnalyticsID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/>
       </Head>
+      <Seo 
+        title={meta.metaTitle || meta.title}
+        description={meta.metaDescription || meta.description || process.env.NEXT_PUBLIC_APP_DESCRIPTION}
+        themeColor={"#f8fafc"}
+        twitterHandle={process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE}
+        twitterSite={process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE}
+        siteName={process.env.NEXT_PUBLIC_APP_NAME}
+        url={`${url}${router.pathname}`}
+        image={`${url}${image}`}
+        facebookAppID={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}
+        pageType={pageType}
+      />
+      <LogoJsonLd 
+        logo={process.env.NEXT_PUBLIC_APP_URL + SeoLogo.src}
+        url={process.env.NEXT_PUBLIC_APP_URL}
+      />
+      <BrandJsonLd 
+        logo={process.env.NEXT_PUBLIC_APP_URL + SeoLogo.src}
+        id={process.env.NEXT_PUBLIC_APP_URL}
+        slogan={process.env.NEXT_PUBLIC_APP_TAGLINE}
+      />
+      <WebPageJsonLd 
+        description={meta.metaDescription || meta.description}
+        id={`${process.env.NEXT_PUBLIC_APP_URL}${router.pathname}`}
+      />
+      {socialProfile}
       <SearchProvider>
         {stickyHeader && (
           <Header

@@ -7,6 +7,7 @@ interface Props {
 };
 
 /**
+ * @deprecated since version 2.2 .. Will be removed in version 3... Replaced with the core SEO component
  * If a twitter handle is provided, return the twitter heading card meta data.
  * @param param0 component props.
  * @returns Twitter site and creator meta heading tags.

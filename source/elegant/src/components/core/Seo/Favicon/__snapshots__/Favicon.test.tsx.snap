@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SEO Favicon Component properly with options disabled 1`] = `
+[
+  {
+    "href": "/favicons/android-icon-192x192.png",
+    "rel": "icon",
+    "sizes": "192x192",
+  },
+  {
+    "href": "/favicons/manifest.json",
+    "rel": "manifest",
+  },
+  {
+    "href": "/favicons/favicon-16x16.png",
+    "rel": "icon",
+    "sizes": "16x16",
+  },
+  {
+    "href": "/favicons/favicon-32x32.png",
+    "rel": "icon",
+    "sizes": "32x32",
+  },
+  {
+    "href": "/favicons/favicon-96x96.png",
+    "rel": "icon",
+    "sizes": "96x96",
+  },
+]
+`;
+
+exports[`SEO Favicon Component renders properly with the directory 1`] = `
+[
+  {
+    "href": "/helloworld/apple-icon-57x57.png",
+    "rel": "apple-touch-icon",
+    "sizes": "57x57",
+  },
+  {
+    "href": "/helloworld/apple-icon-60x60.png",
+    "rel": "apple-touch-icon",
+    "sizes": "60x60",
+  },
+  {
+    "href": "/helloworld/apple-icon-72x72.png",
+    "rel": "apple-touch-icon",
+    "sizes": "72x72",
+  },
+  {
+    "href": "/helloworld/apple-icon-76x76.png",
+    "rel": "apple-touch-icon",
+    "sizes": "76x76",
+  },
+  {
+    "href": "/helloworld/apple-icon-114x114.png",
+    "rel": "apple-touch-icon",
+    "sizes": "114x114",
+  },
+  {
+    "href": "/helloworld/apple-icon-120x120.png",
+    "rel": "apple-touch-icon",
+    "sizes": "120x120",
+  },
+  {
+    "href": "/helloworld/apple-icon-144x144.png",
+    "rel": "apple-touch-icon",
+    "sizes": "144x144",
+  },
+  {
+    "href": "/helloworld/apple-icon-152x152.png",
+    "rel": "apple-touch-icon",
+    "sizes": "152x152",
+  },
+  {
+    "href": "/helloworld/apple-icon-180x180.png",
+    "rel": "apple-touch-icon",
+    "sizes": "180x180",
+  },
+  {
+    "href": "/helloworld/android-icon-192x192.png",
+    "rel": "icon",
+    "sizes": "192x192",
+  },
+  {
+    "href": "/helloworld/manifest.json",
+    "rel": "manifest",
+  },
+  {
+    "href": "/helloworld/favicon-16x16.png",
+    "rel": "icon",
+    "sizes": "16x16",
+  },
+  {
+    "href": "/helloworld/favicon-32x32.png",
+    "rel": "icon",
+    "sizes": "32x32",
+  },
+  {
+    "href": "/helloworld/favicon-96x96.png",
+    "rel": "icon",
+    "sizes": "96x96",
+  },
+]
+`;
+
+exports[`SEO Favicon Component renders with data properly 1`] = `
+[
+  {
+    "href": "/apple-icon-57x57.png",
+    "rel": "apple-touch-icon",
+    "sizes": "57x57",
+  },
+  {
+    "href": "/apple-icon-60x60.png",
+    "rel": "apple-touch-icon",
+    "sizes": "60x60",
+  },
+  {
+    "href": "/apple-icon-72x72.png",
+    "rel": "apple-touch-icon",
+    "sizes": "72x72",
+  },
+  {
+    "href": "/apple-icon-76x76.png",
+    "rel": "apple-touch-icon",
+    "sizes": "76x76",
+  },
+  {
+    "href": "/apple-icon-114x114.png",
+    "rel": "apple-touch-icon",
+    "sizes": "114x114",
+  },
+  {
+    "href": "/apple-icon-120x120.png",
+    "rel": "apple-touch-icon",
+    "sizes": "120x120",
+  },
+  {
+    "href": "/apple-icon-144x144.png",
+    "rel": "apple-touch-icon",
+    "sizes": "144x144",
+  },
+  {
+    "href": "/apple-icon-152x152.png",
+    "rel": "apple-touch-icon",
+    "sizes": "152x152",
+  },
+  {
+    "href": "/apple-icon-180x180.png",
+    "rel": "apple-touch-icon",
+    "sizes": "180x180",
+  },
+  {
+    "href": "/android-icon-192x192.png",
+    "rel": "icon",
+    "sizes": "192x192",
+  },
+  {
+    "href": "/manifest.json",
+    "rel": "manifest",
+  },
+  {
+    "href": "/favicon-16x16.png",
+    "rel": "icon",
+    "sizes": "16x16",
+  },
+  {
+    "href": "/favicon-32x32.png",
+    "rel": "icon",
+    "sizes": "32x32",
+  },
+  {
+    "href": "/favicon-96x96.png",
+    "rel": "icon",
+    "sizes": "96x96",
+  },
+]
+`;

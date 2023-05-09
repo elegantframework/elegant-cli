@@ -1,5 +1,8 @@
 import Head from 'next/head'
 
+/**
+ * @deprecated since version 2.2 .. Will be removed in version 3... Replaced with the core SEO component
+ */
 export function Title({ suffix = 'Elegant Framework', children }) {
   let title = children + (suffix ? ` - ${suffix}` : '')
 
@@ -13,6 +16,9 @@ export function Title({ suffix = 'Elegant Framework', children }) {
   )
 }
 
+/**
+ * @deprecated since version 2.2 .. Will be removed in version 3... Replaced with the core SEO component
+ */
 export function OgTitle({ suffix = 'Elegant Framework', children }) {
   let title = children + (suffix ? ` - ${suffix}` : '')
 
@@ -24,6 +30,9 @@ export function OgTitle({ suffix = 'Elegant Framework', children }) {
   )
 }
 
+/**
+ * @deprecated since version 2.2 .. Will be removed in version 3... Replaced with the core SEO component
+ */
 export function Description({ children }) {
   return (
     <>
@@ -35,6 +44,9 @@ export function Description({ children }) {
   )
 }
 
+/**
+ * @deprecated since version 2.2 .. Will be removed in version 3... Replaced with the core SEO component
+ */
 export function OgDescription({ children }) {
   return (
     <Head>

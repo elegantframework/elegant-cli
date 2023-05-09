@@ -33,6 +33,5 @@
     "**/*.test.ts",
     ".next", 
     "out", 
-    "storybook-static"
   ]
 }

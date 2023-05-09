@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import VersionSwitcher from '@/components/core/Header/VersionSwitcher';
 import { SearchButton } from '@/components/Search';
 import Router from 'next/router';
-import Logo from '@/components/core/Logos/Logo';
+import Logo from '@/components/core/Logos/Logo/Logo';
 import { Dialog } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx'

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Logo from '@/components/core/Logos/Logo';
+import Logo from '@/components/core/Logos/Logo/Logo';
 import { SearchButton } from '@/components/Search';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { NavItems, NavPopover } from '@/components/Header';

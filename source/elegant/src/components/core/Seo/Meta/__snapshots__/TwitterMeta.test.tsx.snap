@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Twitter meta component renders \`the default if nothing is provided\` 1`] = `
+{
+  "cardType": "summary_large_image",
+}
+`;
+
+exports[`Twitter meta component renders with data properly 1`] = `
+{
+  "cardType": "summary_large_image",
+  "handle": "@test",
+}
+`;
+
+exports[`Twitter meta component renders with site data properly 1`] = `
+{
+  "cardType": "summary_large_image",
+  "handle": "@test2",
+  "site": "@site_test",
+}
+`;

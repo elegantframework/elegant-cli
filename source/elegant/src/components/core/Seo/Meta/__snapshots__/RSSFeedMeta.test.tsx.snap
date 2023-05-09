@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RSS Feed meta Component renders with data properly 1`] = `
+[
+  {
+    "href": "/feed.xml",
+    "rel": "alternate",
+    "title": "RSS 2.0",
+    "type": "application/rss+xml",
+  },
+  {
+    "href": "/atom.xml",
+    "rel": "alternate",
+    "title": "Atom 1.0",
+    "type": "application/atom+xml",
+  },
+  {
+    "href": "/feeds.json",
+    "rel": "alternate",
+    "title": "JSON Feed",
+    "type": "application/json",
+  },
+]
+`;

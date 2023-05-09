@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Microsoft Application Tile Component renders with data properly 1`] = `
+[
+  {
+    "content": "#000000",
+    "property": "msapplication-TileColor",
+  },
+  {
+    "content": "/ms-icon-144x144.png",
+    "property": "msapplication-TileImage",
+  },
+]
+`;

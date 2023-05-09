@@ -4,7 +4,7 @@ import { CodeWindow } from '@/components/CodeWindow';
 import { SearchButton } from '@/components/Search';
 import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm';
 import UnifiedFramework from '@/components/home/UnifiedFramework';
-import Logo from '@/components/core/Logos/Logo';
+import Logo from '@/components/core/Logos/Logo/Logo';
 import { Footer } from '@/components/home/Footer';
 import NextLink from 'next/link';
 import Head from 'next/head';
@@ -20,6 +20,7 @@ import { tokens, code } from '@/components/home/hero.html?highlight'
 Home.layoutProps = {
   meta: {
     ogImage: socialCardLarge.src,
+    title: MetaTitle(process.env.NEXT_PUBLIC_APP_NAME, process.env.NEXT_PUBLIC_APP_TAGLINE)
   },
   stickyHeader: false
 };
@@ -27,25 +28,6 @@ Home.layoutProps = {
 export default function Home() {
   return (
     <>
-      <Head>
-        <meta
-          key="twitter:title"
-          name="twitter:title"
-          content={
-            MetaTitle(process.env.NEXT_PUBLIC_APP_NAME, process.env.NEXT_PUBLIC_APP_TAGLINE)
-          }
-        />
-        <meta
-          key="og:title"
-          property="og:title"
-          content={
-            MetaTitle(process.env.NEXT_PUBLIC_APP_NAME, process.env.NEXT_PUBLIC_APP_TAGLINE)
-          }
-        />
-        <title>
-          {MetaTitle(process.env.NEXT_PUBLIC_APP_NAME, process.env.NEXT_PUBLIC_APP_TAGLINE)}
-        </title>
-      </Head>
       <div className="mb-20 overflow-hidden sm:mb-32 md:mb-40">
         <Header />
       </div> 

@@ -1,10 +1,11 @@
-import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm'
-import { Widont } from '@/components/Widont'
-import { getAllPostPreviews } from '@/utils/getAllPosts'
-import Link from 'next/link'
-import clsx from 'clsx'
-import { formatDate } from '@/utils/formatDate'
-import buildRss from '@/scripts/build-rss'
+import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm';
+import { Widont } from '@/components/Widont';
+import { getAllPostPreviews } from '@/utils/getAllPosts';
+import Link from 'next/link';
+import clsx from 'clsx';
+import { formatDate } from '@/utils/formatDate';
+import buildRss from '@/scripts/build-rss';
+import socialCardLarge from '@/img/social-card-large.jpg';
 
 let posts = getAllPostPreviews()
 
@@ -84,8 +85,9 @@ export default function Blog() {
 
 Blog.layoutProps = {
   meta: {
-    title: 'Blog',
+    title: 'Blog - Elegant - All the latest Elegant news, straight from the team.',
     description: 'All the latest Elegant news, straight from the team.',
+    ogImage: socialCardLarge.src
   },
 }
 

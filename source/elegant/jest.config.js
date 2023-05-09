@@ -22,5 +22,8 @@ module.exports = async () => {
     '^@/(.*)$': '<rootDir>/src/$1',
   };
 
-  return { ...jestConfig, moduleNameMapper };
+  // load our env.test file while running jest tests
+  const setupFilesAfterEnv = ['./jest.setup.js'];
+
+  return { ...jestConfig, moduleNameMapper, setupFilesAfterEnv };
 };
