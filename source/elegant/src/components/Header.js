@@ -1,14 +1,17 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import VersionSwitcher from '@/components/core/Header/VersionSwitcher';
+import VersionSwitcher from '@/components/core/Headers/VersionSwitcher';
 import { SearchButton } from '@/components/Search';
 import Router from 'next/router';
 import Logo from '@/components/core/Logos/Logo/Logo';
 import { Dialog } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx'
-import { ThemeSelect, ThemeToggle } from './ThemeToggle'
+import ThemeToggle, {ThemeSelect} from '@/components/core/Toggles/ThemeToggle/ThemeToggle'
 
+/**
+ * @deprecated - To be removed by 2.3
+ */
 export function NavPopover({ display = 'md:hidden', className, ...props }) {
   let [isOpen, setIsOpen] = useState(false)
 
@@ -86,6 +89,9 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
   )
 }
 
+/**
+ * @deprecated - To be removed by 2.3
+ */
 export function NavItems() {
   const router = useRouter();
   return (

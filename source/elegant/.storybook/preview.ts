@@ -18,7 +18,9 @@ const preview: Preview = {
       },
     },
     darkMode: {
-      classTarget: 'html'
+      current: 'light',
+      classTarget: 'html',
+      stylePreview: true
     }
   },
 }

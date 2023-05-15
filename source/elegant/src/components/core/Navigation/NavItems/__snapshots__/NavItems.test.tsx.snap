@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav Item component renders the nav items component properly 1`] = `
+[
+  <li>
+    <a
+      className="hover:text-primary-500 dark:hover:text-primary-400"
+      href="/docs/installation"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      Docs
+    </a>
+  </li>,
+  <li>
+    <a
+      className="hover:text-primary-500 dark:hover:text-primary-400"
+      href="/blog"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      Blog
+    </a>
+  </li>,
+]
+`;
+
+exports[`Nav Item component renders the nav items component properly with no nav items 1`] = `null`;
