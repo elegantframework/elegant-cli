@@ -1,4 +1,4 @@
-import TextToTitleCase from "./../TextToTitleCase";
+import TextToTitleCase from "./TextToTitleCase";
 
 describe('Text To Title Case', () => {
     it('changes a string to title case',() => {

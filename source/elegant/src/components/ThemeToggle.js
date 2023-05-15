@@ -1,8 +1,11 @@
-import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect'
-import { Listbox } from '@headlessui/react'
-import clsx from 'clsx'
-import { Fragment, useEffect, useRef } from 'react'
-import create from 'zustand'
+import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect';
+import { Listbox } from '@headlessui/react';
+import clsx from 'clsx';
+import { Fragment, useEffect, useRef } from 'react';
+import create from 'zustand';
+import SunIcon from './core/Icons/SunIcon/SunIcon';
+import MoonIcon from './core/Icons/MoonIcon/MoonIcon';
+import PCIcon from './core/Icons/PCIcon/PCIcon';
 
 const useSetting = create((set) => ({
   setting: null,
@@ -29,21 +32,24 @@ let settings = [
   {
     value: 'light',
     label: 'Light',
-    icon: SunIcon,
+    icon: SunIconOld,
   },
   {
     value: 'dark',
     label: 'Dark',
-    icon: MoonIcon,
+    icon: MoonIconOld,
   },
   {
     value: 'system',
     label: 'System',
-    icon: PcIcon,
+    icon: PCIcon,
   },
 ]
 
-function SunIcon({ selected, ...props }) {
+/**
+ * @deprecated - To be removed in 2.2
+ */
+function SunIconOld({ selected, ...props }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -67,7 +73,11 @@ function SunIcon({ selected, ...props }) {
   )
 }
 
-function MoonIcon({ selected, ...props }) {
+
+/**
+ * @deprecated - To be removed in 2.2
+ */
+function MoonIconOld({ selected, ...props }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" {...props}>
       <path
@@ -90,28 +100,9 @@ function MoonIcon({ selected, ...props }) {
   )
 }
 
-function PcIcon({ selected, ...props }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <path
-        d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"
-        strokeWidth="2"
-        strokeLinejoin="round"
-        className={
-          selected ? 'stroke-primary-500 fill-primary-400/20' : 'stroke-slate-400 dark:stroke-slate-500'
-        }
-      />
-      <path
-        d="M14 15c0 3 2 5 2 5H8s2-2 2-5"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={selected ? 'stroke-primary-500' : 'stroke-slate-400 dark:stroke-slate-500'}
-      />
-    </svg>
-  )
-}
-
+/**
+ * @deprecated - To be removed by 2.3
+ */
 function useTheme() {
   let { setting, setSetting } = useSetting()
   let initial = useRef(true)
@@ -172,6 +163,9 @@ function useTheme() {
   return [setting, setSetting]
 }
 
+/**
+ * @deprecated - To be removed by 2.3
+ */
 export function ThemeToggle({ panelClassName = 'mt-4' }) {
   let [setting, setSetting] = useTheme()
 
@@ -213,6 +207,9 @@ export function ThemeToggle({ panelClassName = 'mt-4' }) {
   )
 }
 
+/**
+ * @deprecated - To be removed by 2.3
+ */
 export function ThemeSelect() {
   let [setting, setSetting] = useTheme()
 
@@ -224,7 +221,7 @@ export function ThemeSelect() {
         Switch theme
       </label>
       <div className="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
-        <SunIcon className="w-6 h-6 mr-2 dark:hidden" />
+        <SunIconOld className="w-6 h-6 mr-2 dark:hidden" />
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 mr-2 hidden dark:block">
           <path
             fillRule="evenodd"

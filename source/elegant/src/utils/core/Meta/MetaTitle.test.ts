@@ -1,4 +1,4 @@
-import MetaTitle from "./../MetaTitle";
+import MetaTitle from "./MetaTitle";
 
 describe('Meta Title', () => {
     it('returns a title cased string of the appications name for a meta title',() => {
