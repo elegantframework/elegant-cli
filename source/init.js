@@ -68,8 +68,15 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
   }
   else
   {
+    // copy the starter env file into the users project as their env file
+    fs.cp(module_path + 'source/elegant/.env.starter', outputPath + '.env', (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+
     // copy the sample env file into the users project as their env file
-    fs.cp(module_path + 'source/elegant/.env.example', outputPath + '.env', (err) => {
+    fs.cp(module_path + 'source/elegant/.env.example', outputPath + '.env.example', (err) => {
       if (err) {
         console.error(err);
       }
