@@ -9,7 +9,6 @@ const pages = createPageList(
 export const documentationNav = {
   'Prologue': [
     pages['release-notes'],
-    pages['upgrade'],
     pages['contribution-guide']
   ],
   'Getting Started': [
