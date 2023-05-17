@@ -23,6 +23,7 @@
     "@next/env": "^13.4.1",
     "@storybook/addon-a11y": "^7.0.8",
     "@storybook/addon-styling": "^1.0.6",
+    "cross-spawn": "^7.0.3",
     "dotenv": "^16.0.3",
     "elegant-cli": "^2.1.1",
     "next": "^12.3.1",

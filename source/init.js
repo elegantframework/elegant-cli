@@ -76,6 +76,20 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       // do nothing
      });
 
+    // install node packages
+    const spawn = require('cross-spawn'); 
+    const child = spawn("npm", ["install"], {
+      stdio: 'inherit',
+      env: {
+        ...process.env,
+        ADBLOCK: '1',
+        // we set NODE_ENV to development as pnpm skips dev
+        // dependencies when production
+        NODE_ENV: 'development',
+        DISABLE_OPENCOLLECTIVE: '1',
+      },
+    });
+
     console.log(
       '\n',
       chalk.green("Your project has been successfully created in " + outputPath),
