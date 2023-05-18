@@ -1,4 +1,4 @@
-import TextToKebabCase from "@/utils/TextToKebabCase";
+import TextToKebabCase from "@/utils/core/Text/TextToKebabCase";
 
 /**
  * 

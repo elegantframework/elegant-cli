@@ -1,4 +1,4 @@
-import MetaTitle from '@/utils/MetaTitle';
+import MetaTitle from '@/utils/core/Meta/MetaTitle';
 
 const css = `
   body {

@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav popover component renders a nav popover component properly 1`] = `
+<div
+  className="md:hidden'"
+>
+  <button
+    className="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="sr-only"
+    >
+      Navigation
+    </span>
+    <svg
+      aria-hidden="true"
+      fill="none"
+      height="24"
+      width="24"
+    >
+      <path
+        d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  </button>
+  <div />
+  <div
+    style={
+      {
+        "borderWidth": "0",
+        "clip": "rect(0, 0, 0, 0)",
+        "display": "none",
+        "height": 0,
+        "left": 1,
+        "margin": -1,
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "fixed",
+        "top": 1,
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Nav popover component renders a nav popover component with no navigation elements properly 1`] = `
+<div
+  className="md:hidden'"
+>
+  <button
+    className="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="sr-only"
+    >
+      Navigation
+    </span>
+    <svg
+      aria-hidden="true"
+      fill="none"
+      height="24"
+      width="24"
+    >
+      <path
+        d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  </button>
+  <div />
+  <div
+    style={
+      {
+        "borderWidth": "0",
+        "clip": "rect(0, 0, 0, 0)",
+        "display": "none",
+        "height": 0,
+        "left": 1,
+        "margin": -1,
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "fixed",
+        "top": 1,
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  />
+</div>
+`;

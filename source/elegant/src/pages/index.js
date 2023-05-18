@@ -14,7 +14,7 @@ import clsx from 'clsx';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import elegantRome from '@/img/splash/elegant_rome.jpg';
-import MetaTitle from '@/utils/MetaTitle';
+import MetaTitle from '@/utils/core/Meta/MetaTitle';
 import { tokens, code } from '@/components/home/hero.html?highlight'
 
 Home.layoutProps = {
