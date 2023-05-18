@@ -5,6 +5,7 @@
   "scripts": {
     "build:elegant": "cd source/elegant && npm run build",
     "dev": "cd source/elegant && npm run dev",
+    "publish:innovators": "node scripts/publish-innovators-prerelease.ts",
     "test": "jest --watch --verbose ./integrations --detectOpenHandles --forceExit",
     "test:ci": "jest --ci ./integrations --detectOpenHandles --forceExit && cd source/elegant && npm run test:ci",
     "test:elegant": "cd source/elegant && npm run test --watch"
@@ -33,6 +34,7 @@
     "chalk": "^4.1.2",
     "clear": "^0.1.0",
     "commander": "^10.0.0",
+    "cross-spawn": "^7.0.3",
     "figlet": "^1.5.2",
     "path": "^0.12.7"
   },
