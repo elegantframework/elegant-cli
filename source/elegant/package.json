@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "export": "next build && next export",
     "test": "jest --watch --verbose ./__tests__ ./src",
@@ -26,6 +27,7 @@
     "elegant-cli": "^2.1.1",
     "next": "^12.3.1",
     "next-seo": "^6.0.0",
+    "next-sitemap": "^4.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2"
