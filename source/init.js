@@ -50,6 +50,17 @@ else
   outputPath = "./.dist/";
 }
 
+console.log(
+  chalk.white(
+    "Creating a new Elegant application in ", chalk.green(path.resolve(outputPath)), "."
+  ),
+  "\n",
+  "\n",
+  "Initializing project with a base template.",
+  "\n",
+  "\n"
+);
+
 // copy the docs project into the users project
 fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => {
   if (err) {
@@ -74,7 +85,14 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
     // delete the example git ignore file
     fs.unlink(outputPath + '.gitignore.example', function(err,results){
       // do nothing
-     });
+    });
+
+    console.log(
+      "\n",
+      chalk.white("Installing dependencies:"),
+      "\n",
+      "\n"
+    );
 
     // install node packages
     const spawn = require('cross-spawn'); 
@@ -92,10 +110,13 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
 
     console.log(
       '\n',
-      chalk.green("Your project has been successfully created in " + outputPath),
+      chalk.white("Initialized a git repository."),
+      "\n",
+      "\n",
+      chalk.white(chalk.green("Success! "), "Created your Elegant application at ", path.resolve(outputPath)),
       '\n',
       '\n',
-      chalk.white("The next steps are to run `npm install`, and then `npm run dev`."),
+      chalk.white("The next steps are to run ", chalk.green( `npm run dev`)," to start your app locally."),
       '\n',
       '\n',
       chalk.white("For more information, check out our install guide: "),chalk.underline.white("https://www.elegantframework.com/docs/installation#your-first-elegant-application"),
