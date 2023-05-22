@@ -87,13 +87,6 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       // do nothing
     });
 
-    console.log(
-      "\n",
-      chalk.white("Installing dependencies:"),
-      "\n",
-      "\n"
-    );
-
     // install node packages
     const spawn = require('cross-spawn'); 
     const child = spawn("npm", ["install"], {
@@ -108,23 +101,29 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       },
     });
 
-    console.log(
-      '\n',
-      chalk.white("Initialized a git repository."),
-      "\n",
-      "\n",
-      chalk.white(chalk.green("Success! "), "Created your Elegant application at ", path.resolve(outputPath)),
-      '\n',
-      '\n',
-      chalk.white("The next steps are to run ", chalk.green( `npm run dev`)," to start your app locally."),
-      '\n',
-      '\n',
-      chalk.white("For more information, check out our install guide: "),chalk.underline.white("https://www.elegantframework.com/docs/installation#your-first-elegant-application"),
-      '\n',
-      '\n',
-      chalk.bgBlue.bold.white("Thank you for supporting Elegant :)"),
-      '\n',
-      '\n'
-    );
+    child.on('close', (code) => {
+      if (code !== 0) {
+        return;
+      }
+
+      console.log(
+        "\n",
+        "\n",
+        chalk.white(chalk.green("Success! "), "Created your Elegant application at ", path.resolve(outputPath)),
+        '\n',
+        '\n',
+        chalk.white("The next steps are to run ", chalk.green( `npm run dev`)," to start your app locally."),
+        '\n',
+        '\n',
+        chalk.white("For more information, check out our install guide: "),chalk.underline.white("https://www.elegantframework.com/docs/installation#your-first-elegant-application"),
+        '\n',
+        '\n',
+        chalk.bgBlue.bold.white("Thank you for supporting Elegant :)"),
+        '\n',
+        '\n'
+      );
+
+      resolve();
+    });
   }
 });
