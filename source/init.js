@@ -87,6 +87,13 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       // do nothing
     });
 
+    console.log(
+      "\n",
+      chalk.white("Installing dependencies:"),
+      "\n",
+      "\n"
+    );
+
     // install node packages
     const spawn = require('cross-spawn'); 
     const child = spawn("npm", ["install"], {
@@ -122,8 +129,8 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
         '\n',
         '\n'
       );
-
-      resolve();
+      
+      process.exit(0);
     });
   }
 });
