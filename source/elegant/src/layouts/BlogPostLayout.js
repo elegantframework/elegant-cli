@@ -117,20 +117,6 @@ export function BlogPostLayout({ children, meta }) {
             </main>
             <footer className="mt-16">
             <div className="relative">
-                {/* <img
-                  src={require('@/img/beams/blog-post-form-light.jpg').default.src}
-                  alt=""
-                  className="absolute top-px sm:left-auto sm:right-0 left-1/4 dark:hidden max-w-none"
-                  width="476"
-                  decoding="async"
-                />
-                <img
-                  src={require('@/img/beams/blog-post-form-dark@90.jpg').default.src}
-                  alt=""
-                  className="absolute top-px -left-1/4 sm:left-0 hidden dark:block max-w-none"
-                  width="1429"
-                  decoding="async"
-                /> */}
                 <NewsletterBlock action={process.env.NEXT_PUBLIC_CONVERTKIT_ACTION_URL}/>
               </div>
               <div className="relative">
