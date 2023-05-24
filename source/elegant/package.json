@@ -23,6 +23,7 @@
     "@next/env": "^13.4.1",
     "@storybook/addon-a11y": "^7.0.8",
     "@storybook/addon-styling": "^1.0.6",
+    "@types/video.js": "^7.3.51",
     "cross-spawn": "^7.0.3",
     "dotenv": "^16.0.3",
     "next": "^12.3.1",
@@ -31,7 +32,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "video.js": "^8.3.0",
+    "videojs-youtube": "^3.0.1"
   },
   "devDependencies": {
     "@badrap/bar-of-progress": "^0.1.1",

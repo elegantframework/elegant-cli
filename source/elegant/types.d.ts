@@ -4,3 +4,4 @@ declare module '*module.css' {
     }
     export default styles;
 };
+declare module 'videojs-youtube';
