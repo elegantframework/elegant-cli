@@ -3,5 +3,5 @@ declare module '*module.css' {
       [className: string]: string
     }
     export default styles;
-};
-declare module 'videojs-youtube';
+}
+declare module 'videojs-youtube'
