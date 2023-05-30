@@ -1,7 +1,8 @@
 ---
 title: Trademark Policy
 ---
-import { SiteName, ContactEmail } from '../../utils/appInfo'
+import {  ContactEmail } from '../../utils/appInfo'
+import Config from "Config";
 
 <main className="max-w-3xl mx-auto pb-28">
     <div className="px-4 sm:px-6 md:px-8 relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32 pb-20 sm:pb-24 lg:pb-32">
@@ -19,13 +20,13 @@ import { SiteName, ContactEmail } from '../../utils/appInfo'
     </ul>
     <p className="pt-10 pb-5">Last Updated: 27th of May, 2023</p>
     <p className="pb-5">
-        The following policy outlines the guidelines and restrictions for the use of trademarks owned by <b><SiteName /></b> ("we" or "our"). By using any of our trademarks, you agree to comply with this policy.
+        The following policy outlines the guidelines and restrictions for the use of trademarks owned by <b>{Config('app.name')}</b> ("we" or "our"). By using any of our trademarks, you agree to comply with this policy.
     </p>
     <h2 id="ownership-and-usage" className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl pt-5 pb-5">
         Ownership and Usage
     </h2>
     <p className="pb-5">
-        All trademarks, logos, service marks, and trade names displayed on our website, applications, or other materials ("Marks") are the property of <b><SiteName /></b> or their respective owners. The Marks are protected by trademark laws and international treaties. You may not use any of our Marks without obtaining prior written permission from us or the respective owner, as applicable.
+        All trademarks, logos, service marks, and trade names displayed on our website, applications, or other materials ("Marks") are the property of <b>{Config('app.name')}</b> or their respective owners. The Marks are protected by trademark laws and international treaties. You may not use any of our Marks without obtaining prior written permission from us or the respective owner, as applicable.
     </p>
     <h2 id="permissible-use" className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl pt-5 pb-5">
         Permissible Use
