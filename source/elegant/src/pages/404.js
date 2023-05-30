@@ -1,4 +1,5 @@
 import MetaTitle from '@/utils/core/Meta/MetaTitle';
+import Config from 'Config';
 
 const css = `
   body {
@@ -12,7 +13,7 @@ const css = `
 `
 Error.layoutProps = {
   meta: {
-    title: "Page not found - " + MetaTitle(process.env.NEXT_PUBLIC_APP_NAME, process.env.NEXT_PUBLIC_APP_TAGLINE)
+    title: "Page not found - " + MetaTitle(Config('app.name'), Config('app.tagline'))
   },
 };
 
