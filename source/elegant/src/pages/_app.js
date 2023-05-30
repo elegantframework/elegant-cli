@@ -16,6 +16,7 @@ import AnalyticsHead from '@/components/core/Analytics/AnalyticsHead';
 import AnalyticsBody from '@/components/core/Analytics/AnalyticsBody';
 import * as gtag from '@/utils/core/Analytics/gtag';
 import socialCardLarge from '@/img/social-card-large.jpg';
+import Config from 'Config';
 
 if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
   window.ResizeObserver = ResizeObserver
@@ -105,16 +106,6 @@ export default function App({ Component, pageProps, router }) {
       items.find(({ href }) => href === router.pathname)
     )?.[0];
 
-  // is this app for a business? 
-  let appType = "Organization";
-
-  if(
-    process.env.NEXT_PUBLIC_APP_TYPE_ORGANIZATION !== undefined && 
-    process.env.NEXT_PUBLIC_APP_TYPE_ORGANIZATION === false
-  ){
-    appType = "Person";
-  }
-
   // if their are social links provided, activate the Social schema data
   let socialSchema = [];
   {
@@ -161,7 +152,7 @@ export default function App({ Component, pageProps, router }) {
   {
     socialProfile = (
       <SocialProfileJsonLd 
-        type={appType}
+        type={Config('app.type')}
         name={process.env.NEXT_PUBLIC_APP_NAME}
         url={url}
         sameAs={socialSchema}

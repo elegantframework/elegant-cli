@@ -2,6 +2,11 @@
 
 exports[`App Config matches the existing snapshot when an env var is set 1`] = `
 {
+  "description": "A unit test first frontend framework for rapidly building beautiful and elegant web applications.",
   "name": "Elegant - The unit testing application.",
+  "repository": "https://github.com/example/project",
+  "tagline": "The Unit Test First Framework for React Developers",
+  "type": "Person",
+  "url": "https://elegantframework.test",
 }
 `;
