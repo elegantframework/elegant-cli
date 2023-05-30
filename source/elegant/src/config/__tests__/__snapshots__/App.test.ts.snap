@@ -2,11 +2,22 @@
 
 exports[`App Config matches the existing snapshot when an env var is set 1`] = `
 {
+  "contact_email": "info@elegantframework.com",
+  "convert_action_url": "https://example.com/convertkit/post",
   "description": "A unit test first frontend framework for rapidly building beautiful and elegant web applications.",
+  "facebook_app_id": "1234567890",
+  "facebook_url": "",
+  "google_analytics_id": "ABC-1234567",
+  "instagram_url": "",
+  "linkedin_url": "",
   "name": "Elegant - The unit testing application.",
   "repository": "https://github.com/example/project",
   "tagline": "The Unit Test First Framework for React Developers",
+  "twitter_handle": "@thetester",
+  "twitter_site_handle": "@thetester",
+  "twitter_url": "",
   "type": "Person",
   "url": "https://elegantframework.test",
+  "youtube_url": "",
 }
 `;

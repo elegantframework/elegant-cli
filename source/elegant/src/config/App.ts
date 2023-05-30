@@ -5,7 +5,6 @@
  */
 const AppConfig = () => {
     return {
-
         /*
         |--------------------------------------------------------------------------
         | Application Name
@@ -44,6 +43,7 @@ const AppConfig = () => {
         |--------------------------------------------------------------------------
         |
         | This URL is used by Elegant to properly generate URLs during build.
+        | The application url is also passed to the rich snippets schema data to set a canonical url.
         | You should set this to the root of where your application is running.
         |
         */
@@ -92,6 +92,7 @@ const AppConfig = () => {
         | Convert Kit Action URL
         |--------------------------------------------------------------------------
         |
+        | Convert Kit action urls used to send newsletter signup's from your application.
         |
         */
         'convert_action_url': process.env.NEXT_PUBLIC_CONVERTKIT_ACTION_URL || "",
@@ -101,6 +102,7 @@ const AppConfig = () => {
         | Google Analytics ID
         |--------------------------------------------------------------------------
         |
+        | The unique tracking ID for a Google Analytics account.
         |
         */
         'google_analytics_id': process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || "",

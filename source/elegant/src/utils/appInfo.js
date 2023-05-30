@@ -1,9 +1,0 @@
-export const SiteName = () => process.env.NEXT_PUBLIC_APP_NAME;
-export const SiteDescription = () => process.env.NEXT_PUBLIC_APP_DESCRIPTION;
-export const SiteTagline = () => process.env.NEXT_PUBLIC_APP_TAGLINE;
-export const SiteUrl = () => process.env.NEXT_PUBLIC_APP_URL;
-export const SiteRepository = () => process.env.NEXT_PUBLIC_APP_REPOSITORY;
-export const SiteTwitterHandle = () => process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE;
-export const ConvertKitActionUrl = () => process.env.NEXT_PUBLIC_CONVERTKIT_ACTION_URL;
-export const GoogleAnalyticsId = () => process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
-export const ContactEmail = () => process.env.NEXT_PUBLIC_CONTACT_EMAIL;

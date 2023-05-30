@@ -1,7 +1,6 @@
 ---
 title: Trademark Policy
 ---
-import {  ContactEmail } from '../../utils/appInfo'
 import Config from "Config";
 
 <main className="max-w-3xl mx-auto pb-28">
@@ -62,7 +61,7 @@ import Config from "Config";
         Reporting Unauthorized Use
     </h2>
     <p className="pb-5">
-        If you become aware of any unauthorized use of our Marks or have any questions regarding their usage, please contact us at <b><ContactEmail /></b>.
+        If you become aware of any unauthorized use of our Marks or have any questions regarding their usage, please contact us at <b>{Config('app.contact_email')}</b>.
     </p>
     <h2 id="modifications-to-the-policy" className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl pt-5 pb-5">
         Modifications to the Policy
