@@ -58,7 +58,7 @@ export default function App({ Component, pageProps, router }) {
    * Fire a page view analytics event when a user navigates to a new page
    */
   useEffect(() => {
-    if(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID !== undefined && process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID !== ''){
+    if(Config('app.google_analytics_id').length > 0){
       const handleRouteChange = (url) => {
         gtag.pageview(url);
       }
@@ -106,36 +106,26 @@ export default function App({ Component, pageProps, router }) {
       items.find(({ href }) => href === router.pathname)
     )?.[0];
 
-  // if their are social links provided, activate the Social schema data
+  // if there are social links provided, activate the Social schema data
   let socialSchema = [];
   {
-    process.env.NEXT_PUBLIC_APP_TWITTER_URL !== undefined && 
-    process.env.NEXT_PUBLIC_APP_TWITTER_URL !== "" ?
-      socialSchema.push(process.env.NEXT_PUBLIC_APP_TWITTER_URL) : null
+    Config('app.twitter_url') > 0 ? socialSchema.push(Config('app.twitter_url')) : null;
   }
   {
-    process.env.NEXT_PUBLIC_APP_FACEBOOK_URL !== undefined && 
-    process.env.NEXT_PUBLIC_APP_FACEBOOK_URL !== "" ?
-      socialSchema.push(process.env.NEXT_PUBLIC_APP_FACEBOOK_URL) : null
+    Config('app.facebook_url') > 0 ? socialSchema.push(Config('app.facebook_url')) : null;
   }
   {
-    process.env.NEXT_PUBLIC_APP_INSTAGRAM_URL !== undefined && 
-    process.env.NEXT_PUBLIC_APP_INSTAGRAM_URL !== "" ?
-      socialSchema.push(process.env.NEXT_PUBLIC_APP_INSTAGRAM_URL) : null
+    Config('app.instagram_url') > 0 ? socialSchema.push(Config('app.instagram_url')) : null;
   }
   {
-    process.env.NEXT_PUBLIC_APP_YOUTUBE_URL !== undefined && 
-    process.env.NEXT_PUBLIC_APP_YOUTUBE_URL !== "" ?
-      socialSchema.push(process.env.NEXT_PUBLIC_APP_YOUTUBE_URL) : null
+    Config('app.youtube_url') > 0 ? socialSchema.push(Config('app.youtube_url')) : null;
   }
   {
-    process.env.NEXT_PUBLIC_APP_LINKEDIN_URL !== undefined && 
-    process.env.NEXT_PUBLIC_APP_LINKEDIN_URL !== "" ?
-      socialSchema.push(process.env.NEXT_PUBLIC_APP_LINKEDIN_URL) : null
+    Config('app.linkedin_url') > 0 ? socialSchema.push(Config('app.linkedin_url')) : null;
   }
 
   // set our url
-  let url = process.env.NEXT_PUBLIC_APP_URL;
+  let url = Config('app.url');
 
   if(
     process.env.NEXT_PUBLIC_VERCEL_URL !== undefined &&
@@ -153,7 +143,7 @@ export default function App({ Component, pageProps, router }) {
     socialProfile = (
       <SocialProfileJsonLd 
         type={Config('app.type')}
-        name={process.env.NEXT_PUBLIC_APP_NAME}
+        name={Config('app.name')}
         url={url}
         sameAs={socialSchema}
       />
@@ -163,33 +153,33 @@ export default function App({ Component, pageProps, router }) {
   return (
     <>
       <Head>
-        <AnalyticsHead googleAnalyticsID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/>
+        <AnalyticsHead googleAnalyticsID={Config('app.google_analytics_id')}/>
       </Head>
       <Seo 
         title={meta.metaTitle || meta.title}
-        description={meta.metaDescription || meta.description || process.env.NEXT_PUBLIC_APP_DESCRIPTION}
-        canonical={process.env.NEXT_PUBLIC_APP_URL || ""}
+        description={meta.metaDescription || meta.description || Config('app.description')}
+        canonical={Config('app.url') || ""}
         themeColor={"#f8fafc"}
-        twitterHandle={process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE}
-        twitterSite={process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE}
-        siteName={process.env.NEXT_PUBLIC_APP_NAME}
+        twitterHandle={Config('app.twitter_handle')}
+        twitterSite={Config('app.twitter_handle')}
+        siteName={Config('app.name')}
         url={`${url}${router.pathname}`}
         image={`${url}${image}`}
-        facebookAppID={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID}
+        facebookAppID={Config('app.facebook_app_id')}
         pageType={pageType}
       />
       <LogoJsonLd 
-        logo={process.env.NEXT_PUBLIC_APP_URL + SeoLogo.src}
-        url={process.env.NEXT_PUBLIC_APP_URL}
+        logo={Config('app.url') + SeoLogo.src}
+        url={Config('app.url')}
       />
       <BrandJsonLd 
-        logo={process.env.NEXT_PUBLIC_APP_URL + SeoLogo.src}
-        id={process.env.NEXT_PUBLIC_APP_URL}
-        slogan={process.env.NEXT_PUBLIC_APP_TAGLINE}
+        logo={Config('app.url') + SeoLogo.src}
+        id={Config('app.url')}
+        slogan={Config('app.tagline')}
       />
       <WebPageJsonLd 
         description={meta.metaDescription || meta.description}
-        id={`${process.env.NEXT_PUBLIC_APP_URL}${router.pathname}`}
+        id={`${Config('app.url')}${router.pathname}`}
       />
       {socialProfile}
       <SearchProvider>
@@ -203,7 +193,7 @@ export default function App({ Component, pageProps, router }) {
           />
         )}
         <Layout {...layoutProps}>
-          <AnalyticsBody googleAnalyticsID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}/>
+          <AnalyticsBody googleAnalyticsID={Config('app.google_analytics_id')}/>
           <Component section={section} {...pageProps} />
         </Layout>
       </SearchProvider>
