@@ -32,7 +32,7 @@ const AppConfig = () => {
         | Application Tagline
         |--------------------------------------------------------------------------
         |
-        | 
+        | This is your applications slogan. It is used throughout the app, in places such as the meta description.
         |
         */
         'tagline': process.env.NEXT_PUBLIC_APP_TAGLINE || "Elevate your creative content.",
@@ -75,6 +75,7 @@ const AppConfig = () => {
         |--------------------------------------------------------------------------
         |
         |
+        |
         */
         'twitter_handle': process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE || "",
 
@@ -113,6 +114,7 @@ const AppConfig = () => {
         |--------------------------------------------------------------------------
         |
         |
+        |
         */
         'facebook_app_id': process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || "",
 
@@ -121,7 +123,9 @@ const AppConfig = () => {
         | Twitter URL
         |--------------------------------------------------------------------------
         |
-        |
+        | The url for the Twitter page for this application. 
+        | This url is used in the social schema data and rich snippets.
+        | The rich snippets tell Google and other crawlers that this website is associated with this social media account.
         */
         'twitter_url': process.env.NEXT_PUBLIC_APP_TWITTER_URL || "",
 
@@ -130,6 +134,9 @@ const AppConfig = () => {
         | Facebook URL
         |--------------------------------------------------------------------------
         |
+        | The url for the Facebook page for this application. 
+        | This url is used in the social schema data and rich snippets.
+        | The rich snippets tell Google and other crawlers that this website is associated with this social media account.
         |
         */
         'facebook_url': process.env.NEXT_PUBLIC_APP_FACEBOOK_URL || "",
@@ -138,8 +145,9 @@ const AppConfig = () => {
         |--------------------------------------------------------------------------
         | Instagram URL
         |--------------------------------------------------------------------------
-        |
-        |
+        | The url for the Instagram page for this application. 
+        | This url is used in the social schema data and rich snippets.
+        | The rich snippets tell Google and other crawlers that this website is associated with this social media account.
         */
         'instagram_url': process.env.NEXT_PUBLIC_APP_INSTAGRAM_URL || "",
 
@@ -147,8 +155,9 @@ const AppConfig = () => {
         |--------------------------------------------------------------------------
         | Youtube URL
         |--------------------------------------------------------------------------
-        |
-        |
+        | The url for the YouTube page for this application. 
+        | This url is used in the social schema data and rich snippets.
+        | The rich snippets tell Google and other crawlers that this website is associated with this social media account.
         */
         'youtube_url': process.env.NEXT_PUBLIC_APP_YOUTUBE_URL || "",
 
@@ -156,8 +165,9 @@ const AppConfig = () => {
         |--------------------------------------------------------------------------
         | LinkedIn URL
         |--------------------------------------------------------------------------
-        |
-        |
+        | The url for the LinkedIn page for this application. 
+        | This url is used in the social schema data and rich snippets.
+        | The rich snippets tell Google and other crawlers that this website is associated with this social media account.
         */
         'linkedin_url': process.env.NEXT_PUBLIC_APP_LINKEDIN_URL || "",
 
