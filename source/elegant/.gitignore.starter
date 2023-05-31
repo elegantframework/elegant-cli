@@ -4,9 +4,10 @@
 # Production
 /build
 
-# Generated files
-.docusaurus
-.cache-loader
+# next.js
+/.next/
+/out/
+/public/feeds/
 
 # Misc
 .DS_Store

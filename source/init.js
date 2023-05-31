@@ -83,25 +83,17 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
     });
 
 
-    //
-    // Deprecated - 5/31/2023
-    //
-    // @TODO: DELETE ME
-    // // copy the git ignore file over
-    // fs.cp(module_path + 'source/elegant/.gitignore.example', outputPath + '.gitignore', (err) => {
-    //   if (err) {
-    //     console.error(err);
-    //   }
-    // });
+    // copy the git ignore file over
+    fs.cp(module_path + 'source/elegant/.gitignore.starter', outputPath + '.gitignore', (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
 
-    //
-    // Deprecated - 5/31/2023
-    //
-    // @TODO: DELETE ME
-    // // delete the example git ignore file
-    // fs.unlink(outputPath + '.gitignore.example', function(err,results){
-    //   // do nothing
-    // });
+    // delete the example git ignore file
+    fs.unlink(outputPath + '.gitignore.starter', function(err,results){
+      // do nothing
+    });
 
     // delete the started .env file
     fs.unlink(outputPath + '.env.starter', function(err,results){
