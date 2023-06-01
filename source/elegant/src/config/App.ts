@@ -179,7 +179,7 @@ const AppConfig = () => {
         | Currently only used on the Trademark Policy page.
         |
         */
-        'contact_email': process.env.NEXT_PUBLIC_CONTACT_EMAIL || "",
+        'contact_email': process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@elegantframework.com",
     };
 };
 

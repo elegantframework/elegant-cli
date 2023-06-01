@@ -27,8 +27,7 @@ const fallbackLayouts = {
 }
 
 const fallbackDefaultExports = {
-  'src/pages/legal/**/*': ['@/layouts/BasicLayout', 'BasicLayout'],
-  'src/pages/{docs,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
+  'src/pages/{docs,components,legal}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
   'src/pages/blog/**/*': ['@/layouts/BlogPostLayout', 'BlogPostLayout'],
 }
 
