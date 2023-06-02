@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { ArticleJsonLd } from 'next-seo';
 import { useRouter } from 'next/router';
+import Config from "Config";
 
 export function BlogPostLayout({ children, meta }) {
   // use our router to get the url
@@ -23,10 +24,10 @@ export function BlogPostLayout({ children, meta }) {
     <>
       <ArticleJsonLd 
         useAppDir={false}
-        url={process.env.NEXT_PUBLIC_APP_URL + router.pathname}
+        url={Config('app.url') + router.pathname}
         title={meta.title}
         images={[
-          process.env.NEXT_PUBLIC_APP_URL + meta.image.src
+          Config('app.url') + meta.image.src
         ]}
         datePublished={meta.date}
         authorName={[{
@@ -116,9 +117,11 @@ export function BlogPostLayout({ children, meta }) {
               </article>
             </main>
             <footer className="mt-16">
-            <div className="relative">
-                <NewsletterBlock action={process.env.NEXT_PUBLIC_CONVERTKIT_ACTION_URL}/>
-              </div>
+              {Config('app.convert_action_url') ??
+                <div className="relative">
+                  <NewsletterBlock action={Config('app.convert_action_url')}/>
+                </div>
+              }
               <div className="relative">
                 <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
                   <div className='pt-8 pb-10 text-center text-slate-500 dark:border-slate-200/5'>

@@ -5,9 +5,10 @@ import { Feed } from 'feed';
 import { getAllPosts } from '@/utils/getAllPosts';
 import { mdxComponents } from '@/utils/mdxComponents';
 import socialCardLarge from '@/img/social-card-large.jpg';
+import Config from "Config";
 
 export default function buildRss() {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+  const baseUrl = Config('app.url');
   const blogUrl = `${baseUrl}/blog`
 
   const feed = new Feed({
