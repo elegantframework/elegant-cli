@@ -1,4 +1,6 @@
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID
+import Config from "Config";
+
+export const GA_TRACKING_ID = Config('app.google_analytics_id');
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url) => {

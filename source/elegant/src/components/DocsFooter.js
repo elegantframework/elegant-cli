@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import clsx from 'clsx';
+import Config from "Config";
 
 export function DocsFooter({ children, previous, next }) {
   return (
@@ -63,7 +64,7 @@ export function DocsFooter({ children, previous, next }) {
         {children ? (children) : (
           <div className="flex space-x-10 text-slate-400 dark:text-slate-500">
             <a
-              href={process.env.NEXT_PUBLIC_APP_REPOSITORY}
+              href={Config('app.repository')}
               className="hover:text-slate-500 dark:hover:text-slate-400"
             >
               <span className="sr-only">GitHub</span>
