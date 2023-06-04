@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import Logo from '@/components/core/Logos/Logo/Logo'
+import Logo from '@/components/core/Logos/Logo/Logo';
+import Config from "Config";
 
 const footerNav = [
   {
     Community: [
-      { title: 'GitHub', href: process.env.NEXT_PUBLIC_APP_REPOSITORY, external: true },
+      { title: 'GitHub', href: Config('app.repository'), external: true },
       { title: 'Indie Hackers', href: 'https://www.indiehackers.com/product/elegant-framework', external: true },
       { title: 'Twitter', href: 'https://twitter.com/thebrandonowens', external: true },
       { title: 'Reddit', href: 'https://www.reddit.com/r/elegantframework/', external: true },

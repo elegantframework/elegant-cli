@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import NavItems from "../NavItems/NavItems";
 import { ThemeSelect } from "../../Toggles/ThemeToggle/ThemeToggle";
 import { NavigationItem } from "@/types/NavigationItem";
+import Config from "./../../../../utils/core/Config/Config";
 
 interface Props {
     /**
@@ -101,7 +102,7 @@ const NavPopover = ({
                         />
                         <li>
                             <a
-                                href={process.env.NEXT_PUBLIC_APP_REPOSITORY}
+                                href={Config('app.repository')}
                                 className="hover:text-primary-500 dark:hover:text-primary-400"
                                 target="_blank"
                             >

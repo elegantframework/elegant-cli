@@ -82,15 +82,16 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       }
     });
 
+
     // copy the git ignore file over
-    fs.cp(module_path + 'source/elegant/.gitignore.example', outputPath + '.gitignore', (err) => {
+    fs.cp(module_path + 'source/elegant/.gitignore.starter', outputPath + '.gitignore', (err) => {
       if (err) {
         console.error(err);
       }
     });
 
     // delete the example git ignore file
-    fs.unlink(outputPath + '.gitignore.example', function(err,results){
+    fs.unlink(outputPath + '.gitignore.starter', function(err,results){
       // do nothing
     });
 
