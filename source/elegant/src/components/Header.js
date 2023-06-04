@@ -6,8 +6,9 @@ import Router from 'next/router';
 import Logo from '@/components/core/Logos/Logo/Logo';
 import { Dialog } from '@headlessui/react';
 import { useEffect, useState } from 'react';
-import clsx from 'clsx'
-import ThemeToggle, {ThemeSelect} from '@/components/core/Toggles/ThemeToggle/ThemeToggle'
+import clsx from 'clsx';
+import ThemeToggle, {ThemeSelect} from '@/components/core/Toggles/ThemeToggle/ThemeToggle';
+import Config from "Config";
 
 /**
  * @deprecated - To be removed by 2.3
@@ -72,7 +73,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
             <NavItems />
             <li>
               <a
-                href={process.env.NEXT_PUBLIC_APP_REPOSITORY}
+                href={Config('app.repository')}
                 className="hover:text-primary-500 dark:hover:text-primary-400"
                 target="_blank"
               >
@@ -196,7 +197,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                     // Router.push('/brand')
                   }}
                 >
-                  <span className="sr-only">{process.env.NEXT_PUBLIC_APP_NAME} home page</span>
+                  <span className="sr-only">{Config('app.name')} home page</span>
                   <Logo className="w-auto h-7" />
                 </a>
               </Link>
@@ -210,11 +211,11 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                 <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
                   <ThemeToggle panelClassName="mt-8" />
                   <a
-                     href={process.env.NEXT_PUBLIC_APP_REPOSITORY}
+                     href={Config('app.repository')}
                     className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                     target="_blank"
                   >
-                    <span className="sr-only">{process.env.NEXT_PUBLIC_APP_NAME} on GitHub</span>
+                    <span className="sr-only">{Config('app.name')} on GitHub</span>
                     <svg
                       viewBox="0 0 16 16"
                       className="w-5 h-5"

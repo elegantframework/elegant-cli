@@ -1,14 +1,15 @@
-import { useState, useEffect, createContext, Fragment, useCallback, useContext } from 'react'
-import { ClassTable } from '@/components/ClassTable'
-import { useRouter } from 'next/router'
-import { usePrevNext } from '@/hooks/usePrevNext'
-import Link from 'next/link'
-import { SidebarLayout, SidebarContext } from '@/layouts/SidebarLayout'
-import { PageHeader } from '@/components/PageHeader'
-import clsx from 'clsx'
-import { DocsFooter } from '@/components/DocsFooter'
-import { Heading } from '@/components/Heading'
-import { MDXProvider } from '@mdx-js/react'
+import { useState, useEffect, createContext, Fragment, useCallback, useContext } from 'react';
+import { ClassTable } from '@/components/ClassTable';
+import { useRouter } from 'next/router';
+import { usePrevNext } from '@/hooks/usePrevNext';
+import Link from 'next/link';
+import { SidebarLayout, SidebarContext } from '@/layouts/SidebarLayout';
+import { PageHeader } from '@/components/PageHeader';
+import clsx from 'clsx';
+import { DocsFooter } from '@/components/DocsFooter';
+import { Heading } from '@/components/Heading';
+import { MDXProvider } from '@mdx-js/react';
+import Config from 'Config';
 
 export const ContentsContext = createContext()
 
@@ -207,11 +208,19 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
       </ContentsContext.Provider>
 
       <DocsFooter previous={prev} next={next}>
-        <Link
-          href={`${process.env.NEXT_PUBLIC_APP_REPOSITORY}/edit/main/src/pages${router.pathname}.mdx`}
-        >
-          <a className="hover:text-slate-900 dark:hover:text-slate-400">Edit this page on GitHub</a>
-        </Link>
+        {Config('app.repository').length > 0 &&
+          <Link
+            href={`${Config('app.repository')}/edit/main/source/elegant/src/pages${router.pathname}.mdx`}
+          >
+            <a 
+              className="hover:text-slate-900 dark:hover:text-slate-400"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Edit this page on GitHub
+            </a>
+          </Link>
+        }
       </DocsFooter>
 
       <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
