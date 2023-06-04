@@ -3,96 +3,57 @@ title: Upgrade Guide
 metaTitle: Upgrade Guide - Elegant - Elevate your creative content.
 ---
 
-- [Upgrading to 2.1 from 2.x](#upgrading_to_2_1_from_2_x)
+- [Upgrading to 2.2 from 2.x](#upgrading_to_2_2_from_2_x)
 
 - [Medium Impact Updates](#medium_impact)
-    - [ESLint](#eslint)
 
 - [Low Impact Updates](#low_impact)
-    - [ConvertKit](#convertKit)
-    - [Google Analytics](#google-analytics)
-    - [Newsletter Forms](#newsletter-forms)
-    - [Splash Pages](#splash-pages)
-    - [Tailwind CSS](#tailwind-css)
 
-<a name="upgrading_to_2_1_from_2_x"></a>
 
-# Upgrading to 2.1 from 2.x
+- [App Type](#app_type)
+    - The app type is now set using the `NEXT_PUBLIC_APP_TYPE` variable. Setting this to personal will turn the rich snippets schema data into a personal website.
 
-Elegant version 2.1 introduces a number of non breaking changes and feature upgrades.
+- [Config Namespace](#config_namespace)
+    - Created a 'config/' namespace to set a base for all environment variables.
 
-Read the complete announcement here: [Elegant v2.1](/blog/2023-05-04-elegant-v2-1-beta).
+
+- [Core Namespace](#core_namespace)
+    - Created a 'core/' namespace within the components and utility directories. This will serve as the directories for core Elegant code, and will make future upgrades a breeze.
+
+- [Environment File](#environment_file)
+    - Added slimmed down starter .env file during project creation that contains only the basic variables to get started with a new app.
+    - Added a complete .env.example file that contains all variables.
+    - Added a .env.test file for complete Jest unit testings with variables.
+
+
+- [Favicons](#favicons)
+    - Updated the favicons to be proper across all browsers.
+
+
+- [Meta.js Component](#meta_js_component)
+    - Deprecated the Meta.js component; Will be removed by version 3. The Meta component is replaced by our Next-Seo implementation
+
+
+- [Seo Component](#seo_component)
+    - Added complete core SEO components that user would expect, but are "plugins" within WordPress.
+    - Added Seo Rich snippets, including the brands logo.
+
+   
+
+<a name="upgrading_to_2_2_from_2_x"></a>
+
+# Upgrading to 2.2 from 2.x
+
+Elegant version 2.2 introduces a number of non breaking changes and feature upgrades.
+
+Read the complete announcement here: [Elegant v2.2](/blog/2023-06-09-elegant-v2-2-stable).
 
 <a name="medium_impact"></a>
 
 # Medium Impact Updates
 
-<a name="eslint"></a>
-
-## ESLint
-##### **Likelihood Of Impact: Medium**
-
-We have downgraded the major version of ESLint temporarily for this version to ensure consistency and compatibility across all deployment pipelines. 
-
-ESLint will be upgraded back up to the latest version in an upcoming release.
-
-<a name="low_impact"></a>
-
-# Low Impact Updates
-
-<a name="convertKit"></a>
-
-## ConvertKit
-##### **Likelihood Of Impact: Very Low**
-
-ConvertKit newsletter subscriptions support has been added to Elegant. 
-
-If you are interested in using ConvertKit with your Elegant application, you may simply provide an action url string to the `NEXT_PUBLIC_CONVERTKIT_ACTION_URL` environment variable in your `.env` file. 
-
-```ini
-NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/21224410/subscriptions"
-```
-
-Find the full ConvertKit configuration guide here: [ConvertKit](/docs/convertkit).
-
-<a name="google-analytics"></a>
-
-## Google Analytics
-##### **Likelihood Of Impact: Very Low**
-
-Google Analytics native support has been added to all new version of Elegant. 
-
-To start using Google Analytics with your Elegant application, simply provide a Google Analytics ID string to the `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` environment variable in your `.env` file.
-
-```ini
-NEXT_PUBLIC_GOOGLE_ANALYTICS_ID="G-4G410MD92K"
-```
-Read the full Google Analytics guide here: [ConvertKit](/docs/google-analytics).
 
 
-<a name="newsletter-forms"></a>
-
-## Newsletter Forms
-##### **Likelihood Of Impact: Very Low**
-
-We have added a newsletter sign up component, for extendability and reusability.
-
-
-<a name="splash-pages"></a>
-
-## Splash Pages
-##### **Likelihood Of Impact: Very Low**
-
-We have included a separate splash page layout template for creating reusable landing pages.
-
-<a name="tailwind-css"></a>
-
-## Tailwind
-##### **Likelihood Of Impact: Very Low**
-
-Simple theme coloring is now set in the `tailwind.config.js` file. Though it's not required, setting primary, secondary, and other theme colors in the `tailwind.config.js` file is the recommended method. 
-
-For example if a user changes the primary color value, the change will be propagated across the app automatically.
 
 
 <a name="miscellaneous"></a>
@@ -101,4 +62,4 @@ For example if a user changes the primary color value, the change will be propag
 
 We also encourage you to view the changes in the `elegantframework/elegant-cli` [GitHub repository](https://github.com/elegantframework/elegant-cli). While many of these changes are not required, you may wish to keep these files in sync with your application.
 
-You can easily view the changes with the [GitHub comparison tool](https://github.com/elegantframework/elegant-cli/compare/v2.0-alpha...v2.1-beta) and choose which updates are important to you.
+You can easily view the changes with the [GitHub comparison tool](https://github.com/elegantframework/elegant-cli/compare/v2.1-beta...v2.2-stable) and choose which updates are important to you.
