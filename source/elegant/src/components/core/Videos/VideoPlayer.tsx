@@ -64,7 +64,7 @@ const VideoPlayer = (props: PlayerProps) => {
           playsInline
           controls
           preload="auto"
-          data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=IkOVe40Sy0U"}] }'
+          data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=bS66QUBKljM"}] }'
         ></video>
       </div>
     </>
