@@ -3,97 +3,101 @@ title: Upgrade Guide
 metaTitle: Upgrade Guide - Elegant - Elevate your creative content.
 ---
 
-- [Upgrading to 2.1 from 2.x](#upgrading_to_2_1_from_2_x)
-
-- [Medium Impact Updates](#medium_impact)
-    - [ESLint](#eslint)
+- [Upgrading to 2.2 from 2.x](#upgrading_to_2_2_from_2_x)
 
 - [Low Impact Updates](#low_impact)
-    - [ConvertKit](#convertKit)
-    - [Google Analytics](#google-analytics)
-    - [Newsletter Forms](#newsletter-forms)
-    - [Splash Pages](#splash-pages)
-    - [Tailwind CSS](#tailwind-css)
+    - [App Type](#app_type)
+    - [Config Namespace](#config_namespace)
+    - [Core Namespace](#core_namespace)
+    - [Environment File](#environment_file)
+    - [Enhanced Favicons](#favicons)
+    - [Meta.js Component](#meta_js_component)
+    - [Seo Component](#seo_component)
 
-<a name="upgrading_to_2_1_from_2_x"></a>
+<a name="upgrading_to_2_2_from_2_x"></a>
 
-# Upgrading to 2.1 from 2.x
+# Upgrading to 2.2 from 2.x
 
-Elegant version 2.1 introduces a number of non breaking changes and feature upgrades.
+Elegant version 2.2 stable release contains numerous low impact enhancements and fixes.
 
-Read the complete announcement here: [Elegant v2.1](/blog/2023-05-04-elegant-v2-1-beta).
-
-<a name="medium_impact"></a>
-
-# Medium Impact Updates
-
-<a name="eslint"></a>
-
-## ESLint
-##### **Likelihood Of Impact: Medium**
-
-We have downgraded the major version of ESLint temporarily for this version to ensure consistency and compatibility across all deployment pipelines. 
-
-ESLint will be upgraded back up to the latest version in an upcoming release.
+Read the complete announcement here: [Elegant v2.2 stable release](https://www.elegantframework.com/blog/2023-06-09-elegant-v2-2-stable).
 
 <a name="low_impact"></a>
 
 # Low Impact Updates
 
-<a name="convertKit"></a>
+<a name="app_type"></a>
 
-## ConvertKit
-##### **Likelihood Of Impact: Very Low**
+## App Type
+##### **Likelihood Of Impact: Low**
 
-ConvertKit newsletter subscriptions support has been added to Elegant. 
+The app type is now set using the `NEXT_PUBLIC_APP_TYPE` variable. 
 
-If you are interested in using ConvertKit with your Elegant application, you may simply provide an action url string to the `NEXT_PUBLIC_CONVERTKIT_ACTION_URL` environment variable in your `.env` file. 
+The `NEXT_PUBLIC_APP_TYPE` variable determines whether web applications schema.org metadata is set to a "Corporate" type, or a "Personal" type.
 
-```ini
-NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/21224410/subscriptions"
+By default, all new Elegant applications have their .env configuration files set to the `Organization` type.
+```
+NEXT_PUBLIC_APP_TYPE="Organization"
 ```
 
-Find the full ConvertKit configuration guide here: [ConvertKit](/docs/convertkit).
-
-<a name="google-analytics"></a>
-
-## Google Analytics
-##### **Likelihood Of Impact: Very Low**
-
-Google Analytics native support has been added to all new version of Elegant. 
-
-To start using Google Analytics with your Elegant application, simply provide a Google Analytics ID string to the `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` environment variable in your `.env` file.
-
-```ini
-NEXT_PUBLIC_GOOGLE_ANALYTICS_ID="G-4G410MD92K"
+Setting the `NEXT_PUBLIC_APP_TYPE` environment variable to `Personal` will turn your Elegant applications schema data into a personal web application.
 ```
-Read the full Google Analytics guide here: [ConvertKit](/docs/google-analytics).
+NEXT_PUBLIC_APP_TYPE="Personal"
+```
 
+<a name="config_namespace"></a>
 
-<a name="newsletter-forms"></a>
+## Config Namespace
+##### **Likelihood Of Impact: Low**
 
-## Newsletter Forms
-##### **Likelihood Of Impact: Very Low**
+Elegant now has a `config/` namespace under the root folder of the application. The config directory will serve as the full configuration namespace for all future versions of Elegant.
 
-We have added a newsletter sign up component, for extendability and reusability.
+As Elegant grows and expands in functionality and services, the config namespace will handle all configuration types, such as email services, authentication providers, and database storage services.
 
+<a name="core_namespace"></a>
 
-<a name="splash-pages"></a>
+## Core Namespace
+##### **Likelihood Of Impact: Low**
 
-## Splash Pages
-##### **Likelihood Of Impact: Very Low**
+Elegant version 2.2 introduces a `core/` namespace within the components and utility directories. These directories will serve as the root for all core Elegant code.
 
-We have included a separate splash page layout template for creating reusable landing pages.
+<a name="environment_file"></a>
 
-<a name="tailwind-css"></a>
+## Environment File
+##### **Likelihood Of Impact: Low**
 
-## Tailwind
-##### **Likelihood Of Impact: Very Low**
+We have slimmed down the included `.env` configuration file for all new Elegant projects. This updated configuration will include only the most basic variables to get started with a new application.
 
-Simple theme coloring is now set in the `tailwind.config.js` file. Though it's not required, setting primary, secondary, and other theme colors in the `tailwind.config.js` file is the recommended method. 
+We have also updated the included `.env.example` file to contain all the currently possible configuration variables.
 
-For example if a user changes the primary color value, the change will be propagated across the app automatically.
+Elegant version 2.2 also introduces a new `.env.test` file for accurate Jest testing with `.env` variables.
 
+<a name="favicons"></a>
+
+## Favicons
+##### **Likelihood Of Impact: Low**
+
+The included Favicons have been updated to be the most proper and SEO friendly across all browsers and operating systems.
+
+<a name="meta_js_component"></a>
+
+## Meta.js Component
+##### **Likelihood Of Impact: Low**
+
+The `Meta.js` core component has been deprecated in favor of a new core `SEO` component. 
+
+The `Meta.js` core component wil be removed from the core Elegant code by version 3.
+
+<a name="seo_component"></a>
+
+## Seo Component
+##### **Likelihood Of Impact: Low**
+
+The `Meta.js` component from above has been deprecated in favor our new `SEO` component. 
+
+Our new core SEO components cover all the essential SEO metadata that a modern web application needs. 
+
+We have included the most essential core search engine rich snippets that users might find on other platforms as "plugins".  
 
 <a name="miscellaneous"></a>
 
@@ -101,4 +105,4 @@ For example if a user changes the primary color value, the change will be propag
 
 We also encourage you to view the changes in the `elegantframework/elegant-cli` [GitHub repository](https://github.com/elegantframework/elegant-cli). While many of these changes are not required, you may wish to keep these files in sync with your application.
 
-You can easily view the changes with the [GitHub comparison tool](https://github.com/elegantframework/elegant-cli/compare/v2.0-alpha...v2.1-beta) and choose which updates are important to you.
+You can easily view the changes with the [GitHub comparison tool](https://github.com/elegantframework/elegant-cli/compare/v2.1-beta...v2.2-stable) and choose which updates are important to you.
