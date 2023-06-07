@@ -10,6 +10,6 @@ export default meta;
 
 type Story = StoryObj<typeof NewsletterForm>;
 
-export const Logo: Story = {
+export const Form: Story = {
   args: {},
 };
