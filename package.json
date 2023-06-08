@@ -23,7 +23,9 @@
     "tailwindcss",
     "jest",
     "elegant",
-    "elegant framework"
+    "elegant framework",
+    "elegant cli",
+    "elegant-cli"
   ],
   "author": "Brandon Owens",
   "license": "MIT",
