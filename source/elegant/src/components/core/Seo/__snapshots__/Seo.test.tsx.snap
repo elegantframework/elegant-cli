@@ -105,6 +105,7 @@ exports[`Seo component renders the base seo component properly 1`] = `
       },
     ]
   }
+  canonical=""
   description=""
   facebook={
     {
@@ -240,6 +241,7 @@ exports[`Seo component renders the non-base seo component properly 1`] = `
       },
     ]
   }
+  canonical=""
   description=""
   facebook={
     {

@@ -158,7 +158,6 @@ export default function App({ Component, pageProps, router }) {
       <Seo 
         title={meta.metaTitle || meta.title}
         description={meta.metaDescription || meta.description || Config('app.description')}
-        canonical={Config('app.url') || ""}
         themeColor={"#f8fafc"}
         twitterHandle={Config('app.twitter_handle')}
         twitterSite={Config('app.twitter_handle')}
