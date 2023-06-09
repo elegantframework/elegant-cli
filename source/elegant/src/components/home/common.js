@@ -57,8 +57,6 @@ export function InlineCode({ className = '', ...props }) {
   )
 }
 
-export { Widont } from '@/components/Widont'
-
 export let themeTabs = {
   Simple: (selected) => (
     <>
