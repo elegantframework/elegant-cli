@@ -1,4 +1,3 @@
-import { Widont } from '@/components/home/common';
 import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm';
 import { formatDate } from '@/utils/formatDate';
 import { mdxComponents } from '@/utils/mdxComponents';
@@ -69,7 +68,7 @@ export function BlogPostLayout({ children, meta }) {
                     'text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl '
                   )}
                 >
-                  <Widont>{meta.title}</Widont>
+                  {meta.title}
                 </h1>
                 <div className="text-sm leading-6">
                   <dl>
@@ -117,7 +116,7 @@ export function BlogPostLayout({ children, meta }) {
               </article>
             </main>
             <footer className="mt-16">
-              {Config('app.convert_action_url') ??
+              {Config('app.convert_action_url') &&
                 <div className="relative">
                   <NewsletterBlock action={Config('app.convert_action_url')}/>
                 </div>
