@@ -65,6 +65,7 @@ const Seo = ({
 }: Props) => {
     return(
         <NextSeo 
+            canonical={url}
             description={description}
             facebook={{
                 appId: facebookAppID

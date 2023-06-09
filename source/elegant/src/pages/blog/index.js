@@ -1,5 +1,4 @@
 import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm';
-import { Widont } from '@/components/Widont';
 import { getAllPostPreviews } from '@/utils/getAllPosts';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -17,10 +16,10 @@ export default function Blog() {
         <h1 className="mb-4 text-3xl sm:text-4xl tracking-tight text-slate-900 font-extrabold dark:text-slate-200">
           Latest Updates
         </h1>
-        {Config('app.convert_action_url') !== "" ??
+        {Config('app.convert_action_url') !== "" &&
           <>
             <p className="text-lg text-slate-700 dark:text-slate-400">
-              <Widont>All the latest {Config('app.name')} news, straight from the team.</Widont>
+              All the latest {Config('app.name')} news, straight from the team.
             </p>
             <NewsletterSignupBlock action={Config('app.convert_action_url')}/>
           </>

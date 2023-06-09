@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { CodeWindow } from '@/components/CodeWindow';
 import { SearchButton } from '@/components/Search';
-import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm';
 import UnifiedFramework from '@/components/home/UnifiedFramework';
 import Logo from '@/components/core/Logos/Logo/Logo';
 import { Footer } from '@/components/home/Footer';
