@@ -1,72 +1,66 @@
+import { VideoJsonLd } from 'next-seo';
 import React from 'react';
-import { useCallback, useEffect, useState } from 'react'
-import videojs from 'video.js';
-import 'videojs-youtube';
 
-interface PlayerProps {
-    /**
-     * 
-     */
-    techOrder: string[];
-    /**
-     * Is autoplay enabled for this video?
-     */
-    autoplay: boolean;
-    /**
-     * Should this video have controls? 
-     */
-    controls: boolean;
-    /**
-     * A list of video sources.
-     */
-    sources: { 
-        /**
-         * The source url.
-         */
-        src: string; 
-        /**
-         * The type of source
-         */
-        type: string;
-    }[];
+interface Props {
+  /**
+   * The title of the video.
+   */
+  title: string;
+  /**
+   * The url of the video.
+   */
+  content_url: string;
+  /**
+   * The embed url of the video.
+   */
+  embed_url: string;
+  /**
+   * A description of the video.
+   */
+  description: string;
+  /**
+   * The width of the video player.
+   */
+  width?: number;
+  /**
+   * The height of the video player.
+   */
+  height?: number;
+  /**
+   * Can the video player be viewed in fullscreen mode?
+   */
+  allowFullScreen?: boolean;
 }
 
 /**
  * A simple video player component for displaying videos from external websites.
- * @returns A Video.js video player element.
+ * @returns An iframe element containing a Youtube video player.
  */
-const VideoPlayer = (props: PlayerProps) => {
-  const [videoEl, setVideoEl] = useState<HTMLVideoElement | null>(null);
-  const onVideo = useCallback((el: HTMLVideoElement) => {
-    setVideoEl(el);
-  }, []);
-
-  useEffect(() => {
-    if(videoEl == null){
-        return;
-    }
-
-    // our video.js player
-    const player = videojs(videoEl, props);
-
-    return () => {
-      player.dispose();
-    }
-  }, [props, videoEl]);
-
+const VideoPlayer = ({
+  title,
+  content_url,
+  embed_url,
+  description,
+  width = 560,
+  height = 315,
+  allowFullScreen = true
+}: Props) => {
   return (
     <>
-      <h1>The implementation below is using react functions</h1>
-      <div data-vjs-player>
-        <video
-          id="my-video"
-          className="video-js"
-          playsInline
-          controls
-          preload="auto"
-          data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=bS66QUBKljM"}] }'
-        ></video>
-      </div>
+      <iframe 
+        width={width} 
+        height={height}
+        src={embed_url} 
+        title={title} 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowFullScreen={allowFullScreen}
+      ></iframe>
+       <VideoJsonLd
+          name={title}
+          description={description}
+          contentUrl={content_url}
+          embedUrl={embed_url}
+      />
     </>
   );
 }

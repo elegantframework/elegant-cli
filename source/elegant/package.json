@@ -123,8 +123,6 @@
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2",
     "unist-util-visit": "^2.0.3",
-    "video.js": "^4.12.15",
-    "videojs-youtube": "^1.2.13",
     "zustand": "^4.0.0-rc.0"
   }
 }

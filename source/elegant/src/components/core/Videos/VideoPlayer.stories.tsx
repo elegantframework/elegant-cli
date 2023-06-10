@@ -12,12 +12,9 @@ type Story = StoryObj<typeof VideoPlayer>;
 
 export const Default: Story = {
   args: {
-    techOrder: ["youtube"],
-    autoplay: false,
-    controls: true,
-    sources: [{
-        src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        type: "video/youtube"
-    }]
+    title: "How to get started with Elegant.",
+    description: "A detailed guide on how to get started with Elegant.",
+    embed_url: "https://www.youtube.com/embed/bS66QUBKljM",
+    content_url: "https://youtu.be/bS66QUBKljM"
   },
 };
