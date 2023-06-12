@@ -66,6 +66,7 @@
     "@types/react-dom": "^18.0.11",
     "@types/react-test-renderer": "^17.0.2",
     "@types/testing-library__jest-dom": "^5.14.5",
+    "@types/video.js": "^5.16.1",
     "@types/webpack-env": "^1.18.0",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
