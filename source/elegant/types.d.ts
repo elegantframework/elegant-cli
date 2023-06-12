@@ -3,4 +3,4 @@ declare module '*module.css' {
       [className: string]: string
     }
     export default styles;
-};
+}
