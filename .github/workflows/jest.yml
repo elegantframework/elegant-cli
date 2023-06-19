@@ -25,12 +25,12 @@ jobs:
             ${{ runner.os }}-
 
       # Install required deps for action
-      - name: Install Dependencies
+      - name: Install CLI Dependencies
         run: npm install
 
       # Install required deps for elegant framework subfolder
-      - name: Install Dependencies
-        run:  cd source/elegant && npm install
+      - name: Install Elegant Package Dependencies
+        run:  cd source/elegant && npm install --legacy-peer-deps
 
       # Finally, run our tests
       - name: Run the tests
