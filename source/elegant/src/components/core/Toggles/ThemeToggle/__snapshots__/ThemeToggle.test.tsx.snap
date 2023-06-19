@@ -5,7 +5,7 @@ exports[`Theme toggle component renders a theme toggle component properly 1`] = 
   <label
     className="sr-only"
     data-headlessui-state=""
-    id="headlessui-listbox-label-1"
+    id="headlessui-listbox-label-:r0:"
     onClick={[Function]}
   >
     Theme
@@ -15,7 +15,7 @@ exports[`Theme toggle component renders a theme toggle component properly 1`] = 
     aria-haspopup={true}
     data-headlessui-state=""
     disabled={false}
-    id="headlessui-listbox-button-2"
+    id="headlessui-listbox-button-:r1:"
     onClick={[Function]}
     onKeyDown={[Function]}
     onKeyUp={[Function]}
