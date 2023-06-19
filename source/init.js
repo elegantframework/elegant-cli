@@ -101,8 +101,13 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       // do nothing
     });
 
-    // delete the started .env file
+    // delete the starter .env file
     fs.unlink(outputPath + '.env.starter', function(err,results){
+      // do nothing
+    });
+
+    // delete the starter .npmrc file
+    fs.unlink(outputPath + '.npmrc.starter', function(err,results){
       // do nothing
     });
 
