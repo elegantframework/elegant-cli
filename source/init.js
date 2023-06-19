@@ -82,7 +82,6 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       }
     });
 
-
     // copy the git ignore file over
     fs.cp(module_path + 'source/elegant/.gitignore.starter', outputPath + '.gitignore', (err) => {
       if (err) {

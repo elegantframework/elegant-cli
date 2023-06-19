@@ -127,5 +127,8 @@
     "typescript": "^5.0.2",
     "unist-util-visit": "^2.0.3",
     "zustand": "^4.0.0-rc.0"
+  },
+  "engines" : { 
+    "node" : ">=18.0.0"
   }
 }
