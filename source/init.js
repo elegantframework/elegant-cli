@@ -89,6 +89,13 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
       }
     });
 
+     // copy the .npmrc file over
+     fs.cp(module_path + 'source/elegant/.npmrc.starter', outputPath + '.npmrc', (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+
     // delete the example git ignore file
     fs.unlink(outputPath + '.gitignore.starter', function(err,results){
       // do nothing
