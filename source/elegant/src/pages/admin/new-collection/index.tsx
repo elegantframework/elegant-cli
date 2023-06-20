@@ -68,7 +68,7 @@ export default function NewCollection() {
       if (created) {
         addPage(collection)
         setLoading(false)
-        router.push(`/outstatic/${collection}`)
+        router.push(`/admin/${collection}`)
       }
     } catch (error) {
       // TODO: Better error treatment
@@ -98,7 +98,7 @@ export default function NewCollection() {
           <Alert type="error">
             <span className="font-medium">Oops!</span> We couldn&apos;t create
             your collection. Please, make sure your settings are correct by{' '}
-            <Link href="/outstatic/settings">
+            <Link href="/admin/settings">
               <span className="underline">clicking here</span>
             </Link>{' '}
             .

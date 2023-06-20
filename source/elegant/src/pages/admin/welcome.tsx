@@ -104,7 +104,7 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
   if (!envVars.hasMissingEnvVars) {
     context.res.writeHead(302, {
-      Location: '/outstatic'
+      Location: '/admin'
     })
     context.res.end()
   }

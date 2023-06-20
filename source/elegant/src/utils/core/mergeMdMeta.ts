@@ -38,14 +38,14 @@ export const mergeMdMeta = (data: Document): string => {
 
   const converter = new showdown.Converter()
 
-  // replace /api/outstatic/images/ references
+  // replace /api/admin/images/ references
   let newContent = replaceImageSrcRoot(
     data.content,
-    '/api/outstatic/images/',
+    '/api/admin/images/',
     `/${IMAGES_PATH}`
   )
 
-  const imgFolderRegex = new RegExp(/(^\/api\/outstatic\/images\/)/gi)
+  const imgFolderRegex = new RegExp(/(^\/api\/admin\/images\/)/gi)
   newContent = replaceImageSrcRoot(
     newContent,
     imgFolderRegex,

@@ -84,7 +84,7 @@ export default function List({ collection }: ListProps) {
     >
       <div className="mb-8 flex h-12 items-center">
         <h1 className="mr-12 text-2xl capitalize">{collection}</h1>
-        <Link href={`/outstatic/${collection}/new`}>
+        <Link href={`/admin/${collection}/new`}>
           <div className="cursor-pointer rounded-lg border px-5 py-2.5 text-sm font-medium focus:outline-none focus:ring-4 border-gray-600 bg-gray-800 text-white hover:border-gray-600 hover:bg-gray-700 focus:ring-gray-700 capitalize">
             New {singular(collection)}
           </div>
@@ -119,7 +119,7 @@ export default function List({ collection }: ListProps) {
                 clicking the button below.
               </p>
 
-              <Link href={`/outstatic/${collection}/new`}>
+              <Link href={`/admin/${collection}/new`}>
                 <div className="inline-block cursor-pointer rounded-lg border px-5 py-2.5 text-sm font-medium focus:outline-none focus:ring-4 border-gray-600 bg-gray-800 text-white hover:border-gray-600 hover:bg-gray-700 focus:ring-gray-700 capitalize">
                   New {singular(collection)}
                 </div>

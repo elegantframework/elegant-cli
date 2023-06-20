@@ -106,7 +106,7 @@ const DocumentSettings = ({
             disabled={loading}
             slug={document.slug}
             onComplete={() => {
-              router.push(`/outstatic/${collection}`)
+              router.push(`/admin/${collection}`)
             }}
             collection={collection}
             className="hover:bg-slate-200 max-h-[2.25rem]"

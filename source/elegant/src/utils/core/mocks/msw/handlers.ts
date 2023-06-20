@@ -1,4 +1,4 @@
-import { graphql } from 'msw'
+import { graphql } from 'msw';
 
 export const handlers = [
   // Collections query. Use the owner to determine the possible response

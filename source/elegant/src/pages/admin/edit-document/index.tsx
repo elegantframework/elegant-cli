@@ -57,7 +57,7 @@ export default function EditDocument({ collection }: { collection: string }) {
   })
 
   useEffect(() => {
-    router.push(`/outstatic/${collection}/${slug}`, undefined, {
+    router.push(`/admin/${collection}/${slug}`, undefined, {
       shallow: true
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps

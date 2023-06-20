@@ -49,7 +49,7 @@ export const useDocumentUpdateEffect = ({
         return replaceImageSrcRoot(
           newContent,
           new RegExp(`^/${escapeRegExp(IMAGES_PATH)}`, 'gi'),
-          '/api/outstatic/images/'
+          '/api/admin/images/'
         )
       }
 

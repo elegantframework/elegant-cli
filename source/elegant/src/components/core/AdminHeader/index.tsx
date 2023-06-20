@@ -57,7 +57,7 @@ const AdminHeader = ({
               ></path>
             </svg>
           </button>
-          <Link href="/outstatic" aria-label="Outstatic">
+          <Link href="/admin" aria-label="Admin">
             <div className="cursor-pointer flex items-center">
               <svg
                 fill="none"

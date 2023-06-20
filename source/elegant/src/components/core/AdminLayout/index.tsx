@@ -28,7 +28,7 @@ export default function AdminLayout({
 
   if (status === 'unauthenticated') {
     if (typeof window !== 'undefined') {
-      push(`/outstatic/?callbackUrl=${asPath}`)
+      push(`/admin/?callbackUrl=${asPath}`)
     }
     return null
   }
