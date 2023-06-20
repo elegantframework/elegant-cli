@@ -38,7 +38,7 @@ const fallbackDefaultExports = {
 
 module.exports = withBundleAnalyzer({
   swcMinify: true,
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   experimental: {
     esmExternals: false,
   },

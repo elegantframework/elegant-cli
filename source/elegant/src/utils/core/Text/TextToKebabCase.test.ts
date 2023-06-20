@@ -9,4 +9,10 @@ describe('Text To kebab Case', () => {
       result = TextToKebabCase("hello world, this is a big big sentence.");
       expect(result).toBe("Hello World, This Is A Big Big Sentence.");
     });
+
+    it('handles a string with a - in it',() => {
+
+      let result = TextToKebabCase("hello world - The test thing");
+      expect(result).toBe("Hello World - The Test Thing");
+    });
 });
