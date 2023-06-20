@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react'
-import { TestWrapper } from '../../utils/TestWrapper'
-import DocumentsTable from '.'
+import { render, screen } from '@testing-library/react';
+import { TestWrapper } from '@/utils/core/TestWrapper';
+import DocumentsTable from '.';
 
 const posts = [
   {

@@ -1,5 +1,5 @@
 import { mockRequests } from '@/utils/core/mocks/network';
-import { OstSSP } from '.';
+import { OstSSP } from './outstatic';
 import { createMockContext } from '@/utils/core/mocks/next/context';
 
 describe(OstSSP, () => {

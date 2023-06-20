@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import { useState } from 'react'
-import { ostSignOut } from '@/utils/core/auth/hooks';
+import Link from 'next/link';
+import { useState } from 'react';
+import { ostSignOut } from '@/utils/core/Auth/hooks';
 
 type AdminHeaderProps = {
   name?: string | null | undefined

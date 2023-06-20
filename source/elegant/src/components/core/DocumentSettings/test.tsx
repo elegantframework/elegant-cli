@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react'
-import React from 'react'
-import { TestWrapper } from '../../utils/TestWrapper'
-import { useOstSession } from '@/utils/core/auth/hooks'
-import DocumentSettings from '.'
+import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { TestWrapper } from '@/utils/core/TestWrapper';
+import { useOstSession } from '@/utils/core/Auth/hooks';
+import DocumentSettings from '.';
 
 jest.mock('../../utils/auth/hooks')
 

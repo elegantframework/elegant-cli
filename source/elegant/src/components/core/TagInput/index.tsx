@@ -1,9 +1,9 @@
-import { useFormContext, RegisterOptions, Controller } from 'react-hook-form'
-import { CustomFieldArrayValue } from '../../types'
-import Creatable from 'react-select/creatable'
-import camelcase from 'camelcase'
-import { useState } from 'react'
-import CreatableSelect from 'react-select/dist/declarations/src/Creatable'
+import { useFormContext, RegisterOptions, Controller } from 'react-hook-form';
+import { CustomFieldArrayValue } from '@/types/Index';
+import Creatable from 'react-select/creatable';
+import camelcase from 'camelcase';
+import { useState } from 'react';
+import CreatableSelect from 'react-select/dist/declarations/src/Creatable';
 
 export type TagProps = {
   label?: string

@@ -10,6 +10,7 @@ import Modal from '../Modal';
 import { hashFromUrl } from '@/utils/core/hashFromUrl';
 import { stringifyMetadata } from '@/utils/core/MetaData/stringify';
 import { OutstaticContext } from '@/utils/core/Context';
+import { MetadataSchema } from '@/utils/core/MetaData/types';
 
 type DeleteDocumentButtonProps = {
   slug: string

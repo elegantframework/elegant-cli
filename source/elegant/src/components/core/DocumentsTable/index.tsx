@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { useState } from 'react'
-import { Document } from '../../types'
-import DeleteDocumentButton from '../DeleteDocumentButton'
+import Link from 'next/link';
+import { useState } from 'react';
+import { Document } from '@/types/Index';
+import DeleteDocumentButton from '../DeleteDocumentButton';
 
 type DocumentsTableProps = {
   documents: Document[]

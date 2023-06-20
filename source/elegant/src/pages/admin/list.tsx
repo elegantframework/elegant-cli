@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { OutstaticContext } from '@/utils/core/Context';
 import { useDocumentsQuery } from '@/graphql/generated';
 import { Document } from '@/types/Index';
-import { ostSignOut } from '@/utils/core/auth/hooks';
+import { ostSignOut } from '@/utils/core/Auth/hooks';
 import AdminLayout from '@/components/core/AdminLayout';
 import DocumentsTable from '@/components/core/DocumentsTable';
 

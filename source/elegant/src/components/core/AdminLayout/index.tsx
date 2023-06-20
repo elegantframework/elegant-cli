@@ -1,10 +1,10 @@
-import { ApolloError } from '@apollo/client'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import { useOstSession } from '@/utils/core/auth/hooks'
-import AdminHeader from '../AdminHeader'
-import Sidebar from '../Sidebar'
+import { ApolloError } from '@apollo/client';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useOstSession } from '@/utils/core/Auth/hooks';
+import AdminHeader from '../AdminHeader';
+import Sidebar from '../Sidebar';
 
 export type AdminLayoutProps = {
   error?: string | ApolloError

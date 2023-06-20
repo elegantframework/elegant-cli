@@ -21,8 +21,8 @@ import { hashFromUrl } from '@/utils/core/hashFromUrl';
 import useOid from '@/utils/core/Hooks/useOid';
 import { createCommit } from '@/utils/core/createCommit';
 import MurmurHash3 from 'imurmurhash';
-import { MetadataSchema, OutstaticSchema } from '@/utils/core/metadata/types';
-import { stringifyMetadata } from '@/utils/core/metadata/stringify';
+import { MetadataSchema, OutstaticSchema } from '@/utils/core/MetaData/types';
+import { stringifyMetadata } from '@/utils/core/MetaData/stringify';
 import { OutstaticContext } from '@/utils/core/Context';
 
 interface MetadataBuilderProps extends HTMLAttributes<HTMLDivElement> {
