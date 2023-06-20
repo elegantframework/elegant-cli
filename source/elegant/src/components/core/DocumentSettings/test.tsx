@@ -4,7 +4,7 @@ import { TestWrapper } from '@/utils/core/TestWrapper';
 import { useOstSession } from '@/utils/core/Auth/hooks';
 import DocumentSettings from '.';
 
-jest.mock('../../utils/auth/hooks')
+jest.mock('@/utils/core/Auth/hooks')
 
 jest.mock('react-hook-form', () => ({
   ...jest.requireActual('react-hook-form'),

@@ -4,7 +4,7 @@ import { TestWrapper } from '@/utils/core/TestWrapper';
 import { useOstSession } from '@/utils/core/Auth/hooks';
 import DeleteDocumentButton from '.';
 
-jest.mock('../../utils/auth/hooks')
+jest.mock('@/utils/core/Auth/hooks')
 
 describe('<DeleteDocumentButton />', () => {
   it('should render the button', () => {
