@@ -33,6 +33,7 @@ function createApolloClient(session?: Session | null) {
         : fetch)(...args)
   })
 
+  // @ts-ignore
   const authLink = setContext(async (_, { headers }: { headers: Headers }) => {
     const data: { session: Session } = session
       ? { session }

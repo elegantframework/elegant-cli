@@ -32,6 +32,6 @@ describe('<DocumentSettings />', () => {
       </TestWrapper>
     )
 
-    expect(screen.getByText('July 14, 2022')).toBeInTheDocument()
+    expect(screen.getByText('July 13, 2022')).toBeInTheDocument()
   })
 })

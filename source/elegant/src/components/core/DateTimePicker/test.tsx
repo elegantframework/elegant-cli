@@ -13,7 +13,7 @@ describe('<DateTimePicker />', () => {
     )
 
     expect(
-      screen.getByRole('button', { name: /July 14, 2022/i })
+      screen.getByRole('button', { name: /July 13, 2022/i })
     ).toBeInTheDocument()
   })
 })

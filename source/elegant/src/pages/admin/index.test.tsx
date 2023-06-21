@@ -35,7 +35,7 @@ describe(OstSSP, () => {
         providerData: {
           repoOwner: process.env.OST_REPO_OWNER,
           repoSlug: process.env.OST_REPO_SLUG,
-          repoBranch: 'main',
+          repoBranch: 'feature/outstanding',
           contentPath: process.env.OST_CONTENT_PATH,
           monorepoPath: '',
           session: {
