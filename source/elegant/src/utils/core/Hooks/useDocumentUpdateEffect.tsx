@@ -6,7 +6,6 @@ import { Document, Session } from '@/types/Index';
 import { Editor } from '@tiptap/react';
 import { replaceImageSrcRoot } from '../replaceImageSrc';
 import { escapeRegExp } from '../escapeRegExp';
-import { IMAGES_PATH } from '../constants';
 import { getLocalDate } from '../getLocalDate';
 import useFileQuery from './useFileQuery';
 
@@ -48,7 +47,7 @@ export const useDocumentUpdateEffect = ({
         // fetch images from GitHub in case deploy is not done yet
         return replaceImageSrcRoot(
           newContent,
-          new RegExp(`^/${escapeRegExp(IMAGES_PATH)}`, 'gi'),
+          new RegExp(`^/${escapeRegExp(process.env.OST_ASSET_PATH || "")}`, 'gi'),
           '/api/admin/images/'
         )
       }

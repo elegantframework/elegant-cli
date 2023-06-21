@@ -1,6 +1,5 @@
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { Document, FileType } from '@/types/Index';
-import { IMAGES_PATH } from '@/utils/core/constants';
 import Input from '../Input';
 import { DocumentContext } from '@/utils/core/Context';
 
@@ -34,7 +33,7 @@ const DocumentSettingsImageSelection = ({
 
   useEffect(() => {
     const image = resolvedImage?.replace(
-      `/${IMAGES_PATH}`,
+      `/${process.env.OST_ASSET_PATH}`,
       `/api/admin/images/`
     )
     setImage(image || '')

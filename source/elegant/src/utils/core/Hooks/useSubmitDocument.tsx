@@ -10,7 +10,6 @@ import {
 } from '@/types/Index';
 import { createCommit as createCommitApi } from '@/utils/core/createCommit';
 import { assertUnreachable } from '../assertUnreachable';
-import { IMAGES_PATH } from '../constants';
 import { MetadataSchema } from '@/utils/core/MetaData/types';
 import { hashFromUrl } from '../hashFromUrl';
 import MurmurHash3 from 'imurmurhash';
@@ -104,7 +103,7 @@ function useSubmitDocument({
               const filePath = (() => {
                 switch (type) {
                   case 'images':
-                    return IMAGES_PATH
+                    return process.env.OST_ASSET_PATH;
                   default:
                     assertUnreachable(type)
                 }
@@ -113,7 +112,7 @@ function useSubmitDocument({
               capi.replaceFile(
                 `${
                   monorepoPath ? monorepoPath + '/' : ''
-                }public/${filePath}${newFilename}`,
+                }${filePath}${newFilename}`,
                 fileContents,
                 false
               )
