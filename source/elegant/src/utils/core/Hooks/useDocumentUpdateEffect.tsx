@@ -30,7 +30,7 @@ export const useDocumentUpdateEffect = ({
   setShowDelete
 }: UseDocumentUpdateEffectProps) => {
   const { data: documentQueryData } = useFileQuery({
-    file: `${collection}/${slug}.md`,
+    file: `${collection}/${slug}.mdx`,
     skip: slug === 'new' || !slug
   })
 

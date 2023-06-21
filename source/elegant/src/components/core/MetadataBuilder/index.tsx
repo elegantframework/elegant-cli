@@ -38,7 +38,7 @@ interface FileData {
 }
 
 const isIndexable = (s: string) => {
-  return /\.md(x|oc)?$/.test(s)
+  return /\.mdx(x|oc)?$/.test(s)
 }
 
 export const MetadataBuilder: React.FC<MetadataBuilderProps> = ({

@@ -64,7 +64,7 @@ const DeleteDocumentButton = ({
       capi.removeFile(
         `${
           monorepoPath ? monorepoPath + '/' : ''
-        }${contentPath}/${collection}/${slug}.md`
+        }${contentPath}/${collection}/${slug}.mdx`
       )
 
       // remove post from metadata.json

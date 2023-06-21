@@ -85,7 +85,7 @@ function useSubmitDocument({
           capi.removeFile(
             `${
               monorepoPath ? monorepoPath + '/' : ''
-            }${contentPath}/${collection}/${oldSlug}.md`
+            }${contentPath}/${collection}/${oldSlug}.mdx`
           )
         }
 
@@ -129,7 +129,7 @@ function useSubmitDocument({
         capi.replaceFile(
           `${
             monorepoPath ? monorepoPath + '/' : ''
-          }${contentPath}/${collection}/${newSlug}.md`,
+          }${contentPath}/${collection}/${newSlug}.mdx`,
           content
         )
 
@@ -213,7 +213,7 @@ function useSubmitDocument({
             __outstatic: {
               hash: `${state.result()}`,
               commit: m.commit,
-              path: `${contentPath}/${collection}/${newSlug}.md`
+              path: `${contentPath}/${collection}/${newSlug}.mdx`
             }
           })
 

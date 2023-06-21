@@ -55,7 +55,7 @@ export default function List({ collection }: ListProps) {
 
   if (entries) {
     entries.forEach((document) => {
-      if (document.name.slice(-3) === '.md') {
+      if (document.name.slice(-4) === '.mdx') {
         const {
           data: { title, publishedAt, status, author }
         } = matter(
@@ -67,7 +67,7 @@ export default function List({ collection }: ListProps) {
           title,
           status,
           publishedAt: publishedAt ? new Date(publishedAt) : new Date(),
-          slug: document.name.replace('.md', ''),
+          slug: document.name.replace('.mdx', ''),
           author,
           content: ''
         })
