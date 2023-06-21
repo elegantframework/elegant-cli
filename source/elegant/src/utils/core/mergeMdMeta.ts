@@ -41,14 +41,14 @@ export const mergeMdMeta = (data: Document): string => {
   let newContent = replaceImageSrcRoot(
     data.content,
     '/api/admin/images/',
-    `/${process.env.OST_ASSET_PATH || 'public/images'}`
+    `/${process.env.OST_ASSET_PATH}`
   )
 
   const imgFolderRegex = new RegExp(/(^\/api\/admin\/images\/)/gi)
   newContent = replaceImageSrcRoot(
     newContent,
     imgFolderRegex,
-    `/${process.env.OST_ASSET_PATH || 'public/images'}`
+    `/${process.env.OST_ASSET_PATH}`
   )
 
   // remove weird <p> tags

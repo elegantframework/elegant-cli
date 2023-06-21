@@ -103,7 +103,7 @@ function useSubmitDocument({
               const filePath = (() => {
                 switch (type) {
                   case 'images':
-                    return `/${process.env.OST_ASSET_PATH || 'public/images'}`;
+                    return process.env.OST_ASSET_PATH;
                   default:
                     assertUnreachable(type)
                 }
