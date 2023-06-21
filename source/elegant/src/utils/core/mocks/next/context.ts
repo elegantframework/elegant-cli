@@ -1,6 +1,6 @@
-import hm from 'node-mocks-http'
-import { LoginSession } from '../../utils/auth/auth'
-import { createMockRequest } from './request'
+import hm from 'node-mocks-http';
+import { LoginSession } from '@/utils/core/Auth/auth';
+import { createMockRequest } from './request';
 
 export const createMockContext = async (
   req: hm.RequestOptions,
