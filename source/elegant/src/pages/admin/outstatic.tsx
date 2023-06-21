@@ -43,7 +43,7 @@ const defaultPages: { [key: string]: ReactElement | undefined } = {
   collections: undefined
 }
 
-export const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
+const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
   const [pages, setPages] = useState(providerData?.pages)
   const [collections, setCollections] = useState(providerData?.collections)
   const router = useRouter()
@@ -103,6 +103,8 @@ export const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
     </OutstaticProvider>
   )
 }
+
+export default Outstatic;
 
 export const OstSSP: GetServerSideProps = async ({ req }) => {
   if (envVars.hasMissingEnvVars) {

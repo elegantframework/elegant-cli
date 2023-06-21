@@ -110,6 +110,7 @@
     "@types/cookie": "^0.5.1",
     "@types/dompurify": "^3.0.2",
     "@types/imurmurhash": "^0.1.1",
+    "@types/jest": "^29.5.2",
     "@types/json-stable-stringify": "^1.0.34",
     "@types/node": "^18.15.5",
     "@types/pluralize": "^0.0.29",
@@ -182,5 +183,10 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }
