@@ -9,6 +9,7 @@ const footerNav = [
       { title: 'Indie Hackers', href: 'https://www.indiehackers.com/product/elegant-framework', external: true },
       { title: 'Twitter', href: 'https://twitter.com/thebrandonowens', external: true },
       { title: 'Reddit', href: 'https://www.reddit.com/r/elegantframework/', external: true },
+      { title: 'Discord', href: 'https://discord.gg/PwY38x4uvV', external: true }
     ],
     Features: [
       { title: 'Theme Customization', href: '/docs/theme/' },
