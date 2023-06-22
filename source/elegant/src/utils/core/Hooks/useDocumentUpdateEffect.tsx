@@ -47,7 +47,7 @@ export const useDocumentUpdateEffect = ({
         // fetch images from GitHub in case deploy is not done yet
         return replaceImageSrcRoot(
           newContent,
-          new RegExp(`^/${escapeRegExp(process.env.OST_ASSET_PATH || "")}`, 'gi'),
+          `/${process.env.OST_ASSET_PATH || 'public/images'}`,
           '/api/admin/images/'
         )
       }

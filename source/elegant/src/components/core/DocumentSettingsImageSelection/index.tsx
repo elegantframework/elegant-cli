@@ -33,7 +33,7 @@ const DocumentSettingsImageSelection = ({
 
   useEffect(() => {
     const image = resolvedImage?.replace(
-      `/${process.env.OST_ASSET_PATH}`,
+      `/${process.env.OST_ASSET_PATH || 'public/images'}`,
       `/api/admin/images/`
     )
     setImage(image || '')
