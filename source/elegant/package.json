@@ -19,7 +19,7 @@
     "> 1%"
   ],
   "dependencies": {
-    "@apollo/client": "^3.7.15",
+    "@apollo/client": "^3.6.6",
     "@hapi/iron": "^7.0.1",
     "@heroicons/react": "^2.0.17",
     "@hookform/resolvers": "^2.9.11",
