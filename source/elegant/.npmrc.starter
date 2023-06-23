@@ -1,0 +1,2 @@
+# Force users to have the required version of node installed on their machine.
+engine-strict=true
