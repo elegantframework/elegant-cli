@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { ButtonHTMLAttributes, forwardRef, createElement } from 'react';
 import Datepicker from 'react-datepicker';
 
@@ -59,7 +60,7 @@ const DateTimePicker = ({ date, setDate, id, label }: DateTimePickerProps) => {
       className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
       disabled={!date}
     >
-      {date ? date.toLocaleDateString('en-US', options) : 'Loading'}
+      {date ? moment.utc(date).format('MMMM D, YYYY').toString() : 'Loading'}
     </button>
   )
 
