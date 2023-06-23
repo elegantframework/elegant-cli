@@ -1,4 +1,4 @@
-import Outstatic, { OstSSP } from './outstatic';
+import Outstatic, { OstSSP } from '@/components/core/Admin/Pages/outstatic';
 
 export default Outstatic;
 

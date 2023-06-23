@@ -12,14 +12,14 @@ import { initializeApollo, useApollo } from '@/utils/core/Apollo/apollo';
 import { getLoginSession } from '@/utils/core/Auth/auth';
 import { envVars, EnvVarsType } from '@/utils/core/envVarsCheck';
 import Error from './404';
-import NewCollection from './new-collection';
+import NewCollection from '@/components/core/Admin/Pages/new-collection';
 import Collections from './collections';
-import EditDocument from './edit-document';
+import EditDocument from '@/components/core/Admin/Pages/edit-document';
 import List from './list';
 import Login from './login';
 import Settings from './settings';
 import Welcome from './welcome';
-import AddCustomField from './add-custom-field';
+import AddCustomField from '@/components/core/Admin/Pages/add-custom-field';
 import { Session } from '@/types/Index';
 
 type OutstaticProps = {
