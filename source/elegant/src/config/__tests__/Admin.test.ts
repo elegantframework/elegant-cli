@@ -22,4 +22,11 @@ describe('Admin Config', () => {
         expect(AdminConfig().cms_asset_path).toBe("");
 
     });
+
+    it('returns a proper CMS panel name', () => {
+        expect(AdminConfig().cms_name).toBe("Testing");
+
+        process.env.NEXT_PUBLIC_CMS_NAME = undefined;
+        expect(AdminConfig().cms_name).toBe("Elegant");
+    });
 });

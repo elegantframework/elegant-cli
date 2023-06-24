@@ -7,12 +7,23 @@ const AdminConfig = () => {
     return {
         /*
         |--------------------------------------------------------------------------
-        | Application Name
+        | CMS Panel Name
         |--------------------------------------------------------------------------
         |
-        | This value is the name of your application. This value is used when the
-        | framework needs to place the application's name in a notification or
-        | any other location as required by the application or its packages.
+        | This value is the name displayed in the title of your CMS panel.
+        |
+        */
+        'cms_name': process.env.NEXT_PUBLIC_CMS_NAME || 'Elegant',
+        
+        /*
+        |--------------------------------------------------------------------------
+        | CMS Asset Path
+        |--------------------------------------------------------------------------
+        |
+        | This is the path of your saved assets from your CMS panel. This value
+        | should be left to it's default value of blank. The only time this value
+        | is referenced is during core Elegant code development. 
+        |
         |
         */
         'cms_asset_path': process.env.NEXT_PUBLIC_CMS_ASSET_PATH || '',
