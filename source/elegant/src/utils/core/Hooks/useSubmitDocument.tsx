@@ -103,7 +103,7 @@ function useSubmitDocument({
               const filePath = (() => {
                 switch (type) {
                   case 'images':
-                    return `/${process.env.OST_ASSET_PATH || 'public/images'}`;
+                    return "images/";
                   default:
                     assertUnreachable(type)
                 }
@@ -112,13 +112,13 @@ function useSubmitDocument({
               capi.replaceFile(
                 `${
                   monorepoPath ? monorepoPath + '/' : ''
-                }${filePath}${newFilename}`,
+                }public/${filePath}${newFilename}`,
                 fileContents,
                 false
               )
 
               // replace blob in content with path
-              content = content.replace(blob, `/${filePath}${newFilename}`)
+              content = content.replace(blob, `/${filePath}/${newFilename}`)
             }
           })
         }
