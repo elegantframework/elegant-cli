@@ -4,7 +4,16 @@ exports[`The Admin Log In page renders properly 1`] = `
 <main
   className="relative flex h-screen flex-col items-center justify-center z-10 p-4"
 >
-  <Card>
+  <div
+    className="sm:mx-auto sm:w-full sm:max-w-md"
+  >
+    <Logo
+      className="w-auto h-8 mx-auto"
+    />
+  </div>
+  <Card
+    className="mt-10"
+  >
     <p
       className="mb-5 dark:text-slate-200"
     >
@@ -20,5 +29,19 @@ exports[`The Admin Log In page renders properly 1`] = `
        Sign in with GitHub
     </a>
   </Card>
+  <div
+    className="sm:mx-auto sm:w-full sm:max-w-md xs:pl-0 sm:pl-4 text-left -mt-6 dark:text-white"
+  >
+    <a
+      className="hover:underline"
+      href="/"
+    >
+      <ForwardRef(ArrowLongLeftIcon)
+        className="h-6 w-6 inline mr-2"
+      />
+      Go to 
+      Elegant - The unit testing application.
+    </a>
+  </div>
 </main>
 `;
