@@ -2,7 +2,8 @@ import MetaTitle from "@/utils/core/Meta/MetaTitle";
 
 Login.layoutProps = {
   meta: {
-    title: "Log In - " + MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant")
+    title: "Log In - " + MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant"),
+    stickyHeader: false
   },
 };
 
@@ -11,7 +12,7 @@ export default function Login() {
     <>
       <div id="outstatic">
         <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
-          <div className="text-center mb-20 flex max-w-2xl flex-col items-center p-8 px-4 md:p-8 text-black bg-white rounded-lg border border-gray-200 shadow-md">
+          <div className="text-center mb-20 flex max-w-2xl flex-col items-center p-8 px-4 md:p-8 text-black bg-white dark:bg-slate-800 rounded-lg border border-gray-200 shadow-md">
             <p className="mb-5">
               Sign in with GitHub to access your&nbsp;dashboard.
             </p>

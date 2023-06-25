@@ -16,7 +16,6 @@ import NewCollection from '@/components/core/Admin/Pages/new-collection';
 import Collections from './collections';
 import EditDocument from '@/components/core/Admin/Pages/edit-document';
 import List from './list';
-import Login from './login';
 import Settings from './settings';
 import Welcome from './welcome';
 import AddCustomField from '@/components/core/Admin/Pages/add-custom-field';
@@ -44,10 +43,10 @@ const defaultPages: { [key: string]: ReactElement | undefined } = {
 }
 
 const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
-  const [pages, setPages] = useState(providerData?.pages)
-  const [collections, setCollections] = useState(providerData?.collections)
-  const router = useRouter()
-  const client = useApollo(providerData?.initialApolloState)
+  const [pages, setPages] = useState(providerData?.pages);
+  const [collections, setCollections] = useState(providerData?.collections);
+  const router = useRouter();
+  const client = useApollo(providerData?.initialApolloState);
 
   const addPage = (page: string) => {
     if (pages.includes(page)) return
@@ -64,10 +63,13 @@ const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
 
   if (missingEnvVars) return <Welcome variables={missingEnvVars} />
 
-  const { session } = providerData
+  const { session } = providerData;
 
-  if (!session) {
-    return <Login />
+  // if the user is not logged in, redirect them to the sign in page
+  if (!session && typeof window !== 'undefined') {
+    router.push('/admin/login');
+    
+    return null;
   }
 
   if (!router) {
