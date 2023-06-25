@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useOstSession } from '@/utils/core/Auth/hooks';
 import AdminHeader from '../AdminHeader';
 import Sidebar from '../Sidebar';
+import Config from '@/utils/core/Config/Config';
 
 export type AdminLayoutProps = {
   error?: string | ApolloError
@@ -36,7 +37,7 @@ export default function AdminLayout({
   return (
     <>
       <Head>
-        <title>{title ? `${title} | Outstatic` : 'Outstatic'}</title>
+        <title>{title ? `${title} | ${Config('admin.cms_name')}` : Config('admin.cms_name')}</title>
       </Head>
       <div id="outstatic">
         {status === 'loading' ? null : (

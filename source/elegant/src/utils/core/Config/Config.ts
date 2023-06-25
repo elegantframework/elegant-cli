@@ -47,6 +47,8 @@ const Config = (value: string) => {
             return AppConfig().linkedin_url; 
         case 'app.contact_email':
             return AppConfig().contact_email; 
+        case 'admin.cms_name':
+            return AdminConfig().cms_name; 
         case 'admin.cms_asset_path':
             return AdminConfig().cms_asset_path; 
     }
