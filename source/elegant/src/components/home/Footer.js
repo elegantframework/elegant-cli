@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Logo from '@/components/core/Logos/Logo/Logo';
 import Config from "Config";
-
+import ExLink from "../../img/icons/ExternalLink/external-link-icon.svg"
 const footerNav = [
   {
     Community: [
@@ -45,12 +45,20 @@ export function Footer() {
                     {items.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href} passHref>
-                          <a className="hover:text-slate-900 dark:hover:text-slate-300" 
+                          <a className="hover:text-slate-900 dark:hover:text-slate-300 flex items-center" 
                              target={item.external === true ? "_blank" : ""} 
                              rel={item.external === true ? "noopener noreferrer" : ""}
                           >
-                            {item.title}
+                            
+                            {title === 'Community' && (
+                              <span className="mr-1">{item.title}</span>
+                            )}
+                            {title === 'Community' && (
+                              <img src={ExLink} alt="External-icon" className="w-3 h-3" />
+                            )}
+                            {title !== 'Community' && item.title}
                           </a>
+
                         </Link>
                       </li>
                     ))}
