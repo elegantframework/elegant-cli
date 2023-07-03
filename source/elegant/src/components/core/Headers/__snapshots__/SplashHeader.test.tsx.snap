@@ -179,7 +179,7 @@ exports[`Splash Header component renders a splash header component properly 1`] 
             <label
               className="sr-only"
               data-headlessui-state=""
-              id="headlessui-listbox-label-2"
+              id="headlessui-listbox-label-:r1:"
               onClick={[Function]}
             >
               Theme
@@ -189,7 +189,7 @@ exports[`Splash Header component renders a splash header component properly 1`] 
               aria-haspopup={true}
               data-headlessui-state=""
               disabled={false}
-              id="headlessui-listbox-button-3"
+              id="headlessui-listbox-button-:r2:"
               onClick={[Function]}
               onKeyDown={[Function]}
               onKeyUp={[Function]}

@@ -8,7 +8,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
 
       # Speed up subsequent runs with caching
       - name: Cache node modules
@@ -25,12 +25,12 @@ jobs:
             ${{ runner.os }}-
 
       # Install required deps for action
-      - name: Install Dependencies
+      - name: Install CLI Dependencies
         run: npm install
 
       # Install required deps for elegant framework subfolder
-      - name: Install Dependencies
-        run:  cd source/elegant && npm install
+      - name: Install Elegant Package Dependencies
+        run:  cd source/elegant && npm install --legacy-peer-deps
 
       # Finally, run our tests
       - name: Run the tests

@@ -29,7 +29,6 @@ exports[`Nav popover component renders a nav popover component properly 1`] = `
       />
     </svg>
   </button>
-  <div />
   <div
     style={
       {
