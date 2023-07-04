@@ -21,15 +21,22 @@
   "dependencies": {
     "@heroicons/react": "^2.0.17",
     "@next/env": "^13.4.1",
+    "@sindresorhus/slugify": "^2.2.1",
     "@storybook/addon-a11y": "^7.0.8",
     "@storybook/addon-styling": "^1.0.6",
+    "acorn": "^8.9.0",
     "cross-spawn": "^7.0.3",
     "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security",
+    "json5": "^2.2.3",
+    "mdast-util-to-string": "^3.2.0",
     "next": "^12.3.1",
     "next-seo": "^6.0.0",
     "next-sitemap": "^4.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "unist-util-filter": "^4.0.1",
+    "unist-util-visit": "^4.1.2",
     "util": "^0.12.5"
   },
   "devDependencies": {
@@ -46,7 +53,6 @@
     "@reach/alert": "^0.16.0",
     "@reach/rect": "^0.17.0",
     "@silvenon/remark-smartypants": "^1.0.0",
-    "@sindresorhus/slugify": "^1.1.0",
     "@storybook/addon-essentials": "^7.0.8",
     "@storybook/addon-interactions": "^7.0.8",
     "@storybook/addon-links": "^7.0.8",
@@ -124,7 +130,6 @@
     "tinytime": "^0.2.6",
     "ts-jest": "^29.0.5",
     "typescript": "^5.0.2",
-    "unist-util-visit": "^2.0.3",
     "zustand": "^4.0.0-rc.0"
   },
   "engines": {

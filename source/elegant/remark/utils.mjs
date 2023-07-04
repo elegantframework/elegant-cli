@@ -1,6 +1,8 @@
-const Prism = require('prismjs')
-const loadLanguages = require('prismjs/components/')
-const redent = require('redent')
+import Prism from 'prismjs'
+import loadLanguages from 'prismjs/components/index.js'
+import redent from 'redent'
+import { parse } from 'acorn'
+
 loadLanguages()
 
 const HTML_TAG =
@@ -89,7 +91,7 @@ Prism.hooks.add('after-tokenize', ({ language, tokens }) => {
   }
 })
 
-function fixSelectorEscapeTokens(tokens) {
+export function fixSelectorEscapeTokens(tokens) {
   for (let token of tokens) {
     if (typeof token === 'string') continue
     if (token.type !== 'selector') continue
@@ -102,28 +104,12 @@ function fixSelectorEscapeTokens(tokens) {
   }
 }
 
-module.exports.fixSelectorEscapeTokens = fixSelectorEscapeTokens
-
-module.exports.addImport = function addImport(tree, mod, name) {
-  tree.children.unshift({
-    type: 'import',
-    value: `import { ${name} as _${name} } from '${mod}'`,
-  })
-  return `_${name}`
-}
-
-module.exports.addDefaultImport = function addImport(tree, mod, name) {
-  tree.children.unshift({
-    type: 'import',
-    value: `import _${name} from '${mod}'`,
-  })
-  return `_${name}`
-}
-
-module.exports.addExport = function addExport(tree, name, value) {
+export function addExport(tree, name, value) {
+  value = `export const ${name} = ${JSON.stringify(value)}`
   tree.children.push({
-    type: 'export',
-    value: `export const ${name} = ${JSON.stringify(value)}`,
+    type: 'mdxjsEsm',
+    value,
+    data: { estree: parse(value, { ecmaVersion: 'latest', sourceType: 'module' }) },
   })
 }
 
@@ -134,7 +120,7 @@ function hasLineHighlights(code) {
   return code.split('\n').every((line) => line === '' || line === '>' || /^[> ] /.test(line))
 }
 
-module.exports.highlightCode = function highlightCode(code, prismLanguage) {
+export function highlightCode(code, prismLanguage) {
   const isDiff = prismLanguage.startsWith('diff-')
   const language = isDiff ? prismLanguage.substr(5) : prismLanguage
   const grammar = Prism.languages[language]
@@ -284,7 +270,7 @@ function appendTypes(types, add) {
 // are always of type "plain".
 // This is not recursive to avoid exceeding the call-stack limit, since it's unclear
 // how nested Prism's tokens can become
-function normalizeTokens(tokens) {
+export function normalizeTokens(tokens) {
   const typeArrStack = [[]]
   const tokenArrStack = [tokens]
   const tokenArrIndexStack = [0]
@@ -353,12 +339,10 @@ function normalizeTokens(tokens) {
   return acc
 }
 
-module.exports.simplifyToken = function simplifyToken(token) {
+export function simplifyToken(token) {
   if (typeof token === 'string') return token
   return [
     token.type,
     Array.isArray(token.content) ? token.content.map(simplifyToken) : token.content,
   ]
 }
-
-module.exports.normalizeTokens = normalizeTokens
