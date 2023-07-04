@@ -15,7 +15,8 @@ import {
 import Prism from 'prismjs';
 import * as fs from 'fs';
 import { createRequire } from 'node:module';
-
+import * as url from 'node:url';
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const require = createRequire(import.meta.url);
 
 const fallbackLayouts = {
