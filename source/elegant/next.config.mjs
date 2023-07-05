@@ -6,12 +6,16 @@ import { withTableOfContents } from './remark/withTableOfContents.mjs'
 import { withSyntaxHighlighting } from './remark/withSyntaxHighlighting.mjs'
 import { withLinkRoles } from './rehype/withLinkRoles.mjs'
 import minimatch from 'minimatch';
+import withExamples from './remark/withExamples.mjs';
 import {
   highlightCode,
   fixSelectorEscapeTokens,
   simplifyToken,
   normalizeTokens,
 } from './remark/utils.mjs';
+import remarkGfm from 'remark-gfm';
+import remarkUnwrapImages from 'remark-unwrap-images';
+import { recmaImportImages } from './recma/importImages.mjs';
 import Prism from 'prismjs';
 import * as fs from 'fs';
 import { createRequire } from 'node:module';
@@ -116,12 +120,16 @@ export default {
             : { 
                 providerImportSource: '@mdx-js/react',
                 remarkPlugins: [
+                  remarkGfm,
+                  remarkUnwrapImages,
+                  withExamples,
                   withTableOfContents,
                   withSyntaxHighlighting,
                   withSmartQuotes,
                   ...plugins,
                 ],
                 rehypePlugins: [withLinkRoles],
+                recmaPlugins: [[recmaImportImages, { property: 'src' }]],
               }
       },
       createLoader(function (source) {
