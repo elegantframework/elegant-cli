@@ -93,14 +93,14 @@ function ColorPalette({ name, value }) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Alert className="relative bg-sky-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
+        <Alert className="relative bg-primary-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
           Copied
           <svg
             aria-hidden="true"
             width="16"
             height="6"
             viewBox="0 0 16 6"
-            className="text-sky-500 absolute top-full left-1/2 -mt-px -ml-2"
+            className="text-primary-500 absolute top-full left-1/2 -mt-px -ml-2"
           >
             <path
               fillRule="evenodd"

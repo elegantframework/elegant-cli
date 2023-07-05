@@ -18,16 +18,16 @@
 .token.attr-value,
 .token.class,
 .token.string {
-  @apply text-sky-300;
+  @apply text-primary-300;
 }
 
 .token.punctuation,
 .token.attr-equals {
-  @apply text-slate-500;
+  @apply text-primary-500;
 }
 
 .token.attr-value * {
-  @apply text-sky-300;
+  @apply text-primary-300;
 }
 
 .token.attr-value .attr-equals,
@@ -37,7 +37,7 @@
 }
 
 .token.property {
-  @apply text-sky-300;
+  @apply text-primary-300;
 }
 
 .token.unit {

@@ -117,9 +117,8 @@ export default {
                 providerImportSource: '@mdx-js/react',
                 remarkPlugins: [
                   withTableOfContents,
-                  // withSyntaxHighlighting,
-                  // withNextLinks,
-                  // withSmartQuotes,
+                  withSyntaxHighlighting,
+                  withSmartQuotes,
                   ...plugins,
                 ],
                 rehypePlugins: [withLinkRoles],
