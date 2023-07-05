@@ -193,7 +193,7 @@ export default function App({ Component, pageProps, router }) {
         )}
         <Layout {...layoutProps}>
           <AnalyticsBody googleAnalyticsID={Config('app.google_analytics_id')}/>
-          <Component section={section} {...pageProps} />
+          <Component section={section} {...Component.layoutProps} {...pageProps} />
         </Layout>
       </SearchProvider>
     </>

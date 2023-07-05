@@ -1,8 +1,22 @@
-export const mdxComponents = {
-  img: (props) => (
-    <div className="relative not-prose my-[2em] first:mt-0 last:mb-0 rounded-lg overflow-hidden">
+import { Heading } from '@/components/Heading'
+import { Example } from '@/components/Example'
+import { Editor } from '@/components/Editor'
+import Link from 'next/link'
+
+function Img(props) {
+  return (
+    <div className="relative not-prose [a:not(:first-child)>&]:mt-[2em] [a:not(:last-child)>&]:mb-[2em] my-[2em] first:mt-0 last:mb-0 rounded-2xl overflow-hidden [figure>&]:my-0">
       <img {...props} decoding="async" />
-      <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-slate-900/10" />
+      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10 dark:ring-white/10" />
     </div>
-  ),
+  )
+}
+
+export const mdxComponents = {
+  Heading,
+  a: Link,
+  img: Img,
+  Img,
+  Example,
+  Editor,
 }
