@@ -6,10 +6,9 @@ import { formatDate } from '@/utils/formatDate';
 import buildRss from '@/scripts/build-rss';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import Config from "Config";
+import { renderToStaticMarkup } from 'react-dom/server'
 
-let posts = getAllPostPreviews()
-
-export default function Blog() {
+export default function Blog({ posts }) {
   return (
     <main className="max-w-[52rem] mx-auto px-4 pb-28 sm:px-6 md:px-8 xl:px-12 lg:max-w-6xl">
       <header className="py-16 sm:text-center">
@@ -28,7 +27,7 @@ export default function Blog() {
       <div className="relative sm:pb-12 sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
         <div className="hidden absolute top-3 bottom-0 right-full mr-7 md:mr-[3.25rem] w-px bg-slate-200 dark:bg-slate-800 sm:block" />
         <div className="space-y-16">
-          {posts.map(({ slug, module: { default: Component, meta } }) => (
+          {posts.map(({ slug, meta, preview }) => (
             <article key={slug} className="relative group">
               <div className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl group-hover:bg-slate-50/70 dark:group-hover:bg-slate-800/50" />
               <svg
@@ -48,9 +47,10 @@ export default function Blog() {
                 <h3 className="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-200 pt-8 lg:pt-0">
                   {meta.title}
                 </h3>
-                <div className="mt-2 mb-4 prose prose-slate prose-a:relative prose-a:z-10 dark:prose-dark line-clamp-2">
-                  <Component />
-                </div>
+                <div
+                  className="mt-2 mb-4 prose prose-slate prose-a:relative prose-a:z-10 dark:prose-dark line-clamp-2"
+                  dangerouslySetInnerHTML={{ __html: preview }}
+                />
                 <dl className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
                   <dt className="sr-only">Date</dt>
                   <dd className={clsx('whitespace-nowrap text-sm leading-6 dark:text-slate-400')}>
@@ -90,17 +90,24 @@ export default function Blog() {
 Blog.layoutProps = {
   meta: {
     title: 'Blog - Elegant - All the latest Elegant news, straight from the team.',
-    description: 'All the latest Elegant news, straight from the team.',
-    ogImage: socialCardLarge.src
+    description: 'All the latest Elegant news, straight from the team.'
   },
 }
 
 export async function getStaticProps() {
   if (process.env.NODE_ENV === 'production') {
-    buildRss()
+    await buildRss()
   }
 
-  return { props: {} }
+  return {
+    props: {
+      posts: (await getAllPostPreviews()).map(({ slug, module }) => ({
+        slug,
+        meta: module.meta,
+        preview: renderToStaticMarkup(<module.default />),
+      })),
+    },
+  }
 }
 
 /**
@@ -119,5 +126,4 @@ const NewsletterSignupBlock = ({action}) => {
       </section>
     );
   }
-  return null;
 };
