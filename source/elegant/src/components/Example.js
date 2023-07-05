@@ -44,7 +44,7 @@ function Well({
               />
               <path
                 d="M3 5s.35-.47 1.25-.828m9.516-.422c2.078.593 3.484 1.5 3.484 1.5"
-                className="stroke-slate-400 dark:stroke-primary-400"
+                className="stroke-slate-400 dark:stroke-sky-400"
               />
             </svg>
             <p className="text-slate-700 text-sm font-medium dark:text-slate-200">{hint}</p>
