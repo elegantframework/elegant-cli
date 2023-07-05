@@ -4,12 +4,12 @@ import { MDXProvider } from '@mdx-js/react';
 import { Feed } from 'feed';
 import { getAllPosts } from '@/utils/getAllPosts';
 import { mdxComponents } from '@/utils/mdxComponents';
-import socialCardLarge from '@/img/social-card-large.jpg';
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import Config from "Config";
 
-export default function buildRss() {
+export default async function buildRss() {
   const baseUrl = Config('app.url');
-  const blogUrl = `${baseUrl}/blog`
+  const blogUrl = `${baseUrl}/blog`;
 
   const feed = new Feed({
     title: 'Elegant Framework Blog',
@@ -17,8 +17,8 @@ export default function buildRss() {
     id: blogUrl,
     link: blogUrl,
     language: 'en',
-    image: `${baseUrl}/favicons/favicon-32x32.png?v=4`,
-    favicon: `${baseUrl}/favicons/favicon.ico?v=4`,
+    image: `${baseUrl}/favicons/favicon-32x32.png?v=3`,
+    favicon: `${baseUrl}/favicons/favicon.ico?v=3`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Elegant, Inc.`,
     feedLinks: {
       rss: `${baseUrl}/feeds/feed.xml`,
@@ -31,19 +31,23 @@ export default function buildRss() {
     },
   })
 
-  getAllPosts().forEach(({ slug, module: { meta, default: Content } }) => {
+  let posts = await getAllPosts()
+
+  posts.forEach(({ slug, module: { meta, default: Content } }) => {
     const mdx = (
-      <MDXProvider components={mdxComponents}>
-        <Content />
-      </MDXProvider>
+      <MemoryRouterProvider>
+        <MDXProvider components={mdxComponents}>
+          <Content />
+        </MDXProvider>
+      </MemoryRouterProvider>
     )
     const html = ReactDOMServer.renderToStaticMarkup(mdx)
     const postText = `<p><em>(The post <a href="${blogUrl}/${slug}">${meta.title}</a> appeared first on <a href="${blogUrl}">Elegant Framework Blog</a>.)</em></p>`
 
     let image = meta.ogImage ?? meta.image
     image = image
-      ? `${baseUrl}${image.src ?? image}`
-      : `${baseUrl}${socialCardLarge.src}`
+      ? `${baseUrl}${image.default?.src ?? image.src ?? image}`
+      : `${baseUrl}/api/og?path=/blog/${slug}`
 
     feed.addItem({
       title: meta.title,
