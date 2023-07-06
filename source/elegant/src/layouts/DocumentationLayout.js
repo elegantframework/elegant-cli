@@ -1,5 +1,7 @@
 import { SidebarLayout } from '@/layouts/SidebarLayout';
-import { documentationNav } from '@/navs/documentation';
+import { Title } from '@/components/Meta';
+import { documentationNav } from '@/config/navigation';
+import Seo from "@/components/core/Seo/Seo";
 
 export function DocumentationLayout(props) {
   return (
