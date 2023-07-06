@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Logo from '@/components/core/Logos/Logo/Logo';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
 import Config from "Config";
-import ExLink from "../../img/icons/ExternalLink/external-link-icon.svg"
+
 const footerNav = [
   {
     Community: [
@@ -26,7 +27,7 @@ const footerNav = [
       { title: 'Website Design Services', href: '/experts' },
     ]
   },
-]
+];
 
 export function Footer() {
   return (
@@ -49,16 +50,15 @@ export function Footer() {
                              target={item.external === true ? "_blank" : ""} 
                              rel={item.external === true ? "noopener noreferrer" : ""}
                           >
-                            
-                            {title === 'Community' && (
-                              <span className="mr-1">{item.title}</span>
-                            )}
-                            {title === 'Community' && (
-                              <img src={ExLink} alt="External-icon" className="w-3 h-3" />
-                            )}
-                            {title !== 'Community' && item.title}
+                            <span className="mr-1">
+                              {item.title}
+                            </span>
+                            {item.external === true && 
+                              <ArrowTopRightOnSquareIcon 
+                                className="w-4 h-4"
+                              />
+                            }
                           </a>
-
                         </Link>
                       </li>
                     ))}
