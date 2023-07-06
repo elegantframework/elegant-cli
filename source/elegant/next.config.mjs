@@ -129,7 +129,7 @@ export default {
                   ...plugins,
                 ],
                 rehypePlugins: [withLinkRoles],
-                recmaPlugins: [[recmaImportImages, { property: 'src' }]],
+                // recmaPlugins: [[recmaImportImages, { property: 'src' }]],
               }
       },
       createLoader(function (source) {
