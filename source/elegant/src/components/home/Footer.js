@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Logo from '@/components/core/Logos/Logo/Logo';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
 import Config from "Config";
 
 const footerNav = [
@@ -26,7 +27,7 @@ const footerNav = [
       { title: 'Website Design Services', href: '/experts' },
     ]
   },
-]
+];
 
 export function Footer() {
   return (
@@ -45,11 +46,18 @@ export function Footer() {
                     {items.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href} passHref>
-                          <a className="hover:text-slate-900 dark:hover:text-slate-300" 
+                          <a className="hover:text-slate-900 dark:hover:text-slate-300 flex items-center" 
                              target={item.external === true ? "_blank" : ""} 
                              rel={item.external === true ? "noopener noreferrer" : ""}
                           >
-                            {item.title}
+                            <span className="mr-1">
+                              {item.title}
+                            </span>
+                            {item.external === true && 
+                              <ArrowTopRightOnSquareIcon 
+                                className="w-4 h-4"
+                              />
+                            }
                           </a>
                         </Link>
                       </li>
