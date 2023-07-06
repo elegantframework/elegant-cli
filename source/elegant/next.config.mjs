@@ -15,7 +15,6 @@ import {
 } from './remark/utils.mjs';
 import remarkGfm from 'remark-gfm';
 import remarkUnwrapImages from 'remark-unwrap-images';
-import { recmaImportImages } from './recma/importImages.mjs';
 import Prism from 'prismjs';
 import * as fs from 'fs';
 import { createRequire } from 'node:module';
@@ -129,7 +128,6 @@ export default {
                   ...plugins,
                 ],
                 rehypePlugins: [withLinkRoles],
-                // recmaPlugins: [[recmaImportImages, { property: 'src' }]],
               }
       },
       createLoader(function (source) {
