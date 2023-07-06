@@ -2,7 +2,7 @@ import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect';
 import { Listbox } from '@headlessui/react';
 import clsx from 'clsx';
 import { Fragment, useEffect, useRef } from 'react';
-import create from 'zustand';
+import { create } from 'zustand';
 
 export const useSetting = create((set) => ({
     setting: null,
