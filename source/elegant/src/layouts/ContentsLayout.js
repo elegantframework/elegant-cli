@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import { DocsFooter } from '@/components/DocsFooter';
 import { Heading } from '@/components/Heading';
 import { MDXProvider } from '@mdx-js/react';
+import { mdxComponents } from '@/utils/mdxComponents';
 import Config from 'Config';
 
 export const ContentsContext = createContext()
@@ -97,12 +98,16 @@ function TableOfContents({ tableOfContents, currentSection }) {
   )
 }
 
+function getTop(id) {
+  return document.getElementById(id).getBoundingClientRect().top + window.scrollY
+}
+
 function useTableOfContents(tableOfContents) {
   let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
   let [headings, setHeadings] = useState([])
 
-  const registerHeading = useCallback((id, top) => {
-    setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top }])
+  const registerHeading = useCallback((id) => {
+    setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top: getTop(id) }])
   }, [])
 
   const unregisterHeading = useCallback((id) => {
@@ -111,6 +116,7 @@ function useTableOfContents(tableOfContents) {
 
   useEffect(() => {
     if (tableOfContents.length === 0 || headings.length === 0) return
+
     function onScroll() {
       let style = window.getComputedStyle(document.documentElement)
       let scrollMt = parseFloat(style.getPropertyValue('--scroll-mt').match(/[\d.]+/)?.[0] ?? 0)
@@ -127,12 +133,23 @@ function useTableOfContents(tableOfContents) {
       }
       setCurrentSection(current)
     }
+
     window.addEventListener('scroll', onScroll, {
       capture: true,
       passive: true,
     })
+
     onScroll()
+
+    let resizeObserver = new window.ResizeObserver(() => {
+      for (let heading of headings) {
+        heading.top = getTop(heading.id)
+      }
+    })
+
+    resizeObserver.observe(document.body)
     return () => {
+      resizeObserver.disconnect()
       window.removeEventListener('scroll', onScroll, {
         capture: true,
         passive: true,
@@ -168,6 +185,7 @@ export function ContentsLayoutOuter({ children, layoutProps, ...props }) {
 }
 
 export function ContentsLayout({ children, meta, classes, tableOfContents, section }) {
+  
   const router = useRouter()
   const toc = [
     ...(classes ? [{ title: 'Quick reference', slug: 'class-reference', children: [] }] : []),
@@ -194,7 +212,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
               id="content-wrapper"
               className="relative z-20 prose prose-slate mt-12 dark:prose-dark"
             >
-              <MDXProvider components={{ Heading }}>{children}</MDXProvider>
+              <MDXProvider components={mdxComponents}>{children}</MDXProvider>
             </div>
           </>
         ) : (
@@ -202,7 +220,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
             id="content-wrapper"
             className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
           >
-            <MDXProvider components={{ Heading }}>{children}</MDXProvider>
+            <MDXProvider components={mdxComponents}>{children}</MDXProvider>
           </div>
         )}
       </ContentsContext.Provider>

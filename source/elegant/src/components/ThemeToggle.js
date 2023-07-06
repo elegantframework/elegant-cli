@@ -2,7 +2,7 @@ import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect';
 import { Listbox } from '@headlessui/react';
 import clsx from 'clsx';
 import { Fragment, useEffect, useRef } from 'react';
-import create from 'zustand';
+import { create } from 'zustand';
 import SunIcon from './core/Icons/SunIcon/SunIcon';
 import MoonIcon from './core/Icons/MoonIcon/MoonIcon';
 import PCIcon from './core/Icons/PCIcon/PCIcon';

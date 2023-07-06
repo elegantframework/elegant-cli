@@ -1,6 +1,5 @@
-import { useEffect, useContext, useRef } from 'react'
+import { useEffect, useContext } from 'react'
 import { ContentsContext } from '@/layouts/ContentsLayout'
-import { useTop } from '@/hooks/useTop'
 import clsx from 'clsx'
 
 export function Heading({
@@ -19,18 +18,13 @@ export function Heading({
   let Component = `h${level}`
   const context = useContext(ContentsContext)
 
-  let ref = useRef()
-  let top = useTop(ref)
-
   useEffect(() => {
     if (!context) return
-    if (typeof top !== 'undefined') {
-      context.registerHeading(id, top)
-    }
+    context.registerHeading(id)
     return () => {
       context.unregisterHeading(id)
     }
-  }, [top, id, context?.registerHeading, context?.unregisterHeading])
+  }, [id, context?.registerHeading, context?.unregisterHeading])
 
   return (
     <Component
@@ -40,7 +34,6 @@ export function Heading({
           level === 2 && nextElement?.type === 'heading' && nextElement?.depth === 3,
       })}
       id={id}
-      ref={ref}
       style={{ ...(hidden ? { marginBottom: 0 } : {}), ...style }}
       data-docsearch-ignore={ignore ? '' : undefined}
       {...props}
