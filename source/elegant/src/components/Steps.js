@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import redent from 'redent'
-import Alert from '@reach/alert'
 import { SnippetGroup } from '@/components/SnippetGroup'
 import { Editor } from '@/components/Editor'
 import { Transition } from '@headlessui/react'
@@ -29,10 +28,9 @@ export function Steps({ intro, steps, code, level = 2 }) {
           <li
             key={step.title}
             className={clsx(
-              'relative pl-10 gap-16 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5 dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none dark:before:highlight-white/5 list-none',
+              'relative pl-10 xl:grid grid-cols-5 gap-16 before:content-[counter(step)] before:absolute before:left-0 before:flex before:items-center before:justify-center before:w-[calc(1.375rem+1px)] before:h-[calc(1.375rem+1px)] before:text-[0.625rem] before:font-bold before:text-slate-700 before:rounded-md before:shadow-sm before:ring-1 before:ring-slate-900/5 dark:before:bg-slate-700 dark:before:text-slate-200 dark:before:ring-0 dark:before:shadow-none dark:before:highlight-white/5',
               index !== steps.length - 1 &&
-                'pb-8 after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 dark:after:bg-slate-200/5',
-              step.code && 'xl:grid grid-cols-5' 
+                'pb-8 after:absolute after:top-[calc(1.875rem+1px)] after:bottom-0 after:left-[0.6875rem] after:w-px after:bg-slate-200 dark:after:bg-slate-200/5'
             )}
             style={{ counterIncrement: 'step' }}
           >
@@ -45,11 +43,6 @@ export function Steps({ intro, steps, code, level = 2 }) {
               </div>
             </div>
             {step.code && <Snippet code={step.code} highlightedCode={code[index]} />}
-            {step.image && 
-              <div className="my-8 shadow-xl">
-                <img className="rounded-xl" src={step.image.src} alt={step.image.title}/>
-              </div>
-            }
           </li>
         ))}
       </ol>
@@ -108,7 +101,7 @@ function CopyButton({ code }) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Alert className="relative bg-primary-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
+        <div className="relative bg-primary-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
           Copied
           <svg
             aria-hidden="true"
@@ -124,7 +117,7 @@ function CopyButton({ code }) {
               fill="currentColor"
             />
           </svg>
-        </Alert>
+        </div>
       </Transition>
     </div>
   )

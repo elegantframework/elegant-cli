@@ -2,44 +2,37 @@ import { useEffect, useState } from 'react'
 import colorPalette from 'tailwindcss/colors'
 import { kebabToTitleCase } from '@/utils/kebabToTitleCase'
 import dlv from 'dlv'
-import Alert from '@reach/alert'
 import { Transition } from '@headlessui/react'
 
 export function ColorPaletteReference({ colors }) {
   return (
-    <div className="grid grid-cols-1 gap-8">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-x-2 gap-y-8 sm:grid-cols-1">
       {colors.map((color, i) => {
         let title = Array.isArray(color) ? color[0] : kebabToTitleCase(color)
         let value = Array.isArray(color) ? color[1] : color
 
         let palette =
           typeof value === 'string'
-            ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((variant) => ({
+            ? [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((variant) => ({
                 name: variant,
                 value: dlv(colorPalette, [value, variant]),
               }))
             : Object.keys(value).map((name) => ({ name, value: value[name] }))
 
         return (
-          <div key={i}>
-            <div className="flex flex-col space-y-3 sm:flex-row text-xs sm:space-y-0 sm:space-x-4">
-              <div className="w-16 shrink-0">
-                <div className="h-10 flex flex-col justify-center">
-                  <div className="text-sm font-semibold text-slate-900 dark:text-slate-200">
-                    {title
-                      .split('')
-                      .flatMap((l, i) => {
-                        return i !== 0 && l.toUpperCase() === l ? [' ', l] : [l]
-                      })
-                      .join('')}
-                  </div>
-                </div>
-              </div>
-              <div className="min-w-0 flex-1 grid grid-cols-5 2xl:grid-cols-10 gap-x-4 gap-y-3 2xl:gap-x-2">
-                {palette.map((props, j) => (
-                  <ColorPalette key={j} {...props} />
-                ))}
-              </div>
+          <div key={title} className="2xl:contents">
+            <div className="text-sm font-semibold text-slate-900 dark:text-slate-200 2xl:col-end-1 2xl:pt-2.5">
+              {title
+                .split('')
+                .flatMap((l, i) => {
+                  return i !== 0 && l.toUpperCase() === l ? [' ', l] : [l]
+                })
+                .join('')}
+            </div>
+            <div className="grid mt-3 grid-cols-1 sm:grid-cols-11 gap-y-3 gap-x-2 sm:mt-2 2xl:mt-0">
+              {palette.map((props, j) => (
+                <ColorPalette key={j} {...props} />
+              ))}
             </div>
           </div>
         )
@@ -65,7 +58,7 @@ function ColorPalette({ name, value }) {
   return (
     <div className="relative flex">
       <div
-        className="space-y-1.5 cursor-pointer"
+        className="flex items-center gap-x-3 w-full cursor-pointer sm:block sm:space-y-1.5"
         onClick={() =>
           navigator.clipboard.writeText(value).then(() => {
             setState({ state: 'copied' })
@@ -73,13 +66,15 @@ function ColorPalette({ name, value }) {
         }
       >
         <div
-          className="h-10 w-full rounded dark:ring-1 dark:ring-inset dark:ring-white/10"
+          className="h-10 w-10 rounded dark:ring-1 dark:ring-inset dark:ring-white/10 sm:w-full"
           style={{ backgroundColor: value }}
         />
-        <div className="px-0.5 md:flex md:justify-between md:space-x-2 2xl:space-x-0 2xl:block">
-          <div className="w-6 font-medium text-slate-900 2xl:w-full dark:text-white">{name}</div>
-          <div className="text-slate-500 font-mono lowercase dark:text-slate-400">
-            {value.replace(/^#[a-f0-9]+/gi, (m) => m.toUpperCase())}
+        <div className="px-0.5">
+          <div className="w-6 font-medium text-xs text-slate-900 2xl:w-full dark:text-white">
+            {name}
+          </div>
+          <div className="text-slate-500 text-xs font-mono lowercase dark:text-slate-400 sm:text-[0.625rem] md:text-xs lg:text-[0.625rem] 2xl:text-xs">
+            {value}
           </div>
         </div>
       </div>
@@ -93,7 +88,7 @@ function ColorPalette({ name, value }) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Alert className="relative bg-primary-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
+        <div className="relative bg-primary-500 text-white font-mono text-[0.625rem] leading-6 font-medium px-1.5 rounded-lg">
           Copied
           <svg
             aria-hidden="true"
@@ -109,7 +104,7 @@ function ColorPalette({ name, value }) {
               fill="currentColor"
             />
           </svg>
-        </Alert>
+        </div>
       </Transition>
     </div>
   )
