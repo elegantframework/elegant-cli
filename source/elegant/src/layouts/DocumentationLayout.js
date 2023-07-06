@@ -11,4 +11,4 @@ export function DocumentationLayout(props) {
   )
 }
 
-DocumentationLayout.nav = documentationNav
+DocumentationLayout.nav = documentationNav;
