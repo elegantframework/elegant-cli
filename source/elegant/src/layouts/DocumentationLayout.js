@@ -1,5 +1,5 @@
 import { SidebarLayout } from '@/layouts/SidebarLayout';
-import { documentationNav } from '@/config/navigation';
+import { documentationNav } from '@/config/Navigation';
 
 export function DocumentationLayout(props) {
   return (
