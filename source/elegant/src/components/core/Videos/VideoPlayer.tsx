@@ -1,35 +1,36 @@
-import { VideoJsonLd } from 'next-seo';
-import React from 'react';
+import { VideoJsonLd } from 'next-seo'
+import React from 'react'
+import { useEffect, useState } from 'react'
 
 interface Props {
   /**
    * The title of the video.
    */
-  title: string;
+  title: string
   /**
    * The url of the video.
    */
-  content_url: string;
+  content_url: string
   /**
    * The embed url of the video.
    */
-  embed_url: string;
+  embed_url: string
   /**
    * A description of the video.
    */
-  description: string;
+  description: string
   /**
    * The width of the video player.
    */
-  width?: number;
+  width?: number
   /**
    * The height of the video player.
    */
-  height?: number;
+  height?: number
   /**
    * Can the video player be viewed in fullscreen mode?
    */
-  allowFullScreen?: boolean;
+  allowFullScreen?: boolean
 }
 
 /**
@@ -42,27 +43,30 @@ const VideoPlayer = ({
   embed_url,
   description,
   width = 560,
-  height = 315,
-  allowFullScreen = true
+  height = 350,
+  allowFullScreen = true,
 }: Props) => {
   return (
     <>
-      <iframe 
-        width={width} 
-        height={height}
-        src={embed_url} 
-        title={title} 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowFullScreen={allowFullScreen}
-      ></iframe>
-       <VideoJsonLd
+      <div>
+        <iframe
+          width={'85%'}
+          height={height}
+          src={embed_url}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen={allowFullScreen}
+        ></iframe>
+
+        <VideoJsonLd
           name={title}
           description={description}
           contentUrl={content_url}
           embedUrl={embed_url}
-      />
+        />
+      </div>
     </>
-  );
+  )
 }
 
-export default VideoPlayer;
+export default VideoPlayer
