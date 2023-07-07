@@ -117,7 +117,7 @@
     "seedrandom": "^3.0.5",
     "simple-functional-loader": "^1.2.1",
     "start-server-and-test": "^2.0.0",
-    "storybook": "^6.5.16",
+    "storybook": "^7.0.26",
     "storybook-dark-mode": "^3.0.0",
     "stringify-object": "^3.3.0",
     "tailwindcss": "^3.2.7",
