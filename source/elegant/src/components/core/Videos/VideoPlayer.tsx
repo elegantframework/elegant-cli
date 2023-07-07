@@ -21,7 +21,7 @@ interface Props {
   /**
    * The width of the video player.
    */
-  width?: number;
+  width?: number | string;
   /**
    * The height of the video player.
    */
@@ -41,14 +41,14 @@ const VideoPlayer = ({
   content_url,
   embed_url,
   description,
-  width = 560,
+  width = '100%',
   height = 350,
   allowFullScreen = true
 }: Props) => {
   return (
     <>
         <iframe
-          width={'85%'}
+          width={width}
           height={height}
           src={embed_url}
           title={title}
