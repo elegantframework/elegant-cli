@@ -1,4 +1,4 @@
-import brandonOwensAvatar from './img/authors/brandonowens.jpg';
+import brandonOwensAvatar from '@/img/authors/brandonowens.jpg';
 
 export const brandonOwens = {
   name: 'Brandon Owens',
