@@ -5,31 +5,31 @@ interface Props {
   /**
    * The title of the video.
    */
-  title: string
+  title: string;
   /**
    * The url of the video.
    */
-  content_url: string
+  content_url: string;
   /**
    * The embed url of the video.
    */
-  embed_url: string
+  embed_url: string;
   /**
    * A description of the video.
    */
-  description: string
+  description: string;
   /**
    * The width of the video player.
    */
-  width?: number
+  width?: number;
   /**
    * The height of the video player.
    */
-  height?: number
+  height?: number;
   /**
    * Can the video player be viewed in fullscreen mode?
    */
-  allowFullScreen?: boolean
+  allowFullScreen?: boolean;
 }
 
 /**
@@ -43,7 +43,7 @@ const VideoPlayer = ({
   description,
   width = 560,
   height = 350,
-  allowFullScreen = true,
+  allowFullScreen = true
 }: Props) => {
   return (
     <>
@@ -65,7 +65,7 @@ const VideoPlayer = ({
         />
       </div>
     </>
-  )
+  );
 }
 
-export default VideoPlayer
+export default VideoPlayer;
