@@ -1,6 +1,5 @@
 import { VideoJsonLd } from 'next-seo'
 import React from 'react'
-import { useEffect, useState } from 'react'
 
 interface Props {
   /**
