@@ -30,13 +30,16 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
 
 /**
  * Find the nearst scrollable ancestor (or self if scrollable)
+ *
  * Code adapted and simplified from the smoothscroll polyfill
+ *
+ *
  * @param {Element} el
  */
 function nearestScrollableContainer(el) {
   /**
    * indicates if an element can be scrolled
-
+   *
    * @param {Node} el
    */
   function isScrollable(el) {
@@ -183,59 +186,6 @@ function Nav({ nav, children, fallbackHref, mobile = false }) {
             .filter(Boolean)}
       </ul>
     </nav>
-  )
-}
-
-const TopLevelAnchor = forwardRef(
-  (
-    { children, href, className, icon, isActive, onClick, shadow, activeBackground, mobile },
-    ref
-  ) => {
-    return (
-      <li>
-        <a
-          ref={ref}
-          href={href}
-          onClick={onClick}
-          className={clsx(
-            'group flex items-center lg:text-sm lg:leading-6',
-            className,
-            isActive
-              ? 'font-semibold text-primary-500 dark:text-primary-400'
-              : 'font-medium text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300'
-          )}
-        >
-          <div
-            className={clsx(
-              'mr-4 rounded-md ring-1 ring-slate-900/5 shadow-sm group-hover:shadow group-hover:ring-slate-900/10 dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10',
-              shadow,
-              isActive
-                ? [activeBackground, 'dark:highlight-white/10']
-                : mobile
-                ? 'dark:bg-slate-700 dark:highlight-white/5'
-                : 'dark:bg-slate-800 dark:highlight-white/5'
-            )}
-          >
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-              {icon}
-            </svg>
-          </div>
-          {children}
-        </a>
-      </li>
-    )
-  }
-)
-
-function TopLevelLink({ href, as, ...props }) {
-  if (/^https?:\/\//.test(href)) {
-    return <TopLevelAnchor href={href} {...props} />
-  }
-
-  return (
-    <Link href={href} as={as} passHref>
-      <TopLevelAnchor {...props} />
-    </Link>
   )
 }
 

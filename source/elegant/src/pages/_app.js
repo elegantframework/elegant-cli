@@ -9,18 +9,12 @@ import Router from 'next/router';
 import ProgressBar from '@badrap/bar-of-progress';
 import Seo from "@/components/core/Seo/Seo";
 import Head from 'next/head';
-import { ResizeObserver } from '@juggle/resize-observer';
-import 'intersection-observer';
 import { SearchProvider } from '@/components/Search';
 import AnalyticsHead from '@/components/core/Analytics/AnalyticsHead';
 import AnalyticsBody from '@/components/core/Analytics/AnalyticsBody';
 import * as gtag from '@/utils/core/Analytics/gtag';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import Config from 'Config';
-
-if (typeof window !== 'undefined' && !('ResizeObserver' in window)) {
-  window.ResizeObserver = ResizeObserver
-}
 
 const progress = new ProgressBar({
   size: 2,
@@ -193,7 +187,7 @@ export default function App({ Component, pageProps, router }) {
         )}
         <Layout {...layoutProps}>
           <AnalyticsBody googleAnalyticsID={Config('app.google_analytics_id')}/>
-          <Component section={section} {...pageProps} />
+          <Component section={section} {...Component.layoutProps} {...pageProps} />
         </Layout>
       </SearchProvider>
     </>

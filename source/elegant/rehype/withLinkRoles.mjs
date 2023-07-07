@@ -1,6 +1,6 @@
-const visit = require('unist-util-visit')
+import { visit } from 'unist-util-visit'
 
-module.exports.withLinkRoles = () => {
+export const withLinkRoles = () => {
   return (tree) => {
     visit(tree, 'element', (element) => {
       if (['ol', 'ul'].includes(element.tagName)) {
