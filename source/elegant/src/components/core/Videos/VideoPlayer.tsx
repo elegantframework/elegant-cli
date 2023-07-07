@@ -1,5 +1,5 @@
-import { VideoJsonLd } from 'next-seo'
-import React from 'react'
+import { VideoJsonLd } from 'next-seo';
+import React from 'react';
 
 interface Props {
   /**
@@ -47,7 +47,6 @@ const VideoPlayer = ({
 }: Props) => {
   return (
     <>
-      <div>
         <iframe
           width={'85%'}
           height={height}
@@ -63,7 +62,6 @@ const VideoPlayer = ({
           contentUrl={content_url}
           embedUrl={embed_url}
         />
-      </div>
     </>
   );
 }
