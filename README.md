@@ -38,14 +38,14 @@
 
 ## Introduction
 
-Elegant is a community-driven open source project for building, deploying, and maintaining websites easily.
+Elegant is a community-driven project for building, deploying, and maintaining websites easily.
 
 ### Key Features
 
-- 📝 Full-featured dashboard
 - 🚀 Fast and easy setup
 - 💾 No database
-- 🏠 Host for free
+- 🏠 Self-host for free
+- ✅ Optimized for all search engines
 
 
 
