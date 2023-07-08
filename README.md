@@ -1,9 +1,9 @@
 <p align="center">
-  <h1 align="center">Elegant</h1>
   <a href="https://www.elegantframework.com">
     <picture>
       <img src="https://github.com/elegantframework/elegant-cli/assets/10189130/742ed0af-bdd7-4d97-83e1-0530f7bed34a" height="200">
     </picture>
+    <h1 align="center">Elegant</h1>
   </a>
 </p>
 
@@ -15,7 +15,6 @@
     <img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
   </a>
 </p>
-
 
 <p align="center">
   Elegant is the easiest way to create a new static website or blog, and publish it online.
