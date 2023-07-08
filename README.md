@@ -28,9 +28,26 @@
   </a>
 </p>
 
-<p align="center">
-  Elegant is the easiest way to create a new static website or blog, and publish it online.
+<p align="left">
+  Elegant is the easiest way to create a new static website or blog, and publish it online. No need for databases, external services, or complicated server setups.
+
+  Built with Next.js, Tailwind CSS, Markdown loading, & much more.
 </p>
+
+---
+
+## Introduction
+
+Elegant is a community-driven open source project for building, deploying, and maintaining websites easily.
+
+### Key Features
+
+- 📝 Full-featured dashboard
+- 🚀 Fast and easy setup
+- 💾 No database
+- 🏠 Host for free
+
+
 
 ------
 
