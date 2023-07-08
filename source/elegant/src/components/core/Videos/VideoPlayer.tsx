@@ -21,7 +21,7 @@ interface Props {
   /**
    * The width of the video player.
    */
-  width?: number;
+  width?: number | string;
   /**
    * The height of the video player.
    */
@@ -41,26 +41,27 @@ const VideoPlayer = ({
   content_url,
   embed_url,
   description,
-  width = 560,
-  height = 315,
+  width = '100%',
+  height = 350,
   allowFullScreen = true
 }: Props) => {
   return (
     <>
-      <iframe 
-        width={width} 
-        height={height}
-        src={embed_url} 
-        title={title} 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowFullScreen={allowFullScreen}
-      ></iframe>
-       <VideoJsonLd
+        <iframe
+          width={width}
+          height={height}
+          src={embed_url}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen={allowFullScreen}
+        ></iframe>
+
+        <VideoJsonLd
           name={title}
           description={description}
           contentUrl={content_url}
           embedUrl={embed_url}
-      />
+        />
     </>
   );
 }
