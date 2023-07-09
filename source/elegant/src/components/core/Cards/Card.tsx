@@ -1,4 +1,7 @@
 type Props = {
+    /**
+     * Html that can be passed directly to the card component.
+     */
     children: React.ReactNode;
 };
 
