@@ -4,9 +4,9 @@ exports[`Video Player component renders a video player component properly 1`] = 
 <iframe
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowFullScreen={true}
-  height={315}
+  height={350}
   src="https://www.youtube.com/embed/bS66QUBKljM"
   title="Hello World"
-  width={560}
+  width="100%"
 />
 `;

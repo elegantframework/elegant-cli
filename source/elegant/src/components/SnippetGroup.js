@@ -48,7 +48,7 @@ function TabItem({ children, selectedIndex, myIndex, marker }) {
     <Tab
       className={clsx(
         'flex items-center relative z-10 overflow-hidden px-4 py-1 [&:not(:focus-visible)]:focus:outline-none',
-        isSelected ? 'text-sky-300' : 'text-slate-400'
+        isSelected ? 'text-primary-300' : 'text-slate-400'
       )}
     >
       <span className="z-10">{children}</span>
@@ -80,7 +80,7 @@ function TabItem({ children, selectedIndex, myIndex, marker }) {
       )}
 
       {/* Active tab highlight bar */}
-      {isSelected && <TabAdornment className="border-b border-b-sky-300" />}
+      {isSelected && <TabAdornment className="border-b border-b-primary-300" />}
     </Tab>
   )
 }

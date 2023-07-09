@@ -1,29 +1,112 @@
-- [General](#general)
-- [Pull Requests](#pull-requests)
-- [Running tests](#running-tests)
+Welcome to the Elegant Contribution Guide! We're excited to have you here.
 
-<a name="general"></a>
+This page provides instructions on how to download, and contribute to the core Elegant Framework code. We aim to ensure that everyone in the community feels empowered to contribute and improve our code.
 
-## General
+---
 
-Thanks for your interest in contributing to the Elegant framework! Please take a moment to review this document **before submitting a pull request**.
+## Why Contribute?
 
-<a name="pull-requests"></a>
+Open-source work is never done, and neither is innovation. Contributing to a fast-growing JavaScript project is a good way for beginners to get involved in open-source, and for experienced developers to contribute more complex ideas while providing value to the development community.
 
-## Pull requests
+By contributing to the Elegant Framework project, you're helping us build a more robust application development experience for all developers. Whether you've found a typo or some confusing code, or you've realized that a particular feature is missing, your contributions are welcomed and appreciated.
+
+---
+
+## Development Tools
+
+We use a few different tools internally for all of our development needs.
+
+**Required tools:**
+
+- [Node.js](https://nodejs.org/) (versions 16 and 18)
+
+- [Visual Studio Code](https://www.elegantframework.com/docs/development-tools#visual-studio-code)
+
+**Optional tools:**
+
+- [GitHub Desktop Client](https://www.elegantframework.com/docs/development-tools#git-hub-desktop)
+
+- [Figma](https://www.elegantframework.com/docs/development-tools#figma)
+
+---
+
+## How to Contribute
+
+The core Elegant code can be found on the [Elegant Framework repository](https://github.com/elegantframework/elegant-cli). To contribute, you can edit the files directly on GitHub or clone the repo and edit the files locally.
+
+**GitHub Workflow**
+
+If you're new to GitHub, we recommend reading the [GitHub Open Source Guide](https://opensource.guide/how-to-contribute/#opening-a-pull-request) to learn how to fork a repository, create a branch, and submit a pull request.
+
+## Downloading the Elegant Project
+
+The core Elegant code project is open to all to download, modify, and extend. To download the project and get started with core development, visit our GitHub repository: [Elegant on GitHub.](https://github.com/elegantframework/elegant-cli)
+
+---
+
+## Getting Started with Core Development
+
+Once you have downloaded the core Elegant project from GitHub and saved it to a directory, you will be ready to start developing the core project and submitting contributions.
+
+**Directory Structure**
+
+The core Elegant code project is broken up into a few different folders:
+
+- **.github:** The \`.github\` folder contains templates for public contributions, as well as the GitHub Actions CI test code.
+
+- **integrations:** The integrations folder contains code that tests the core Elegant CLI package code as if a developer is downloading it from npm.
+
+- **scripts:** The scripts folder contains basic shell scripts that help automatically deploy the Elegant code along the pipeline as development progresses.
+
+- **source:** The source folder contains all of the core Elegant code used by the Elegant CLI script to create a new application.
+
+
+
+```ini
+elegant-cli
+├── .github
+├── integrations
+├── scripts
+├── source
+└── ...
+```
+
+
+
+**How to Begin Developing**
+
+The core Elegant code that is used to power a web application is located under \`**source/elegant/src/**\`.
+
+![image](https://github.com/elegantframework/elegant-cli/assets/10189130/86b0fee0-e057-4130-bbc6-a815fcf293a1)
+
+---
+
+## Running Tests
+
+You can run the test suite using the following commands:
+
+```sh
+npm test
+```
+
+Please ensure that the tests are passing when submitting a pull request. If you're adding new features to Elegant, please include tests.
+
+---
+
+## Pull Requests
 
 **Please ask first before starting work on any significant new features.**
 
 It's never a fun experience to have your pull request declined after investing a lot of time and effort into a new feature. To avoid this from happening, we request that contributors create a feature request to first discuss any significant new ideas.
 
-<a name="running-tests"></a>
+---
 
-## Running tests
+## Innovators Release
 
-You can run the test suite using the following commands:
+The innovators tag on [npm ](https://www.npmjs.com/package/elegant-cli)is a prerelease tag for the version actively being developed. When we merge pull requests into the main branch, we run `npm run publish:innovators`, and it will push the changes to a pre-release version on npm.
 
+Developers and **innovative** Elegant users who want to preview features ahead of an upcoming release can download the \*innovators \*prerelease with the following:
+
+```ini
+npm i elegant-cli --tag innovators
 ```
-npm test
-```
-
-Please ensure that the tests are passing when submitting a pull request. If you're adding new features to Elegant, please include tests.lease include tests.

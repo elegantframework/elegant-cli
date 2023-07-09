@@ -275,7 +275,7 @@
   }
 
   .DocSearch-Hit[aria-selected='true'] & .DocSearch-Hit-path {
-    @apply bg-sky-400 text-white dark:bg-sky-400/50;
+    @apply bg-primary-400 text-white dark:bg-primary-400/50;
   }
 
   .DocSearch-Hit[aria-selected='true'] & .DocSearch-Hit-title {
@@ -333,7 +333,7 @@
 }
 
 .DocSearch-Hit[aria-selected='true'] .DocSearch-Hit--Result {
-  @apply bg-sky-500 dark:bg-sky-600;
+  @apply bg-primary-500 dark:bg-primary-600;
 }
 
 .DocSearch-Hit--FirstChild::before {
@@ -346,7 +346,7 @@
 
 .DocSearch-Hits mark {
   background: none;
-  @apply text-sky-600 font-semibold border-b-2 border-sky-300 dark:text-white dark:border-0;
+  @apply text-primary-600 font-semibold border-b-2 border-primary-300 dark:text-white dark:border-0;
 }
 
 .DocSearch-Hit-path mark {
@@ -436,7 +436,7 @@
 }
 
 .DocSearch-NoResults-Prefill-List + .DocSearch-Help a {
-  @apply text-sky-500 font-semibold dark:text-sky-400;
+  @apply text-primary-500 font-semibold dark:text-primary-400;
 }
 
 .DocSearch-Hit-action [title='Save this search'],
@@ -481,11 +481,11 @@
 }
 
 .DocSearch-Hit-action [title='Remove this search from favorites']::before {
-  @apply absolute inset-0 content-[''] pointer-events-none bg-sky-50 dark:bg-slate-700/30;
+  @apply absolute inset-0 content-[''] pointer-events-none bg-primary-50 dark:bg-slate-700/30;
 }
 
 .DocSearch-Hit[aria-selected='true'] [title='Remove this search from favorites']::before {
-  @apply bg-sky-100 dark:bg-slate-700/40;
+  @apply bg-primary-100 dark:bg-slate-700/40;
 }
 
 .DocSearch-Hit-action [title='Remove this search from favorites']::after {

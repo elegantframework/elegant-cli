@@ -1,25 +1,26 @@
-const path = require('path');
-const { createLoader } = require('simple-functional-loader');
-const frontMatter = require('front-matter');
-const withSmartQuotes = require('@silvenon/remark-smartypants');
-const { withTableOfContents } = require('./remark/withTableOfContents');
-const { withSyntaxHighlighting } = require('./remark/withSyntaxHighlighting');
-const { withNextLinks } = require('./remark/withNextLinks');
-const { withLinkRoles } = require('./rehype/withLinkRoles');
-const minimatch = require('minimatch');
-
-const {
+import * as path from 'path';
+import { createLoader } from 'simple-functional-loader';
+import frontMatter from 'front-matter';
+import withSmartQuotes from '@silvenon/remark-smartypants';
+import { withTableOfContents } from './remark/withTableOfContents.mjs'
+import { withSyntaxHighlighting } from './remark/withSyntaxHighlighting.mjs'
+import { withLinkRoles } from './rehype/withLinkRoles.mjs'
+import minimatch from 'minimatch';
+import withExamples from './remark/withExamples.mjs';
+import {
   highlightCode,
   fixSelectorEscapeTokens,
   simplifyToken,
   normalizeTokens,
-} = require('./remark/utils');
-
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
-const Prism = require('prismjs');
+} from './remark/utils.mjs';
+import remarkGfm from 'remark-gfm';
+import remarkUnwrapImages from 'remark-unwrap-images';
+import Prism from 'prismjs';
+import * as fs from 'fs';
+import { createRequire } from 'node:module';
+import * as url from 'node:url';
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const require = createRequire(import.meta.url);
 
 const fallbackLayouts = {
   'src/pages/docs/**/*': ['@/layouts/DocumentationLayout', 'DocumentationLayout'],
@@ -31,18 +32,16 @@ const fallbackDefaultExports = {
   'src/pages/blog/**/*': ['@/layouts/BlogPostLayout', 'BlogPostLayout'],
 }
 
-// const fallbackGetStaticProps = {
-//   'src/pages/blog/**/*': '@/layouts/BlogPostLayout',
-// }
+const fallbackGetStaticProps = {};
 
-module.exports = withBundleAnalyzer({
+export default {
   swcMinify: true,
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'mdx'],
   experimental: {
     esmExternals: false,
   },
   async redirects() {
-    return require('./redirects.json')
+    return JSON.parse(fs.readFileSync(require.resolve('./redirects.json'), 'utf8'))
   },
   webpack(config, options) {
     config.module.rules.push({
@@ -116,17 +115,20 @@ module.exports = withBundleAnalyzer({
         loader: '@mdx-js/loader',
         options:
           plugins === null
-            ? {}
-            : {
+            ? { providerImportSource: '@mdx-js/react' }
+            : { 
+                providerImportSource: '@mdx-js/react',
                 remarkPlugins: [
+                  remarkGfm,
+                  remarkUnwrapImages,
+                  withExamples,
                   withTableOfContents,
                   withSyntaxHighlighting,
-                  withNextLinks,
                   withSmartQuotes,
                   ...plugins,
                 ],
                 rehypePlugins: [withLinkRoles],
-              },
+              }
       },
       createLoader(function (source) {
         let pathSegments = this.resourcePath.split(path.sep)
@@ -146,6 +148,7 @@ module.exports = withBundleAnalyzer({
         {
           loader: '@mdx-js/loader',
           options: {
+            providerImportSource: '@mdx-js/react',
             remarkPlugins: [withSyntaxHighlighting],
           },
         },
@@ -164,8 +167,8 @@ module.exports = withBundleAnalyzer({
       use: [
         options.defaultLoaders.babel,
         createLoader(function (src) {
-          const [preview] = src.split('<!--/excerpt-->')
-          return preview.replace('<!--excerpt-->', '')
+          const [preview] = src.split('{/*/excerpt*/}')
+          return preview.replace('{/*excerpt*/}', '')
         }),
         ...mdx([
           () => (tree) => {
@@ -181,18 +184,22 @@ module.exports = withBundleAnalyzer({
           },
         ]),
       ],
-    })
+    });
 
     function mainMdxLoader(plugins) {
       return [
         options.defaultLoaders.babel,
         createLoader(function (source) {
           if (source.includes('/*START_META*/')) {
-            const [meta] = source.match(/\/\*START_META\*\/(.*?)\/\*END_META\*\//s)
-            return 'export default ' + meta
+            let match = source.match(/^export const meta = (\{.*?\n\})/ms)
+            return 'export default ' + match[1]
           }
+          let exports = Array.from(source.matchAll(/^export const ([^=\s]+)/gm)).map(
+            ([, name]) => name
+          )
           return (
-            source.replace(/export const/gs, 'const') + `\nMDXContent.layoutProps = layoutProps\n`
+            source.replace(/export const/gs, 'const') +
+            `\nMDXContent.layoutProps = { ${exports.join(',')} }\n`
           )
         }),
         ...mdx(plugins),
@@ -234,6 +241,19 @@ module.exports = withBundleAnalyzer({
             }
           }
 
+          if (
+            !/^\s*export\s+(async\s+)?function\s+getStaticProps\s+/m.test(
+              source.replace(/```(.*?)```/gs, '')
+            )
+          ) {
+            for (let glob in fallbackGetStaticProps) {
+              if (minimatch(resourcePath, glob)) {
+                extra.push(`export { getStaticProps } from '${fallbackGetStaticProps[glob]}'`)
+                break
+              }
+            }
+          }
+
           let metaExport
           if (!/export\s+(const|let|var)\s+meta\s*=/.test(source)) {
             metaExport =
@@ -245,7 +265,7 @@ module.exports = withBundleAnalyzer({
           return [
             ...(typeof fields === 'undefined' ? extra : []),
             typeof fields === 'undefined'
-              ? body.replace(/<!--excerpt-->.*<!--\/excerpt-->/s, '')
+              ? body.replace(/\{\/\*excerpt\*\/\}.*\{\/\*\/excerpt\*\/\}/s, '')
               : '',
             metaExport,
           ]
@@ -253,7 +273,7 @@ module.exports = withBundleAnalyzer({
             .join('\n\n')
         }),
       ]
-    }
+    };
 
     config.module.rules.push({
       test: { and: [/\.mdx$/], not: [/snippets/] },
@@ -263,4 +283,4 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
-})
+};
