@@ -87,15 +87,17 @@ If you're interested in contributing to the Elegant project, please read our [co
 
 ### Feature Suggestions
 
+Elegant is a community driven project, and open to all suggestions and ideas that help to empower developers everywhere.
+
+Visit our [Feature Request](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=) page to submit your feedback.
+
 ### Reporting Issues
+
+Bugs and user friction is our top priority. If you experience any issues or friction during your experience with Elegant, please submit a [Bug Report](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
 
 ### Good First Issues
 
 We have a list of [good first issues](https://github.com/elegantframework/elegant-cli/labels/good%20first%20issue) that contain bugs and features that have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with our contribution process.
-
-
-
-## Getting Involved
 
 
 ## Stay Up-To-Date
