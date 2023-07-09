@@ -102,7 +102,8 @@ If you're interested in contributing to the Elegant project, please read our [co
 
 The Elegant project is constantly evolving and improving on a daily basis. You can keep up and show your support by hitting the **Star** button! We really appreciate it! 😊
 
-![hit-the-star](https://user-images.githubusercontent.com/1417109/197028994-7261693c-0201-4ec7-9c69-a996c9de870c.gif)
+![support-elegant-with-a-star-on-github](https://github.com/elegantframework/elegant-cli/assets/10189130/28132259-174b-43ac-a850-8437298885be)
+
 
 ## License
 
