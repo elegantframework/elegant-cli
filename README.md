@@ -108,3 +108,7 @@ The Elegant project is constantly evolving and improving on a daily basis. You c
 ## License
 
 The Elegant Framework is open-sourced software licensed under the [MIT license](https://opensource.org/license/mit/).
+
+## Author
+
+- Brandon Owens ([@thebrandonowens](https://twitter.com/thebrandonowens))
