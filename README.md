@@ -80,9 +80,7 @@ Our [Code of Conduct](https://github.com/elegantframework/elegant-cli/blob/v2.3/
 
 ## Contributing
 
-@TODO:
-@TODO: Update the content below to be more open and inviting to contributions
-@TODO:
+We've built Elegant because we feel that developers should be more empowered to create better websites and content. We hope that other startups and organizations can benefit from the project. We are thankful for any contributions from the community.
 
 If you're interested in contributing to the Elegant project, please read our [contributing docs](https://github.com/elegantframework/docs/blob/main/CONTRIBUTING.md) **before submitting a pull request**.
 
@@ -92,6 +90,8 @@ If you're interested in contributing to the Elegant project, please read our [co
 ### Reporting Issues
 
 ### Good First Issues
+
+We have a list of [good first issues](https://github.com/elegantframework/elegant-cli/labels/good%20first%20issue) that contain bugs and features that have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with our contribution process.
 
 
 
