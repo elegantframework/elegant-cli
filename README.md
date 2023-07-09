@@ -36,6 +36,14 @@
 
 ---
 
+<div align="center">
+    <img 
+      src="https://user-images.githubusercontent.com/10189130/252122573-399eb351-8dbc-4205-b044-7163cd59520b.png" 
+      alt="Built with the Elegant Framework" 
+      style="width: 50%;"
+    >
+</div>
+
 ## Introduction
 
 Elegant is a community-driven project for building, deploying, and maintaining websites easily. 
