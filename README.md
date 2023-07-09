@@ -38,7 +38,9 @@
 
 ## Introduction
 
-Elegant is a community-driven project for building, deploying, and maintaining websites easily.
+Elegant is a community-driven project for building, deploying, and maintaining websites easily. 
+
+Built with Next.js and Markdown loading, Elegant is perfect for blogging, documentation websites, or just about any type of web application.
 
 ### Key Features
 
@@ -47,45 +49,61 @@ Elegant is a community-driven project for building, deploying, and maintaining w
 - 🏠 Self-host for free
 - ✅ Optimized for all search engines
 
+---
 
+## Getting Started
 
-------
+To get started using Elegant, simply install our CLI tool:
 
-# Elegant
+```
+npm install elegant-cli
+```
 
-- [Meet Elegant](#meet-elegant)
-- [Why Elegant?](#why-elegant)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#license)
+Next, run the initialization command to create your website:
+```
+npx elegant-init
+```
 
-<a name="meet-elegant"></a>
-
-## Meet Elegant
-
- Elegant is a utility-first CMS framework for rapidly building expressive and elegant static content web applications. A CMS framework provides a structure and a starting point for creating a beautiful application, blog, or documentation website. 
-
-
-<a name="why-elegant"></a>
-
-### Why Elegant?
-
-There are a variety of tools and frameworks available to you when building a frontend application. However, we believe Elegant is the best choice for building amazing, and elegant web applications.
-
-<a name="documentation"></a>
+Visit [https://www.elegantframework.com/docs/installation](https://www.elegantframework.com/docs/installation) for the complete installation guide.
 
 ## Documentation
 
-You can find the online version of the Elegant documentation at [https://elegantframework.com/docs](https://elegantframework.com/docs)
+You can find the complete version of the Elegant documentation at [https://elegantframework.com/docs](https://elegantframework.com/docs)
 
-<a name="contributing"></a>
+## Community
+
+The Elegant community can be found on [GitHub Discussions](https://github.com/orgs/elegantframework/discussions), where you can ask questions, voice ideas, and share your projects.
+
+To chat with other community members you can join the [Elegant Discord](https://discord.gg/PwY38x4uvV).
+
+Our [Code of Conduct](https://github.com/elegantframework/elegant-cli/blob/v2.3/CODE_OF_CONDUCT.md) applies to all Elegant community channels.
 
 ## Contributing
 
-If you're interested in contributing to the Elegant CMS Framework, please read our [contributing docs](https://github.com/elegantframework/docs/blob/main/CONTRIBUTING.md) **before submitting a pull request**.
+@TODO:
+@TODO: Update the content below to be more open and inviting to contributions
+@TODO:
 
-<a name="license"></a>
+If you're interested in contributing to the Elegant project, please read our [contributing docs](https://github.com/elegantframework/docs/blob/main/CONTRIBUTING.md) **before submitting a pull request**.
+
+
+### Feature Suggestions
+
+### Reporting Issues
+
+### Good First Issues
+
+
+
+## Getting Involved
+
+
+## Stay Up-To-Date
+
+The Elegant project is constantly evolving and improving on a daily basis. You can keep up and show your support by hitting the **Star** button! We really appreciate it! 😊
+
+![hit-the-star](https://user-images.githubusercontent.com/1417109/197028994-7261693c-0201-4ec7-9c69-a996c9de870c.gif)
 
 ## License
 
-The Elegrant framework is open-sourced software licensed under the [MIT license](https://opensource.org/license/mit/).
+The Elegant Framework is open-sourced software licensed under the [MIT license](https://opensource.org/license/mit/).
