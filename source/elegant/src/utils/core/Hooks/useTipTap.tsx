@@ -5,7 +5,7 @@ import Link from '@tiptap/extension-link';
 import Placeholder from '@tiptap/extension-placeholder';
 import { Editor, ReactNodeViewRenderer, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import lowlight from 'lowlight';
+import { lowlight } from 'lowlight/lib/common';
 
 const useTipTap = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods

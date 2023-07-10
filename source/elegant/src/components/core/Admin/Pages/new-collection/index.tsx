@@ -33,7 +33,7 @@ export default function NewCollection() {
   const [hasChanges, setHasChanges] = useState(false)
   const [pluralized, setPlural] = useState('')
   const pagesRegex = new RegExp(`^(?!${pages.join('$|')}$)`, 'i')
-  const createCollection: yup.SchemaOf<Collection> = yup.object().shape({
+  const createCollection: yup.Schema<Collection> = yup.object().shape({
     name: yup
       .string()
       .matches(pagesRegex, `${pluralized} is already taken.`)

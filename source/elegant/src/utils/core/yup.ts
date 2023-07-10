@@ -28,7 +28,7 @@ const documentShape = {
   coverImage: yup.string()
 }
 
-export const editDocumentSchema: yup.SchemaOf<SchemaShape> = yup
+export const editDocumentSchema: yup.Schema<SchemaShape> = yup
   .object()
   .shape(documentShape)
 
