@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 type Props = {
     /**
-     * Children elements to be passed to the inside of the card.
+     * Html that can be passed directly to the card component.
      */
     children: React.ReactNode;
     /**

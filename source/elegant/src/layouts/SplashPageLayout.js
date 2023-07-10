@@ -1,12 +1,5 @@
-import Link from 'next/link';
-import Logo from '@/components/core/Logos/Logo/Logo';
-import { SearchButton } from '@/components/Search';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { NavItems, NavPopover } from '@/components/Header';
 import SplashHeader from "@/components/core/Headers/SplashHeader";
 import SplashFooter from '@/components/core/Footer/SplashFooter';
-import clsx from 'clsx';
-import styles from '@/pages/index.module.css';
 import Config from 'Config';
 
 export function SplashPageLayout({ children }) {
