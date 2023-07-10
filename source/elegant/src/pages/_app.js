@@ -79,18 +79,21 @@ export default function App({ Component, pageProps, router }) {
 
   // Set the social share image
   let image = socialCardLarge.src;
-  image = meta.ogImage ?? meta.image;
+
+  if(meta.ogImage){
+    image = meta.ogImage;
+  };
+
+  if(meta.image){
+    image = meta.image;
+  }
 
   // set the page type
   let pageType = Component.layoutProps?.pageType ? Component.layoutProps.pageType : "website";
 
-  // blog posts will have a description
-  if(meta.image && meta.description){
-    pageType = "article";
-  }
-
-  // blog posts will have a description
-  if(meta.image && meta.description){
+  // set the rich snippet page type to 'article' for blog posts
+  if(router.pathname.includes("/blog/"))
+  {
     pageType = "article";
   }
 

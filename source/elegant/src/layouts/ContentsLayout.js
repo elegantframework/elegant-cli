@@ -7,7 +7,6 @@ import { SidebarLayout, SidebarContext } from '@/layouts/SidebarLayout';
 import { PageHeader } from '@/components/PageHeader';
 import clsx from 'clsx';
 import { DocsFooter } from '@/components/DocsFooter';
-import { Heading } from '@/components/Heading';
 import { MDXProvider } from '@mdx-js/react';
 import { mdxComponents } from '@/utils/mdxComponents';
 import Config from 'Config';
