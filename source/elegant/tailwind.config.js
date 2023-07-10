@@ -7,7 +7,7 @@ module.exports = {
   // experimental: {
   //   optimizeUniversalDefaults: true,
   // },
-  content: ['./src/**/*.{js,jsx,mjs,mdx,html}', './remark/**/*.{js,mjs}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx,mdx,mjs,mdx,html}', './remark/**/*.{js,mjs}'],
   darkMode: 'class',
   theme: {
     extend: {
