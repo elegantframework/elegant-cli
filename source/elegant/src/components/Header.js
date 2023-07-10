@@ -9,7 +9,7 @@ import ThemeToggle, {ThemeSelect} from '@/components/core/Toggles/ThemeToggle/Th
 import Config from "Config";
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated - To be removed by version 2.4
  */
 export function NavPopover({ display = 'md:hidden', className, ...props }) {
   let [isOpen, setIsOpen] = useState(false)
@@ -89,7 +89,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
 }
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated - To be removed by version 2.4
  */
 export function NavItems() {
   const router = useRouter();
@@ -125,6 +125,9 @@ export function NavItems() {
   )
 }
 
+/**
+ * @deprecated - To be removed by version 2.4
+ */
 export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section }) {
   let [isOpaque, setIsOpaque] = useState(false)
 
