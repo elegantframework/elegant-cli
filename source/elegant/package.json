@@ -179,10 +179,5 @@
   },
   "engines": {
     "node": ">=14 <=18"
-  },
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
   }
 }
