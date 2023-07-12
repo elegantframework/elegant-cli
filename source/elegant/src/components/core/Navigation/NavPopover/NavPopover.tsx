@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Router } from "next/router";
 import { useEffect, useState } from "react";
 import NavItems from "../NavItems/NavItems";
-import { ThemeSelect } from "@/components/core/Toggles/ThemeToggle/ThemeToggle";
+import { ThemeSelect } from "../../Toggles/ThemeToggle/ThemeToggle";
 import { NavigationItem } from "@/types/NavigationItem";
 import Config from "./../../../../utils/core/Config/Config";
 
