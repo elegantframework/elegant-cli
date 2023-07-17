@@ -133,7 +133,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
         variables: {
           name:
             process.env.OST_REPO_SLUG ?? process.env.VERCEL_GIT_REPO_SLUG ?? '',
-          contentPath: `${process.env.OST_REPO_BRANCH || 'main'}:${
+          contentPath: `${process.env.OST_REPO_BRANCH || 'feature/elegant-cms-v-0-1'}:${
             process.env.OST_MONOREPO_PATH
               ? process.env.OST_MONOREPO_PATH + '/'
               : ''
@@ -160,7 +160,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
       providerData: {
         repoOwner: process.env.OST_REPO_OWNER || session?.user?.login || '',
         repoSlug: process.env.OST_REPO_SLUG || process.env.VERCEL_GIT_REPO_SLUG,
-        repoBranch: process.env.OST_REPO_BRANCH || 'main',
+        repoBranch: process.env.OST_REPO_BRANCH || 'feature/elegant-cms-v-0-1',
         contentPath: process.env.OST_CONTENT_PATH || 'outstatic/content',
         monorepoPath: process.env.OST_MONOREPO_PATH || '',
         session: session || null,
