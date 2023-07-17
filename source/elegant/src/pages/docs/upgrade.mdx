@@ -1,109 +1,81 @@
 ---
-title: Upgrade Guide
-metaTitle: Upgrade Guide - Elegant - Elevate your creative content.
+title: 'Upgrade Guide'
+metaTitle: 'Upgrade Guide - Elegant - Elevate your creative content.'
+slug: 'upgrade'
+status: 'published'
+author:
+  name: ''
+description: ''
 publishedAt: '2023-05-09T11:09:59.143Z'
 ---
 
-- [Upgrading to 2.2 from 2.x](#upgrading_to_2_2_from_2_x)
+## Upgrading to 2.3 from 2.x
 
-- [Low Impact Updates](#low_impact)
-    - [App Type](#app_type)
-    - [Config Namespace](#config_namespace)
-    - [Core Namespace](#core_namespace)
-    - [Environment File](#environment_file)
-    - [Enhanced Favicons](#favicons)
-    - [Meta.js Component](#meta_js_component)
-    - [Seo Component](#seo_component)
+Elegant version 2.3 contains a number of package updates and minor breaking changes.
 
-<a name="upgrading_to_2_2_from_2_x"></a>
+Read the complete announcement here: [Elegant v2.3 production release](https://www.elegantframework.com/blog/2023-07-14-elegant-v2-3-production).
 
-# Upgrading to 2.2 from 2.x
 
-Elegant version 2.2 stable release contains numerous low impact enhancements and fixes.
 
-Read the complete announcement here: [Elegant v2.2 stable release](https://www.elegantframework.com/blog/2023-06-09-elegant-v2-2-stable).
+## React 18
 
-<a name="low_impact"></a>
+##### **Likelihood Of Impact: High**
 
-# Low Impact Updates
 
-<a name="app_type"></a>
+
+## Node.js 18
+
+##### **Likelihood Of Impact: High**
+
+
+
+## Next.config.js
+
+##### **Likelihood Of Impact: High**
+
+
+
+
+
+
+
+
+
+## Miscellaneous
+
+We also encourage you to view the changes in the `elegantframework/elegant-cli` [GitHub repository](https://github.com/elegantframework/elegant-cli). While many of these changes are not required, you may wish to keep these files in sync with your application.
+
+You can easily view the changes with the [GitHub comparison tool](https://github.com/elegantframework/elegant-cli/compare/v2.2-stable...v2.3) and choose which updates are important to you.
 
 ## App Type
+
 ##### **Likelihood Of Impact: Low**
 
-The app type is now set using the `NEXT_PUBLIC_APP_TYPE` variable. 
+The app type is now set using the `NEXT_PUBLIC_APP_TYPE` variable.
 
 The `NEXT_PUBLIC_APP_TYPE` variable determines whether web applications schema.org metadata is set to a "Corporate" type, or a "Personal" type.
 
 By default, all new Elegant applications have their .env configuration files set to the `Organization` type.
+
 ```
 NEXT_PUBLIC_APP_TYPE="Organization"
 ```
 
 Setting the `NEXT_PUBLIC_APP_TYPE` environment variable to `Personal` will turn your Elegant applications schema data into a personal web application.
+
 ```
 NEXT_PUBLIC_APP_TYPE="Personal"
 ```
 
-<a name="config_namespace"></a>
+
 
 ## Config Namespace
+
 ##### **Likelihood Of Impact: Low**
 
 Elegant now has a `config/` namespace under the root folder of the application. The config directory will serve as the full configuration namespace for all future versions of Elegant.
 
 As Elegant grows and expands in functionality and services, the config namespace will handle all configuration types, such as email services, authentication providers, and database storage services.
 
-<a name="core_namespace"></a>
 
-## Core Namespace
-##### **Likelihood Of Impact: Low**
 
-Elegant version 2.2 introduces a `core/` namespace within the components and utility directories. These directories will serve as the root for all core Elegant code.
-
-<a name="environment_file"></a>
-
-## Environment File
-##### **Likelihood Of Impact: Low**
-
-We have slimmed down the included `.env` configuration file for all new Elegant projects. This updated configuration will include only the most basic variables to get started with a new application.
-
-We have also updated the included `.env.example` file to contain all the currently possible configuration variables.
-
-Elegant version 2.2 also introduces a new `.env.test` file for accurate Jest testing with `.env` variables.
-
-<a name="favicons"></a>
-
-## Favicons
-##### **Likelihood Of Impact: Low**
-
-The included Favicons have been updated to be the most proper and SEO friendly across all browsers and operating systems.
-
-<a name="meta_js_component"></a>
-
-## Meta.js Component
-##### **Likelihood Of Impact: Low**
-
-The `Meta.js` core component has been deprecated in favor of a new core `SEO` component. 
-
-The `Meta.js` core component wil be removed from the core Elegant code by version 3.
-
-<a name="seo_component"></a>
-
-## Seo Component
-##### **Likelihood Of Impact: Low**
-
-The `Meta.js` component from above has been deprecated in favor our new `SEO` component. 
-
-Our new core SEO components cover all the essential SEO metadata that a modern web application needs. 
-
-We have included the most essential core search engine rich snippets that users might find on other platforms as "plugins".  
-
-<a name="miscellaneous"></a>
-
-## Miscellaneous
-
-We also encourage you to view the changes in the `elegantframework/elegant-cli` [GitHub repository](https://github.com/elegantframework/elegant-cli). While many of these changes are not required, you may wish to keep these files in sync with your application.
-
-You can easily view the changes with the [GitHub comparison tool](https://github.com/elegantframework/elegant-cli/compare/v2.1-beta...v2.2-stable) and choose which updates are important to you.
