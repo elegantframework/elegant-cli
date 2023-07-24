@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { ostSignOut } from '@/utils/core/Auth/hooks';
-import clsx from 'clsx';
-import styles from '@/pages/index.module.css';
+import docs_light from "@/img/beams/docs-light.png";
+import docs_dark from "@/img/beams/docs-dark@tinypng.png";
 
 type Props = {
     /**
@@ -38,7 +38,7 @@ export default function AdminHeader({
     image = "",
     status = "unauthenticated",
     toggleSidebar,
-    beams = false
+    beams = true
 }: Props) {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -156,17 +156,25 @@ export default function AdminHeader({
             <header className="relative mb-10">
                 <div className="px-4 sm:px-6 md:px-8">
                     {beams && 
-                        <div className={clsx(
-                                'absolute inset-0 -bottom-[38rem] md:-bottom-[32rem] bg-bottom bg-no-repeat bg-slate-50 dark:bg-[#0B1120]',
-                                styles.beams
-                            )}>
-                            <div
-                                className="absolute inset-0 bg-[bottom_1px_center] dark:bg-bottom dark:border-b dark:border-slate-100/5"
-                                style={{
-                                    maskImage: 'linear-gradient(to bottom, transparent, black)',
-                                    WebkitMaskImage: 'linear-gradient(to bottom, transparent, black)',
-                                }}
-                            />
+                        <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
+                            <div className="w-[108rem] flex-none flex justify-end">
+                                <picture>
+                                    <img
+                                        src={docs_light.src}
+                                        alt=""
+                                        className="w-[71.75rem] flex-none max-w-none dark:hidden"
+                                        decoding="async"
+                                    />
+                                </picture>
+                                <picture>
+                                    <img
+                                        src={docs_dark.src}
+                                        alt=""
+                                        className="w-[90rem] flex-none max-w-none hidden dark:block"
+                                        decoding="async"
+                                    />
+                                </picture>
+                            </div>
                         </div>
                     }
                 </div>

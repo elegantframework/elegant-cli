@@ -1,117 +1,151 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Admin Header component renders an admin header properly 1`] = `
-<nav
-  className="relative border-b border-gray-200 bg-white px-2 py-2.5 sm:px-4 h-14"
->
-  <div
-    className="mx-auto flex flex-wrap items-center justify-between"
+[
+  <nav
+    className="relative border-b border-gray-200 bg-white px-2 py-2.5 sm:px-4 h-14"
   >
-    <button
-      aria-controls="mobile-menu-2"
-      aria-expanded="false"
-      className="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 md:hidden"
-      data-collapse-toggle="mobile-menu-2"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="sr-only"
-      >
-        Open main menu
-      </span>
-      <svg
-        className="h-6 w-6"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          clipRule="evenodd"
-          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-          fillRule="evenodd"
-        />
-      </svg>
-      <svg
-        className="hidden h-6 w-6"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          clipRule="evenodd"
-          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-          fillRule="evenodd"
-        />
-      </svg>
-    </button>
     <div
-      className="cursor-pointer flex items-center"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
-      onTouchStart={[Function]}
-    />
-    <div
-      className="flex items-center md:order-2"
+      className="mx-auto flex flex-wrap items-center justify-between"
     >
       <button
+        aria-controls="mobile-menu-2"
         aria-expanded="false"
-        className="mr-3 flex items-center rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:mr-0"
-        data-dropdown-toggle="dropdown"
-        id="user-menu-button"
+        className="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 md:hidden"
+        data-collapse-toggle="mobile-menu-2"
         onClick={[Function]}
         type="button"
       >
         <span
           className="sr-only"
         >
-          Open user menu
+          Open main menu
         </span>
-        <img
-          alt="user"
-          className="h-8 w-8 rounded-full"
-          src=""
-        />
+        <svg
+          className="h-6 w-6"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clipRule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            fillRule="evenodd"
+          />
+        </svg>
+        <svg
+          className="hidden h-6 w-6"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clipRule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            fillRule="evenodd"
+          />
+        </svg>
       </button>
       <div
-        className="right-0 top-[60px] z-50 my-4 w-full list-none divide-y divide-gray-100 rounded-br rounded-bl bg-white text-base shadow md:-right-0 md:top-[52px] md:w-auto hidden"
-        id="dropdown"
-        style={
-          {
-            "margin": "0px",
-            "position": "absolute",
-          }
-        }
+        className="cursor-pointer flex items-center"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      />
+      <div
+        className="flex items-center md:order-2"
       >
+        <button
+          aria-expanded="false"
+          className="mr-3 flex items-center rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:mr-0"
+          data-dropdown-toggle="dropdown"
+          id="user-menu-button"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="sr-only"
+          >
+            Open user menu
+          </span>
+          <img
+            alt="user"
+            className="h-8 w-8 rounded-full"
+            src=""
+          />
+        </button>
         <div
-          className="py-3 px-4"
+          className="right-0 top-[60px] z-50 my-4 w-full list-none divide-y divide-gray-100 rounded-br rounded-bl bg-white text-base shadow md:-right-0 md:top-[52px] md:w-auto hidden"
+          id="dropdown"
+          style={
+            {
+              "margin": "0px",
+              "position": "absolute",
+            }
+          }
         >
-          <span
-            className="block text-sm text-gray-900"
+          <div
+            className="py-3 px-4"
           >
-            Hello World
-          </span>
-          <span
-            className="block truncate text-sm font-medium text-gray-500"
-          >
-            test@example.com
-          </span>
-        </div>
-        <ul
-          aria-labelledby="dropdown"
-          className="py-1"
-        >
-          <li>
-            <a
-              className="block cursor-pointer py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
-              onClick={[Function]}
+            <span
+              className="block text-sm text-gray-900"
             >
-              Sign out
-            </a>
-          </li>
-        </ul>
+              Hello World
+            </span>
+            <span
+              className="block truncate text-sm font-medium text-gray-500"
+            >
+              test@example.com
+            </span>
+          </div>
+          <ul
+            aria-labelledby="dropdown"
+            className="py-1"
+          >
+            <li>
+              <a
+                className="block cursor-pointer py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
+                onClick={[Function]}
+              >
+                Sign out
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>,
+  <header
+    className="relative mb-10"
+  >
+    <div
+      className="px-4 sm:px-6 md:px-8"
+    >
+      <div
+        className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
+      >
+        <div
+          className="w-[108rem] flex-none flex justify-end"
+        >
+          <picture>
+            <img
+              alt=""
+              className="w-[71.75rem] flex-none max-w-none dark:hidden"
+              decoding="async"
+              src="/img.jpg"
+            />
+          </picture>
+          <picture>
+            <img
+              alt=""
+              className="w-[90rem] flex-none max-w-none hidden dark:block"
+              decoding="async"
+              src="/img.jpg"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </header>,
+]
 `;
