@@ -3,9 +3,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useOstSession } from '@/utils/core/Auth/hooks';
-import AdminHeader from '../AdminHeader';
 import Sidebar from '../Sidebar';
 import Config from '@/utils/core/Config/Config';
+import AdminHeader from '../Headers/AdminHeader/AdminHeader';
 
 export type AdminLayoutProps = {
   error?: string | ApolloError
