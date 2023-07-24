@@ -51,6 +51,8 @@ const Config = (value: string) => {
             return AdminConfig().cms_name; 
         case 'admin.cms_asset_path':
             return AdminConfig().cms_asset_path; 
+        case 'admin.cms_repository_branch':
+            return AdminConfig().cms_repository_branch; 
     }
 };
 

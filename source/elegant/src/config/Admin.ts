@@ -27,6 +27,17 @@ const AdminConfig = () => {
         |
         */
         'cms_asset_path': process.env.NEXT_PUBLIC_CMS_ASSET_PATH || '',
+
+        /*
+        |--------------------------------------------------------------------------
+        | CMS Repository Branch
+        |--------------------------------------------------------------------------
+        |
+        | This is the repository branch where your cms content will be created and stored.
+        |
+        |
+        */
+        'cms_repository_branch': process.env.NEXT_PUBLIC_CMS_REPOSITORY_BRANCH || 'main',
     };
 };
 

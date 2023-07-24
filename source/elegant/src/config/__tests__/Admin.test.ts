@@ -29,4 +29,14 @@ describe('Admin Config', () => {
         process.env.NEXT_PUBLIC_CMS_NAME = undefined;
         expect(AdminConfig().cms_name).toBe("Elegant");
     });
+    
+    it('returns a proper CMS repository branch', () => {
+        expect(AdminConfig().cms_repository_branch).toBe("unit/test");
+
+        process.env.NEXT_PUBLIC_CMS_REPOSITORY_BRANCH = undefined;
+        expect(AdminConfig().cms_repository_branch).toBe("main");
+
+        process.env.NEXT_PUBLIC_CMS_REPOSITORY_BRANCH = "hello/world";
+        expect(AdminConfig().cms_repository_branch).toBe("hello/world");
+    });
 });

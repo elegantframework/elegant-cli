@@ -20,6 +20,7 @@ import Settings from './settings';
 import Welcome from './welcome';
 import AddCustomField from '@/components/core/Admin/Pages/add-custom-field';
 import { Session } from '@/types/Index';
+import Config from '@/utils/core/Config/Config';
 
 type OutstaticProps = {
   missingEnvVars: EnvVarsType | false
@@ -133,7 +134,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
         variables: {
           name:
             process.env.OST_REPO_SLUG ?? process.env.VERCEL_GIT_REPO_SLUG ?? '',
-          contentPath: `${process.env.OST_REPO_BRANCH || 'main'}:${
+          contentPath: `${Config('admin.cms_repository_branch')}:${
             process.env.OST_MONOREPO_PATH
               ? process.env.OST_MONOREPO_PATH + '/'
               : ''
@@ -160,7 +161,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
       providerData: {
         repoOwner: process.env.OST_REPO_OWNER || session?.user?.login || '',
         repoSlug: process.env.OST_REPO_SLUG || process.env.VERCEL_GIT_REPO_SLUG,
-        repoBranch: process.env.OST_REPO_BRANCH || 'main',
+        repoBranch: Config('admin.cms_repository_branch'),
         contentPath: process.env.OST_CONTENT_PATH || 'outstatic/content',
         monorepoPath: process.env.OST_MONOREPO_PATH || '',
         session: session || null,
