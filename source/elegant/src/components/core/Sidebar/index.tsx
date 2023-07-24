@@ -7,7 +7,7 @@ type SidebarProps = {
 }
 
 const Sidebar = ({ isOpen = false }: SidebarProps) => {
-  const { collections } = useContext(OutstaticContext)
+  const { collections } = useContext(OutstaticContext);
 
   return (
     <aside
