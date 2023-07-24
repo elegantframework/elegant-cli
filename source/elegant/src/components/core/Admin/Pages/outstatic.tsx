@@ -109,6 +109,10 @@ const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
 
 export default Outstatic;
 
+Outstatic.layoutProps = {
+  stickyHeader: false
+};
+
 export const OstSSP: GetServerSideProps = async ({ req }) => {
   if (envVars.hasMissingEnvVars) {
     return {
