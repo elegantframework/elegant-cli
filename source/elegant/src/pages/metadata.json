@@ -1,6 +1,6 @@
 {
-  "commit": "66c9daf6b2a6cb7302048cdae282cb39ee32a7ec",
-  "generated": "Sun, 23 Jul 2023 22:38:23 GMT",
+  "commit": "27f3a2e47bf86af45454430ce3a3de98750a973d",
+  "generated": "Tue, 25 Jul 2023 01:43:33 GMT",
   "metadata": [
     {
       "__outstatic": {
@@ -22,19 +22,6 @@
     },
     {
       "__outstatic": {
-        "commit": "0b1cc3751fdf23955a70c11b7cd2a41118a14b00",
-        "hash": "1852389371",
-        "path": "source/elegant/src/pages/docs/deployment.mdx"
-      },
-      "collection": "docs",
-      "description": "A guide to deploying your Elegant application to production.",
-      "metaTitle": "Deployment - Deploying your Elegant application to Vercel.com, and other cloud providers.",
-      "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "deploymentx",
-      "title": "Deployment"
-    },
-    {
-      "__outstatic": {
         "commit": "5182a3f84afe7b11f7309539a7ace8955ab3ff93",
         "hash": "3928768159",
         "path": "source/elegant/src/pages/docs/convertkit.mdx"
@@ -45,6 +32,28 @@
       "publishedAt": "2023-05-09T11:09:59.143Z",
       "slug": "convertkitx",
       "title": "ConvertKit"
+    },
+    {
+      "__outstatic": {
+        "commit": "7626783d7c43371d6d08a7f606f496cc8f2856cf",
+        "hash": "2480988274",
+        "path": "source/elegant/src/pages/blog/2023-04-20-the-future-is-markdown/index.mdx"
+      },
+      "collection": "blog",
+      "slug": "indexx"
+    },
+    {
+      "__outstatic": {
+        "commit": "0b1cc3751fdf23955a70c11b7cd2a41118a14b00",
+        "hash": "1852389371",
+        "path": "source/elegant/src/pages/docs/deployment.mdx"
+      },
+      "collection": "docs",
+      "description": "A guide to deploying your Elegant application to production.",
+      "metaTitle": "Deployment - Deploying your Elegant application to Vercel.com, and other cloud providers.",
+      "publishedAt": "2023-05-09T11:09:59.143Z",
+      "slug": "deploymentx",
+      "title": "Deployment"
     },
     {
       "__outstatic": {
@@ -78,27 +87,6 @@
     },
     {
       "__outstatic": {
-        "commit": "7626783d7c43371d6d08a7f606f496cc8f2856cf",
-        "hash": "2480988274",
-        "path": "source/elegant/src/pages/blog/2023-04-20-the-future-is-markdown/index.mdx"
-      },
-      "collection": "blog",
-      "slug": "indexx"
-    },
-    {
-      "__outstatic": {
-        "commit": "2b7a08f342a0e01dea8feb8d095cead1ff08d816",
-        "hash": "2238807211",
-        "path": "source/elegant/src/pages/docs/new-documents.mdx"
-      },
-      "collection": "docs",
-      "metaTitle": "Creating Documentation - Elegant - Elevate your creative content.",
-      "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "new-documentsx",
-      "title": "Creating Documentation"
-    },
-    {
-      "__outstatic": {
         "commit": "61956775c48ed7478ad0f022bed0d89596b0dc3d",
         "hash": "4241845549",
         "path": "source/elegant/src/pages/docs/installation.mdx"
@@ -111,34 +99,15 @@
     },
     {
       "__outstatic": {
-        "commit": "c250ab7264e3edcc6dc7118f72e1d79a3143ab83",
-        "hash": "148192102",
-        "path": "source/elegant/src/pages/docs/google-analytics.mdx"
+        "commit": "2b7a08f342a0e01dea8feb8d095cead1ff08d816",
+        "hash": "2238807211",
+        "path": "source/elegant/src/pages/docs/new-documents.mdx"
       },
       "collection": "docs",
-      "description": "Google Analytics gives you the tools you need to better understand your website users.",
-      "metaTitle": "Google Analytics - Seamlessly connect Google Analytics to your Elegant application.",
+      "metaTitle": "Creating Documentation - Elegant - Elevate your creative content.",
       "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "google-analyticsx",
-      "title": "Google Analytics"
-    },
-    {
-      "__outstatic": {
-        "commit": "1033928254182d9a0d21b532ea137ac43e911c3d",
-        "hash": "342035971",
-        "path": "source/elegant/src/pages/docs/elegant-community.mdx"
-      },
-      "author": {
-        "name": "Brandon Owens",
-        "picture": "https://avatars.githubusercontent.com/u/10189130?v=4"
-      },
-      "collection": "docs",
-      "coverImage": "",
-      "description": "",
-      "publishedAt": "2023-06-28T22:43:49.136Z",
-      "slug": "elegant-community",
-      "status": "published",
-      "title": "Elegant Community"
+      "slug": "new-documentsx",
+      "title": "Creating Documentation"
     },
     {
       "__outstatic": {
@@ -160,20 +129,34 @@
     },
     {
       "__outstatic": {
-        "commit": "859d147541ccb42e24d8df0598802686d888dae1",
-        "hash": "48470722",
-        "path": "source/elegant/src/pages/docs/upgrade.mdx"
+        "commit": "1033928254182d9a0d21b532ea137ac43e911c3d",
+        "hash": "342035971",
+        "path": "source/elegant/src/pages/docs/elegant-community.mdx"
       },
       "author": {
-        "name": ""
+        "name": "Brandon Owens",
+        "picture": "https://avatars.githubusercontent.com/u/10189130?v=4"
       },
       "collection": "docs",
+      "coverImage": "",
       "description": "",
-      "metaTitle": "Upgrade Guide - Elegant - Elevate your creative content.",
-      "publishedAt": "2023-07-17T11:09:59.143Z",
-      "slug": "upgrade",
+      "publishedAt": "2023-06-28T22:43:49.136Z",
+      "slug": "elegant-community",
       "status": "published",
-      "title": "Upgrade Guide"
+      "title": "Elegant Community"
+    },
+    {
+      "__outstatic": {
+        "commit": "c250ab7264e3edcc6dc7118f72e1d79a3143ab83",
+        "hash": "148192102",
+        "path": "source/elegant/src/pages/docs/google-analytics.mdx"
+      },
+      "collection": "docs",
+      "description": "Google Analytics gives you the tools you need to better understand your website users.",
+      "metaTitle": "Google Analytics - Seamlessly connect Google Analytics to your Elegant application.",
+      "publishedAt": "2023-05-09T11:09:59.143Z",
+      "slug": "google-analyticsx",
+      "title": "Google Analytics"
     },
     {
       "__outstatic": {
@@ -212,16 +195,20 @@
     },
     {
       "__outstatic": {
-        "commit": "d3389d08e74670acc32aea8c7f2ac4095d14e2bc",
-        "hash": "875615733",
-        "path": "source/elegant/src/pages/docs/theme.mdx"
+        "commit": "859d147541ccb42e24d8df0598802686d888dae1",
+        "hash": "48470722",
+        "path": "source/elegant/src/pages/docs/upgrade.mdx"
+      },
+      "author": {
+        "name": ""
       },
       "collection": "docs",
-      "description": "Customizing the included theme for your project.",
-      "metaTitle": "Theme Customization - Elegant - Elevate your creative content.",
-      "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "themex",
-      "title": "Theme Customization"
+      "description": "",
+      "metaTitle": "Upgrade Guide - Elegant - Elevate your creative content.",
+      "publishedAt": "2023-07-17T11:09:59.143Z",
+      "slug": "upgrade",
+      "status": "published",
+      "title": "Upgrade Guide"
     },
     {
       "__outstatic": {
@@ -234,6 +221,19 @@
       "publishedAt": "2023-05-09T11:09:59.143Z",
       "slug": "release-notesx",
       "title": "Release Notes"
+    },
+    {
+      "__outstatic": {
+        "commit": "d3389d08e74670acc32aea8c7f2ac4095d14e2bc",
+        "hash": "875615733",
+        "path": "source/elegant/src/pages/docs/theme.mdx"
+      },
+      "collection": "docs",
+      "description": "Customizing the included theme for your project.",
+      "metaTitle": "Theme Customization - Elegant - Elevate your creative content.",
+      "publishedAt": "2023-05-09T11:09:59.143Z",
+      "slug": "themex",
+      "title": "Theme Customization"
     }
   ]
 }
