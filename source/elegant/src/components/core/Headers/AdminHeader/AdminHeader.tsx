@@ -104,23 +104,23 @@ export default function AdminHeader({
                         </div>
                     }
                 </div>
-                <div className="max-w-8xl mx-auto">
+                <div className="mx-auto">
                     <div
                         className={clsx(
-                            'py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10',
-                            hasNav ? 'mx-4 lg:mx-0' : 'px-4'
+                            'py-4 border-b border-slate-900/10 lg:border-0 dark:border-slate-300/10',
+                            hasNav ? 'mx-4 lg:mx-0' : 'px-6'
                         )}
                     >
                         <div className="relative flex flex-wrap items-center justify-between">
                             <Link href="/admin">
                                 <a
-                                className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
+                                className="mr-3 flex-none w-[2.0625rem] overflow-hidden"
                                 onContextMenu={(e) => {
                                     e.preventDefault()
                                 }}
                                 >
                                     <span className="sr-only">{Config('app.name')} home page</span>
-                                    <Logo className="w-auto h-7" />
+                                    <Logo className="w-auto h-7"/>
                                 </a>
                             </Link>
                             {status === 'loading' || (
