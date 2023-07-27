@@ -62,7 +62,7 @@ export default function Collections() {
               <p>Create your first Collection by clicking the button below.</p>
 
               <Link href="/admin/collections/new">
-                <div className="inline-block rounded-lg border px-5 py-2.5 text-sm font-medium focus:outline-none focus:ring-4 border-gray-600 bg-gray-800 text-white hover:border-gray-600 hover:bg-gray-700 focus:ring-gray-700 no-underline">
+                <div className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700 cursor-pointer">
                   New Collection
                 </div>
               </Link>
@@ -97,7 +97,7 @@ export default function Collections() {
                 className="relative flex p-6 justify-between items-center max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-slate-100"
               >
                 <Link href={`/admin/collections/${collection}`}>
-                  <h5 className="text-2xl cursor-pointer font-bold tracking-tight text-gray-900 capitalize hover:text-blue-500">
+                  <h5 className="text-2xl cursor-pointer font-bold tracking-tight text-gray-900 capitalize hover:text-primary-500">
                     {collection}
                     <span className="absolute top-0 bottom-0 left-0 right-16"></span>
                   </h5>

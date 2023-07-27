@@ -19,10 +19,8 @@ export default function Settings() {
           <div className="flex flex-row items-center">
             <button
               className={clsx(
-                'cursor-pointer rounded-lg border px-5 py-2.5 text-sm font-medium focus:outline-none focus:ring-4 focus:ring-gray-700 no-underline',
-                'text-white',
-                'border-gray-600 bg-gray-800',
-                rebuild && 'border-gray-400 bg-gray-500'
+                'mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700 cursor-pointer',
+                rebuild && 'border-primary-400 bg-primary-500'
               )}
               onClick={() => setRebuilding(true)}
             >

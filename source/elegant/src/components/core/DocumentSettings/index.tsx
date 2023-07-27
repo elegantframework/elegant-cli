@@ -90,7 +90,7 @@ const DocumentSettings = ({
           name="status"
           id="status"
           defaultValue={document.status}
-          className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-blue-500"
+          className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-primary-500"
         >
           <option value="draft">Draft</option>
           <option value="published">Published</option>
@@ -191,7 +191,7 @@ const DocumentSettings = ({
             label="Write a description (optional)"
             id="description"
             rows={5}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-blue-500"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-primary-500"
           />
         </Accordion>
 
