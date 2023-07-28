@@ -1,6 +1,6 @@
 {
-  "commit": "27f3a2e47bf86af45454430ce3a3de98750a973d",
-  "generated": "Tue, 25 Jul 2023 01:43:33 GMT",
+  "commit": "a7d302495cab9aa626bf057fee4c598f3a099351",
+  "generated": "Thu, 27 Jul 2023 15:33:58 GMT",
   "metadata": [
     {
       "__outstatic": {
@@ -22,6 +22,15 @@
     },
     {
       "__outstatic": {
+        "commit": "7626783d7c43371d6d08a7f606f496cc8f2856cf",
+        "hash": "2480988274",
+        "path": "source/elegant/src/pages/blog/2023-04-20-the-future-is-markdown/index.mdx"
+      },
+      "collection": "blog",
+      "slug": "indexx"
+    },
+    {
+      "__outstatic": {
         "commit": "5182a3f84afe7b11f7309539a7ace8955ab3ff93",
         "hash": "3928768159",
         "path": "source/elegant/src/pages/docs/convertkit.mdx"
@@ -35,12 +44,16 @@
     },
     {
       "__outstatic": {
-        "commit": "7626783d7c43371d6d08a7f606f496cc8f2856cf",
-        "hash": "2480988274",
-        "path": "source/elegant/src/pages/blog/2023-04-20-the-future-is-markdown/index.mdx"
+        "commit": "56d07748cd111507c69f19fc870725e666770c55",
+        "hash": "1318967305",
+        "path": "source/elegant/src/pages/docs/configuration.mdx"
       },
-      "collection": "blog",
-      "slug": "indexx"
+      "collection": "docs",
+      "description": "A guide to configuring your Elegant application.",
+      "metaTitle": "Configuration - Configuring your Elegant application",
+      "publishedAt": "2023-05-09T11:09:59.143Z",
+      "slug": "configurationx",
+      "title": "Configuration"
     },
     {
       "__outstatic": {
@@ -54,19 +67,6 @@
       "publishedAt": "2023-05-09T11:09:59.143Z",
       "slug": "deploymentx",
       "title": "Deployment"
-    },
-    {
-      "__outstatic": {
-        "commit": "56d07748cd111507c69f19fc870725e666770c55",
-        "hash": "1318967305",
-        "path": "source/elegant/src/pages/docs/configuration.mdx"
-      },
-      "collection": "docs",
-      "description": "A guide to configuring your Elegant application.",
-      "metaTitle": "Configuration - Configuring your Elegant application",
-      "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "configurationx",
-      "title": "Configuration"
     },
     {
       "__outstatic": {
@@ -99,18 +99,6 @@
     },
     {
       "__outstatic": {
-        "commit": "2b7a08f342a0e01dea8feb8d095cead1ff08d816",
-        "hash": "2238807211",
-        "path": "source/elegant/src/pages/docs/new-documents.mdx"
-      },
-      "collection": "docs",
-      "metaTitle": "Creating Documentation - Elegant - Elevate your creative content.",
-      "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "new-documentsx",
-      "title": "Creating Documentation"
-    },
-    {
-      "__outstatic": {
         "commit": "e9125703c6411f2029f0e0480a93a9bb31650fd5",
         "hash": "2237131856",
         "path": "source/elegant/src/pages/docs/development-tools.mdx"
@@ -126,6 +114,19 @@
       "slug": "development-tools",
       "status": "published",
       "title": "Development Tools"
+    },
+    {
+      "__outstatic": {
+        "commit": "c250ab7264e3edcc6dc7118f72e1d79a3143ab83",
+        "hash": "148192102",
+        "path": "source/elegant/src/pages/docs/google-analytics.mdx"
+      },
+      "collection": "docs",
+      "description": "Google Analytics gives you the tools you need to better understand your website users.",
+      "metaTitle": "Google Analytics - Seamlessly connect Google Analytics to your Elegant application.",
+      "publishedAt": "2023-05-09T11:09:59.143Z",
+      "slug": "google-analyticsx",
+      "title": "Google Analytics"
     },
     {
       "__outstatic": {
@@ -147,33 +148,57 @@
     },
     {
       "__outstatic": {
-        "commit": "c250ab7264e3edcc6dc7118f72e1d79a3143ab83",
-        "hash": "148192102",
-        "path": "source/elegant/src/pages/docs/google-analytics.mdx"
+        "commit": "2b7a08f342a0e01dea8feb8d095cead1ff08d816",
+        "hash": "2238807211",
+        "path": "source/elegant/src/pages/docs/new-documents.mdx"
       },
       "collection": "docs",
-      "description": "Google Analytics gives you the tools you need to better understand your website users.",
-      "metaTitle": "Google Analytics - Seamlessly connect Google Analytics to your Elegant application.",
+      "metaTitle": "Creating Documentation - Elegant - Elevate your creative content.",
       "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "google-analyticsx",
-      "title": "Google Analytics"
+      "slug": "new-documentsx",
+      "title": "Creating Documentation"
     },
     {
       "__outstatic": {
-        "commit": "e8e539e458e2d9fa0880c2949e735fe7cd5553bf",
-        "hash": "842643700",
-        "path": "source/elegant/src/pages/legal/trademark-policy.mdx"
+        "commit": "d3389d08e74670acc32aea8c7f2ac4095d14e2bc",
+        "hash": "875615733",
+        "path": "source/elegant/src/pages/docs/theme.mdx"
+      },
+      "collection": "docs",
+      "description": "Customizing the included theme for your project.",
+      "metaTitle": "Theme Customization - Elegant - Elevate your creative content.",
+      "publishedAt": "2023-05-09T11:09:59.143Z",
+      "slug": "themex",
+      "title": "Theme Customization"
+    },
+    {
+      "__outstatic": {
+        "commit": "a708c35191d6a31786c50f67016b7fdb2d6e9c8f",
+        "hash": "2894207106",
+        "path": "source/elegant/src/pages/docs/release-notes.mdx"
+      },
+      "collection": "docs",
+      "metaTitle": "Release Notes - Elegant - Elevate your creative content.",
+      "publishedAt": "2023-05-09T11:09:59.143Z",
+      "slug": "release-notesx",
+      "title": "Release Notes"
+    },
+    {
+      "__outstatic": {
+        "commit": "859d147541ccb42e24d8df0598802686d888dae1",
+        "hash": "48470722",
+        "path": "source/elegant/src/pages/docs/upgrade.mdx"
       },
       "author": {
         "name": ""
       },
-      "collection": "legal",
-      "description": "See our Trademark Policy and how it relates to you.",
-      "metaTitle": "Trademark Policy - Elegant - Elevate your creative content.",
-      "publishedAt": "2023-06-29T21:25:53.358Z",
-      "slug": "trademark-policy",
+      "collection": "docs",
+      "description": "",
+      "metaTitle": "Upgrade Guide - Elegant - Elevate your creative content.",
+      "publishedAt": "2023-07-17T11:09:59.143Z",
+      "slug": "upgrade",
       "status": "published",
-      "title": "Trademark Policy"
+      "title": "Upgrade Guide"
     },
     {
       "__outstatic": {
@@ -195,45 +220,20 @@
     },
     {
       "__outstatic": {
-        "commit": "859d147541ccb42e24d8df0598802686d888dae1",
-        "hash": "48470722",
-        "path": "source/elegant/src/pages/docs/upgrade.mdx"
+        "commit": "e8e539e458e2d9fa0880c2949e735fe7cd5553bf",
+        "hash": "842643700",
+        "path": "source/elegant/src/pages/legal/trademark-policy.mdx"
       },
       "author": {
         "name": ""
       },
-      "collection": "docs",
-      "description": "",
-      "metaTitle": "Upgrade Guide - Elegant - Elevate your creative content.",
-      "publishedAt": "2023-07-17T11:09:59.143Z",
-      "slug": "upgrade",
+      "collection": "legal",
+      "description": "See our Trademark Policy and how it relates to you.",
+      "metaTitle": "Trademark Policy - Elegant - Elevate your creative content.",
+      "publishedAt": "2023-06-29T21:25:53.358Z",
+      "slug": "trademark-policy",
       "status": "published",
-      "title": "Upgrade Guide"
-    },
-    {
-      "__outstatic": {
-        "commit": "a708c35191d6a31786c50f67016b7fdb2d6e9c8f",
-        "hash": "2894207106",
-        "path": "source/elegant/src/pages/docs/release-notes.mdx"
-      },
-      "collection": "docs",
-      "metaTitle": "Release Notes - Elegant - Elevate your creative content.",
-      "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "release-notesx",
-      "title": "Release Notes"
-    },
-    {
-      "__outstatic": {
-        "commit": "d3389d08e74670acc32aea8c7f2ac4095d14e2bc",
-        "hash": "875615733",
-        "path": "source/elegant/src/pages/docs/theme.mdx"
-      },
-      "collection": "docs",
-      "description": "Customizing the included theme for your project.",
-      "metaTitle": "Theme Customization - Elegant - Elevate your creative content.",
-      "publishedAt": "2023-05-09T11:09:59.143Z",
-      "slug": "themex",
-      "title": "Theme Customization"
+      "title": "Trademark Policy"
     }
   ]
 }
