@@ -87,7 +87,7 @@ const AdminConfig = () => {
         */
         'cms_repository_slug': process.env.NEXT_PUBLIC_CMS_REPOSITORY_SLUG || '',
 
-         /*
+        /*
         |--------------------------------------------------------------------------
         | CMS Repository Owner
         |--------------------------------------------------------------------------
@@ -97,6 +97,27 @@ const AdminConfig = () => {
         |
         */
         'cms_repository_owner': process.env.NEXT_PUBLIC_CMS_REPOSITORY_OWNER || '',
+
+        /*
+        |--------------------------------------------------------------------------
+        | CMS Content Path
+        |--------------------------------------------------------------------------
+        |
+        | This is the relative folder path to where you store your content in Markdown.
+        |
+        */
+        'cms_content_path': process.env.NEXT_PUBLIC_CMS_CONTENT_PATH || 'content',
+
+        /*
+        |--------------------------------------------------------------------------
+        | CMS Monorepo Path
+        |--------------------------------------------------------------------------
+        |
+        | This is the relative folder to where your Elegant application is located,
+        | only if your project is set up as a monorepo with multiple projects.
+        |
+        */
+        'cms_monorepo_path': process.env.NEXT_PUBLIC_CMS_MONOREPO_PATH || '',
     };
 };
 

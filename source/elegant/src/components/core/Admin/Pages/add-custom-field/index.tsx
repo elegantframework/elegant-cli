@@ -245,17 +245,6 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
                     >
                       Add Custom Field
                     </div>
-                    <p>
-                      To learn more about how Custom Fields work checkout{' '}
-                      <a
-                        href="https://outstatic.com/docs/custom-fields"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        the docs.
-                      </a>
-                      .
-                    </p>
                   </div>
                 </div>
               </div>

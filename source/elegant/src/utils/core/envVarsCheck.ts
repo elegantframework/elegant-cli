@@ -22,7 +22,7 @@ const initialEnvVars: EnvVarsType = {
     NEXT_PUBLIC_CMS_REPOSITORY_SLUG: false
   },
   optional: {
-    OST_CONTENT_PATH: false,
+    NEXT_PUBLIC_CMS_CONTENT_PATH: false,
     NEXT_PUBLIC_CMS_REPOSITORY_OWNER: false
   }
 }

@@ -50,13 +50,13 @@ export default function Welcome({ variables }: WelcomeProps) {
                 </li>
               ))}
             </ul>
-            {!variables.optional.OST_CONTENT_PATH && (
+            {!variables.optional.NEXT_PUBLIC_CMS_CONTENT_PATH && (
               <p className="mb-5 p-2 bg-primary-100 rounded">
                 Optional variable{' '}
-                <span className="font-semibold">OST_CONTENT_PATH</span> defines
+                <span className="font-semibold">NEXT_PUBLIC_CMS_CONTENT_PATH</span> defines
                 where your content is saved.
                 <br />
-                Defaulting to <code>outstatic/content</code>
+                Defaulting to <code>content</code>
               </p>
             )}
             {!variables.optional.NEXT_PUBLIC_CMS_REPOSITORY_OWNER && (

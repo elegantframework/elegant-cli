@@ -63,6 +63,12 @@ const Config = (value: string) => {
             return AdminConfig().cms_repository_slug; 
         case 'admin.cms_repository_owner':
             return AdminConfig().cms_repository_owner; 
+        case 'admin.cms_content_path':
+            return AdminConfig().cms_content_path; 
+        case 'admin.cms_monorepo_path':
+            return AdminConfig().cms_monorepo_path; 
+        default:
+            return "";
     }
 };
 

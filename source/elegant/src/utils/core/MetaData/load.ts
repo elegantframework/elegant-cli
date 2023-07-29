@@ -4,10 +4,11 @@ import matter from 'gray-matter';
 import sift, { Query } from 'sift';
 import { firstBy } from 'thenby';
 import { FindAPI, OutstaticSchema, Projection } from './types';
+import Config from '../Config/Config';
 
 const CONTENT_PATH = join(
   process.cwd(),
-  process.env.OST_CONTENT_PATH || 'outstatic/content'
+  Config('admin.cms_content_path') || 'content'
 )
 
 const METADATA_PATH = resolve(CONTENT_PATH, './metadata.json')
@@ -129,9 +130,9 @@ export const load = async <TSchema extends {} = {}>() => {
                 finalProjection.length === 0 ||
                 finalProjection.includes('content')
               ) {
-                const cleanPath = process.env.OST_MONOREPO_PATH
+                const cleanPath = Config('admin.cms_monorepo_path')
                   ? m.__outstatic.path.replace(
-                      process.env.OST_MONOREPO_PATH,
+                      Config('admin.cms_monorepo_path'),
                       ''
                     )
                   : m.__outstatic.path

@@ -74,4 +74,18 @@ describe('Admin Config', () => {
         process.env.NEXT_PUBLIC_CMS_REPOSITORY_OWNER = undefined;
         expect(AdminConfig().cms_repository_owner).toBe("");
     });
+
+    it('returns a proper CMS content path', () => {
+        expect(AdminConfig().cms_content_path).toBe("src/test/pages");
+
+        process.env.NEXT_PUBLIC_CMS_CONTENT_PATH = undefined;
+        expect(AdminConfig().cms_content_path).toBe("content");
+    });
+
+    it('returns a proper CMS monorepo path', () => {
+        expect(AdminConfig().cms_monorepo_path).toBe("hello/world");
+
+        process.env.NEXT_PUBLIC_CMS_MONOREPO_PATH = undefined;
+        expect(AdminConfig().cms_monorepo_path).toBe("");
+    });
 });

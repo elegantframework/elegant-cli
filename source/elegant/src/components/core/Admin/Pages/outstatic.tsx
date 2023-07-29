@@ -139,10 +139,10 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
           name:
             Config('admin.cms_repository_slug') ?? process.env.VERCEL_GIT_REPO_SLUG ?? '',
           contentPath: `${Config('admin.cms_repository_branch')}:${
-            process.env.OST_MONOREPO_PATH
-              ? process.env.OST_MONOREPO_PATH + '/'
+            Config('admin.cms_monorepo_path')
+              ? Config('admin.cms_monorepo_path') + '/'
               : ''
-          }${process.env.OST_CONTENT_PATH || 'outstatic/content'}`,
+          }${Config('admin.cms_content_path') || 'content'}`,
           owner: Config('admin.cms_repository_owner') || session?.user?.login || ''
         }
       })
@@ -166,8 +166,8 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
         repoOwner: Config('admin.cms_repository_owner') || session?.user?.login || '',
         repoSlug: Config('admin.cms_repository_slug') || process.env.VERCEL_GIT_REPO_SLUG,
         repoBranch: Config('admin.cms_repository_branch'),
-        contentPath: process.env.OST_CONTENT_PATH || 'outstatic/content',
-        monorepoPath: process.env.OST_MONOREPO_PATH || '',
+        contentPath: Config('admin.cms_content_path') || 'content',
+        monorepoPath: Config('admin.cms_monorepo_path') || '',
         session: session || null,
         initialApolloState: apolloClient?.cache.extract() || null,
         collections,
