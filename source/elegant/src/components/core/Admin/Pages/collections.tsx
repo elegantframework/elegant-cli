@@ -51,32 +51,23 @@ export default function Collections() {
         <div className="max-w-2xl">
           <div className="relative">
             <div className="mb-8 flex h-12 items-center">
-              <h1 className="mr-12 text-2xl">Welcome to Outstatic!</h1>
+              <h1 className="mr-12 text-2xl">
+                Welcome to Elegant CMS
+              </h1>
             </div>
             <div className="mb-20 max-w-2xl p-8 px-4 md:p-8 text-black bg-white rounded-lg border border-gray-200 shadow-md prose prose-base">
               <p>
-                To get started you will need to create a new Collection.
-                Collections are the main building block of your Outstatic
-                website.
+                To get started you will need to create a new collection.
+                Collections are the main building block of your Elegant
+                application.
               </p>
-              <p>Create your first Collection by clicking the button below.</p>
+              <p>Create your first collection by clicking the button below.</p>
 
               <Link href="/admin/collections/new">
                 <div className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700 cursor-pointer">
                   New Collection
                 </div>
               </Link>
-              <p>
-                To learn more about how Collections work{' '}
-                <a
-                  href="https://outstatic.com/docs/introduction#what-are-collections"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  click here
-                </a>
-                .
-              </p>
             </div>
           </div>
         </div>
