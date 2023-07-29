@@ -50,7 +50,7 @@ const AdminConfig = () => {
         */
         'cms_github_id': process.env.NEXT_PUBLIC_CMS_GITHUB_ID || '',
 
-         /*
+        /*
         |--------------------------------------------------------------------------
         | CMS GitHub Secret
         |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ const AdminConfig = () => {
         */
         'cms_github_secret': process.env.NEXT_PUBLIC_CMS_GITHUB_SECRET || '',
 
-         /*
+        /*
         |--------------------------------------------------------------------------
         | CMS GitHub Token Secret
         |--------------------------------------------------------------------------
@@ -75,7 +75,7 @@ const AdminConfig = () => {
         */
         'cms_token_secret': process.env.NEXT_PUBLIC_CMS_TOKEN_SECRET || '',
 
-         /*
+        /*
         |--------------------------------------------------------------------------
         | CMS Repository Slug
         |--------------------------------------------------------------------------
@@ -86,6 +86,17 @@ const AdminConfig = () => {
         |
         */
         'cms_repository_slug': process.env.NEXT_PUBLIC_CMS_REPOSITORY_SLUG || '',
+
+         /*
+        |--------------------------------------------------------------------------
+        | CMS Repository Owner
+        |--------------------------------------------------------------------------
+        |
+        | This is the owner of the repository where you store your content.
+        | If the repository owner is not set, the GitHub username of the logged in account will be used.
+        |
+        */
+        'cms_repository_owner': process.env.NEXT_PUBLIC_CMS_REPOSITORY_OWNER || '',
     };
 };
 

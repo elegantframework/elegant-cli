@@ -67,4 +67,11 @@ describe('Admin Config', () => {
         process.env.NEXT_PUBLIC_CMS_REPOSITORY_SLUG = undefined;
         expect(AdminConfig().cms_repository_slug).toBe("");
     });
+
+    it('returns a proper CMS repository owner', () => {
+        expect(AdminConfig().cms_repository_owner).toBe("testerowner");
+
+        process.env.NEXT_PUBLIC_CMS_REPOSITORY_OWNER = undefined;
+        expect(AdminConfig().cms_repository_owner).toBe("");
+    });
 });

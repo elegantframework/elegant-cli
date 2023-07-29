@@ -59,10 +59,10 @@ export default function Welcome({ variables }: WelcomeProps) {
                 Defaulting to <code>outstatic/content</code>
               </p>
             )}
-            {!variables.optional.OST_REPO_OWNER && (
+            {!variables.optional.NEXT_PUBLIC_CMS_REPOSITORY_OWNER && (
               <p className="mb-5 p-2 bg-primary-100 rounded">
                 Optional variable{' '}
-                <span className="font-semibold">OST_REPO_OWNER</span> is not
+                <span className="font-semibold">NEXT_PUBLIC_CMS_REPOSITORY_OWNER</span> is not
                 set.
                 <br />
                 Defaulting to your GitHub user.

@@ -143,7 +143,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
               ? process.env.OST_MONOREPO_PATH + '/'
               : ''
           }${process.env.OST_CONTENT_PATH || 'outstatic/content'}`,
-          owner: process.env.OST_REPO_OWNER || session?.user?.login || ''
+          owner: Config('admin.cms_repository_owner') || session?.user?.login || ''
         }
       })
 
@@ -163,7 +163,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
     props: {
       missingEnvVars: false,
       providerData: {
-        repoOwner: process.env.OST_REPO_OWNER || session?.user?.login || '',
+        repoOwner: Config('admin.cms_repository_owner') || session?.user?.login || '',
         repoSlug: Config('admin.cms_repository_slug') || process.env.VERCEL_GIT_REPO_SLUG,
         repoBranch: Config('admin.cms_repository_branch'),
         contentPath: process.env.OST_CONTENT_PATH || 'outstatic/content',

@@ -61,6 +61,8 @@ const Config = (value: string) => {
             return AdminConfig().cms_token_secret; 
         case 'admin.cms_repository_slug':
             return AdminConfig().cms_repository_slug; 
+        case 'admin.cms_repository_owner':
+            return AdminConfig().cms_repository_owner; 
     }
 };
 

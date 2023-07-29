@@ -23,7 +23,7 @@ const initialEnvVars: EnvVarsType = {
   },
   optional: {
     OST_CONTENT_PATH: false,
-    OST_REPO_OWNER: false
+    NEXT_PUBLIC_CMS_REPOSITORY_OWNER: false
   }
 }
 
