@@ -53,6 +53,14 @@ const Config = (value: string) => {
             return AdminConfig().cms_asset_path; 
         case 'admin.cms_repository_branch':
             return AdminConfig().cms_repository_branch; 
+        case 'admin.cms_github_id':
+            return AdminConfig().cms_github_id; 
+        case 'admin.cms_github_secret':
+            return AdminConfig().cms_github_secret; 
+        case 'admin.cms_token_secret':
+            return AdminConfig().cms_token_secret; 
+        case 'admin.cms_repository_slug':
+            return AdminConfig().cms_repository_slug; 
     }
 };
 

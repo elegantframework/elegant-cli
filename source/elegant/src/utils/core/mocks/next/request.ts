@@ -3,6 +3,7 @@ import { LoginSession } from '@/utils/core/Auth/auth';
 
  // @ts-ignore
 import hm from 'node-mocks-http';
+import Config from '../../Config/Config';
 
 export const createMockRequest = async (
   options: hm.RequestOptions,
@@ -27,7 +28,7 @@ export const createMockRequest = async (
   // see auth.ts
   const token = await Iron.seal(
     sesh,
-    process.env.OST_TOKEN_SECRET ?? '',
+    Config('admin.cms_token_secret') ?? '',
     Iron.defaults
   )
 

@@ -137,7 +137,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
         query: CollectionsDocument,
         variables: {
           name:
-            process.env.OST_REPO_SLUG ?? process.env.VERCEL_GIT_REPO_SLUG ?? '',
+            Config('admin.cms_repository_slug') ?? process.env.VERCEL_GIT_REPO_SLUG ?? '',
           contentPath: `${Config('admin.cms_repository_branch')}:${
             process.env.OST_MONOREPO_PATH
               ? process.env.OST_MONOREPO_PATH + '/'
@@ -164,7 +164,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
       missingEnvVars: false,
       providerData: {
         repoOwner: process.env.OST_REPO_OWNER || session?.user?.login || '',
-        repoSlug: process.env.OST_REPO_SLUG || process.env.VERCEL_GIT_REPO_SLUG,
+        repoSlug: Config('admin.cms_repository_slug') || process.env.VERCEL_GIT_REPO_SLUG,
         repoBranch: Config('admin.cms_repository_branch'),
         contentPath: process.env.OST_CONTENT_PATH || 'outstatic/content',
         monorepoPath: process.env.OST_MONOREPO_PATH || '',

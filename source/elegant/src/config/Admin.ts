@@ -38,6 +38,54 @@ const AdminConfig = () => {
         |
         */
         'cms_repository_branch': process.env.NEXT_PUBLIC_CMS_REPOSITORY_BRANCH || 'main',
+
+        /*
+        |--------------------------------------------------------------------------
+        | CMS GitHub ID
+        |--------------------------------------------------------------------------
+        |
+        | This is the GitHub Client ID of your GitHub Oauth application.
+        |
+        |
+        */
+        'cms_github_id': process.env.NEXT_PUBLIC_CMS_GITHUB_ID || '',
+
+         /*
+        |--------------------------------------------------------------------------
+        | CMS GitHub Secret
+        |--------------------------------------------------------------------------
+        |
+        | This is the GitHub Client secret of your  
+        |
+        |
+        */
+        'cms_github_secret': process.env.NEXT_PUBLIC_CMS_GITHUB_SECRET || '',
+
+         /*
+        |--------------------------------------------------------------------------
+        | CMS GitHub Token Secret
+        |--------------------------------------------------------------------------
+        |
+        | This is a random string with at least 32 characters. 
+        | You can generate a random string using the service below.
+        |
+        | https://onlinehashtools.com/generate-random-sha256-hash?&count=1
+        |
+        |
+        */
+        'cms_token_secret': process.env.NEXT_PUBLIC_CMS_TOKEN_SECRET || '',
+
+         /*
+        |--------------------------------------------------------------------------
+        | CMS Repository Slug
+        |--------------------------------------------------------------------------
+        |
+        | This is the slug of the repository where you store your content.
+        | If empty AND on Vercel, this will default to VERCEL_GIT_REPO_SLUG.
+        |
+        |
+        */
+        'cms_repository_slug': process.env.NEXT_PUBLIC_CMS_REPOSITORY_SLUG || '',
     };
 };
 

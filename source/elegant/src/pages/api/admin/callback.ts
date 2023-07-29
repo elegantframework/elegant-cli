@@ -4,6 +4,7 @@ import nextSession from 'next-session';
 import { Session } from 'next-session/lib/types';
 import { setLoginSession } from '@/utils/core/Auth/auth';
 import { MAX_AGE } from '@/utils/core/Auth/auth-cookies';
+import Config from '@/utils/core/Config/Config';
 
 interface Request extends NextApiRequest {
   session: Session
@@ -19,8 +20,8 @@ async function getAccessToken(code: string) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      client_id: process.env.OST_GITHUB_ID,
-      client_secret: process.env.OST_GITHUB_SECRET,
+      client_id: Config('admin.cms_github_id'),
+      client_secret: Config('admin.cms_github_secret'),
       code
     })
   })

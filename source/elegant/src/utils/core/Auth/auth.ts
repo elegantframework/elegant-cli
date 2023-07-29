@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { NextIncomingMessage } from 'next/dist/server/request-meta';
 import { MAX_AGE, setTokenCookie, getTokenCookie } from './auth-cookies';
 import { Session } from '@/types/Index';
+import Config from '../Config/Config';
 
 export type LoginSession = {
   user: {
@@ -23,7 +24,7 @@ export type Request =
       }>
     })
 
-const TOKEN_SECRET = process.env.OST_TOKEN_SECRET ?? ''
+const TOKEN_SECRET = Config('admin.cms_token_secret') ?? ''
 
 export async function setLoginSession(
   res: NextApiResponse,

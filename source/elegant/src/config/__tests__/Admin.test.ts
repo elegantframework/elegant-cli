@@ -39,4 +39,32 @@ describe('Admin Config', () => {
         process.env.NEXT_PUBLIC_CMS_REPOSITORY_BRANCH = "hello/world";
         expect(AdminConfig().cms_repository_branch).toBe("hello/world");
     });
+
+    it('returns a proper CMS github id', () => {
+        expect(AdminConfig().cms_github_id).toBe("9765ab0581dddb2e73d22");
+
+        process.env.NEXT_PUBLIC_CMS_GITHUB_ID = undefined;
+        expect(AdminConfig().cms_github_id).toBe("");
+    });
+
+    it('returns a proper CMS github secret', () => {
+        expect(AdminConfig().cms_github_secret).toBe("2vd9as9dsa363889cdsjnadskbs3ce4ddd27c8ad31aba1c02");
+
+        process.env.NEXT_PUBLIC_CMS_GITHUB_SECRET = undefined;
+        expect(AdminConfig().cms_github_secret).toBe("");
+    });
+
+    it('returns a proper CMS token secret', () => {
+        expect(AdminConfig().cms_token_secret).toBe("0ae65b8489609dnjkasdnaskndkasde83c46dawvf79ea9bd1edc77f81599nef");
+
+        process.env.NEXT_PUBLIC_CMS_TOKEN_SECRET = undefined;
+        expect(AdminConfig().cms_token_secret).toBe("");
+    });
+
+    it('returns a proper CMS repository slug', () => {
+        expect(AdminConfig().cms_repository_slug).toBe("unit-test-repo");
+
+        process.env.NEXT_PUBLIC_CMS_REPOSITORY_SLUG = undefined;
+        expect(AdminConfig().cms_repository_slug).toBe("");
+    });
 });
