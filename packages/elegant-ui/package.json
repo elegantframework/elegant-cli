@@ -1,0 +1,32 @@
+{
+  "name": "@brandonowens/elegant-ui",
+  "version": "0.0.1",
+  "description": " Elegant is the easiest way to create a new static website or blog, and publish it online. This is the core Elegant UI component library.",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elegantframework/elegant.git"
+  },
+  "keywords": [
+    "next",
+    "react",
+    "storybook",
+    "tailwindcss",
+    "jest",
+    "elegant",
+    "elegantui",
+    "elegant ui",
+    "elegant-ui"
+  ],
+  "author": "Brandon Owens",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elegantframework/elegant/issues"
+  },
+  "homepage": "https://github.com/elegantframework/elegant#readme",
+  "devDependencies": {
+    "jest": "^29.6.2"
+  }
+}
