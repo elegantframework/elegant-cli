@@ -33,7 +33,7 @@ export default function Settings() {
             />
           </div>
           <p className="text-sm">
-            If you&apos;ve made changes outside of outstatic, or if you are
+            If you&apos;ve made changes outside of Elegant, or if you are
             seeing posts with incorrect metadata, you can rebuild your metadata
             and automatically deploy those changes to your site.
           </p>
@@ -71,19 +71,6 @@ export default function Settings() {
               readOnly
             />
           </div>
-          <p className="text-sm">
-            These values come from your Outstatic environment. To learn more
-            about how to update these values,{' '}
-            <a
-              href="https://outstatic.com/docs/environment-variables"
-              target="_blank"
-              rel="noreferrer"
-              className="underline font-semibold"
-            >
-              click here
-            </a>
-            .
-          </p>
         </div>
       </div>
     </AdminLayout>
