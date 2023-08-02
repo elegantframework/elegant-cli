@@ -1,4 +1,4 @@
-import { useTheme } from '@/utils/themeToggle';
+import { useTheme } from './../../../utils/themeToggle';
 import { Listbox } from '@headlessui/react';
 import SunIcon from '../../Icons/SunIcon/SunIcon';
 import MoonIcon from '../../Icons/MoonIcon/MoonIcon';
