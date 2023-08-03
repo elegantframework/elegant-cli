@@ -49,8 +49,13 @@ function useSubmitDocument({
   setHasChanges
 }: SubmitDocumentProps) {
   const [createCommit] = useCreateCommitMutation()
-  const { repoOwner, repoSlug, repoBranch, contentPath, monorepoPath } =
-    useContext(OutstaticContext)
+  const { 
+    repoOwner, 
+    repoSlug, 
+    repoBranch, 
+    contentPath, 
+    monorepoPath 
+  } = useContext(OutstaticContext);
   const fetchOid = useOid()
   const { data: metadata } = useFileQuery({
     file: `metadata.json`

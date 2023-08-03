@@ -13,6 +13,7 @@ export default function Collections() {
     session,
     repoSlug,
     repoBranch,
+    repoOwner,
     contentPath,
     monorepoPath,
     removePage
@@ -26,7 +27,7 @@ export default function Collections() {
   const deleteCollection = async (collection: string) => {
     try {
       const oid = await fetchOid()
-      const owner = session?.user?.login || ''
+      const owner = repoOwner || '';
 
       const commitInput = collectionCommitInput({
         owner,
