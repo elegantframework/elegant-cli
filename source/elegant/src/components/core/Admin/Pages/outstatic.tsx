@@ -164,7 +164,7 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
         repoOwner: Config('admin.cms_repository_owner') || session?.user?.login || '',
         repoSlug: Config('admin.cms_repository_slug') || process.env.VERCEL_GIT_REPO_SLUG,
         repoBranch: Config('admin.cms_repository_branch'),
-        contentPath: Config('admin.cms_content_path') || 'content',
+        contentPath: Config('admin.cms_content_path') || '_content',
         monorepoPath: Config('admin.cms_monorepo_path'),
         session: session || null,
         initialApolloState: apolloClient?.cache.extract() || null,
