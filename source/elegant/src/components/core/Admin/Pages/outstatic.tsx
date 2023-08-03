@@ -49,11 +49,22 @@ const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
   const router = useRouter();
   const client = useApollo(providerData?.initialApolloState);
 
+  /**
+   * Add a new content page
+   * @param page A page url slug
+   */
   const addPage = (page: string) => {
-    if (pages.includes(page)) return
-    if (collections.includes(page)) return
-    setPages([...pages, page])
-    setCollections([...collections, page])
+
+    if (pages.includes(page)){
+      return;
+    }
+
+    if (collections.includes(page)){
+      return;
+    }
+
+    setPages([...pages, page]);
+    setCollections([...collections, page]);
   }
 
   const removePage = (page: string) => {
