@@ -20,7 +20,6 @@ import { UseFormReturn } from 'react-hook-form';
 import useFileQuery from './useFileQuery';
 import useOid from './useOid';
 import { OutstaticContext } from '../Context';
-import GetSavedFilePath from '../Files/FileHandler';
 
 type SubmitDocumentProps = {
   session: Session | null
@@ -113,7 +112,7 @@ function useSubmitDocument({
               capi.replaceFile(
                 `${
                   monorepoPath ? monorepoPath + '/' : ''
-                }${GetSavedFilePath() + filePath}${newFilename}`,
+                }public/${filePath}${newFilename}`,
                 fileContents,
                 false
               )

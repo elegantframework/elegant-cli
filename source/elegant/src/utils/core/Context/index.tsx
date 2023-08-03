@@ -1,7 +1,7 @@
 import { DocumentContextType, Session } from '@/types/Index';
 import { createContext } from 'react';
 
-type OutstaticProviderProps = {
+type Props = {
   children?: React.ReactNode
   repoOwner: string
   repoSlug: string
@@ -23,7 +23,7 @@ export const OutstaticContext = createContext({
   contentPath: '',
   monorepoPath: '',
   session: null
-} as Omit<OutstaticProviderProps, 'client'>)
+} as Omit<Props, 'client'>)
 
 export const OutstaticProvider = ({
   children,
@@ -37,7 +37,7 @@ export const OutstaticProvider = ({
   pages,
   addPage,
   removePage
-}: OutstaticProviderProps) => {
+}: Props) => {
   return (
     <OutstaticContext.Provider
       value={{
