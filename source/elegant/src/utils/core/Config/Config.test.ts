@@ -27,11 +27,4 @@ describe('Config', () => {
 
         expect(result).toBe("Elegant");
     });
-
-    it('loads the admin config', () => {
-        let result = Config('admin.cms_asset_path');
-        expect(result).toBe("source/elegant/");
-
-        expect(Config('admin.cms_repository_branch')).toBe('unit/test');
-    });
 });

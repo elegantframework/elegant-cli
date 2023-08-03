@@ -14,19 +14,6 @@ const AdminConfig = () => {
         |
         */
         'cms_name': process.env.NEXT_PUBLIC_CMS_NAME || 'Elegant',
-        
-        /*
-        |--------------------------------------------------------------------------
-        | CMS Asset Path
-        |--------------------------------------------------------------------------
-        |
-        | This is the path of your saved assets from your CMS panel. This value
-        | should be left to it's default value of blank. The only time this value
-        | is referenced is during core Elegant code development. 
-        |
-        |
-        */
-        'cms_asset_path': process.env.NEXT_PUBLIC_CMS_ASSET_PATH || '',
 
         /*
         |--------------------------------------------------------------------------

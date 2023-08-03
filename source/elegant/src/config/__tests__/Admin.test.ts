@@ -13,16 +13,6 @@ describe('Admin Config', () => {
         process.env = env
     });
 
-    it('returns a proper file path during Elegant core development',() => {
-        expect(AdminConfig().cms_asset_path).toBe("source/elegant/");
-    });
-
-    it('returns no file path when Elegant core code is not being developed',() => {
-        process.env.NEXT_PUBLIC_CMS_ASSET_PATH = undefined;
-        expect(AdminConfig().cms_asset_path).toBe("");
-
-    });
-
     it('returns a proper CMS panel name', () => {
         expect(AdminConfig().cms_name).toBe("Testing");
 
