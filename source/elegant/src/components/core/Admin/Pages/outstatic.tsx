@@ -140,8 +140,6 @@ export const OstSSP: GetServerSideProps = async ({ req }) => {
             Config('admin.cms_repository_slug') ?? process.env.VERCEL_GIT_REPO_SLUG ?? '',
           contentPath: `${Config('admin.cms_repository_branch')}:${
             Config('admin.cms_monorepo_path')
-              ? Config('admin.cms_monorepo_path') + '/'
-              : ''
           }${Config('admin.cms_content_path') || 'content'}`,
           owner: Config('admin.cms_repository_owner') || session?.user?.login || ''
         }
