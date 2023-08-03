@@ -1,6 +1,24 @@
 {
-  "commit": "fd541e4e73295ae423ce1054f082c546b5225844",
-  "generated": "2023-08-03T19:59:19.708Z",
+  "commit": "6270384c59c288ffd1a2bb4ec5a0e7ef14d12247",
+  "generated": "2023-08-03T20:01:06.927Z",
   "metadata": [
+    {
+      "__outstatic": {
+        "commit": "6270384c59c288ffd1a2bb4ec5a0e7ef14d12247",
+        "hash": "3365053553",
+        "path": "_content/docs/testing.mdx"
+      },
+      "author": {
+        "name": "Brandon Owens",
+        "picture": "https://avatars.githubusercontent.com/u/10189130?v=4"
+      },
+      "collection": "docs",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2023-08-03T19:36:58.242Z",
+      "slug": "testing",
+      "status": "draft",
+      "title": "Testing"
+    }
   ]
 }
