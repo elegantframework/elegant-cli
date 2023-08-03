@@ -106,7 +106,7 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
 
     capi.replaceFile(
       `${
-        monorepoPath ? monorepoPath + '/' : ''
+        monorepoPath
       }${contentPath}/${collection}/schema.json`,
       customFieldsJSON + '\n'
     )

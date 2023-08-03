@@ -93,7 +93,7 @@ const AdminConfig = () => {
         | This is the relative folder path to where you store your content in Markdown.
         |
         */
-        'cms_content_path': process.env.NEXT_PUBLIC_CMS_CONTENT_PATH || 'content',
+        'cms_content_path': process.env.NEXT_PUBLIC_CMS_CONTENT_PATH || '_content',
 
         /*
         |--------------------------------------------------------------------------

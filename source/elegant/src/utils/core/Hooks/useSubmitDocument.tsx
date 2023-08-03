@@ -83,7 +83,7 @@ function useSubmitDocument({
         if (oldSlug) {
           capi.removeFile(
             `${
-              monorepoPath ? monorepoPath + '/' : ''
+              monorepoPath
             }${contentPath}/${collection}/${oldSlug}.mdx`
           )
         }
@@ -111,7 +111,7 @@ function useSubmitDocument({
 
               capi.replaceFile(
                 `${
-                  monorepoPath ? monorepoPath + '/' : ''
+                  monorepoPath
                 }public/${filePath}${newFilename}`,
                 fileContents,
                 false
@@ -127,7 +127,7 @@ function useSubmitDocument({
 
         capi.replaceFile(
           `${
-            monorepoPath ? monorepoPath + '/' : ''
+            monorepoPath
           }${contentPath}/${collection}/${newSlug}.mdx`,
           content
         )
@@ -180,7 +180,7 @@ function useSubmitDocument({
 
           capi.replaceFile(
             `${
-              monorepoPath ? monorepoPath + '/' : ''
+              monorepoPath
             }${contentPath}/${collection}/schema.json`,
             customFieldsJSON + '\n'
           )
@@ -218,7 +218,7 @@ function useSubmitDocument({
 
           capi.replaceFile(
             `${
-              monorepoPath ? monorepoPath + '/' : ''
+              monorepoPath
             }${contentPath}/metadata.json`,
             stringifyMetadata({ ...m, metadata: newMeta })
           )

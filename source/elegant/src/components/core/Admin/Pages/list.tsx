@@ -31,7 +31,7 @@ export default function List({ collection }: ListProps) {
       name: repoSlug || '',
       contentPath:
         `${repoBranch}:${
-          monorepoPath ? monorepoPath + '/' : ''
+          monorepoPath
         }${contentPath}/${collection}` || ''
     },
     fetchPolicy: 'network-only',

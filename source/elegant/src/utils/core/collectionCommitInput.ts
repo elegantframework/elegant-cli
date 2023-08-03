@@ -28,14 +28,14 @@ export const collectionCommitInput = ({
   if (remove) {
     deletions.push({
       path: `${
-        monorepoPath ? monorepoPath + '/' : ''
+        monorepoPath
       }${contentPath}/${collection}`
     })
     fileChanges = { ...fileChanges, deletions }
   } else {
     additions.push({
       path: `${
-        monorepoPath ? monorepoPath + '/' : ''
+        monorepoPath
       }${contentPath}/${collection}/.gitkeep`,
       contents: encode('')
     })

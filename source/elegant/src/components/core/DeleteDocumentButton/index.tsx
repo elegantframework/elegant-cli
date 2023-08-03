@@ -40,7 +40,7 @@ const DeleteDocumentButton = ({
       owner: repoOwner || session?.user?.login || '',
       name: repoSlug,
       filePath: `${repoBranch}:${
-        monorepoPath ? monorepoPath + '/' : ''
+        monorepoPath
       }${contentPath}/metadata.json`
     },
     fetchPolicy: 'network-only'
@@ -63,7 +63,7 @@ const DeleteDocumentButton = ({
       // remove post markdown file
       capi.removeFile(
         `${
-          monorepoPath ? monorepoPath + '/' : ''
+          monorepoPath
         }${contentPath}/${collection}/${slug}.mdx`
       )
 
@@ -77,7 +77,7 @@ const DeleteDocumentButton = ({
         const newMeta = (m.metadata ?? []).filter((post) => post.slug !== slug)
         capi.replaceFile(
           `${
-            monorepoPath ? monorepoPath + '/' : ''
+            monorepoPath
           }${contentPath}/metadata.json`,
           stringifyMetadata({ ...m, metadata: newMeta })
         )

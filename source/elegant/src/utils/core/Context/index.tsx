@@ -44,7 +44,7 @@ export const OutstaticProvider = ({
         repoOwner: repoOwner || '',
         repoSlug: repoSlug || '',
         repoBranch: repoBranch || 'main',
-        contentPath: contentPath || 'outstatic/content',
+        contentPath: contentPath || '_content',
         monorepoPath: monorepoPath || '',
         session,
         collections,

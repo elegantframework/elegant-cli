@@ -17,7 +17,7 @@ const useFileQuery = ({ file, skip = false }: useFileQueryProps) => {
       owner: repoOwner || session?.user?.login || '',
       name: repoSlug,
       filePath: `${repoBranch}:${
-        monorepoPath ? monorepoPath + '/' : ''
+        monorepoPath
       }${contentPath}/${file}`
     },
     fetchPolicy: 'network-only',

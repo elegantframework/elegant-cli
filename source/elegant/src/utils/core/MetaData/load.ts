@@ -8,7 +8,7 @@ import Config from '../Config/Config';
 
 const CONTENT_PATH = join(
   process.cwd(),
-  Config('admin.cms_content_path') || 'content'
+  Config('admin.cms_content_path')
 )
 
 const METADATA_PATH = resolve(CONTENT_PATH, './metadata.json')

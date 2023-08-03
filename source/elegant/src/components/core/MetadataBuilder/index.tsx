@@ -179,7 +179,7 @@ export const MetadataBuilder: React.FC<MetadataBuilderProps> = ({
         })
         capi.replaceFile(
           `${
-            monorepoPath ? monorepoPath + '/' : ''
+            monorepoPath
           }${contentPath}/metadata.json`,
           stringifyMetadata(db)
         )

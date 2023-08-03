@@ -60,21 +60,19 @@ export function initializeApollo(
   initialState = null,
   session?: Session | null
 ) {
-  // serve para verificar se já existe uma instância, para não criar outra
   const apolloClientGlobal = apolloClient ?? createApolloClient(session)
 
-  // se a página usar o apolloClient no lado client
-  // hidratamos o estado inicial aqui
   if (initialState) {
     apolloClientGlobal.cache.restore(initialState)
   }
 
-  // sempre inicializando no SSR com cache limpo
-  if (typeof window === 'undefined') return apolloClientGlobal
-  // cria o apolloClient se estiver no client side
+  if (typeof window === 'undefined'){
+    return apolloClientGlobal;
+  }
+
   apolloClient = apolloClient ?? apolloClientGlobal
 
-  return apolloClient
+  return apolloClient;
 }
 
 export function useApollo(initialState = null, session?: Session) {
