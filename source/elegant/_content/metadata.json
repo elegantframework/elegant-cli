@@ -1,24 +1,6 @@
 {
-  "commit": "d1cc2cdff1eaa022bdbcfe6e9d15b88c81c4d96e",
-  "generated": "Thu, 03 Aug 2023 19:57:27 GMT",
+  "commit": "fd541e4e73295ae423ce1054f082c546b5225844",
+  "generated": "2023-08-03T19:59:19.708Z",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "890ca9fb2ef268d1df269feb8c7ac5adeef8ca84",
-        "hash": "3743554272",
-        "path": "_content/docs/hey-now.mdx"
-      },
-      "author": {
-        "name": "Brandon Owens",
-        "picture": "https://avatars.githubusercontent.com/u/10189130?v=4"
-      },
-      "collection": "docs",
-      "coverImage": "",
-      "description": "",
-      "publishedAt": "2023-08-03T19:25:55.115Z",
-      "slug": "hey-now",
-      "status": "draft",
-      "title": "Hey now"
-    }
   ]
 }
