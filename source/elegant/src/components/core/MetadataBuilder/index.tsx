@@ -74,14 +74,15 @@ export const MetadataBuilder: React.FC<MetadataBuilderProps> = ({
     ) as DeepNonNullable<GetFileInformationQuery>['repository']['object']
 
     const output: FileData[] = []
-    const queue = 'entries' in o ? o.entries ?? [] : []
+    const queue = 'entries' in o ? o.entries ?? [] : [];
 
     while (queue.length > 0) {
-      const next = queue.pop()
+      const next = queue.pop();
       if (next?.object?.__typename === 'Tree') {
         // subdir - add entries to queue
         queue.push(...(next.object.entries ?? []))
-      } else if (
+      } 
+      else if (
         next?.object?.__typename === 'Blob' &&
         isIndexable(next.path)
       ) {
@@ -94,7 +95,7 @@ export const MetadataBuilder: React.FC<MetadataBuilderProps> = ({
       }
     }
     // clone out of Apollo's forced read-only
-    return output
+    return output;
   }, [data])
 
   // using useEffect ensures we run a single processing loop
@@ -142,7 +143,7 @@ export const MetadataBuilder: React.FC<MetadataBuilderProps> = ({
         if (!next) continue
         const all = Promise.allSettled(
           next.map(async (fd) => {
-            const meta = await takeAndProcess(fd)
+            const meta = await takeAndProcess(fd);
             docs.push({
               ...meta,
               collection: fd.path
