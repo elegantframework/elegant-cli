@@ -1,25 +1,7 @@
 {
-  "commit": "607feb89f4459b626823caf21cae072b64bf83f1",
-  "generated": "Thu, 03 Aug 2023 00:43:59 GMT",
+  "commit": "ba4b1afff7d10ef4a376008e9efb51c4d5ba349b",
+  "generated": "Thu, 03 Aug 2023 15:47:16 GMT",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "6a48eb279a2cf1d3eca2d55e27813c3412df9b50",
-        "hash": "3633075211",
-        "path": "/src/content/posts/2nd-post-the-second-post-ever.mdx"
-      },
-      "author": {
-        "name": "Brandon Owens",
-        "picture": "https://avatars.githubusercontent.com/u/10189130?v=4"
-      },
-      "collection": "posts",
-      "coverImage": "",
-      "description": "",
-      "publishedAt": "2023-08-03T00:01:29.999Z",
-      "slug": "2nd-post-the-second-post-ever",
-      "status": "draft",
-      "title": "2nd post - the second post ever!"
-    },
     {
       "__outstatic": {
         "commit": "9d81a9c99d611cbcfc2d77b7861214946d9e407b",
@@ -37,6 +19,24 @@
       "slug": "august-2nd-1st-post",
       "status": "published",
       "title": "August 2nd -- 1st post"
+    },
+    {
+      "__outstatic": {
+        "commit": "6a48eb279a2cf1d3eca2d55e27813c3412df9b50",
+        "hash": "3633075211",
+        "path": "/src/content/posts/2nd-post-the-second-post-ever.mdx"
+      },
+      "author": {
+        "name": "Brandon Owens",
+        "picture": "https://avatars.githubusercontent.com/u/10189130?v=4"
+      },
+      "collection": "posts",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2023-08-03T00:01:29.999Z",
+      "slug": "2nd-post-the-second-post-ever",
+      "status": "draft",
+      "title": "2nd post - the second post ever!"
     }
   ]
 }
