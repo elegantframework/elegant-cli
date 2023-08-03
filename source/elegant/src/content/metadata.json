@@ -1,6 +1,6 @@
 {
-  "commit": "ba4b1afff7d10ef4a376008e9efb51c4d5ba349b",
-  "generated": "Thu, 03 Aug 2023 15:47:16 GMT",
+  "commit": "e2bcc96d085fb18dab669145e709e0a3c82e31d3",
+  "generated": "2023-08-03T15:48:29.886Z",
   "metadata": [
     {
       "__outstatic": {
@@ -37,6 +37,24 @@
       "slug": "2nd-post-the-second-post-ever",
       "status": "draft",
       "title": "2nd post - the second post ever!"
+    },
+    {
+      "__outstatic": {
+        "commit": "e2bcc96d085fb18dab669145e709e0a3c82e31d3",
+        "hash": "3375115672",
+        "path": "src/content/docs/hello-world.mdx"
+      },
+      "author": {
+        "name": "Brandon Owens",
+        "picture": "https://avatars.githubusercontent.com/u/10189130?v=4"
+      },
+      "collection": "docs",
+      "coverImage": "",
+      "description": "",
+      "publishedAt": "2023-08-03T15:24:16.811Z",
+      "slug": "hello-world",
+      "status": "draft",
+      "title": "Hello World"
     }
   ]
 }
