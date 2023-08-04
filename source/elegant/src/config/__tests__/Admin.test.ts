@@ -69,7 +69,7 @@ describe('Admin Config', () => {
         expect(AdminConfig().cms_content_path).toBe("src/test/pages");
 
         process.env.NEXT_PUBLIC_CMS_CONTENT_PATH = undefined;
-        expect(AdminConfig().cms_content_path).toBe("content");
+        expect(AdminConfig().cms_content_path).toBe("_content");
     });
 
     it('returns a proper CMS monorepo path', () => {
