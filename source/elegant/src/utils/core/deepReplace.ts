@@ -1,4 +1,4 @@
-import { Document } from '@/types/Index';
+import { Document } from '@/types/Document';
 
 export const deepReplace = (
   obj: Document,

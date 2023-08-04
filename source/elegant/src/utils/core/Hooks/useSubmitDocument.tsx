@@ -3,11 +3,11 @@ import { mergeMdMeta } from '../mergeMdMeta';
 import {
   CustomFieldArrayValue,
   CustomFields,
-  Document,
   FileType,
   Session,
   isArrayCustomField
 } from '@/types/Index';
+import { Document } from '@/types/Document';
 import { createCommit as createCommitApi } from '@/utils/core/createCommit';
 import { assertUnreachable } from '../assertUnreachable';
 import { MetadataSchema } from '@/utils/core/MetaData/types';

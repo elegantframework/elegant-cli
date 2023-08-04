@@ -1,26 +1,13 @@
-import { Editor } from '@tiptap/react'
-import { Dispatch, SetStateAction } from 'react'
-
-export type Document = {
-  author: {
-    name?: string
-    picture?: string
-  }
-  title: string
-  publishedAt: Date
-  content: string
-  status: 'published' | 'draft'
-  slug: string
-  description?: string
-  coverImage?: string
-}
+import { Editor } from '@tiptap/react';
+import { Dispatch, SetStateAction } from 'react';
+import { Document } from '@/types/Document';
 
 export type FileType = {
   type: 'images'
   blob?: string
   filename: string
   content: string
-}
+};
 
 export type DocumentContextType = {
   editor: Editor

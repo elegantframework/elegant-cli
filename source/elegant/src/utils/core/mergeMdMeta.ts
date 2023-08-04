@@ -1,6 +1,6 @@
 import showdown from 'showdown';
 import DOMPurify from 'dompurify';
-import { Document } from '@/types/Index';
+import { Document } from '@/types/Document';
 import { replaceImageSrcRoot } from './replaceImageSrc';
 
 export const mergeMdMeta = (data: Document): string => {

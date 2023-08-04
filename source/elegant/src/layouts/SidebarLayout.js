@@ -29,7 +29,7 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
 })
 
 /**
- * Find the nearst scrollable ancestor (or self if scrollable)
+ * Find the nearest scrollable ancestor (or self if scrollable)
  *
  * Code adapted and simplified from the smoothscroll polyfill
  *

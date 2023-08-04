@@ -3,7 +3,8 @@ import { useRouter } from 'next/router';
 import { singular } from 'pluralize';
 import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { CustomFields, Document, FileType } from '@/types/Index';
+import { CustomFields, FileType } from '@/types/Index';
+import { Document } from '@/types/Document'
 import { useOstSession } from '@/utils/core/Auth/hooks';
 import { deepReplace } from '@/utils/core/deepReplace';
 import useNavigationLock from '@/utils/core/Hooks/useNavigationLock';

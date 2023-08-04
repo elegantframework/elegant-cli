@@ -1,5 +1,6 @@
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
-import { Document, FileType } from '@/types/Index';
+import { FileType } from '@/types/Index';
+import { Document } from '@/types/Document';
 import Input from '../Input';
 import { DocumentContext } from '@/utils/core/Context';
 

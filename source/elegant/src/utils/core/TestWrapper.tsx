@@ -4,7 +4,7 @@ import StarterKit from '@tiptap/starter-kit';
 import { ReactNode } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { OidDocument } from '@/graphql/generated';
-import { Document } from '@/types/Index';
+import { Document } from '@/types/Document';
 import { DocumentContext } from './Context';
 
 const documentExample: Document = {

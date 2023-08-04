@@ -5,7 +5,7 @@ import { singular } from 'pluralize';
 import { useContext } from 'react';
 import { OutstaticContext } from '@/utils/core/Context';
 import { useDocumentsQuery } from '@/graphql/generated';
-import { Document } from '@/types/Index';
+import { Document } from '@/types/Document';
 import { ostSignOut } from '@/utils/core/Auth/hooks';
 import AdminLayout from '@/components/core/AdminLayout';
 import DocumentsTable from '@/components/core/DocumentsTable';
