@@ -5,10 +5,9 @@ import { DocumentationHeading } from "@/components/core/Headings/DocumentationHe
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkHtml from 'remark-html';
-import { MDXProvider } from '@mdx-js/react';
-import { mdxComponents } from '@/utils/mdxComponents';
 
 import { withTableOfContents } from "./../../../../remark/withTableOfContents.mjs";
+import MarkdownToHtml from "@/utils/core/Markdown/MarkdownToHtml";
 
 type Props = {
     /**
@@ -112,7 +111,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         'content'
     ]);
 
-    const content = await markdownToHtml(post.content)
+    const content = await MarkdownToHtml(post.content);
 
     return {
         props: { 
@@ -121,17 +120,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
     };
 };
-
-/**
- * Convert markdown content into html.
- * @param content Content in markdown format.
- * @returns An html string of content.
- */
-async function markdownToHtml(content: string) {
-    const file = await unified()
-      .use(remarkParse)
-      .use(remarkHtml)
-      .process(content);
-  
-    return String(file);
-}
