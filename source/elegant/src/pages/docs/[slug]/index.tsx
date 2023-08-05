@@ -3,11 +3,10 @@ import { GetServerSideProps } from "next";
 import { SidebarLayout, SidebarContext } from "@/layouts/SidebarLayout";
 import { DocumentationHeading } from "@/components/core/Headings/DocumentationHeading";
 import Error from "@/pages/404";
-
-import { withTableOfContents } from "./../../../../remark/withTableOfContents.mjs";
 import MarkdownToHtml from "@/utils/core/Markdown/MarkdownToHtml";
 import { useRouter } from "next/router";
 import { documentationNav } from '@/config/Navigation';
+import { useContext } from "react";
 
 type Props = {
     /**
@@ -36,13 +35,9 @@ export default function Index({
         );
     }
 
-    // const { currentSection, registerHeading, unregisterHeading } = useTableOfContents(toc);
-
-    // withTableOfContents();
-
     return(
         <SidebarLayout
-            navIsOpen={true}
+            navIsOpen={false}
             setNavIsOpen={() => {}}
             nav={documentationNav}
             sidebar={null}
@@ -63,26 +58,7 @@ export default function Index({
                     />
                 </div>
 
-                {/* <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
-                    {classes ? (
-                        <>
-                        <ClassTable {...classes} />
-                        <div
-                            id="content-wrapper"
-                            className="relative z-20 prose prose-slate mt-12 dark:prose-dark"
-                        >
-                            <MDXProvider components={mdxComponents}>{children}</MDXProvider>
-                        </div>
-                        </>
-                    ) : (
-                        <div
-                        id="content-wrapper"
-                        className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
-                        >
-                        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
-                        </div>
-                    )}
-                </ContentsContext.Provider> */}
+            
         
                 {/* <DocsFooter previous={prev} next={next}>
                 {Config('app.repository').length > 0 &&
@@ -108,7 +84,7 @@ export default function Index({
             </div>
         </SidebarLayout>
     );
-};
+}; 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const post = getDocumentBySlug('docs', context.params?.slug as string, [

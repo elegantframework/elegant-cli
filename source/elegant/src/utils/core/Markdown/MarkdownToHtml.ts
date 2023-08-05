@@ -1,6 +1,10 @@
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import smartypants from 'remark-smartypants';
+import remarkUnwrapImages from 'remark-unwrap-images';
 import remarkHtml from 'remark-html';
+import { withTableOfContents } from './../../../../remark/withTableOfContents.mjs';
 
 /**
  * Convert markdown content into html.
@@ -9,7 +13,10 @@ import remarkHtml from 'remark-html';
  */
 export default async function MarkdownToHtml(content: string) {
     const file = await unified()
+      .use(smartypants)
+      .use(remarkUnwrapImages)
       .use(remarkParse)
+      .use(remarkGfm)
       .use(remarkHtml)
       .process(content);
   
