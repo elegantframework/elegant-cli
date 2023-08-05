@@ -40,6 +40,11 @@ const useTipTap = ({ ...rhfMethods }) => {
         lowlight
       })
     ],
+    editorProps: {
+      attributes: {
+        class: 'outline-none',
+      },
+    },
     onUpdate({ editor }) {
       const val = editor.getHTML()
       setValue('content', val && !editor.isEmpty ? val : '')
