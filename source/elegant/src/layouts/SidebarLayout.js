@@ -164,8 +164,9 @@ function Nav({ nav, children, fallbackHref, mobile = false }) {
                   >
                     {(fallbackHref ? nav[category] : publishedItems).map((item, i) => {
                       let isActive = item.match
-                        ? item.match.test(router.pathname)
-                        : item.href === router.pathname
+                        ? item.match.test(router.asPath)
+                        : item.href === router.asPath
+
                       return (
                         <NavItem
                           key={i}
