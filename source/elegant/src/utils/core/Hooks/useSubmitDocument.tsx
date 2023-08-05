@@ -10,10 +10,6 @@ import {
 import { Document } from '@/types/Document';
 import { createCommit as createCommitApi } from '@/utils/core/createCommit';
 import { assertUnreachable } from '../assertUnreachable';
-import { MetadataSchema } from '@/utils/core/MetaData/types';
-import { hashFromUrl } from '../hashFromUrl';
-import MurmurHash3 from 'imurmurhash';
-import { stringifyMetadata } from '@/utils/core/MetaData/stringify';
 import matter from 'gray-matter';
 import { useCreateCommitMutation } from '@/graphql/generated';
 import { UseFormReturn } from 'react-hook-form';
@@ -57,6 +53,12 @@ function useSubmitDocument({
     monorepoPath 
   } = useContext(OutstaticContext);
   const fetchOid = useOid()
+
+  //
+  //@TODO: Remove this metadata.json reference
+  // 8/5/2023 - Left behind during the CMS MVP build.. Didn't
+  // want to change too much core logic yet in version 3.0.
+  //
   const { data: metadata } = useFileQuery({
     file: `metadata.json`
   })
@@ -188,44 +190,6 @@ function useSubmitDocument({
               monorepoPath
             }${contentPath}/${collection}/schema.json`,
             customFieldsJSON + '\n'
-          )
-        }
-
-        // update metadata for this post
-        // requires final content for hashing
-        if (metadata?.repository?.object?.__typename === 'Blob') {
-          const m = JSON.parse(
-            metadata.repository.object.text ?? '{}'
-          ) as MetadataSchema
-          m.generated = new Date().toISOString()
-          m.commit = hashFromUrl(metadata.repository.object.commitUrl)
-          const newMeta = (m.metadata ?? []).filter(
-            (c) =>
-              !(
-                c.collection === collection &&
-                (c.slug === oldSlug || c.slug === newSlug)
-              )
-          )
-          const state = MurmurHash3(content)
-          newMeta.push({
-            ...matterData,
-            title: matterData.title,
-            publishedAt: matterData.publishedAt,
-            status: matterData.status,
-            slug: newSlug,
-            collection,
-            __outstatic: {
-              hash: `${state.result()}`,
-              commit: m.commit,
-              path: `${contentPath}/${collection}/${newSlug}.mdx`
-            }
-          })
-
-          capi.replaceFile(
-            `${
-              monorepoPath
-            }${contentPath}/metadata.json`,
-            stringifyMetadata({ ...m, metadata: newMeta })
           )
         }
 

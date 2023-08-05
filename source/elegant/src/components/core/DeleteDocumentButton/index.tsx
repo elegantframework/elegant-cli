@@ -7,10 +7,7 @@ import { useOstSession } from '@/utils/core/Auth/hooks';
 import { createCommit as createCommitApi } from '@/utils/core/createCommit';
 import useOid from '@/utils/core/Hooks/useOid';
 import Modal from '../Modal';
-import { hashFromUrl } from '@/utils/core/hashFromUrl';
-import { stringifyMetadata } from '@/utils/core/MetaData/stringify';
 import { OutstaticContext } from '@/utils/core/Context';
-import { MetadataSchema } from '@/utils/core/MetaData/types';
 
 type DeleteDocumentButtonProps = {
   slug: string
@@ -35,16 +32,16 @@ const DeleteDocumentButton = ({
     useContext(OutstaticContext)
   const fetchOid = useOid()
 
-  const { data: metadata } = useDocumentQuery({
-    variables: {
-      owner: repoOwner || session?.user?.login || '',
-      name: repoSlug,
-      filePath: `${repoBranch}:${
-        monorepoPath
-      }${contentPath}/metadata.json`
-    },
-    fetchPolicy: 'network-only'
-  })
+  // const { data: metadata } = useDocumentQuery({
+  //   variables: {
+  //     owner: repoOwner || session?.user?.login || '',
+  //     name: repoSlug,
+  //     filePath: `${repoBranch}:${
+  //       monorepoPath
+  //     }${contentPath}/metadata.json`
+  //   },
+  //   fetchPolicy: 'network-only'
+  // })
 
   const deleteDocument = async (slug: string) => {
     setDeleting(true)
@@ -66,22 +63,6 @@ const DeleteDocumentButton = ({
           monorepoPath
         }${contentPath}/${collection}/${slug}.mdx`
       )
-
-      // remove post from metadata.json
-      if (metadata?.repository?.object?.__typename === 'Blob') {
-        const m = JSON.parse(
-          metadata.repository.object.text ?? '{}'
-        ) as MetadataSchema
-        m.generated = new Date().toISOString()
-        m.commit = hashFromUrl(metadata.repository.object.commitUrl)
-        const newMeta = (m.metadata ?? []).filter((post) => post.slug !== slug)
-        capi.replaceFile(
-          `${
-            monorepoPath
-          }${contentPath}/metadata.json`,
-          stringifyMetadata({ ...m, metadata: newMeta })
-        )
-      }
 
       const input = capi.createInput()
 

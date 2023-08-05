@@ -1,12 +1,13 @@
-import { useContext, useState } from 'react';
-import { clsx } from 'clsx';
+import { useContext } from 'react';
 import { OutstaticContext } from '@/utils/core/Context';
 import AdminLayout from '@/components/core/AdminLayout';
-import { MetadataBuilder } from '@/components/core/MetadataBuilder';
 
+/**
+ * The admin settings page for the cms.
+ * @returns An html admin settings page.
+ */
 export default function Settings() {
-  const [rebuild, setRebuilding] = useState(false)
-  const { repoSlug, repoBranch, contentPath } = useContext(OutstaticContext)
+  const { repoSlug, repoBranch, contentPath } = useContext(OutstaticContext);
 
   return (
     <AdminLayout title="Settings">
@@ -14,31 +15,6 @@ export default function Settings() {
         <h1 className="mr-12 text-2xl">Settings</h1>
       </div>
       <div className="max-w-lg">
-        <div className="mb-8 max-w-2xl p-8 px-4 md:p-8 text-black bg-white rounded-lg border border-gray-200 shadow-md prose prose-base">
-          <h2>Metadata</h2>
-          <div className="flex flex-row items-center">
-            <button
-              className={clsx(
-                'mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700 cursor-pointer',
-                rebuild && 'border-primary-400 bg-primary-500'
-              )}
-              onClick={() => setRebuilding(true)}
-            >
-              {rebuild ? 'Rebuilding...' : 'Rebuild Metadata'}
-            </button>
-            <MetadataBuilder
-              className="pl-2"
-              rebuild={rebuild}
-              onComplete={() => setRebuilding(false)}
-            />
-          </div>
-          <p className="text-sm">
-            If you&apos;ve made changes outside of Elegant, or if you are
-            seeing posts with incorrect metadata, you can rebuild your metadata
-            and automatically deploy those changes to your site.
-          </p>
-        </div>
-
         <div className="mb-8 max-w-2xl p-8 px-4 md:p-8 text-black bg-white rounded-lg border border-gray-200 shadow-md prose prose-base">
           <h2>Environment</h2>
           <div>
