@@ -3,6 +3,7 @@ import { FileType } from '@/types/Index';
 import { Document } from '@/types/Document';
 import Input from '../Input';
 import { DocumentContext } from '@/utils/core/Context';
+import Config from '@/utils/core/Config/Config';
 
 type DocumentSettingsImageSelectionProps = {
   name: 'coverImage' | 'author.picture'
@@ -34,7 +35,7 @@ const DocumentSettingsImageSelection = ({
 
   useEffect(() => {
     const image = resolvedImage?.replace(
-      `/${process.env.OST_ASSET_PATH || 'public/images'}`,
+      `/${Config('admin.cms_asset_path')}`,
       `/api/admin/images/`
     )
     setImage(image || '')

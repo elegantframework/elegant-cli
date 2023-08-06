@@ -65,6 +65,8 @@ const Config = (value: string) => {
             return AdminConfig().cms_content_path; 
         case 'admin.cms_monorepo_path':
             return AdminConfig().cms_monorepo_path; 
+        case 'admin.cms_asset_path':
+            return AdminConfig().cms_asset_path; 
         default:
             return "";
     }

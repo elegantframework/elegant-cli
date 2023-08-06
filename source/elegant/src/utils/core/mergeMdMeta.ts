@@ -2,6 +2,7 @@ import showdown from 'showdown';
 import DOMPurify from 'dompurify';
 import { Document } from '@/types/Document';
 import { replaceImageSrcRoot } from './replaceImageSrc';
+import Config from './Config/Config';
 
 export const mergeMdMeta = (data: Document): string => {
   const meta = Object.entries(
@@ -41,14 +42,14 @@ export const mergeMdMeta = (data: Document): string => {
   let newContent = replaceImageSrcRoot(
     data.content,
     '/api/admin/images/',
-    `/${process.env.OST_ASSET_PATH || 'public/images'}`
+    `/${Config('admin.cms_asset_path')}`
   )
 
   const imgFolderRegex = new RegExp(/(^\/api\/admin\/images\/)/gi)
   newContent = replaceImageSrcRoot(
     newContent,
     imgFolderRegex,
-    `/${process.env.OST_ASSET_PATH || 'public/images'}`
+    `/${Config('admin.cms_asset_path')}`
   )
 
   // remove weird <p> tags

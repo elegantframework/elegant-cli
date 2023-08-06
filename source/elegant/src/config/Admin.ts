@@ -105,6 +105,17 @@ const AdminConfig = () => {
         |
         */
         'cms_monorepo_path': process.env.NEXT_PUBLIC_CMS_MONOREPO_PATH || '',
+
+         /*
+        |--------------------------------------------------------------------------
+        | CMS Asset Path
+        |--------------------------------------------------------------------------
+        |
+        | This is the relative folder path to where assets save from the CMS panel
+        | are stored.
+        |
+        */
+        'cms_asset_path': process.env.NEXT_PUBLIC_CMS_ASSET_PATH || 'public/images',
     };
 };
 

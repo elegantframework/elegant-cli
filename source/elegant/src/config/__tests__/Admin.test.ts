@@ -78,4 +78,11 @@ describe('Admin Config', () => {
         process.env.NEXT_PUBLIC_CMS_MONOREPO_PATH = undefined;
         expect(AdminConfig().cms_monorepo_path).toBe("");
     });
+
+    it('returns a proper CMS asset path', () => {
+        expect(AdminConfig().cms_asset_path).toBe("unit/test/path");
+
+        process.env.NEXT_PUBLIC_CMS_ASSET_PATH = undefined;
+        expect(AdminConfig().cms_asset_path).toBe("public/images");
+    });
 });

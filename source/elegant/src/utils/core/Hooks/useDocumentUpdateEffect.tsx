@@ -9,6 +9,7 @@ import { replaceImageSrcRoot } from '../replaceImageSrc';
 import { escapeRegExp } from '../escapeRegExp';
 import { getLocalDate } from '../getLocalDate';
 import useFileQuery from './useFileQuery';
+import Config from '../Config/Config';
 
 interface UseDocumentUpdateEffectProps {
   collection: string
@@ -48,7 +49,7 @@ export const useDocumentUpdateEffect = ({
         // fetch images from GitHub in case deploy is not done yet
         return replaceImageSrcRoot(
           newContent,
-          `/${process.env.OST_ASSET_PATH || 'public/images'}`,
+          `/${Config('admin.cms_asset_path')}`,
           '/api/admin/images/'
         )
       }
