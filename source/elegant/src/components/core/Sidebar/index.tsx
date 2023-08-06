@@ -1,4 +1,4 @@
-import { OutstaticContext } from '@/utils/core/Context';
+import { CMSContext } from '@/utils/core/Context';
 import Link from 'next/link';
 import { useContext } from 'react';
 import GitHubIcon from '../Icons/GitHubIcon/GitHubIcon';
@@ -8,7 +8,7 @@ type SidebarProps = {
 }
 
 const Sidebar = ({ isOpen = false }: SidebarProps) => {
-  const { collections } = useContext(OutstaticContext);
+  const { collections } = useContext(CMSContext);
 
   return (
     <aside

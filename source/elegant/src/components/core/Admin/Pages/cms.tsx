@@ -2,7 +2,7 @@ import { ApolloClient, ApolloProvider } from '@apollo/client';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { ReactElement, useState } from 'react';
-import { OutstaticProvider } from '@/utils/core/Context';
+import { CMSProvider } from '@/utils/core/Context';
 import {
   CollectionsDocument,
   CollectionsQuery,
@@ -22,7 +22,7 @@ import AddCustomField from '@/components/core/Admin/Pages/add-custom-field';
 import { Session } from '@/types/Index';
 import Config from '@/utils/core/Config/Config';
 
-type OutstaticProps = {
+type Props = {
   missingEnvVars: EnvVarsType | false
   providerData: {
     client: ApolloClient<any>
@@ -43,7 +43,7 @@ const defaultPages: { [key: string]: ReactElement | undefined } = {
   collections: undefined
 }
 
-const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
+const CMS = ({ missingEnvVars, providerData }: Props) => {
   const [pages, setPages] = useState(providerData?.pages);
   const [collections, setCollections] = useState(providerData?.collections);
   const router = useRouter();
@@ -88,8 +88,8 @@ const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
     return null
   }
 
-  const slug = router.query?.ost?.[0] || ''
-  const slug2 = router.query?.ost?.[1] || ''
+  const slug = router.query?.cms?.[0] || ''
+  const slug2 = router.query?.cms?.[1] || ''
 
   if (slug && !pages.includes(slug)) {
     return <Error />
@@ -98,7 +98,7 @@ const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
   const isContent = slug && collections.includes(slug)
 
   return (
-    <OutstaticProvider
+    <CMSProvider
       {...providerData}
       pages={pages}
       collections={collections}
@@ -114,17 +114,17 @@ const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
         )) ||
           (!!slug2 && !isContent && <NewCollection />)}
       </ApolloProvider>
-    </OutstaticProvider>
+    </CMSProvider>
   )
 }
 
-export default Outstatic;
+export default CMS;
 
-Outstatic.layoutProps = {
+CMS.layoutProps = {
   stickyHeader: false
 };
 
-export const OstSSP: GetServerSideProps = async ({ req }) => {
+export const CMSServerSideProps: GetServerSideProps = async ({ req }) => {
   if (envVars.hasMissingEnvVars) {
     return {
       props: {

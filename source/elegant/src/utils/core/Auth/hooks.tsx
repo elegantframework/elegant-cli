@@ -3,12 +3,12 @@ import Router from 'next/router';
 import { useEffect } from 'react';
 import useSWR from 'swr';
 
-type useOstSessionProps = {
+type useCMSSessionProps = {
   redirectTo?: string
   redirectIfFound?: boolean
 }
 
-type useOstSessionReturn = {
+type useCMSSessionReturn = {
   session: Session | null
   status: 'loading' | 'unauthenticated' | 'authenticated'
 }
@@ -22,10 +22,10 @@ const fetcher = (url: string) =>
       return data || null
     })
 
-export const useOstSession = ({
+export const useCMSSession = ({
   redirectTo,
   redirectIfFound
-}: useOstSessionProps = {}): useOstSessionReturn => {
+}: useCMSSessionProps = {}): useCMSSessionReturn => {
   const { data, error } = useSWR('/api/admin/user', fetcher)
   const session = data?.session as Session
   const finished = Boolean(data)
@@ -63,6 +63,6 @@ export const useOstSession = ({
   }
 }
 
-export async function ostSignOut() {
-  Router.push('/api/admin/signout')
+export async function CMSSignOut() {
+  Router.push('/api/admin/signout');
 }

@@ -14,7 +14,7 @@ import useFileQuery from '@/utils/core/Hooks/useFileQuery';
 import useNavigationLock from '@/utils/core/Hooks/useNavigationLock';
 import useOid from '@/utils/core/Hooks/useOid';
 import { createCommit as createCommitApi } from '@/utils/core/createCommit';
-import { OutstaticContext } from '@/utils/core/Context';
+import { CMSContext } from '@/utils/core/Context';
 import AdminLayout from '@/components/core/AdminLayout';
 import Input from '@/components/core/Input';
 import Alert from '@/components/core/Alert';
@@ -44,7 +44,7 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
     repoSlug,
     repoBranch,
     repoOwner
-  } = useContext(OutstaticContext)
+  } = useContext(CMSContext);
   const [createCommit] = useCreateCommitMutation()
   const fetchOid = useOid()
   const [hasChanges, setHasChanges] = useState(false)

@@ -3,11 +3,11 @@ import {
   useCreateCommitMutation,
   useDocumentQuery
 } from '@/graphql/generated';
-import { useOstSession } from '@/utils/core/Auth/hooks';
+import { useCMSSession } from '@/utils/core/Auth/hooks';
 import { createCommit as createCommitApi } from '@/utils/core/createCommit';
 import useOid from '@/utils/core/Hooks/useOid';
 import Modal from '../Modal';
-import { OutstaticContext } from '@/utils/core/Context';
+import { CMSContext } from '@/utils/core/Context';
 
 type DeleteDocumentButtonProps = {
   slug: string
@@ -26,10 +26,10 @@ const DeleteDocumentButton = ({
 }: DeleteDocumentButtonProps) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [deleting, setDeleting] = useState(false)
-  const { session } = useOstSession()
+  const { session } = useCMSSession()
   const [createCommit] = useCreateCommitMutation()
   const { repoOwner, repoSlug, repoBranch, contentPath, monorepoPath } =
-    useContext(OutstaticContext)
+    useContext(CMSContext)
   const fetchOid = useOid()
 
   // const { data: metadata } = useDocumentQuery({

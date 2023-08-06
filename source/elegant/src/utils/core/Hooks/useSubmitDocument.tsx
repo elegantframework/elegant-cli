@@ -15,7 +15,7 @@ import { useCreateCommitMutation } from '@/graphql/generated';
 import { UseFormReturn } from 'react-hook-form';
 import useFileQuery from './useFileQuery';
 import useOid from './useOid';
-import { OutstaticContext } from '../Context';
+import { CMSContext } from '../Context';
 
 type SubmitDocumentProps = {
   session: Session | null
@@ -51,7 +51,7 @@ function useSubmitDocument({
     repoBranch, 
     contentPath, 
     monorepoPath 
-  } = useContext(OutstaticContext);
+  } = useContext(CMSContext);
   const fetchOid = useOid()
 
   //

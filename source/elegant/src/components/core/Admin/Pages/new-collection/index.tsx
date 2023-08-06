@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { convert } from 'url-slug';
 import * as yup from 'yup';
-import { OutstaticContext } from '@/utils/core/Context';
+import { CMSContext } from '@/utils/core/Context';
 import { useCreateCommitMutation } from '@/graphql/generated';
 import { collectionCommitInput } from '@/utils/core/collectionCommitInput';
 import useNavigationLock from '@/utils/core/Hooks/useNavigationLock';
@@ -26,7 +26,7 @@ export default function NewCollection() {
     repoBranch,
     repoOwner,
     addPage
-  } = useContext(OutstaticContext)
+  } = useContext(CMSContext);
   const router = useRouter()
   const [createCommit] = useCreateCommitMutation()
   const fetchOid = useOid()

@@ -2,7 +2,7 @@ import { ApolloError } from '@apollo/client';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useOstSession } from '@/utils/core/Auth/hooks';
+import { useCMSSession } from '@/utils/core/Auth/hooks';
 import Sidebar from '../Sidebar';
 import Config from '@/utils/core/Config/Config';
 import AdminHeader from '../Headers/AdminHeader/AdminHeader';
@@ -20,7 +20,7 @@ export default function AdminLayout({
   settings,
   title
 }: AdminLayoutProps) {
-  const { session, status } = useOstSession()
+  const { session, status } = useCMSSession()
   const { push, asPath } = useRouter()
   const [openSidebar, setOpenSidebar] = useState(false)
   const toggleSidebar = () => {

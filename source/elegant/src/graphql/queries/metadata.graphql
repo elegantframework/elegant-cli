@@ -1,5 +1,5 @@
-# Get basic information about the files inside of outstatic content
-# A sample expression: "z1:apps/dev/outstatic/content"
+# Get basic information about the files inside of cms content
+# A sample expression: "z1:apps/dev/cms/content"
 query GetFileInformation(
   $owner: String!
   $name: String!

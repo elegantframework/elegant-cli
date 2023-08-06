@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { CustomFields, FileType } from '@/types/Index';
 import { Document } from '@/types/Document'
-import { useOstSession } from '@/utils/core/Auth/hooks';
+import { useCMSSession } from '@/utils/core/Auth/hooks';
 import { deepReplace } from '@/utils/core/deepReplace';
 import useNavigationLock from '@/utils/core/Hooks/useNavigationLock';
 import useTipTap from '@/utils/core/Hooks/useTipTap';
@@ -21,8 +21,8 @@ import MDEditor from '@/components/core/MDEditor';
 
 export default function EditDocument({ collection }: { collection: string }) {
   const router = useRouter()
-  const [slug, setSlug] = useState(router.query?.ost?.[1] as string)
-  const { session } = useOstSession()
+  const [slug, setSlug] = useState(router.query?.cms?.[1] as string)
+  const { session } = useCMSSession()
   const [loading, setLoading] = useState(false)
   const [hasChanges, setHasChanges] = useState(false)
   const [files, setFiles] = useState<FileType[]>([])

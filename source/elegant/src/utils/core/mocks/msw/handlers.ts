@@ -15,10 +15,7 @@ export const handlers = [
         ])
       )
     }
-
-    // happy path, return a set of collections
-    // https://docs.github.com/en/graphql/overview/explorer
-    // {"owner": "avitorio", "name": "outstatic", "contentPath": "main:examples/blog/outstatic/content"}
+    
     return res(
       ctx.data({
         repository: {

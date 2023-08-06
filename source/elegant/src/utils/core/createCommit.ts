@@ -28,8 +28,8 @@ export const createCommit = ({
 }: CreateCommitOptions): CommitAPI => {
   const additions: FileChanges['additions'] = []
   const deletions: FileChanges['deletions'] = []
-  let commitMessage = message ?? 'chore: Outstatic commit'
-  let commitBody = 'Automatically created by Outstatic'
+  let commitMessage = message ?? 'chore: CMS commit';
+  let commitBody = 'Automatically created by Elegant CMS';
 
   const setMessage = (title: string, body?: string) => {
     commitMessage = title ?? commitMessage

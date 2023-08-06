@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { OutstaticContext } from '@/utils/core/Context';
+import { CMSContext } from '@/utils/core/Context';
 import AdminLayout from '@/components/core/AdminLayout';
 
 /**
@@ -7,7 +7,7 @@ import AdminLayout from '@/components/core/AdminLayout';
  * @returns An html admin settings page.
  */
 export default function Settings() {
-  const { repoSlug, repoBranch, contentPath } = useContext(OutstaticContext);
+  const { repoSlug, repoBranch, contentPath } = useContext(CMSContext);
 
   return (
     <AdminLayout title="Settings">

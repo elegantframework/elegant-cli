@@ -24,8 +24,8 @@ const mocks = [
     request: {
       query: OidDocument,
       variables: {
-        username: 'outstatic',
-        repo: 'outstatic'
+        username: 'hello',
+        repo: 'world'
       }
     },
     result: {

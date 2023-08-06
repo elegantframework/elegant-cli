@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useContext, useState } from 'react';
 import Modal from '@/components/core/Modal';
-import { OutstaticContext } from '@/utils/core/Context';
+import { CMSContext } from '@/utils/core/Context';
 import { useCreateCommitMutation } from '@/graphql/generated';
 import { collectionCommitInput } from '@/utils/core/collectionCommitInput';
 import useOid from '@/utils/core/Hooks/useOid';
@@ -17,7 +17,7 @@ export default function Collections() {
     contentPath,
     monorepoPath,
     removePage
-  } = useContext(OutstaticContext)
+  } = useContext(CMSContext);
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [selectedCollection, setSelectedCollection] = useState('')
   const [deleting, setDeleting] = useState(false)

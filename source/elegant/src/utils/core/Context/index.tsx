@@ -16,7 +16,7 @@ type Props = {
   removePage: (page: string) => void
 }
 
-export const OutstaticContext = createContext({
+export const CMSContext = createContext({
   repoOwner: '',
   repoSlug: '',
   repoBranch: '',
@@ -25,7 +25,7 @@ export const OutstaticContext = createContext({
   session: null
 } as Omit<Props, 'client'>)
 
-export const OutstaticProvider = ({
+export const CMSProvider = ({
   children,
   repoOwner,
   repoSlug,
@@ -39,7 +39,7 @@ export const OutstaticProvider = ({
   removePage
 }: Props) => {
   return (
-    <OutstaticContext.Provider
+    <CMSContext.Provider
       value={{
         repoOwner: repoOwner || '',
         repoSlug: repoSlug || '',
@@ -54,7 +54,7 @@ export const OutstaticProvider = ({
       }}
     >
       {children}
-    </OutstaticContext.Provider>
+    </CMSContext.Provider>
   )
 }
 

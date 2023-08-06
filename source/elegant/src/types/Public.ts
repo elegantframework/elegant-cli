@@ -1,4 +1,4 @@
-export type OstDocument = {
+export type CMSDocument = {
   content: string
   collection: string
   slug: string

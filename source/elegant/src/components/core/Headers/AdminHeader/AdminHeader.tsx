@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { ostSignOut } from '@/utils/core/Auth/hooks';
+import { CMSSignOut } from '@/utils/core/Auth/hooks';
 import docs_light from "@/img/beams/docs-light.png";
 import docs_dark from "@/img/beams/docs-dark@tinypng.png";
 import clsx from 'clsx';
@@ -161,7 +161,7 @@ export default function AdminHeader({
                                             <li>
                                             <a
                                                 className="block cursor-pointer py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
-                                                onClick={() => ostSignOut()}
+                                                onClick={() => CMSSignOut()}
                                             >
                                                 Sign out
                                             </a>

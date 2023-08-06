@@ -2,7 +2,7 @@ import { serialize, parse } from 'cookie';
 import { NextApiResponse } from 'next';
 import { Request } from './auth';
 
-const TOKEN_NAME = 'ost_token'
+const TOKEN_NAME = 'cms_token';
 
 export const MAX_AGE = 60 * 60 * 8 // 8 hours
 

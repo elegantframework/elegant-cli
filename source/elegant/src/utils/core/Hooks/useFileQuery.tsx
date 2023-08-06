@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useDocumentQuery } from '@/graphql/generated';
-import { useOstSession } from '../Auth/hooks';
-import { OutstaticContext } from '../Context';
+import { useCMSSession } from '../Auth/hooks';
+import { CMSContext } from '../Context';
 
 type useFileQueryProps = {
   file: string
@@ -9,9 +9,14 @@ type useFileQueryProps = {
 }
 
 const useFileQuery = ({ file, skip = false }: useFileQueryProps) => {
-  const { repoOwner, repoSlug, repoBranch, contentPath, monorepoPath } =
-    useContext(OutstaticContext)
-  const { session } = useOstSession()
+  const { 
+    repoOwner, 
+    repoSlug, 
+    repoBranch, 
+    contentPath,
+    monorepoPath 
+  } = useContext(CMSContext);
+  const { session } = useCMSSession()
   const data = useDocumentQuery({
     variables: {
       owner: repoOwner || session?.user?.login || '',

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Sidebar from '.';
-import { OutstaticProvider } from '@/utils/core/Context';
+import { CMSProvider } from '@/utils/core/Context';
 
 const providerData = {
   repoOwner: 'anything',
@@ -19,9 +19,9 @@ const providerData = {
 describe('<Sidebar />', () => {
   it('should render the heading', () => {
     render(
-      <OutstaticProvider {...providerData}>
+      <CMSProvider {...providerData}>
         <Sidebar isOpen={false} />
-      </OutstaticProvider>
+      </CMSProvider>
     )
     expect(screen.getByText(/Posts/i)).toBeInTheDocument()
     expect(screen.getByText(/Settings/i)).toBeInTheDocument()

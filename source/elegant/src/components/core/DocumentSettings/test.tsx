@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { TestWrapper } from '@/utils/core/TestWrapper';
-import { useOstSession } from '@/utils/core/Auth/hooks';
+import { useCMSSession } from '@/utils/core/Auth/hooks';
 import DocumentSettings from '.';
 
 jest.mock('@/utils/core/Auth/hooks')
@@ -14,7 +14,7 @@ jest.mock('react-hook-form', () => ({
 
 describe('<DocumentSettings />', () => {
   it('should render the date', async () => {
-    ;(useOstSession as jest.Mock).mockReturnValue({
+    ;(useCMSSession as jest.Mock).mockReturnValue({
       session: {
         user: {
           username: 'avitorio'

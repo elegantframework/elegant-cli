@@ -3,10 +3,10 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import { singular } from 'pluralize';
 import { useContext } from 'react';
-import { OutstaticContext } from '@/utils/core/Context';
+import { CMSContext } from '@/utils/core/Context';
 import { useDocumentsQuery } from '@/graphql/generated';
 import { Document } from '@/types/Document';
-import { ostSignOut } from '@/utils/core/Auth/hooks';
+import { CMSSignOut } from '@/utils/core/Auth/hooks';
 import AdminLayout from '@/components/core/AdminLayout';
 import DocumentsTable from '@/components/core/DocumentsTable';
 
@@ -24,7 +24,7 @@ export default function List({ collection }: ListProps) {
     contentPath,
     monorepoPath,
     session
-  } = useContext(OutstaticContext)
+  } = useContext(CMSContext);
   const { data, error, loading } = useDocumentsQuery({
     variables: {
       owner: repoOwner || session?.user?.login || '',
@@ -40,7 +40,7 @@ export default function List({ collection }: ListProps) {
         graphQLErrors &&
         (graphQLErrors?.[0] as GQLErrorExtended)?.type === 'NOT_FOUND'
       ) {
-        ostSignOut()
+        CMSSignOut()
         return null
       }
       return null
@@ -111,17 +111,6 @@ export default function List({ collection }: ListProps) {
                   New {singular(collection)}
                 </div>
               </Link>
-              <p>
-                To learn more about how documents work{' '}
-                <a
-                  href="https://outstatic.com/docs/introduction#whats-a-document"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  click here
-                </a>
-                .
-              </p>
             </div>
           </div>
         </div>

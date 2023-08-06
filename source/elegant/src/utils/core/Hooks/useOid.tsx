@@ -1,11 +1,11 @@
 import { useContext, useCallback } from 'react';
 import { useOidLazyQuery } from '@/graphql/generated';
-import { useOstSession } from '@/utils/core/Auth/hooks';
-import { OutstaticContext } from '../Context';
+import { useCMSSession } from '@/utils/core/Auth/hooks';
+import { CMSContext } from '../Context';
 
 const useOid = () => {
-  const { repoSlug, repoBranch, repoOwner } = useContext(OutstaticContext)
-  const { session } = useOstSession()
+  const { repoSlug, repoBranch, repoOwner } = useContext(CMSContext);
+  const { session } = useCMSSession()
   const [oidQuery] = useOidLazyQuery({
     variables: {
       owner: repoOwner || session?.user?.login || '',

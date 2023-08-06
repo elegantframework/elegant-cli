@@ -36,7 +36,7 @@ export const createMockRequest = async (
   const req = hm.createRequest({
     ...options,
     cookies: {
-      ost_token: token,
+      cms_token: token,
       ...options.cookies
     }
   })
