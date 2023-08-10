@@ -1,3 +1,5 @@
+import React from "react";
+
 interface Props {
     /**
      * Custom css classnames to be applied to the icon
