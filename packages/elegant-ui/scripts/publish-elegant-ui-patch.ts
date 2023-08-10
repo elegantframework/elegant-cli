@@ -1,6 +1,6 @@
-const patch_spawn = require('cross-spawn');
+const ui_patch_spawn = require('cross-spawn');
 
-patch_spawn.sync(
+ui_patch_spawn.sync(
     "npm version patch && npm publish",
     {
         stdio: 'inherit'
