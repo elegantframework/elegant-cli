@@ -14,8 +14,10 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
   },
+  "include": ["."],
   "exclude": [
     "dist",
+    "build",
     "node_modules",
     "src/**/*.test.tsx",
     "src/**/*.stories.tsx"

@@ -10,7 +10,7 @@ exports[`Powered By Elegant component renders a powered by Elegant component 1`]
     Powered by
     <a
       aria-label="Powered by the Elegant framework"
-      className="font-semibold hover:text-rose-500 dark:hover:text-rose-400 pl-1"
+      className="font-semibold hover:text-rose-500 dark:hover:text-rose-400 pl-1 hover:text-rose-500 dark:hover:text-rose-400"
       href="http://elegantframework.com/"
       rel="noreferrer"
       target="_blank"
