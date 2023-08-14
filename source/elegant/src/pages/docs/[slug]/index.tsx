@@ -86,7 +86,7 @@ export default function Index({
                     <DocumentationHeading 
                         title={post.title}
                         description={post.description}
-                        section={"Hey now"}
+                        section={post.section}
                     />
                     <div
                         id="content-wrapper"
@@ -133,7 +133,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         'description',
         'coverImage',
         'publishedAt',
-        'content'
+        'content',
+        'section'
     ]);
 
     const content = await MarkdownToHtml(post.content);
