@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Built with Elegant component renders a built with Elegant component 1`] = `
+<div
+  className="mb-6 sm:mb-0 sm:flex"
+>
+  <p>
+    Copyright © 
+    2023
+     
+    Elegant, Inc.
+  </p>
+  <p
+    className="sm:ml-4 sm:pl-4 sm:border-l sm:border-slate-200 dark:sm:border-slate-200/5"
+  >
+    Built with 
+    <a
+      aria-label="Built with the Elegant framework"
+      className="font-semibold hover:text-primary-500 dark:hover:text-primary-400"
+      href="http://elegantframework.com/"
+    >
+      Elegant
+    </a>
+    .
+  </p>
+</div>
+`;
