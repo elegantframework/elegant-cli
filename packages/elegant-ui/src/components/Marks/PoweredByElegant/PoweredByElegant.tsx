@@ -2,6 +2,9 @@ import React from "react";
 import clsx from 'clsx';
 
 export interface Props {
+    /**
+     * The url css text color classes.
+     */
     linkColor?: string;
 };
 
