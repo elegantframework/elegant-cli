@@ -38,7 +38,6 @@ export default async function MarkdownToHtml(content: string) {
           }
         }
       })
-      .use(rehypeStringify)
       .use(rehypeSlug)
       // .use(rehypePrism)
       .use(rehypeAutolinkHeadings, {
@@ -76,7 +75,7 @@ export default async function MarkdownToHtml(content: string) {
           ],
         },
       })
-
+      .use(rehypeStringify)
       .process(content);
   
     return String(file);

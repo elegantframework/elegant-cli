@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import { SidebarLayout, SidebarContext } from "@/layouts/SidebarLayout";
 import { DocumentationHeading } from "@/components/core/Headings/DocumentationHeading";
 import Error from "@/pages/404";
-import MarkdownToHtml from "@/utils/core/Markdown/MarkdownToHtml";
+import MarkdownToHtml from "@/utils/core/Rehype/MarkdownToHtml";
 import { useRouter } from "next/router";
 import { documentationNav } from '@/config/Navigation';
 import Head from 'next/head';
@@ -12,16 +12,23 @@ import Config from 'Config';
 import Seo from "@/components/core/Seo/Seo";
 import socialCardLarge from '@/img/social-card-large.jpg';
 import MetaTitle from "@/utils/core/Meta/MetaTitle";
+import HtmlToToc from "@/utils/core/Rehype/HtmlToToc";
+import DocumentationLayout from "@/components/core/Layouts/DocumentationLayout";
+import { Post } from "@/types/Post";
 
 type Props = {
     /**
-     * 
+     * A documentation page to be displayed.
      */
-    post: any;
+    post: Post;
     /**
      * HTML string content.
      */
     content: string;
+    /**
+     * Table of contents html string.
+     */
+    toc: string;
 };
 
 /**
@@ -30,7 +37,8 @@ type Props = {
  */
 export default function Index({
     post,
-    content
+    content,
+    toc
 }: Props) {
     const router = useRouter();
 
@@ -54,8 +62,8 @@ export default function Index({
     // Set the social share image
     let image = socialCardLarge.src;
 
-    if(post.image){
-        image = post.image;
+    if(post.coverImage){
+        image = post.coverImage;
     }
 
     return(
@@ -82,7 +90,12 @@ export default function Index({
                 sidebar={null}
                 fallbackHref={null}
             >
-                <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
+                <DocumentationLayout 
+                    post={post}
+                    content={content}
+                    toc={toc}
+                />
+                {/* <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
                     <DocumentationHeading 
                         title={post.title}
                         description={post.description}
@@ -92,33 +105,17 @@ export default function Index({
                         id="content-wrapper"
                         className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
                     >
-                        <div
-                            dangerouslySetInnerHTML={{ __html: content }}
-                        />
+                        <div dangerouslySetInnerHTML={{ __html: content }} />
                     </div>
-            
-                    {/* <DocsFooter previous={prev} next={next}>
-                    {Config('app.repository').length > 0 &&
-                        <Link
-                        href={`${Config('app.repository')}/edit/main/source/elegant/src/pages${router.pathname}.mdx`}
-                        >
-                        <a 
-                            className="hover:text-slate-900 dark:hover:text-slate-400"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Edit this page on GitHub
-                        </a>
-                        </Link>
-                    }
-                    </DocsFooter>
-            
-                    <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
-                    {toc.length > 0 && (
-                        <TableOfContents tableOfContents={toc} currentSection={currentSection} />
-                    )}
-                    </div> */}
-                </div>
+                </div> */}
+                {/* <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
+                    <div className="px-8">
+                        <h5 className="text-slate-900 font-semibold mb-4 text-sm leading-6 dark:text-slate-100">
+                            On this page
+                        </h5>
+                        <div dangerouslySetInnerHTML={{ __html: toc }} />
+                    </div>
+                </div> */}
             </SidebarLayout>
         </>
     );
@@ -138,11 +135,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     ]);
 
     const content = await MarkdownToHtml(post.content);
+    const toc = await HtmlToToc(content);
 
     return {
         props: { 
             post,
-            content
+            content,
+            toc
         }
     };
 };

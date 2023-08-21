@@ -102,6 +102,9 @@ function getTop(id) {
 }
 
 function useTableOfContents(tableOfContents) {
+
+  console.log(tableOfContents)
+
   let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
   let [headings, setHeadings] = useState([])
 

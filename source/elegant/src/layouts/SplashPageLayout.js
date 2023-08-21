@@ -1,5 +1,5 @@
 import SplashHeader from "@/components/core/Headers/SplashHeader";
-import SplashFooter from '@/components/core/Footer/SplashFooter';
+import SplashFooter from '@/components/core/Footer/SplashFooter/SplashFooter';
 import Config from 'Config';
 
 export function SplashPageLayout({ children }) {

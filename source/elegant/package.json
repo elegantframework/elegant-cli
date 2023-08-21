@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "@apollo/client": "^3.7.17",
+    "@brandonowens/elegant-ui": "^0.2.1",
     "@docsearch/react": "^3.5.1",
     "@hapi/iron": "^7.0.1",
     "@heroicons/react": "^2.0.17",
@@ -92,6 +93,7 @@
     "@graphql-codegen/typescript-operations": "^4.0.1",
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@headlessui/react": "^1.7.2",
+    "@jsdevtools/rehype-toc": "^3.0.2",
     "@silvenon/remark-smartypants": "^1.0.0",
     "@storybook/addon-a11y": "^7.0.26",
     "@storybook/addon-essentials": "^7.0.26",
