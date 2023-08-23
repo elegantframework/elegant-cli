@@ -1,0 +1,81 @@
+---
+title: 'Upgrade Guide'
+metaTitle: 'Upgrade Guide - Elegant - Elevate your creative content.'
+slug: 'upgrade'
+status: 'published'
+author:
+  name: ''
+description: ''
+publishedAt: '2023-07-17T11:09:59.143Z'
+section: 'Prologue'
+---
+
+## Upgrading to 2.3 from 2.x
+
+Elegant version 2.3 contains a number of package updates and minor breaking changes.
+
+Read the complete announcement here: [Elegant v2.3 production release](https://www.elegantframework.com/blog/2023-07-14-elegant-v2-3-production).
+
+## Updating Dependencies
+
+##### ***Likelihood Of Impact: High***
+
+**React 18 Required**
+
+Elegant now requires React 18.2.0 or greater.
+
+**Node.js 18 Required**
+
+Elegant now requires Node.js version 18 or greater.
+
+**MDX-Loader 2 Required**
+
+Elegant now requires MDX-Loader or greater.
+
+**Node.js 16** Supported
+
+Elegant also supports Node.js version 16 in addition to the version mentioned above.
+
+## .npmrc File
+
+##### ***Likelihood Of Impact: Low***
+
+We have included a .npmrc file in the latest version of Elegant to force developers to install Elegant using the proper version of Node.js.
+
+## Blogging
+
+**Blog Excerpt Tags**
+
+##### ***Likelihood Of Impact: High***
+
+We have updated the Excerpt tags used in the blog portion of Elegant.
+
+The upgrade to React 18 and MDX-Loader 2 forced us to convert from the previous excerpt tag format to a new opening and closing format.
+
+Please see our sample blog posts included in Elegant version 2.3 for more information.
+
+## Configuration
+
+**Next.config.js**
+
+##### ***Likelihood Of Impact: High***
+
+The `next.config.js` configuration file has been converted to ECMAScript, and is now named `next.config.mjs`.
+
+**Authors Configuration**
+
+##### ***Likelihood Of Impact: Low***
+
+The blog authors' configuration has been moved to the \`/config\` namespace.
+
+**Navigation Configuration**
+
+##### ***Likelihood Of Impact: Low***
+
+The sidebar navigation has also been moved to the \`/config\` namespace.
+
+## Miscellaneous
+
+We also encourage you to view the changes in the `elegantframework/elegant-cli` [GitHub repository](https://github.com/elegantframework/elegant-cli). While many of these changes are not required, you may wish to keep these files in sync with your application.
+
+You can easily view the changes with the [GitHub comparison tool](https://github.com/elegantframework/elegant-cli/compare/v2.2-stable…v2.3) and choose which updates are important to you.

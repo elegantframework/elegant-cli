@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Documentation Heading component renders the documentation heading properly 1`] = `
+<div
+  className="relative z-20"
+>
+  <div>
+    <p
+      className="mb-2 text-sm leading-6 font-semibold text-primary-500 dark:text-primary-400"
+    >
+      Hello world
+    </p>
+    <div
+      className="flex items-center"
+    >
+      <h1
+        className="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200"
+      >
+        Unit Test
+      </h1>
+    </div>
+  </div>
+  <p
+    className="mt-2 text-lg text-slate-700 dark:text-slate-400"
+  >
+    This is a unit test.
+  </p>
+</div>
+`;

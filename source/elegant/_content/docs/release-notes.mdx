@@ -1,0 +1,108 @@
+---
+title: Release Notes
+metaTitle: Release Notes - Elegant - Elevate your creative content.
+publishedAt: '2023-05-09T11:09:59.143Z'
+section: 'Prologue'
+---
+
+- [v2.4](#2_4)
+- [v2.3](#v2_3)
+- [v2.2-stable](#v2_2-stable)
+- [v2.1-beta](#v2_1-beta)
+- [v2.0-alpha](#v2_0-alpha)
+- [v1.1-alpha](#v1_1-alpha)
+- [v1.0](#v1)
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+<a name="v2_4"></a>
+
+## v2.4
+
+- Created a clean and simple admin log in page; complete with Dark Mode support. [#96](https://github.com/elegantframework/elegant-cli/pull/96)
+- Added a dynamic name to the CMS panel configuration. [#92](https://github.com/elegantframework/elegant-cli/pull/92)
+- Created a new `Admin` configuration loading. [#90](https://github.com/elegantframework/elegant-cli/pull/90) 
+
+<a name="v2_3"></a>
+
+## v2.3
+
+- Improved readme for the Elegant project on GitHub. [#118](https://github.com/elegantframework/elegant-cli/pull/118)
+- Created a reusable Hero Section component for landing pages. [#120](https://github.com/elegantframework/elegant-cli/pull/120)
+- Migrated the existing navigation and authors configurations to the config namespace. [#107](https://github.com/elegantframework/elegant-cli/pull/107)
+- Updated Storybook to version 7. [#117](https://github.com/elegantframework/elegant-cli/pull/117)
+- Updated MDX-Loader to version 2. [#113](https://github.com/elegantframework/elegant-cli/pull/113)
+- Added an arrow icon to the external links in the footer. [#110](https://github.com/elegantframework/elegant-cli/pull/110)
+- Included a Brand Policy page. [#105](https://github.com/elegantframework/elegant-cli/pull/105)
+- Removed deprecated components from previously released versions. [#108](https://github.com/elegantframework/elegant-cli/pull/108)
+- Created a 'Development Tools' documentation page. [#106](https://github.com/elegantframework/elegant-cli/pull/106)
+- Upgraded Elegant to React 18 and Node 18. [#84](https://github.com/elegantframework/elegant-cli/pull/84)
+- Node JS versions 16 and 18 and now supported. [#87](https://github.com/elegantframework/elegant-cli/pull/87)
+- Created a core 'Card' component, complete with stories and test. [#95](https://github.com/elegantframework/elegant-cli/pull/95)
+- Added our Discord chat invite url to the footer. [#76](https://github.com/elegantframework/elegant-cli/pull/76)
+- Added a video player component for embedding Youtube videos within Elegant pages. [#75](https://github.com/elegantframework/elegant-cli/pull/75)
+
+<a name="v2_2-stable"></a>
+
+## v2.2-stable
+
+- Fixed an issue where the canonical url tag was not loading properly. [#68](https://github.com/elegantframework/elegant-cli/pull/68)
+- Created a `/config` namespace to hold all current and future Elegant configurations. [#50](https://github.com/elegantframework/elegant-cli/pull/50)
+- Included a canonical url on all pages to further boost the SEO experience. [#30](https://github.com/elegantframework/elegant-cli/issues/30)
+- Added Storybook JS with dark mode support to Elegant to allow developers to build components in isolation. [#26](https://github.com/elegantframework/elegant-cli/issues/24)
+- Added complete sitemaps with robots.txt. [#2](https://github.com/elegantframework/elegant-cli/issues/2)
+- Included an `.env.test` environment file to provide Jest variables during unit testing. [#23](https://github.com/elegantframework/elegant-cli/issues/23)
+- Introduced enhanced SEO items to the Elegant project, such as rich snippets.
+- Created a core components namespace for simplified theming and extendability in future versions of Elegant.
+- Improved favicons across all browsers.   
+- Slimmed down the existing `.env` file during project creation to only include the basic settings a user might need to start a new app. [#37](https://github.com/elegantframework/elegant-cli/pull/37)
+- Included an `.env.example` file that includes all of the essential configuration items a content creator may want. [#37](https://github.com/elegantframework/elegant-cli/pull/37)
+- Improved the output message displayed to users during project creation. [#35](https://github.com/elegantframework/elegant-cli/pull/35)
+- Included an auto generated Trademark policy page that includes basic business details loaded from the config file. [#44](https://github.com/elegantframework/elegant-cli/pull/44)
+
+
+<a name="v2_1-beta"></a>
+
+## v2.1-beta
+
+- Added native Google Analytics support via the .env file. [Google Analytics configuration](/docs/google-analytics). [#1](https://github.com/elegantframework/elegant-cli/issues/1)
+- Added native Tailwind theme colors inside tailwind.config.js file. [Theme configuration](/docs/theme)
+- Added native ConvertKit newsletter sign up support via the .env file. [ConvertKit configuration](/docs/convertkit)
+- Updated the Elegant CLI init script to provide detailed instructions for the build steps when starting a new project. [#13](https://github.com/elegantframework/elegant-cli/issues/13)
+- Created a new core `Splash Page` layout. The splash page layout can be used for creating landing pages with sticky headers and custom navigation. [#16](https://github.com/elegantframework/elegant-cli/commit/d8f657af269bda072615b42dca76184b384f4188)
+- Added a sticky header meta page option. 
+- Created `core` components namespace. The core components will function as a starting point for future theme creation and extendability. [#17](https://github.com/elegantframework/elegant-cli/pull/17)
+- Created a new "Splash" landing page layout template for creating simple landing pages.
+- Updated the footer url links to pop open in a new tab if they are linking to external urls.
+
+<a name="v2_0-alpha"></a>
+
+## v2.0-alpha
+
+- Added Jest testing to the library.
+- Major upgrade to [Next.js](https://www.elegantframework.com/blog/2023-04-05-elegant-framework-v2-0-alpha).
+- Added MDX Loader for creating web pages from Markdown files.
+- Added Tailwind CSS to craft a beautiful frontend theme.
+- GitHub Actions ci integration.
+- Added Elegant base theme with a near perfect Lighthouse SEO score.
+
+<a name="v1_1-alpha"></a>
+
+## v1.1-alpha
+
+- Updated the application configuration to seamlessly support Next.js and Vercel.com hosting. [#5](https://github.com/elegantframework/elegant/pull/5)
+- Added Jest end to end integration testing. [#3](https://github.com/elegantframework/elegant/pull/3)
+
+<a name="v1"></a>
+
+## v1
+
+- Added Jest testing
+- Created install docs as a sample guide.
+- Added easy config with .env files
+- Added Light mode/ Dark mode support
+- Created Docs site template
+- Created npx elegant-init cli command

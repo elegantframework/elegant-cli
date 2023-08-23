@@ -1,5 +1,4 @@
 .dist/
 .vscode/
-packages/elegant-cms/.next/
-packages/elegant-cms/node_modules/
+packages/elegant-ui/node_modules/
 node_modules/

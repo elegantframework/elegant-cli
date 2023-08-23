@@ -102,6 +102,7 @@ function getTop(id) {
 }
 
 function useTableOfContents(tableOfContents) {
+
   let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
   let [headings, setHeadings] = useState([])
 
@@ -186,6 +187,7 @@ export function ContentsLayoutOuter({ children, layoutProps, ...props }) {
 export function ContentsLayout({ children, meta, classes, tableOfContents, section }) {
   
   const router = useRouter()
+
   const toc = [
     ...(classes ? [{ title: 'Quick reference', slug: 'class-reference', children: [] }] : []),
     ...tableOfContents,

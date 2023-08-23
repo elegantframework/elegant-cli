@@ -1,4 +1,5 @@
 import AppConfig from "@/config/App";
+import AdminConfig from "@/config/Admin";
 
 interface Props {
     /**
@@ -46,6 +47,28 @@ const Config = (value: string) => {
             return AppConfig().linkedin_url; 
         case 'app.contact_email':
             return AppConfig().contact_email; 
+        case 'admin.cms_name':
+            return AdminConfig().cms_name; 
+        case 'admin.cms_repository_branch':
+            return AdminConfig().cms_repository_branch; 
+        case 'admin.cms_github_id':
+            return AdminConfig().cms_github_id; 
+        case 'admin.cms_github_secret':
+            return AdminConfig().cms_github_secret; 
+        case 'admin.cms_token_secret':
+            return AdminConfig().cms_token_secret; 
+        case 'admin.cms_repository_slug':
+            return AdminConfig().cms_repository_slug; 
+        case 'admin.cms_repository_owner':
+            return AdminConfig().cms_repository_owner; 
+        case 'admin.cms_content_path':
+            return AdminConfig().cms_content_path; 
+        case 'admin.cms_monorepo_path':
+            return AdminConfig().cms_monorepo_path; 
+        case 'admin.cms_asset_path':
+            return AdminConfig().cms_asset_path; 
+        default:
+            return "";
     }
 };
 

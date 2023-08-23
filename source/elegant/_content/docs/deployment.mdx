@@ -1,0 +1,65 @@
+---
+title: Deployment
+metaTitle: Deployment - Deploying your Elegant application to Vercel.com, and other cloud providers. 
+description: A guide to deploying your Elegant application to production.
+publishedAt: '2023-05-09T11:09:59.143Z'
+section: 'Getting Started'
+---
+
+import DeploymentSteps from '@/components/core/Docs/DeploymentSteps';
+import CustomDomainSteps from '@/components/core/Docs/CustomDomainSteps';
+import vercel_homepage from '@/img/docs/Vercel.com-Homepage.png'
+
+- [Introduction](#introduction)
+- [Node.js Version](#node_js_version)
+- [Easy Deployments with Vercel](#vercel_com_deployments)
+    - [Prerequisites](#prerequisites)
+    - [Creating & Deploying your application](#creating_and_deploying)
+    - [Connecting your Domain to Vercel](#connecting_your_domain_to_vercel)
+
+<a name="introduction"></a>
+
+## Introduction
+
+When you're ready to deploy your Elegant application to production, there are a number of cloud platforms that will seamlessly host your Elegant application.
+In this guide, we will show you how to easily deploy your Elegant application to [Vercel](https://vercel.com/).
+
+Vercel, formerly Zeit, is an American cloud hosting provider, as well as the maintainer of the Next.js web development framework.
+
+<div className="my-8 shadow-xl">
+  <img className="rounded-xl" src={vercel_homepage.src} alt="Vercel.com and Elegant together provide the perfect hosting for your next web application."/>
+</div>
+
+<a name="node_js_version"></a>
+
+## Node.js Version
+
+The Elegant framework only requires that your project use Node.js 16.x.
+
+<a name="vercel_com_deployments"></a>
+
+## Easy Deployments with Vercel
+
+Vercel is an end-to-end cloud platform for developers that allows you to deploy your Elegant applications with ease.
+
+<a name="prerequisites"></a>
+
+### Prerequisites
+
+To sign up for Vercel, visit [Create Account](https://vercel.com/signup). You can choose to authenticate either with a Git provider or by using an email. When using email authentication, you may need to confirm both your email address and a phone number.
+
+<a name="creating_and_deploying"></a>
+
+### Creating & Deploying your application
+
+Once you have successfully signed up for Vercel and connected your Git provider, you're ready to start creating a Project.
+
+<DeploymentSteps />
+
+<a name="connecting_your_domain_to_vercel"></a>
+
+### Connecting your Domain to Vercel
+
+To connect your custom domain to your Vercel account, follow the steps listed below.
+
+<CustomDomainSteps />

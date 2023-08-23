@@ -1,0 +1,98 @@
+---
+title: ConvertKit
+metaTitle: ConvertKit - Simple email subscriptions and newsletters with ConvertKit & Elegant. 
+description: Easily grow your email subscribers lists, and send targeted email newsletters.
+publishedAt: '2023-05-09T11:09:59.143Z'
+section: 'Plugins'
+---
+
+import convertkit_signup from '@/img/docs/convertkit.com-signup.png'
+import convertkit_dashboard from '@/img/docs/convertkit-dashboard.png'
+import convertkit_forms_page from '@/img/docs/convertkit_forms_page.png'
+import convertkit_newform from '@/img/docs/convertkit_new_form.png'
+import convertkit_form_layout from '@/img/docs/convertkit_form_layout.png'
+import convertkit_mills from '@/img/docs/convertkit_mills.png'
+import convertkit_action_url from '@/img/docs/convertkit_action_url.png'
+
+
+- [Introduction](#introduction)
+- [Installation & Setup](#installation_and_setup)
+    - [Installing ConvertKit into your Elegant application](#convertkit_install_into_elegant)
+    - [Finding your ConvertKit Action URL](#convertkit_action_url)
+    - [Saving your Action URL to Elegant](#configuration)
+
+<a name="introduction"></a>
+
+## Introduction
+
+[ConvertKit](https://convertkit.com/) makes it easy to grow your email subscribers lists, sell more products and send targeted email newsletters – all by easily embedding email marketing / email subscriber forms anywhere within your Elegant application.
+
+ConvertKit is an email marketing service built specifically for bloggers and content creators. It makes it easy to build an email list, create email sequences, and send newsletters to your subscribers. This can help bloggers and content creators engage their audience and drive more traffic to their Elegant web application.
+
+<a name="installation_and_setup"></a>
+
+## Installation & Setup
+
+ConvertKit is automatically configured with all new Elegant applications so you may start using it immediately. To learn how to create a new Elegant application, please consult Elegant's [installation documentation](/docs/installation).
+
+<a name="convertkit_install_into_elegant"></a>
+
+### Installing ConvertKit into your Elegant application.
+
+If you are interested in using ConvertKit with your Elegant application, you may simply provide an action url string to the `NEXT_PUBLIC_CONVERTKIT_ACTION_URL` environment variable in your `.env` file. 
+
+```ini
+NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/21224410/subscriptions"
+```
+
+<a name="convertkit_action_url"></a>
+
+### Finding your ConvertKit Action URL
+
+To find your ConvertKit Action Url, navigate to your [ConverKit dashboard](https://app.convertkit.com/) and click on `Landing Pages & Forms`.
+
+<div className="my-8 shadow-xl">
+  <img className="rounded-xl" src={convertkit_dashboard.src} alt="ConvertKit and Elegant together make it easy to grow your email subscribers lists"/>
+</div>
+
+Next click `Create new` at the bottom righthand side of the Forms page.
+
+<div className="my-8 shadow-xl">
+  <img className="rounded-xl" src={convertkit_forms_page.src} alt="ConvertKit and Elegant together make it easy to grow your email subscribers lists"/>
+</div>
+
+Now click `Form` on the next page.
+
+<div className="my-8 shadow-xl">
+  <img className="rounded-xl" src={convertkit_newform.src} alt="ConvertKit and Elegant together make it easy to grow your email subscribers lists"/>
+</div>
+
+You will be asked to choose the display format of your form. Please select `Inline`.
+
+<div className="my-8 shadow-xl">
+  <img className="rounded-xl" src={convertkit_form_layout.src} alt="ConvertKit and Elegant together make it easy to grow your email subscribers lists"/>
+</div>
+
+Next click the "Mills" newsletter template from the list of available templates. 
+
+<div className="my-8 shadow-xl">
+  <img className="rounded-xl" src={convertkit_mills.src} alt="ConvertKit and Elegant together make it easy to grow your email subscribers lists"/>
+</div>
+
+Finally, click `Save`, and then `Publish` in the top right hand corner of the page. A modal will popup with a few different tabs.
+Select `HTML`, and your Action URL will be listed in the provided HTML code.
+
+<div className="my-8 shadow-xl">
+  <img className="rounded-xl" src={convertkit_action_url.src} alt="ConvertKit and Elegant together make it easy to grow your email subscribers lists"/>
+</div>
+
+<a name="configuration"></a>
+
+### Saving your Action URL to Elegant
+
+Copy the form url from the provided action handler, and paste it into your `.env` file.
+
+```none
+NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/5018207/subscriptions"
+```
+
