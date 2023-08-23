@@ -1,12 +1,21 @@
 type Props = {
+    /**
+     * The title of the heading element.
+     */
     title: string;
+    /**
+     * The description of the element.
+     */
     description: string;
+    /**
+     * The navigation section that this element is located in.
+     */
     section?: string;
 };
 
 /**
- * 
- * @returns 
+ * A heading component to be used within the documentation layout component.
+ * @returns An html heading section to be displayed at the top of documentation pages.
  */
 export function DocumentationHeading({
     title,

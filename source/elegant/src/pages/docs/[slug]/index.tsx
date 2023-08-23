@@ -1,7 +1,6 @@
 import { getDocumentBySlug } from "@/utils/core/Collections/collection";
 import { GetServerSideProps } from "next";
-import { SidebarLayout, SidebarContext } from "@/layouts/SidebarLayout";
-import { DocumentationHeading } from "@/components/core/Headings/DocumentationHeading";
+import { SidebarLayout } from "@/layouts/SidebarLayout";
 import Error from "@/pages/404";
 import MarkdownToHtml from "@/utils/core/Rehype/MarkdownToHtml";
 import { useRouter } from "next/router";
@@ -26,9 +25,9 @@ type Props = {
      */
     content: string;
     /**
-     * Table of contents html string.
+     * Table of contents item list.
      */
-    toc: string;
+    toc: [];
 };
 
 /**
@@ -95,27 +94,6 @@ export default function Index({
                     content={content}
                     toc={toc}
                 />
-                {/* <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
-                    <DocumentationHeading 
-                        title={post.title}
-                        description={post.description}
-                        section={post.section}
-                    />
-                    <div
-                        id="content-wrapper"
-                        className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
-                    >
-                        <div dangerouslySetInnerHTML={{ __html: content }} />
-                    </div>
-                </div> */}
-                {/* <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
-                    <div className="px-8">
-                        <h5 className="text-slate-900 font-semibold mb-4 text-sm leading-6 dark:text-slate-100">
-                            On this page
-                        </h5>
-                        <div dangerouslySetInnerHTML={{ __html: toc }} />
-                    </div>
-                </div> */}
             </SidebarLayout>
         </>
     );
@@ -136,7 +114,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const content = await MarkdownToHtml(post.content);
     const toc = await HtmlToToc(content);
-
+    
     return {
         props: { 
             post,

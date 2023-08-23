@@ -8,7 +8,7 @@ jest.mock('@/utils/core/Auth/hooks')
 
 describe('<DeleteDocumentButton />', () => {
   it('should render the button', () => {
-    ;(useCMSSession as jest.Mock).mockReturnValue({
+    (useCMSSession as jest.Mock).mockReturnValue({
       session: {
         user: {
           username: 'avitorio'
