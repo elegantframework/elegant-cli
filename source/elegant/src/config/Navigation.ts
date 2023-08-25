@@ -6,11 +6,6 @@ const pages = createPageList(
   'docs'
 );
 
-const staticPages = createPageList(
-  require.context(`../pages/docs/?meta=title,shortTitle,published`, false, /\.mdx$/),
-  'docs'
-);
-
 export const documentationNav = {
   'Prologue': [
     pages['release-notes'],
@@ -18,7 +13,7 @@ export const documentationNav = {
     pages['contribution-guide']
   ],
   'Getting Started': [
-    staticPages['installation'],
+    pages['installation'],
     pages['configuration'],
     pages['new-documents'],
     pages['deployment']
