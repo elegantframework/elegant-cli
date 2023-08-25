@@ -2,6 +2,11 @@ import { HeadingNode } from "@jsdevtools/rehype-toc/lib/types";
 import { getInnerText } from "@jsdevtools/rehype-toc/lib/get-inner-text";
 import { TableOfContentsItem } from '@/types/TableOfContentsItem';
 
+/**
+ * Create a table of contents items list.
+ * @param headings A list of html headings from rehype.
+ * @returns A table of contents item list.
+ */
 const CreateTocList = (
   headings: HeadingNode[]
 ) => {
@@ -11,9 +16,9 @@ const CreateTocList = (
 export default CreateTocList;
 
 /**
- * 
- * @param headings 
- * @returns 
+ * Create a table of contents items list.
+ * @param headings A list of html headings from rehype.
+ * @returns A table of contents item list.
  */
 function createTocList(headings: HeadingNode[]) {
   let levels: TocLevel[] = [];
@@ -85,12 +90,6 @@ function createTocList(headings: HeadingNode[]) {
   }
 }
 
-/**
- * 
- * @param heading 
- * @param depth 
- * @returns 
- */
 function createList(heading: HeadingNode | undefined, depth: number) {
   let list = [];
 
@@ -102,11 +101,6 @@ function createList(heading: HeadingNode | undefined, depth: number) {
   return list;
 }
 
-/**
- * 
- * @param heading 
- * @returns 
- */
 function createListItem(heading: HeadingNode) {
   let item: TableOfContentsItem = {
     title: getInnerText(heading),
