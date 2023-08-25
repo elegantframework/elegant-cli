@@ -24,7 +24,6 @@ const require = createRequire(import.meta.url);
 
 const fallbackLayouts = {
   'src/pages/docs/**/*': ['@/layouts/DocumentationLayout', 'DocumentationLayout'],
-  'src/pages/legal/**/*': ['@/layouts/LegalPageLayout', 'LegalPageLayout'],
 }
 
 const fallbackDefaultExports = {
