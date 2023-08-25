@@ -1,9 +1,6 @@
-import { Processor, Transformer } from "unified";
 import { Node } from "unist";
-import { customizationHooks } from "@jsdevtools/rehype-toc/lib/customization-hooks";
 import { findHeadings } from "@jsdevtools/rehype-toc/lib/fiind-headings";
 import { findMainNode } from "@jsdevtools/rehype-toc/lib/find-main-node";
-import { insertTOC } from "@jsdevtools/rehype-toc/lib/insert-toc";
 import { NormalizedOptions, Options } from "@jsdevtools/rehype-toc/lib/options";
 import CreateTocList from "./CreateTocList";
 
