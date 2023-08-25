@@ -1,10 +1,20 @@
 import LegalLayout from "@/components/core/Layouts/LegalLayout";
+import Seo from "@/components/core/Seo/Seo";
+import MetaTitle from "@/utils/core/Meta/MetaTitle";
 import Config from "Config";
 import Link from "next/link";
 
+/**
+ * A standard boiler plate trademark policy page.
+ * @returns An html page for displaying a standard trademark policy to users.
+ */
 const TrademarkPolicyPage = () => {
     return(
         <LegalLayout>
+            <Seo 
+                title={`Trademark Policy - ${MetaTitle(Config('app.name'), Config('app.tagline'))}`}
+                description={'See our trademark policy and how it relates to you.'}
+            />
             <div className="px-4 sm:px-6 md:px-8 relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32 pb-20 sm:pb-24 lg:pb-32">
                 <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white" 
                     id="trademark-policy"
