@@ -7,17 +7,17 @@ interface Props {
    */
   title: string;
   /**
-   * The url of the video.
+   * The id of the video provided by YouTube. Ex. bS66QUBKljM
    */
-  content_url: string;
-  /**
-   * The embed url of the video.
-   */
-  embed_url: string;
+  videoId: string;
   /**
    * A description of the video.
    */
   description: string;
+  /**
+   * The date time string that this video was uploaded.
+   */
+  uploadDate: string;
   /**
    * The width of the video player.
    */
@@ -38,9 +38,9 @@ interface Props {
  */
 const VideoPlayer = ({
   title,
-  content_url,
-  embed_url,
+  videoId,
   description,
+  uploadDate,
   width = '100%',
   height = 350,
   allowFullScreen = true
@@ -50,7 +50,7 @@ const VideoPlayer = ({
         <iframe
           width={width}
           height={height}
-          src={embed_url}
+          src={`https://www.youtube.com/embed/${videoId}`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen={allowFullScreen}
@@ -59,8 +59,12 @@ const VideoPlayer = ({
         <VideoJsonLd
           name={title}
           description={description}
-          contentUrl={content_url}
-          embedUrl={embed_url}
+          contentUrl={`https://youtu.be/${videoId}`}
+          embedUrl={`https://www.youtube.com/embed/${videoId}`}
+          thumbnailUrls={[
+            `https://img.youtube.com/vi/${videoId}/0.jpg`,
+          ]}
+          uploadDate={uploadDate}
         />
     </>
   );
