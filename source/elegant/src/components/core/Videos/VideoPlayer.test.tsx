@@ -9,8 +9,8 @@ describe("Video Player component", () => {
             <VideoPlayer 
                 title="Hello World"
                 description="This is a unit test!"
-                embed_url="https://www.youtube.com/embed/bS66QUBKljM"
-                content_url="https://youtu.be/bS66QUBKljM"
+                videoId={'bS66QUBKljM'}
+                uploadDate="2018-02-05T08:00:00+08:00"
             />
         )
         .toJSON();
