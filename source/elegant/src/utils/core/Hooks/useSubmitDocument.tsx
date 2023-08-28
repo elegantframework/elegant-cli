@@ -110,7 +110,7 @@ function useSubmitDocument({
               const filePath = (() => {
                 switch (type) {
                   case 'images':
-                    return "images/";
+                    return "images";
                   default:
                     assertUnreachable(type)
                 }
@@ -119,7 +119,7 @@ function useSubmitDocument({
               capi.replaceFile(
                 `${
                   monorepoPath
-                }public/${filePath}${newFilename}`,
+                }public/${filePath}/${newFilename}`,
                 fileContents,
                 false
               )
