@@ -97,6 +97,26 @@ export function getDocumentBySlug(
 }
 
 /**
+ * Get all documents of a particular collection
+ * @param collection The collection name to query.
+ * @param fields The fields to include in the returned data.
+ * @returns A list of documents.
+ */
+export function getDocuments(collection: string, fields: string[] = []) {
+  const slugs = getDocumentSlugs(collection)
+  const documents = slugs
+    .map((slug) =>
+      getDocumentBySlug(collection, slug, [...fields, 'publishedAt', 'status'])
+    )
+    .filter((document) => document.status === 'published')
+    // sort documents by date in descending order
+    .sort((document1, document2) =>
+      document1.publishedAt > document2.publishedAt ? -1 : 1
+    )
+  return documents;
+}
+
+/**
  * Read a markdown mdx file.
  * @param path 
  * @returns 
