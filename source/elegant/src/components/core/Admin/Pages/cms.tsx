@@ -21,6 +21,7 @@ import Welcome from './welcome';
 import AddCustomField from '@/components/core/Admin/Pages/add-custom-field';
 import { Session } from '@/types/Index';
 import Config from '@/utils/core/Config/Config';
+import Login from './login';
 
 type Props = {
   missingEnvVars: EnvVarsType | false
@@ -73,29 +74,29 @@ const CMS = ({ missingEnvVars, providerData }: Props) => {
     console.log('removePage', page)
   }
 
-  if (missingEnvVars) return <Welcome variables={missingEnvVars} />
+  if (missingEnvVars) {
+    return <Welcome variables={missingEnvVars} />;
+  } 
 
   const { session } = providerData;
 
   // if the user is not logged in, redirect them to the sign in page
-  if (!session && typeof window !== 'undefined') {
-    router.push('/admin/login');
-    
-    return null;
+  if (!session) {  
+    return <Login />;
   }
 
   if (!router) {
-    return null
+    return null;
   }
 
-  const slug = router.query?.cms?.[0] || ''
-  const slug2 = router.query?.cms?.[1] || ''
+  const slug = router.query?.cms?.[0] || '';
+  const slug2 = router.query?.cms?.[1] || '';
 
   if (slug && !pages.includes(slug)) {
-    return <Error />
+    return <Error />;
   }
 
-  const isContent = slug && collections.includes(slug)
+  const isContent = slug && collections.includes(slug);
 
   return (
     <CMSProvider
