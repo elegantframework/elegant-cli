@@ -46,8 +46,8 @@ const BrandPolicyPage = () => {
             <h2 className="pt-16 pb-12 text-xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-1xl pt-5 pb-5">
                 Logo
             </h2>
-            <a href="/images//elegant-full-svg-c5Nj.svg" download>
-                <img src="/images//elegant-full-svg-c5Nj.svg" alt="Download Logo"/>
+            <a href="/images/elegant-full-svg-c5Nj.svg" download>
+                <img src="/images/elegant-full-svg-c5Nj.svg" alt="Download Logo"/>
             </a>
         </LegalLayout>
     );
