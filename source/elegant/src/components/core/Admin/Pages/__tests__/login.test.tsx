@@ -1,4 +1,4 @@
-import Login from "@/pages/admin/login";
+import Login from "@/components/core/Admin/Pages/login";
 
 describe('The Admin Log In page', () => {
   it('renders properly', () => {

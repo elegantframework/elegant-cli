@@ -20,7 +20,7 @@ export default function Login() {
       </div>
       <Card className="mt-10">
         <p className="mb-5 dark:text-slate-200">
-          Sign in with GitHub to access your&nbsp;dashboard.
+          Sign in with GitHub to access your dashboard.
         </p>
         <a
           href="/api/admin/login"

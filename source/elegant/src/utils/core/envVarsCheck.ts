@@ -19,11 +19,11 @@ const initialEnvVars: EnvVarsType = {
     NEXT_PUBLIC_CMS_GITHUB_ID: false,
     NEXT_PUBLIC_CMS_GITHUB_SECRET: false,
     NEXT_PUBLIC_CMS_TOKEN_SECRET: false,
-    NEXT_PUBLIC_CMS_REPOSITORY_SLUG: false
+    NEXT_PUBLIC_CMS_REPOSITORY_SLUG: false,
+    NEXT_PUBLIC_CMS_REPOSITORY_OWNER: false
   },
   optional: {
     NEXT_PUBLIC_CMS_CONTENT_PATH: false,
-    NEXT_PUBLIC_CMS_REPOSITORY_OWNER: false
   }
 }
 
