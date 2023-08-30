@@ -1,3 +1,5 @@
+import { NewsletterForm } from "@/components/core/NewsletterForm/NewsletterForm";
+import Error from "@/pages/404";
 import { Post } from "@/types/Post";
 import { getDocumentBySlug } from "@/utils/core/Collections/collection";
 import Config from "@/utils/core/Config/Config";
@@ -26,9 +28,9 @@ export default function Index({
     const router = useRouter();
 
     if (!router.isFallback && !post?.slug) {
-        //@todo: return the 404 page
-        // if we can't find the blog post, return a 404
-        return(<></>);
+        return(
+            <Error />
+        );
     }
 
     return(
@@ -124,11 +126,22 @@ export default function Index({
                             </article>
                         </main>
                         <footer className="mt-16">
-                            {Config('app.convert_action_url') &&
+                            {Config('app.convert_action_url') && (
                                 <div className="relative">
-                                    {/* <NewsletterBlock action={Config('app.convert_action_url')}/> */}
+                                    <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
+                                        <h2 className="text-xl font-semibold text-slate-900 tracking-tight dark:text-white">
+                                            Get all of our updates directly to your inbox.
+                                            <br />
+                                            Sign up for our newsletter.
+                                        </h2>
+                                        <div className="mt-5 max-w-md">
+                                            <NewsletterForm 
+                                                action={Config('app.convert_action_url')} 
+                                            />
+                                        </div>
+                                    </section>
                                 </div>
-                            }
+                            )}
                             <div className="relative">
                                 <section className="relative py-16 border-t border-slate-200 dark:border-slate-200/5">
                                 <div className='pt-8 pb-10 text-center text-slate-500 dark:border-slate-200/5'>
