@@ -28,14 +28,13 @@ const fallbackLayouts = {
 
 const fallbackDefaultExports = {
   'src/pages/{docs,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
-  'src/pages/blog/**/*': ['@/layouts/BlogPostLayout', 'BlogPostLayout'],
 }
 
 const fallbackGetStaticProps = {};
 
 export default {
   swcMinify: true,
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'tsx'],
   experimental: {
     esmExternals: false,
   },
