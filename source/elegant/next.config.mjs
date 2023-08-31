@@ -22,20 +22,15 @@ import * as url from 'node:url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const require = createRequire(import.meta.url);
 
-const fallbackLayouts = {
-  'src/pages/docs/**/*': ['@/layouts/DocumentationLayout', 'DocumentationLayout'],
-}
-
 const fallbackDefaultExports = {
   'src/pages/{docs,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
-  'src/pages/blog/**/*': ['@/layouts/BlogPostLayout', 'BlogPostLayout'],
 }
 
 const fallbackGetStaticProps = {};
 
 export default {
   swcMinify: true,
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'tsx'],
   experimental: {
     esmExternals: false,
   },
@@ -214,19 +209,7 @@ export default {
           }
 
           let extra = []
-          let resourcePath = path.relative(__dirname, this.resourcePath)
-
-          if (!/^\s*export\s+(var|let|const)\s+Layout\s+=/m.test(source)) {
-            for (let glob in fallbackLayouts) {
-              if (minimatch(resourcePath, glob)) {
-                extra.push(
-                  `import { ${fallbackLayouts[glob][1]} as _Layout } from '${fallbackLayouts[glob][0]}'`,
-                  'export const Layout = _Layout'
-                )
-                break
-              }
-            }
-          }
+          let resourcePath = path.relative(__dirname, this.resourcePath);
 
           if (!/^\s*export\s+default\s+/m.test(source.replace(/```(.*?)```/gs, ''))) {
             for (let glob in fallbackDefaultExports) {
