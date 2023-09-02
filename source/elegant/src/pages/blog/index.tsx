@@ -7,6 +7,7 @@ import Config from "Config";
 import { getDocuments } from '@/utils/core/Collections/collection'
 import { Post } from '@/types/Post';
 import moment from 'moment';
+import { GetServerSideProps } from 'next';
 
 interface Props {
   /**
@@ -111,10 +112,10 @@ Blog.layoutProps = {
   },
 }
 
-export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
-    await buildRss()
-  }
+export const getServerSideProps: GetServerSideProps = async () => {
+  // if (process.env.NODE_ENV === 'production') {
+  //   await buildRss()
+  // }
 
   const posts = getDocuments('posts', [
     'title',
