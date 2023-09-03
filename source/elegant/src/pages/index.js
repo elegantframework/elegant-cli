@@ -11,6 +11,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import MetaTitle from '@/utils/core/Meta/MetaTitle';
 import Config from "Config";
+import GenerateRssFeed from '@/utils/core/RSS/GenerateRssFeed';
 
 Home.layoutProps = {
   meta: {
@@ -269,3 +270,14 @@ const Header = () => {
     </React.Fragment>
   )
 };
+
+export async function getStaticProps() {
+  // build our rss feed
+  if (process.env.NODE_ENV === 'production') {
+    await GenerateRssFeed();
+  }
+
+  return {
+    props: {}
+  };
+}
