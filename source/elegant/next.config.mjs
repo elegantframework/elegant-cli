@@ -223,18 +223,18 @@ export default {
             }
           }
 
-          if (
-            !/^\s*export\s+(async\s+)?function\s+getStaticProps\s+/m.test(
-              source.replace(/```(.*?)```/gs, '')
-            )
-          ) {
-            for (let glob in fallbackGetStaticProps) {
-              if (minimatch(resourcePath, glob)) {
-                extra.push(`export { getStaticProps } from '${fallbackGetStaticProps[glob]}'`)
-                break
-              }
-            }
-          }
+          // if (
+          //   !/^\s*export\s+(async\s+)?function\s+getStaticProps\s+/m.test(
+          //     source.replace(/```(.*?)```/gs, '')
+          //   )
+          // ) {
+          //   for (let glob in fallbackGetStaticProps) {
+          //     if (minimatch(resourcePath, glob)) {
+          //       extra.push(`export { getStaticProps } from '${fallbackGetStaticProps[glob]}'`)
+          //       break
+          //     }
+          //   }
+          // }
 
           let metaExport
           if (!/export\s+(const|let|var)\s+meta\s*=/.test(source)) {

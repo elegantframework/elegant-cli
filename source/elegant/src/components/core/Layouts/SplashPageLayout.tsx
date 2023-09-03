@@ -2,7 +2,16 @@ import SplashHeader from "@/components/core/Headers/SplashHeader";
 import SplashFooter from '@/components/core/Footer/SplashFooter/SplashFooter';
 import Config from 'Config';
 
-export function SplashPageLayout({ children }) {
+interface Props {
+    /**
+     * Child html to be displayed the layout.
+     */
+    children: React.ReactNode;
+};
+
+export function SplashPageLayout({
+    children
+}: Props) {
     return (
         <>
             <SplashHeader 

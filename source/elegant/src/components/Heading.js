@@ -1,5 +1,4 @@
 import { useEffect, useContext } from 'react'
-import { ContentsContext } from '@/layouts/ContentsLayout'
 import clsx from 'clsx'
 
 export function Heading({
@@ -16,15 +15,14 @@ export function Heading({
   ...props
 }) {
   let Component = `h${level}`
-  const context = useContext(ContentsContext)
 
-  useEffect(() => {
-    if (!context) return
-    context.registerHeading(id)
-    return () => {
-      context.unregisterHeading(id)
-    }
-  }, [id, context?.registerHeading, context?.unregisterHeading])
+  // useEffect(() => {
+  //   if (!context) return
+  //   context.registerHeading(id)
+  //   return () => {
+  //     context.unregisterHeading(id)
+  //   }
+  // }, [id, context?.registerHeading, context?.unregisterHeading])
 
   return (
     <Component
