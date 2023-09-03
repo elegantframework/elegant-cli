@@ -15,6 +15,7 @@ import AnalyticsBody from '@/components/core/Analytics/AnalyticsBody';
 import * as gtag from '@/utils/core/Analytics/gtag';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import Config from 'Config';
+import GenerateRssFeed from '@/utils/core/RSS/GenerateRssFeed';
 
 const progress = new ProgressBar({
   size: 2,
@@ -195,4 +196,11 @@ export default function App({ Component, pageProps, router }) {
       </SearchProvider>
     </>
   )
+}
+
+export async function getStaticProps() {
+  // build our rss feed
+  if (process.env.NODE_ENV === 'production') {
+    await GenerateRssFeed();
+  }
 }

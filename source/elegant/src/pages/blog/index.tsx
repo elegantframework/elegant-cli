@@ -2,7 +2,6 @@ import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm'
 import { getAllPostPreviews } from '@/utils/getAllPosts';
 import Link from 'next/link';
 import clsx from 'clsx';
-import buildRss from '@/scripts/build-rss';
 import Config from "Config";
 import { getDocuments } from '@/utils/core/Collections/collection'
 import { Post } from '@/types/Post';
@@ -113,9 +112,6 @@ Blog.layoutProps = {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  // if (process.env.NODE_ENV === 'production') {
-  //   await buildRss()
-  // }
 
   const posts = getDocuments('posts', [
     'title',
