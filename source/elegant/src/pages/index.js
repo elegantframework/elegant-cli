@@ -11,7 +11,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import MetaTitle from '@/utils/core/Meta/MetaTitle';
 import Config from "Config";
-import GenerateRssFeed from '@/utils/core/RSS/GenerateRssFeed';
+import GenerateRssFeed from '@/utils/core/RSS/GenerateRSSFeed';
 
 Home.layoutProps = {
   meta: {
