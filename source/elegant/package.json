@@ -154,7 +154,6 @@
     "jest": "^29.5.0",
     "jest-dom": "^4.0.0",
     "jest-environment-jsdom": "^29.5.0",
-    "just-group-by": "^2.2.0",
     "mini-svg-data-uri": "^1.4.3",
     "minimatch": "^3.0.4",
     "msw": "^1.2.2",
