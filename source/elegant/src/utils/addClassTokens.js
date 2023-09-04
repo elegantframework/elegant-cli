@@ -10,10 +10,10 @@ export function addClassTokens(token, tokensArr, index) {
       token[1]
         .map((t) => {
           if (typeof t !== 'string') return [t]
-          return t.split(/(\s+)/).map((c, i) => (i % 2 !== 0 ? c : ['class', c]))
+          return t.split(/(\s+)/).map((c, i) => (i % 2 !== 0 ? c : ['class', c]));
         })
         .flat(),
-    ]
+    ];
   }
   return token
 }

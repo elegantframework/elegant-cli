@@ -120,7 +120,7 @@ function CopyButton({ code }) {
         </div>
       </Transition>
     </div>
-  )
+  );
 }
 
 function Code({ code, lang, pad }) {

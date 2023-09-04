@@ -35,7 +35,7 @@ const SplashHeader = ({
     appName,
     navigationItems = []
 }: Props) => {
-    return(
+    return (
         <header className="relative mb-10">
             <div className="px-4 sm:px-6 md:px-8">
                 {beams && 
@@ -56,9 +56,9 @@ const SplashHeader = ({
                 }
                 <div className="relative pt-6 lg:pt-8 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
                     <Link href="/" passHref>
-                        <a>
-                            <Logo className="w-auto h-7 cursor-pointer" />
-                        </a>
+
+                        <Logo className="w-auto h-7 cursor-pointer" />
+
                     </Link>
                     <div className="flex items-center">
                         <NavPopover 

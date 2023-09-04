@@ -40,98 +40,96 @@ export function SearchProvider({ children }) {
     onClose,
   })
 
-  return (
-    <>
-      <Head>
-        {/* <link rel="preconnect" href={`https://${APP_ID}-dsn.algolia.net`} crossOrigin="true" /> */}
-      </Head>
-      <SearchContext.Provider
-        value={{
-          isOpen,
-          onOpen,
-          onClose,
-          onInput,
-        }}
-      >
-        {children}
-      </SearchContext.Provider>
-      {isOpen &&
-        createPortal(
-          <DocSearchModal
-            initialQuery={initialQuery}
-            initialScrollY={window.scrollY}
-            searchParameters={{
-              facetFilters: 'version:v3',
-              distinct: 1,
-            }}
-            placeholder="Search documentation"
-            onClose={onClose}
-            indexName={INDEX_NAME}
-            apiKey={API_KEY}
-            appId={APP_ID}
-            navigator={{
-              navigate({ itemUrl }) {
-                setIsOpen(false)
-                router.push(itemUrl)
-              },
-            }}
-            hitComponent={Hit}
-            transformItems={(items) => {
-              return items.map((item, index) => {
-                // We transform the absolute URL into a relative URL to
-                // leverage Next's preloading.
-                const a = document.createElement('a')
-                a.href = item.url
+  return <>
+    <Head>
+      {/* <link rel="preconnect" href={`https://${APP_ID}-dsn.algolia.net`} crossOrigin="true" /> */}
+    </Head>
+    <SearchContext.Provider
+      value={{
+        isOpen,
+        onOpen,
+        onClose,
+        onInput,
+      }}
+    >
+      {children}
+    </SearchContext.Provider>
+    {isOpen &&
+      createPortal(
+        <DocSearchModal
+          initialQuery={initialQuery}
+          initialScrollY={window.scrollY}
+          searchParameters={{
+            facetFilters: 'version:v3',
+            distinct: 1,
+          }}
+          placeholder="Search documentation"
+          onClose={onClose}
+          indexName={INDEX_NAME}
+          apiKey={API_KEY}
+          appId={APP_ID}
+          navigator={{
+            navigate({ itemUrl }) {
+              setIsOpen(false)
+              router.push(itemUrl)
+            },
+          }}
+          hitComponent={Hit}
+          transformItems={(items) => {
+            return items.map((item, index) => {
+              // We transform the absolute URL into a relative URL to
+              // leverage Next's preloading.
+              const a = document.createElement('a')
+              a.href = item.url
 
-                const hash = a.hash === '#content-wrapper' || a.hash === '#header' ? '' : a.hash
+              const hash = a.hash === '#content-wrapper' || a.hash === '#header' ? '' : a.hash
 
-                if (item.hierarchy?.lvl0) {
-                  item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
-                }
+              if (item.hierarchy?.lvl0) {
+                item.hierarchy.lvl0 = item.hierarchy.lvl0.replace(/&amp;/g, '&')
+              }
 
-                if (item._highlightResult?.hierarchy?.lvl0?.value) {
-                  item._highlightResult.hierarchy.lvl0.value =
-                    item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
-                }
+              if (item._highlightResult?.hierarchy?.lvl0?.value) {
+                item._highlightResult.hierarchy.lvl0.value =
+                  item._highlightResult.hierarchy.lvl0.value.replace(/&amp;/g, '&')
+              }
 
-                return {
-                  ...item,
-                  url: `${a.pathname}${hash}`,
-                  __is_result: () => true,
-                  __is_parent: () => item.type === 'lvl1' && items.length > 1 && index === 0,
-                  __is_child: () =>
-                    item.type !== 'lvl1' &&
-                    items.length > 1 &&
-                    items[0].type === 'lvl1' &&
-                    index !== 0,
-                  __is_first: () => index === 1,
-                  __is_last: () => index === items.length - 1 && index !== 0,
-                }
-              })
-            }}
-          />,
-          document.body
-        )}
-    </>
-  )
+              return {
+                ...item,
+                url: `${a.pathname}${hash}`,
+                __is_result: () => true,
+                __is_parent: () => item.type === 'lvl1' && items.length > 1 && index === 0,
+                __is_child: () =>
+                  item.type !== 'lvl1' &&
+                  items.length > 1 &&
+                  items[0].type === 'lvl1' &&
+                  index !== 0,
+                __is_first: () => index === 1,
+                __is_last: () => index === items.length - 1 && index !== 0,
+              }
+            });
+          }}
+        />,
+        document.body
+      )}
+  </>;
 }
 
 function Hit({ hit, children }) {
   return (
-    <Link href={hit.url}>
-      <a
-        className={clsx({
-          'DocSearch-Hit--Result': hit.__is_result?.(),
-          'DocSearch-Hit--Parent': hit.__is_parent?.(),
-          'DocSearch-Hit--FirstChild': hit.__is_first?.(),
-          'DocSearch-Hit--LastChild': hit.__is_last?.(),
-          'DocSearch-Hit--Child': hit.__is_child?.(),
-        })}
-      >
-        {children}
-      </a>
-    </Link>
-  )
+    (<Link
+      href={hit.url}
+      className={clsx({
+        'DocSearch-Hit--Result': hit.__is_result?.(),
+        'DocSearch-Hit--Parent': hit.__is_parent?.(),
+        'DocSearch-Hit--FirstChild': hit.__is_first?.(),
+        'DocSearch-Hit--LastChild': hit.__is_last?.(),
+        'DocSearch-Hit--Child': hit.__is_child?.(),
+      })}>
+
+      {children}
+
+    </Link>)
+  );
 }
 
 export function SearchButton({ children, ...props }) {

@@ -11,21 +11,21 @@ export const SidebarContext = createContext()
 const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHref }, ref) => {
   return (
     <li ref={ref} data-active={isActive ? 'true' : undefined}>
-      <Link href={isPublished ? href : fallbackHref}>
-        <a
-          className={clsx('block border-l pl-4 -ml-px', {
-            'text-primary-500 border-current font-semibold dark:text-primary-400': isActive,
-            'border-transparent hover:border-slate-400 dark:hover:border-slate-500': !isActive,
-            'text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300':
-              !isActive && isPublished,
-            'text-slate-400': !isActive && !isPublished,
-          })}
-        >
-          {children}
-        </a>
+      <Link
+        href={isPublished ? href : fallbackHref}
+        className={clsx('block border-l pl-4 -ml-px', {
+          'text-primary-500 border-current font-semibold dark:text-primary-400': isActive,
+          'border-transparent hover:border-slate-400 dark:hover:border-slate-500': !isActive,
+          'text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300':
+            !isActive && isPublished,
+          'text-slate-400': !isActive && !isPublished,
+        })}>
+
+        {children}
+
       </Link>
     </li>
-  )
+  );
 })
 
 /**

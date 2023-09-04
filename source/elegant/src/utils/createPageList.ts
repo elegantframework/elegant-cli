@@ -7,5 +7,5 @@ export function createPageList(files: any, base: string) {
       ...acc,
       [slug]: { ...cur.module.default, href: `/${base}/${slug}` },
     }
-  }, {})
+  }, {});
 };

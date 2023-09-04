@@ -13,7 +13,7 @@ function importAll(r) {
     posts
       .filter((p) => p.module.meta.private !== true)
       .sort((a, b) => dateSortDesc(a.module.meta.date, b.module.meta.date))
-  )
+  );
 }
 
 function dateSortDesc(a, b) {
@@ -23,9 +23,9 @@ function dateSortDesc(a, b) {
 }
 
 export function getAllPostPreviews() {
-  return importAll(require.context('../pages/blog/?preview', true, /\.mdx$/))
+  return importAll(require.context('../pages/blog/?preview', true, /\.mdx$/));
 }
 
 export function getAllPosts() {
-  return importAll(require.context('../pages/blog/?rss', true, /\.mdx$/))
+  return importAll(require.context('../pages/blog/?rss', true, /\.mdx$/));
 }

@@ -28,6 +28,6 @@ export function ColorPalette({ colors }) {
           ))}
         </div>
       </div>
-    )
-  })
+    );
+  });
 }

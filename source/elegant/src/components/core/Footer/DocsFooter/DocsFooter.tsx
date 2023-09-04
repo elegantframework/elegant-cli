@@ -28,13 +28,15 @@ const DocsFooter = ({
     next,
     children
 }: Props) => {
-    return(
+    return (
         <footer className={clsx('text-sm leading-6', previous || next ? 'mt-12' : 'mt-16')}>
             {(previous || next) && (
                 <div className="mb-10 text-slate-700 font-semibold flex items-center dark:text-slate-200">
                     {previous && (
-                        <Link href={previous.href}>
-                        <a className="group flex items-center hover:text-slate-900 dark:hover:text-white">
+                        (<Link
+                            href={previous.href}
+                            className="group flex items-center hover:text-slate-900 dark:hover:text-white">
+
                             <svg
                             viewBox="0 0 3 6"
                             className="mr-3 w-auto h-1.5 text-slate-400 overflow-visible group-hover:text-slate-600 dark:group-hover:text-slate-300"
@@ -49,12 +51,14 @@ const DocsFooter = ({
                             />
                             </svg>
                             {previous.shortTitle || previous.title}
-                        </a>
-                        </Link>
+
+                        </Link>)
                     )}
                     {next && (
-                        <Link href={next.href}>
-                        <a className="group ml-auto flex items-center hover:text-slate-900 dark:hover:text-white">
+                        (<Link
+                            href={next.href}
+                            className="group ml-auto flex items-center hover:text-slate-900 dark:hover:text-white">
+
                             {next.shortTitle || next.title}
                             <svg
                             viewBox="0 0 3 6"
@@ -69,8 +73,8 @@ const DocsFooter = ({
                                 strokeLinejoin="round"
                             />
                             </svg>
-                        </a>
-                        </Link>
+
+                        </Link>)
                     )}
                 </div>
             )}

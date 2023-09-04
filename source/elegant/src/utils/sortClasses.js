@@ -19,11 +19,11 @@ export function numbersFirst(classes) {
     if (isNaN(aNum)) return 1
     if (isNaN(bNum)) return -1
     return aNum - bNum
-  })
+  });
 }
 
 export function numbersFirstByPrefix(classes) {
-  return Object.values(groupBy(classes, (c) => c.match(/^(.*?)[^-]+$/)[1])).flatMap(numbersFirst)
+  return Object.values(groupBy(classes, (c) => c.match(/^(.*?)[^-]+$/)[1])).flatMap(numbersFirst);
 }
 
 export function numbersLast(classes) {
@@ -45,7 +45,7 @@ export function numbersLast(classes) {
     if (isNaN(aNum)) return -1
     if (isNaN(bNum)) return 1
     return aNum - bNum
-  })
+  });
 }
 
 export function negativeLast(classes) {
