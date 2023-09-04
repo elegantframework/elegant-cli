@@ -1,12 +1,11 @@
 import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm';
-import { getAllPostPreviews } from '@/utils/getAllPosts';
 import Link from 'next/link';
 import clsx from 'clsx';
 import Config from "Config";
 import { getDocuments } from '@/utils/core/Collections/collection'
 import { Post } from '@/types/Post';
 import moment from 'moment';
-import { GetServerSideProps } from 'next';
+import GenerateRssFeed from '@/utils/core/RSS/GenerateRSSFeed';
 
 interface Props {
   /**
@@ -111,7 +110,11 @@ Blog.layoutProps = {
   },
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps = async () => {
+  // build our rss feed
+  if (process.env.NODE_ENV === 'production') {
+    await GenerateRssFeed();
+  }
 
   const posts = getDocuments('posts', [
     'title',
