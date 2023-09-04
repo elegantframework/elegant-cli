@@ -1,21 +1,7 @@
 import * as path from 'path';
 import { createLoader } from 'simple-functional-loader';
 import frontMatter from 'front-matter';
-import withSmartQuotes from '@silvenon/remark-smartypants';
-import { withTableOfContents } from './remark/withTableOfContents.mjs'
-import { withSyntaxHighlighting } from './remark/withSyntaxHighlighting.mjs'
-import { withLinkRoles } from './rehype/withLinkRoles.mjs'
 import minimatch from 'minimatch';
-import withExamples from './remark/withExamples.mjs';
-import {
-  highlightCode,
-  fixSelectorEscapeTokens,
-  simplifyToken,
-  normalizeTokens,
-} from './remark/utils.mjs';
-import remarkGfm from 'remark-gfm';
-import remarkUnwrapImages from 'remark-unwrap-images';
-import Prism from 'prismjs';
 import * as fs from 'fs';
 import { createRequire } from 'node:module';
 import * as url from 'node:url';
@@ -82,23 +68,9 @@ export default {
       use: [
         options.defaultLoaders.babel,
         createLoader(function (source) {
-          let lang =
-            new URLSearchParams(this.resourceQuery).get('highlight') ||
-            this.resourcePath.split('.').pop()
-          let isDiff = lang.startsWith('diff-')
-          let prismLang = isDiff ? lang.substr(5) : lang
-          let grammar = Prism.languages[isDiff ? 'diff' : prismLang]
-          let tokens = Prism.tokenize(source, grammar, lang)
-
-          if (lang === 'css') {
-            fixSelectorEscapeTokens(tokens)
-          }
 
           return `
-            export const tokens = ${JSON.stringify(tokens.map(simplifyToken))}
-            export const lines = ${JSON.stringify(normalizeTokens(tokens))}
             export const code = ${JSON.stringify(source)}
-            export const highlightedCode = ${JSON.stringify(highlightCode(source, lang))}
           `
         }),
       ],
@@ -113,15 +85,8 @@ export default {
             : { 
                 providerImportSource: '@mdx-js/react',
                 remarkPlugins: [
-                  remarkGfm,
-                  remarkUnwrapImages,
-                  withExamples,
-                  withTableOfContents,
-                  withSyntaxHighlighting,
-                  withSmartQuotes,
                   ...plugins,
                 ],
-                rehypePlugins: [withLinkRoles],
               }
       },
       createLoader(function (source) {
@@ -143,7 +108,6 @@ export default {
           loader: '@mdx-js/loader',
           options: {
             providerImportSource: '@mdx-js/react',
-            remarkPlugins: [withSyntaxHighlighting],
           },
         },
       ],

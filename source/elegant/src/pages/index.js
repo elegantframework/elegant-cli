@@ -11,7 +11,6 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import MetaTitle from '@/utils/core/Meta/MetaTitle';
 import Config from "Config";
-import GenerateRssFeed from '@/utils/core/RSS/GenerateRSSFeed';
 
 Home.layoutProps = {
   meta: {
@@ -156,10 +155,8 @@ const Header = () => {
                 </div>
               </form>
               <div className='border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-600 md:mx-3 mb-5 md:mb-0'></div>
-              <NextLink
-                href="/docs/installation"
-                className="bg-secondary-500 hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto min-w-[128px] dark:bg-secondary-500 dark:highlight-white/20 dark:hover:bg-secondary-400">
-                
+              <NextLink href="/docs/installation">
+                <a className="bg-secondary-500 hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto min-w-[128px] dark:bg-secondary-500 dark:highlight-white/20 dark:hover:bg-secondary-400">
                   Get Started
                 
               </NextLink>
@@ -255,7 +252,7 @@ const Header = () => {
                     Elegant comes completely integrated with <NextLink
                     href="/docs/google-analytics"
                     className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">Google Analytics</NextLink>, <NextLink
-                    href="/docs/google-analytics"
+                    href="/docs/convertkit"
                     className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">ConvertKit</NextLink>, and more. 
                     <br />
                     <br />
@@ -280,14 +277,3 @@ const Header = () => {
     </React.Fragment>
   );
 };
-
-export async function getStaticProps() {
-  // build our rss feed
-  if (process.env.NODE_ENV === 'production') {
-    await GenerateRssFeed();
-  }
-
-  return {
-    props: {}
-  };
-}
