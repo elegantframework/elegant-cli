@@ -2,8 +2,6 @@ import * as path from 'path';
 import { createLoader } from 'simple-functional-loader';
 import frontMatter from 'front-matter';
 import minimatch from 'minimatch';
-import remarkGfm from 'remark-gfm';
-import remarkUnwrapImages from 'remark-unwrap-images';
 import * as fs from 'fs';
 import { createRequire } from 'node:module';
 import * as url from 'node:url';
@@ -87,8 +85,6 @@ export default {
             : { 
                 providerImportSource: '@mdx-js/react',
                 remarkPlugins: [
-                  remarkGfm,
-                  remarkUnwrapImages,
                   ...plugins,
                 ],
               }
