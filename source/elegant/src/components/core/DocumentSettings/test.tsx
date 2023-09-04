@@ -3,8 +3,10 @@ import React from 'react';
 import { TestWrapper } from '@/utils/core/TestWrapper';
 import { useCMSSession } from '@/utils/core/Auth/hooks';
 import DocumentSettings from '.';
+import mockRouter from 'next-router-mock';
 
-jest.mock('@/utils/core/Auth/hooks')
+jest.mock('@/utils/core/Auth/hooks');
+jest.mock('next/router', () => jest.requireActual('next-router-mock'));
 
 jest.mock('react-hook-form', () => ({
   ...jest.requireActual('react-hook-form'),
