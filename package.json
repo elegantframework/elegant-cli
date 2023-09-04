@@ -1,6 +1,6 @@
 {
   "name": "elegant-cli",
-  "version": "3.0.0-innovators.6",
+  "version": "3.0.0-innovators.7",
   "description": "Elegant is the easiest way to create a new static website or blog, and publish it online. No need for databases, external services, or complicated server setups.",
   "scripts": {
     "build:elegant": "cd source/elegant && npm run build",
