@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from 'react-test-renderer';
-import SplashHeader from "./SplashHeader";
 import ReactDOM from "react-dom";
+import SplashHeader from "./SplashHeader";
 
 Object.defineProperty(window, 'matchMedia', {
     writable: true,
@@ -20,6 +20,8 @@ Object.defineProperty(window, 'matchMedia', {
 // react portal fix
 // @ts-ignore
 ReactDOM.createPortal = node => node;
+
+jest.mock('next/router', () => jest.requireActual('next-router-mock'));
 
 describe("Splash Header component", () => {
     it('renders a splash header component properly', () => {

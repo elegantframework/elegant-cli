@@ -98,7 +98,7 @@ export default function NewCollection() {
           <Alert type="error">
             <span className="font-medium">Oops!</span> We couldn&apos;t create
             your collection. Please, make sure your settings are correct by{' '}
-            <Link href="/admin/settings">
+            <Link href="/admin/settings" legacyBehavior>
               <span className="underline">clicking here</span>
             </Link>{' '}
             .
@@ -168,5 +168,5 @@ export default function NewCollection() {
         )}
       </AdminLayout>
     </FormProvider>
-  )
+  );
 }

@@ -90,5 +90,5 @@ export function ThemeReference() {
         </tbody>
       </table>
     </div>
-  )
+  );
 }

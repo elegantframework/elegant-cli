@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen = false }: SidebarProps) => {
       <div className="py-4 px-3 h-full max-h-[calc(100vh-96px)] overflow-y-scroll scrollbar-hide bg-gray-50 ">
         <ul className="space-y-2">
           <li>
-            <Link href="/admin">
+            <Link href="/admin" legacyBehavior>
               <div className="flex items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 cursor-pointer">
                 <svg
                   className="h-6 w-6 shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900"
@@ -42,7 +42,7 @@ const Sidebar = ({ isOpen = false }: SidebarProps) => {
           <>
             {collections.map((collection) => (
               <li key={collection}>
-                <Link href={`/admin/${collection}`}>
+                <Link href={`/admin/${collection}`} legacyBehavior>
                   <div className="flex items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 cursor-pointer">
                     <svg
                       className="h-6 w-6 shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900"
@@ -65,7 +65,7 @@ const Sidebar = ({ isOpen = false }: SidebarProps) => {
             ))}
           </>
           <li>
-            <Link href="/admin/settings">
+            <Link href="/admin/settings" legacyBehavior>
               <div className="flex items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 cursor-pointer">
                 <svg
                   className="h-6 w-6 shrink-0 text-gray-500 transition duration-75 group-hover:text-gray-900"
@@ -109,7 +109,7 @@ const Sidebar = ({ isOpen = false }: SidebarProps) => {
         </div>
       </div>
     </aside>
-  )
+  );
 }
 
 export default Sidebar

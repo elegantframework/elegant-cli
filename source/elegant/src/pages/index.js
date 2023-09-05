@@ -158,7 +158,7 @@ const Header = () => {
               <NextLink href="/docs/installation">
                 <a className="bg-secondary-500 hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto min-w-[128px] dark:bg-secondary-500 dark:highlight-white/20 dark:hover:bg-secondary-400">
                   Get Started
-                </a>
+                
               </NextLink>
             </div>
           </div>
@@ -219,7 +219,9 @@ const Header = () => {
                     Can I customize and extend the Elegant framework?
                   </h3>
                   <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Yes! Elegant is 100% open source and extendable. We actively encourage code <NextLink href="/docs/contribution-guide"><a className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">contributions</a></NextLink> from the development community.
+                    Yes! Elegant is 100% open source and extendable. We actively encourage code <NextLink
+                    href="/docs/contribution-guide"
+                    className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">contributions</NextLink> from the development community.
                   </p>
                 </li>
                 <li>
@@ -247,7 +249,11 @@ const Header = () => {
                     What tools and features are included?
                   </h3>
                   <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Elegant comes completely integrated with <NextLink href="/docs/google-analytics"><a className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">Google Analytics</a></NextLink>, <NextLink href="/docs/google-analytics"><a className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">ConvertKit</a></NextLink>, and more. 
+                    Elegant comes completely integrated with <NextLink
+                    href="/docs/google-analytics"
+                    className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">Google Analytics</NextLink>, <NextLink
+                    href="/docs/convertkit"
+                    className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">ConvertKit</NextLink>, and more. 
                     <br />
                     <br />
                     We have included an SEO perfect theme that looks great on any device, and is perfect for blogging or writing user docs.
@@ -258,7 +264,9 @@ const Header = () => {
                     But why another framework?
                   </h3>
                   <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Elegant is a simple <NextLink href="/blog/2023-04-24-but-why-another-framework"><a className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">framework</a></NextLink> made up of the latest cutting edge frontend technologies. Elegant is meant to help you rapidly build your next idea, and not get in your way. 
+                    Elegant is a simple <NextLink
+                    href="/blog/2023-04-24-but-why-another-framework"
+                    className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">framework</NextLink> made up of the latest cutting edge frontend technologies. Elegant is meant to help you rapidly build your next idea, and not get in your way. 
                   </p>
                 </li>
               </ul>
@@ -267,5 +275,5 @@ const Header = () => {
         </div>
       </section>
     </React.Fragment>
-  )
+  );
 };

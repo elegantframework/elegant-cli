@@ -45,20 +45,22 @@ export function Footer() {
                   <ul className="mt-3 space-y-2">
                     {items.map((item) => (
                       <li key={item.href}>
-                        <Link href={item.href} passHref>
-                          <a className="hover:text-slate-900 dark:hover:text-slate-300 flex items-center" 
-                             target={item.external === true ? "_blank" : ""} 
-                             rel={item.external === true ? "noopener noreferrer" : ""}
-                          >
-                            <span className="mr-1">
-                              {item.title}
-                            </span>
-                            {item.external === true && 
-                              <ArrowTopRightOnSquareIcon 
-                                className="w-4 h-4"
-                              />
-                            }
-                          </a>
+                        <Link
+                          href={item.href}
+                          passHref
+                          className="hover:text-slate-900 dark:hover:text-slate-300 flex items-center"
+                          target={item.external === true ? "_blank" : ""}
+                          rel={item.external === true ? "noopener noreferrer" : ""}>
+
+                          <span className="mr-1">
+                            {item.title}
+                          </span>
+                          {item.external === true && 
+                            <ArrowTopRightOnSquareIcon 
+                              className="w-4 h-4"
+                            />
+                          }
+
                         </Link>
                       </li>
                     ))}
@@ -73,5 +75,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

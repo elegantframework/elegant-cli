@@ -23,15 +23,17 @@ const NavItems = ({navItems}: Props) => {
     navItems.forEach(item => {
         list.push(
             <li key={item.label}>
-                <Link href={item.href}>
-                    <a className={
+                <Link
+                    href={item.href}
+                    className={
                         clsx(
                             'hover:text-primary-500 dark:hover:text-primary-400', 
                             (router.pathname.indexOf(item.path) > -1 ? 'text-primary-500 dark:text-primary-400' : '')
                         )
                     }>
-                        {item.label}
-                    </a>
+
+                    {item.label}
+
                 </Link>
             </li>
         ); 

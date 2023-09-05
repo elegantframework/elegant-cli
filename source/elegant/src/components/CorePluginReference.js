@@ -57,5 +57,5 @@ export function CorePluginReference() {
         </tbody>
       </table>
     </div>
-  )
+  );
 }

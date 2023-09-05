@@ -79,15 +79,17 @@ const renderNavigationSection = (section: NavigationSection) => {
  * @returns A list item with a next.js url link.
  */
 const renderNavigationLink = (link: NavigationLink) => {
-    return(
+    return (
         <li key={link.href}>
-            <Link href={link.href} passHref>
-                <a className="hover:text-slate-900 dark:hover:text-slate-300" 
-                   target={link.external === true ? "_blank" : ""} 
-                   rel={link.external === true ? "noopener noreferrer" : ""}
-                >
-                    {link.title}
-                </a>
+            <Link
+                href={link.href}
+                passHref
+                className="hover:text-slate-900 dark:hover:text-slate-300"
+                target={link.external === true ? "_blank" : ""}
+                rel={link.external === true ? "noopener noreferrer" : ""}>
+
+                {link.title}
+
             </Link>
         </li>
     );

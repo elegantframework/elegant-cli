@@ -38,7 +38,7 @@ const DocumentationLayout = ({
     const { currentSection, registerHeading, unregisterHeading } = useTableOfContents(toc);
     let { prev, next } = usePrevNext();
 
-    return(
+    return (
         <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
             <DocumentationHeading 
                 title={post.title}
@@ -55,15 +55,13 @@ const DocumentationLayout = ({
                 <DocsFooter previous={prev} next={next}>
                   {Config('app.repository').length > 0 &&
                       <Link
-                        href={`${Config('app.repository')}/edit/main/${Config('admin.cms_monorepo_path')}${Config('admin.cms_content_path')}/docs/${post.slug}.mdx`}
-                      >
-                        <a 
-                            className="hover:text-slate-900 dark:hover:text-slate-400"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                          href={`${Config('app.repository')}/edit/main/${Config('admin.cms_monorepo_path')}${Config('admin.cms_content_path')}/docs/${post.slug}.mdx`}
+                          className="hover:text-slate-900 dark:hover:text-slate-400"
+                          target="_blank"
+                          rel="noopener noreferrer">
+                        
                             Edit this page on GitHub
-                        </a>
+                        
                       </Link>
                   }
                 </DocsFooter>

@@ -74,33 +74,35 @@ export default function Blog({
                   </dd>
                 </dl>
               </div>
-              <Link href={`/blog/${post.slug}`}>
-                <a className="flex items-center text-sm text-primary-500 font-medium">
-                  <span className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl" />
-                  <span className="relative">
-                    Read more<span className="sr-only">, {post.title}</span>
-                  </span>
-                  <svg
-                    className="relative mt-px overflow-visible ml-2.5 text-primary-300 dark:text-primary-700"
-                    width="3"
-                    height="6"
-                    viewBox="0 0 3 6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M0 0L3 3L0 6"></path>
-                  </svg>
-                </a>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="flex items-center text-sm text-primary-500 font-medium">
+
+                <span className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl" />
+                <span className="relative">
+                  Read more<span className="sr-only">, {post.title}</span>
+                </span>
+                <svg
+                  className="relative mt-px overflow-visible ml-2.5 text-primary-300 dark:text-primary-700"
+                  width="3"
+                  height="6"
+                  viewBox="0 0 3 6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M0 0L3 3L0 6"></path>
+                </svg>
+
               </Link>
             </article>
           ))}
         </div>
       </div>
     </main>
-  )
+  );
 }
 
 Blog.layoutProps = {
