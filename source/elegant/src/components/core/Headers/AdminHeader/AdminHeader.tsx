@@ -116,11 +116,9 @@ export default function AdminHeader({
                             className="mr-3 flex-none w-[2.0625rem] overflow-hidden"
                             onContextMenu={(e) => {
                                 e.preventDefault()
-                            }}>
-
-                            <span className="sr-only">{Config('app.name')} home page</span>
+                            }}
+                            legacyBehavior>
                             <Logo className="w-auto h-7"/>
-
                         </Link>
                         {status === 'loading' || (
                             <div className="flex items-center md:order-2">

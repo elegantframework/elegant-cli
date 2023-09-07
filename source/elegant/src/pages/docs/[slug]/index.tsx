@@ -14,6 +14,11 @@ import MetaTitle from "@/utils/core/Meta/MetaTitle";
 import HtmlToToc from "@/utils/core/Rehype/HtmlToToc";
 import DocumentationLayout from "@/components/core/Layouts/DocumentationLayout";
 import { Post } from "@/types/Post";
+import SocialSchema from "@/utils/core/Meta/SocialSchema";
+import { BrandJsonLd, LogoJsonLd, SocialProfileJsonLd, WebPageJsonLd } from "next-seo";
+import SeoLogo from './../../public/favicons/apple-icon-180x180.png';
+import { useEffect, useState } from "react";
+import * as gtag from '@/utils/core/Analytics/gtag';
 
 type Props = {
     /**
@@ -40,6 +45,39 @@ export default function Index({
     toc
 }: Props) {
     const router = useRouter();
+    let [navIsOpen, setNavIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (!navIsOpen) {
+            return;
+        }
+
+        function handleRouteChange() {
+          setNavIsOpen(false);
+        }
+
+        router.events.on('routeChangeComplete', handleRouteChange);
+
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange);
+        }
+      }, [navIsOpen]);
+
+    /**
+   * Fire a page view analytics event when a user navigates to a new page
+   */
+  useEffect(() => {
+    if(Config('app.google_analytics_id').length > 0){
+      const handleRouteChange = (url: string) => {
+        gtag.pageview(url);
+      }
+      router.events.on('routeChangeComplete', handleRouteChange);
+
+      return () => {
+        router.events.off('routeChangeComplete', handleRouteChange);
+      }
+    }
+  }, [router.events]);
 
     if (!router.isFallback && !post?.slug) {
         return (
@@ -58,6 +96,9 @@ export default function Index({
         url = "https://" + process.env.NEXT_PUBLIC_VERCEL_URL;
     }
 
+    // if there are social links provided, activate the Social schema data
+    let socialSchema = SocialSchema();
+
     // Set the social share image
     let image = socialCardLarge.src;
 
@@ -67,7 +108,7 @@ export default function Index({
 
     return(
         <>
-             <Head>
+            <Head>
                 <AnalyticsHead googleAnalyticsID={Config('app.google_analytics_id')}/>
             </Head>
             <Seo 
@@ -82,9 +123,34 @@ export default function Index({
                 facebookAppID={Config('app.facebook_app_id')}
                 pageType={'website'}
             />
+            <LogoJsonLd 
+                logo={Config('app.url') + SeoLogo.src}
+                url={Config('app.url')}
+            />
+            <BrandJsonLd 
+                logo={Config('app.url') + SeoLogo.src}
+                id={Config('app.url')}
+                slogan={Config('app.tagline')}
+            />
+            <WebPageJsonLd 
+                description={post.description}
+                id={`${Config('app.url')}${router.pathname}`}
+            />
+            {socialSchema.length > 0 && (
+                <SocialProfileJsonLd 
+                    type={
+                        (Config('app.type') === "Person" ? "Person" : "Organization")
+                    }
+                    name={Config('app.name')}
+                    url={url}
+                    sameAs={socialSchema}
+                />
+            )}
             <SidebarLayout
-                navIsOpen={false}
-                setNavIsOpen={() => {}}
+                navIsOpen={navIsOpen}
+                setNavIsOpen={
+                    (isOpen: boolean) => setNavIsOpen(isOpen)
+                }
                 nav={documentationNav}
                 sidebar={null}
                 fallbackHref={null}

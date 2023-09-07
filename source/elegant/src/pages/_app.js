@@ -15,6 +15,7 @@ import AnalyticsBody from '@/components/core/Analytics/AnalyticsBody';
 import * as gtag from '@/utils/core/Analytics/gtag';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import Config from 'Config';
+import SocialSchema from '@/utils/core/Meta/SocialSchema';
 
 const progress = new ProgressBar({
   size: 2,
@@ -103,24 +104,6 @@ export default function App({ Component, pageProps, router }) {
       items.find(({ href }) => href === router.pathname)
     )?.[0];
 
-  // if there are social links provided, activate the Social schema data
-  let socialSchema = [];
-  {
-    Config('app.twitter_url') > 0 ? socialSchema.push(Config('app.twitter_url')) : null;
-  }
-  {
-    Config('app.facebook_url') > 0 ? socialSchema.push(Config('app.facebook_url')) : null;
-  }
-  {
-    Config('app.instagram_url') > 0 ? socialSchema.push(Config('app.instagram_url')) : null;
-  }
-  {
-    Config('app.youtube_url') > 0 ? socialSchema.push(Config('app.youtube_url')) : null;
-  }
-  {
-    Config('app.linkedin_url') > 0 ? socialSchema.push(Config('app.linkedin_url')) : null;
-  }
-
   // set our url
   let url = Config('app.url');
 
@@ -132,20 +115,8 @@ export default function App({ Component, pageProps, router }) {
     url = "https://" + process.env.NEXT_PUBLIC_VERCEL_URL;
   }
 
-  // if we have social data, turn on the schema object
-  let socialProfile;
-
-  if(socialSchema.length > 0)
-  {
-    socialProfile = (
-      <SocialProfileJsonLd 
-        type={Config('app.type')}
-        name={Config('app.name')}
-        url={url}
-        sameAs={socialSchema}
-      />
-    );
-  }
+  // if there are social links provided, activate the Social schema data
+  let socialSchema = SocialSchema();
 
   return (
     <>
@@ -177,7 +148,14 @@ export default function App({ Component, pageProps, router }) {
         description={meta.metaDescription || meta.description}
         id={`${Config('app.url')}${router.pathname}`}
       />
-      {socialProfile}
+      {socialSchema.length > 0 && (
+        <SocialProfileJsonLd 
+          type={Config('app.type')}
+          name={Config('app.name')}
+          url={url}
+          sameAs={socialSchema}
+        />
+      )}
       <SearchProvider>
         {stickyHeader && (
           <Header

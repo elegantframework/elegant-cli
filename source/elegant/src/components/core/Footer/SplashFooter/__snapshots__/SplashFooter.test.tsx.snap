@@ -26,39 +26,30 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           >
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="https://www.indiehackers.com/product/elegant-framework"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Indie Hackers
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="https://twitter.com/thebrandonowens"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Twitter
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="https://www.reddit.com/r/elegantframework/"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Reddit
               </a>
@@ -78,52 +69,40 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           >
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/theme"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Theme Customization
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/configuration"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Easy Configuration
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/deployment"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Affordable Hosting
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="/blog/2023-04-20-the-future-is-markdown"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Safe & Fast
               </a>
@@ -143,39 +122,30 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           >
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/google-analytics"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Google Analytics
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/convertkit"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 ConvertKit
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/deployment"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
                 onTouchStart={[Function]}
-                rel=""
-                target=""
               >
                 Vercel
               </a>

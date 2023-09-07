@@ -34,8 +34,9 @@ const DocsFooter = ({
                 <div className="mb-10 text-slate-700 font-semibold flex items-center dark:text-slate-200">
                     {previous && (
                         (<Link
-                            href={previous.href}
-                            className="group flex items-center hover:text-slate-900 dark:hover:text-white">
+                        href={previous.href}
+                        className="group flex items-center hover:text-slate-900 dark:hover:text-white"
+                        legacyBehavior>
 
                             <svg
                             viewBox="0 0 3 6"
@@ -56,8 +57,9 @@ const DocsFooter = ({
                     )}
                     {next && (
                         (<Link
-                            href={next.href}
-                            className="group ml-auto flex items-center hover:text-slate-900 dark:hover:text-white">
+                        href={next.href}
+                        className="group ml-auto flex items-center hover:text-slate-900 dark:hover:text-white"
+                        legacyBehavior>
 
                             {next.shortTitle || next.title}
                             <svg

@@ -16,7 +16,7 @@ const fallbackGetStaticProps = {};
 
 export default {
   swcMinify: true,
-  pageExtensions: ['js', 'jsx', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   experimental: {
     esmExternals: false,
   },

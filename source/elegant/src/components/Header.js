@@ -104,10 +104,8 @@ export function NavItems() {
               'hover:text-primary-500 dark:hover:text-primary-400', 
               (router.pathname.indexOf('/docs/') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
             )
-          }>
-        
-          Docs
-        
+      }>
+        Docs
       </Link>
     </li>
     <li>
@@ -119,9 +117,7 @@ export function NavItems() {
               (router.pathname.indexOf('/blog') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
             )
           }>
-        
           Blog
-        
       </Link>
     </li>
   </>;
@@ -194,11 +190,8 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
               onContextMenu={(e) => {
                 e.preventDefault()
                 // Router.push('/brand')
-              }}>
-
-              <span className="sr-only">{Config('app.name')} home page</span>
+            }}>
               <Logo className="w-auto h-7" />
-
             </Link>
             {/* <VersionSwitcher /> */}
             <div className="relative hidden lg:flex items-center ml-auto">

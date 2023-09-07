@@ -16,7 +16,7 @@ describe('App Config', () => {
     it('returns an application name when an environment variable is passed',() => {
         expect(AppConfig().name).toBe("Elegant - The unit testing application.");
         expect(AppConfig().convert_action_url).toBe("https://example.com/convertkit/post");
-        expect(AppConfig().instagram_url).toBe("");
+        expect(AppConfig().instagram_url).toBe("http://instagram.com/yourProfile");
         expect(AppConfig().description).toBe("A unit test first frontend framework for rapidly building beautiful and elegant web applications.");
         expect(AppConfig().tagline).toBe("The Unit Test First Framework for React Developers");
     });
