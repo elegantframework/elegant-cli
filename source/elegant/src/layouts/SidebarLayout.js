@@ -20,7 +20,7 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
             !isActive && isPublished,
           'text-slate-400': !isActive && !isPublished,
         })}
-        legacyBehavior>
+        >
         {children}
       </Link>
     </li>
