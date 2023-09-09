@@ -175,17 +175,17 @@ export default {
           let extra = []
           let resourcePath = path.relative(__dirname, this.resourcePath);
 
-          if (!/^\s*export\s+default\s+/m.test(source.replace(/```(.*?)```/gs, ''))) {
-            for (let glob in fallbackDefaultExports) {
-              if (minimatch(resourcePath, glob)) {
-                extra.push(
-                  `import { ${fallbackDefaultExports[glob][1]} as _Default } from '${fallbackDefaultExports[glob][0]}'`,
-                  'export default _Default'
-                )
-                break
-              }
-            }
-          }
+          // if (!/^\s*export\s+default\s+/m.test(source.replace(/```(.*?)```/gs, ''))) {
+          //   for (let glob in fallbackDefaultExports) {
+          //     if (minimatch(resourcePath, glob)) {
+          //       extra.push(
+          //         `import { ${fallbackDefaultExports[glob][1]} as _Default } from '${fallbackDefaultExports[glob][0]}'`,
+          //         'export default _Default'
+          //       )
+          //       break
+          //     }
+          //   }
+          // }
 
           // if (
           //   !/^\s*export\s+(async\s+)?function\s+getStaticProps\s+/m.test(
