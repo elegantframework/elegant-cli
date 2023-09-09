@@ -55,7 +55,7 @@ export default function Index({
                     <Link
                         href="/blog"
                         className="group flex font-semibold text-sm leading-6 text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
-                        legacyBehavior>
+                    >
                         <svg
                             viewBox="0 -9 3 24"
                             className="overflow-visible mr-3 text-slate-400 w-auto h-6 group-hover:text-slate-600 dark:group-hover:text-slate-300"

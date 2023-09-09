@@ -78,7 +78,6 @@ export default function Blog({
                 <Link
                   href={`/blog/${post.slug}`}
                   className="flex items-center text-sm text-primary-500 font-medium"
-                  legacyBehavior
                 >
                   <>
                     <span className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl" />
