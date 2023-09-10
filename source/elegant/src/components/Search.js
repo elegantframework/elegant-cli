@@ -125,10 +125,8 @@ function Hit({ hit, children }) {
         'DocSearch-Hit--LastChild': hit.__is_last?.(),
         'DocSearch-Hit--Child': hit.__is_child?.(),
       })}
-      legacyBehavior>
-
+      >
         {children}
-
       </Link>
   );
 }

@@ -1,4 +1,4 @@
-import { SidebarLayout } from '@/layouts/SidebarLayout';
+import { SidebarLayout } from '@/components/core/layouts/SidebarLayout';
 import { documentationNav } from '@/config/Navigation';
 
 export default function DocumentationLayout(props: any) {

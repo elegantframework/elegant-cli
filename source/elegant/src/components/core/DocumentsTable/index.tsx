@@ -40,7 +40,7 @@ const DocumentsTable = (props: DocumentsTableProps) => {
                 scope="row"
                 className="relative whitespace-nowrap px-6 py-4 text-base font-semibold text-gray-900 group"
               >
-                <Link href={`/admin/${props.collection}/${slug}`} legacyBehavior>
+                <Link href={`/admin/${props.collection}/${slug}`}>
                   <div className="group-hover:text-primary-500">
                     {title}
                     <div className="absolute top-0 bottom-0 left-0 right-40 cursor-pointer" />

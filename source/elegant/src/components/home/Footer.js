@@ -47,11 +47,9 @@ export function Footer() {
                       <li key={item.href}>
                         <Link
                           href={item.href}
-                          passHref
                           className="hover:text-slate-900 dark:hover:text-slate-300 flex items-center"
                           target={item.external === true ? "_blank" : ""}
                           rel={item.external === true ? "noopener noreferrer" : ""}
-                          legacyBehavior
                         >
                          <>
                           <span className="mr-1">

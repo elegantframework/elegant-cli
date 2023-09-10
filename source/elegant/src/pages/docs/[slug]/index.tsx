@@ -34,11 +34,7 @@ type Props = {
 };
 
 Index.layoutProps = {
-    Layout: DocumentationLayout,
-    meta: {
-        title: "Hey",
-        section: "Now"
-    }
+    Layout: DocumentationLayout
 }
 
 /**

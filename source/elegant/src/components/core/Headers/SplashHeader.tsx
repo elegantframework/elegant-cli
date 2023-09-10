@@ -55,10 +55,8 @@ const SplashHeader = ({
                     </div>
                 }
                 <div className="relative pt-6 lg:pt-8 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
-                    <Link href="/" passHref legacyBehavior>
-
+                    <Link href="/">
                         <Logo className="w-auto h-7 cursor-pointer" />
-
                     </Link>
                     <div className="flex items-center">
                         <NavPopover 

@@ -114,10 +114,7 @@ export default function AdminHeader({
                         <Link
                             href="/admin"
                             className="mr-3 flex-none w-[2.0625rem] overflow-hidden"
-                            onContextMenu={(e) => {
-                                e.preventDefault()
-                            }}
-                            legacyBehavior>
+                        >
                             <Logo className="w-auto h-7"/>
                         </Link>
                         {status === 'loading' || (

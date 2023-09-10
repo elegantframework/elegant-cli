@@ -31,10 +31,8 @@ const NavItems = ({navItems}: Props) => {
                             (router.pathname.indexOf(item.path) > -1 ? 'text-primary-500 dark:text-primary-400' : '')
                         )
                     }
-                    legacyBehavior>
-
+                >
                     {item.label}
-
                 </Link>
             </li>
         ); 

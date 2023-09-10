@@ -83,14 +83,11 @@ const renderNavigationLink = (link: NavigationLink) => {
         <li key={link.href}>
             <Link
                 href={link.href}
-                passHref
                 className="hover:text-slate-900 dark:hover:text-slate-300"
                 target={link.external === true ? "_blank" : ""}
                 rel={link.external === true ? "noopener noreferrer" : ""}
-                legacyBehavior>
-
+            >
                 {link.title}
-
             </Link>
         </li>
     );
