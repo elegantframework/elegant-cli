@@ -8,8 +8,8 @@
     "publish:innovators": "node scripts/publish-innovators-prerelease.ts",
     "publish:patch": "node scripts/publish-patch.ts",
     "publish:ui-patch": "cd ./packages/elegant-ui && node scripts/publish-elegant-ui-patch.ts",
-    "test": "jest --watch --verbose ./integrations --detectOpenHandles --forceExit --silent",
-    "test:ci": "jest --ci ./integrations --detectOpenHandles --forceExit --silent && cd source/elegant && npm run test:ci",
+    "test": "jest --watch --verbose ./integrations --detectOpenHandles --forceExit",
+    "test:ci": "jest --ci ./integrations --detectOpenHandles --forceExit && cd source/elegant && npm run test:ci",
     "test:elegant": "cd source/elegant && npm run test --watch"
   },
   "repository": {
