@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { SidebarContext } from '@/components/core/layouts/SidebarLayout'
+import { SidebarContext } from '@/components/core/Layouts/SidebarLayout'
 import { useRouter } from 'next/router'
 
 export function usePrevNext() {
