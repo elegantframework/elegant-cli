@@ -28,7 +28,6 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
 })
 
 
-
 function Wrapper({ allowOverflow, children }) {
   return <div className={allowOverflow ? undefined : 'overflow-hidden'}>{children}</div>
 }
