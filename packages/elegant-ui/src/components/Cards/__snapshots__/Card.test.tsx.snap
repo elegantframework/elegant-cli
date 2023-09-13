@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component renders a card properly 1`] = `
+<div
+  className="text-center mb-20 flex max-w-2xl flex-col items-center text-black bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-0 shadow-md dark:shadow-[inset_0_0_0_1px_#ffffff1a] p-8 px-4 md:p-8"
+>
+  <div>
+    This is a test
+  </div>
+</div>
+`;

@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from 'clsx';
 
-export interface Props {
+interface Props {
     /**
      * The url css text color classes.
      */
@@ -16,10 +16,10 @@ export interface Props {
  * The Built with Elegant mark to be used in footers.
  * @returns An html element to be used in Elegant footers.
  */
-const BuiltWithElegant = ({
+export default function BuiltWithElegant({
     linkColor="hover:text-primary-500 dark:hover:text-primary-400",
     copyright="Elegant, Inc."
-}: Props) => {
+}: Props) {
     return(
         <div className="mb-6 sm:mb-0 sm:flex">
             <p>Copyright &copy; {new Date().getFullYear()} {copyright}</p>
@@ -34,5 +34,3 @@ const BuiltWithElegant = ({
         </div>
     );
 }
-
-export default BuiltWithElegant;
