@@ -1,22 +1,15 @@
 import * as path from 'path';
 import { createLoader } from 'simple-functional-loader';
 import frontMatter from 'front-matter';
-import minimatch from 'minimatch';
 import * as fs from 'fs';
 import { createRequire } from 'node:module';
 import * as url from 'node:url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const require = createRequire(import.meta.url);
 
-const fallbackDefaultExports = {
-  'src/pages/{docs,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
-}
-
-const fallbackGetStaticProps = {};
-
 export default {
   swcMinify: true,
-  pageExtensions: ['js', 'jsx', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   experimental: {
     esmExternals: false,
   },
@@ -173,32 +166,7 @@ export default {
           }
 
           let extra = []
-          let resourcePath = path.relative(__dirname, this.resourcePath);
-
-          if (!/^\s*export\s+default\s+/m.test(source.replace(/```(.*?)```/gs, ''))) {
-            for (let glob in fallbackDefaultExports) {
-              if (minimatch(resourcePath, glob)) {
-                extra.push(
-                  `import { ${fallbackDefaultExports[glob][1]} as _Default } from '${fallbackDefaultExports[glob][0]}'`,
-                  'export default _Default'
-                )
-                break
-              }
-            }
-          }
-
-          // if (
-          //   !/^\s*export\s+(async\s+)?function\s+getStaticProps\s+/m.test(
-          //     source.replace(/```(.*?)```/gs, '')
-          //   )
-          // ) {
-          //   for (let glob in fallbackGetStaticProps) {
-          //     if (minimatch(resourcePath, glob)) {
-          //       extra.push(`export { getStaticProps } from '${fallbackGetStaticProps[glob]}'`)
-          //       break
-          //     }
-          //   }
-          // }
+      
 
           let metaExport
           if (!/export\s+(const|let|var)\s+meta\s*=/.test(source)) {

@@ -47,11 +47,11 @@ export function Footer() {
                       <li key={item.href}>
                         <Link
                           href={item.href}
-                          passHref
                           className="hover:text-slate-900 dark:hover:text-slate-300 flex items-center"
                           target={item.external === true ? "_blank" : ""}
-                          rel={item.external === true ? "noopener noreferrer" : ""}>
-
+                          rel={item.external === true ? "noopener noreferrer" : ""}
+                        >
+                         <>
                           <span className="mr-1">
                             {item.title}
                           </span>
@@ -60,7 +60,7 @@ export function Footer() {
                               className="w-4 h-4"
                             />
                           }
-
+                         </>
                         </Link>
                       </li>
                     ))}

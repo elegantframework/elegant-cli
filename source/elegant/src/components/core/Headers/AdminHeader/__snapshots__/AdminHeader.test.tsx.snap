@@ -45,16 +45,9 @@ exports[`Admin Header component renders an admin header properly 1`] = `
           className="mr-3 flex-none w-[2.0625rem] overflow-hidden"
           href="/admin"
           onClick={[Function]}
-          onContextMenu={[Function]}
           onMouseEnter={[Function]}
           onTouchStart={[Function]}
         >
-          <span
-            className="sr-only"
-          >
-            Elegant - The unit testing application.
-             home page
-          </span>
           <svg
             className="text-slate-900 dark:text-white w-auto h-7"
             fill="none"

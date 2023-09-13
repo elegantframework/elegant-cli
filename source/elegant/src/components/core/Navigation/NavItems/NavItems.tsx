@@ -30,10 +30,9 @@ const NavItems = ({navItems}: Props) => {
                             'hover:text-primary-500 dark:hover:text-primary-400', 
                             (router.pathname.indexOf(item.path) > -1 ? 'text-primary-500 dark:text-primary-400' : '')
                         )
-                    }>
-
+                    }
+                >
                     {item.label}
-
                 </Link>
             </li>
         ); 

@@ -19,10 +19,9 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
           'text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300':
             !isActive && isPublished,
           'text-slate-400': !isActive && !isPublished,
-        })}>
-
+        })}
+        >
         {children}
-
       </Link>
     </li>
   );
@@ -30,10 +29,7 @@ const NavItem = forwardRef(({ href, children, isActive, isPublished, fallbackHre
 
 /**
  * Find the nearest scrollable ancestor (or self if scrollable)
- *
  * Code adapted and simplified from the smoothscroll polyfill
- *
- *
  * @param {Element} el
  */
 function nearestScrollableContainer(el) {

@@ -1,4 +1,4 @@
-import { SidebarContext } from "@/layouts/SidebarLayout";
+import { SidebarContext } from "@/components/core/Layouts/SidebarLayout";
 import { TableOfContentsItem } from "@/types/TableOfContentsItem";
 import clsx from "clsx";
 import { Fragment, useCallback, useContext, useEffect, useState } from "react";

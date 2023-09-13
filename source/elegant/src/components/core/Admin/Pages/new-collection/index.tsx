@@ -96,9 +96,9 @@ export default function NewCollection() {
         </div>
         {error ? (
           <Alert type="error">
-            <span className="font-medium">Oops!</span> We couldn&apos;t create
+            <span className="font-medium">Oops!</span> We couldn't create
             your collection. Please, make sure your settings are correct by{' '}
-            <Link href="/admin/settings" legacyBehavior>
+            <Link href="/admin/settings">
               <span className="underline">clicking here</span>
             </Link>{' '}
             .

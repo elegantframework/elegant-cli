@@ -116,7 +116,7 @@ export function SearchProvider({ children }) {
 
 function Hit({ hit, children }) {
   return (
-    (<Link
+    <Link
       href={hit.url}
       className={clsx({
         'DocSearch-Hit--Result': hit.__is_result?.(),
@@ -124,11 +124,10 @@ function Hit({ hit, children }) {
         'DocSearch-Hit--FirstChild': hit.__is_first?.(),
         'DocSearch-Hit--LastChild': hit.__is_last?.(),
         'DocSearch-Hit--Child': hit.__is_child?.(),
-      })}>
-
-      {children}
-
-    </Link>)
+      })}
+      >
+        {children}
+      </Link>
   );
 }
 
