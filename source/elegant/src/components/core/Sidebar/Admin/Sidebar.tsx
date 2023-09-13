@@ -1,13 +1,20 @@
 import { CMSContext } from '@/utils/core/Context';
 import Link from 'next/link';
 import { useContext } from 'react';
-import GitHubIcon from '../Icons/GitHubIcon/GitHubIcon';
+import GitHubIcon from '../../Icons/GitHubIcon/GitHubIcon';
 
-type SidebarProps = {
-  isOpen: boolean
-}
+interface Props {
+  /**
+   * Is the sidebar open?
+   */
+  isOpen: boolean;
+};
 
-const Sidebar = ({ isOpen = false }: SidebarProps) => {
+/**
+ * The admin sidebar.
+ * @returns An html sidebar to be used within the admin area of the cms.
+ */
+export default function Sidebar({ isOpen = false }: Props) {
   const { collections } = useContext(CMSContext);
 
   return (
@@ -110,6 +117,4 @@ const Sidebar = ({ isOpen = false }: SidebarProps) => {
       </div>
     </aside>
   );
-}
-
-export default Sidebar
+};

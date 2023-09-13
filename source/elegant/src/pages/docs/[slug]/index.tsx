@@ -15,6 +15,7 @@ import { Heading } from "@/types/Heading";
 import DocsFooter from "@/components/core/Footer/DocsFooter/DocsFooter";
 import Config from "@/utils/core/Config/Config";
 import Link from "next/link";
+import { documentationNavNew } from "@/config/Navigation";
 
 export const ContentsContext = createContext({});
 
@@ -57,12 +58,23 @@ export default function Index({
     const { currentSection, registerHeading, unregisterHeading } = useTableOfContents(toc);
     let { prev, next } = usePrevNext();
 
+    let section = "";
+    let sectionIndex = parseInt(
+        Object.entries(documentationNavNew).find(([, items]) =>
+            items.links.find(({ href }) => href === router.asPath)
+        )?.[0] || ""
+    );
+
+    if(sectionIndex !== undefined) {
+        section = documentationNavNew[sectionIndex].title
+    }
+
     return(
         <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
             <DocumentationHeading 
                 title={post.title}
                 description={post.description}
-                section={post.section}
+                section={section}
             />
             <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
                 <div
