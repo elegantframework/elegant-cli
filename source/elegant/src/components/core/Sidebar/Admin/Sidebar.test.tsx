@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Sidebar from '.';
+import Sidebar from './Sidebar';
 import { CMSProvider } from '@/utils/core/Context';
 
 const providerData = {

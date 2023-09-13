@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import VersionSwitcher from '@/components/core/Headers/VersionSwitcher';
-import { SearchButton } from '@/components/Search';
 import Router from 'next/router';
 import Logo from '@/components/core/Logos/Logo/Logo';
 import { Dialog } from '@headlessui/react';
@@ -219,22 +218,6 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                 </a>
               </div>
             </div>
-            {/* <SearchButton className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300">
-              <span className="sr-only">Search</span>
-              <svg
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="m19 19-3.5-3.5" />
-                <circle cx="11" cy="11" r="6" />
-              </svg>
-            </SearchButton> */}
             <NavPopover className="ml-auto -my-1" display="lg:hidden" />
           </div>
         </div>

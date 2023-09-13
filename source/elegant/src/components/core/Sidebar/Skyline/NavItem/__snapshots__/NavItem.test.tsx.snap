@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation item for the sidebar renders the nav item component as expected 1`] = `
+<a
+  className="block border-l pl-4 -ml-px text-primary-500 border-current font-semibold dark:text-primary-400"
+  href="/hello/world"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onTouchStart={[Function]}
+>
+  Hello World
+</a>
+`;
