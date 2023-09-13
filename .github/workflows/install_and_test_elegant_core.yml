@@ -1,4 +1,4 @@
-name: Build Status
+name: Install and Test Elegant core
 on: push
 jobs:
   test:

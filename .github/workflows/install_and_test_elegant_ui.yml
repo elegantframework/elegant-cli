@@ -1,5 +1,8 @@
-name: Build and Test Elegant UI package
-on: push
+name: Install and Test Elegant UI package
+on: 
+  push:
+    paths:
+      - packages/elegant-ui/**
 jobs:
   test:
     runs-on: ubuntu-latest
