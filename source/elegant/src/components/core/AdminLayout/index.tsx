@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useCMSSession } from '@/utils/core/Auth/hooks';
-import Sidebar from '../Sidebar';
+import Sidebar from '../Sidebar/Admin/Sidebar';
 import Config from '@/utils/core/Config/Config';
 import AdminHeader from '../Headers/AdminHeader/AdminHeader';
 
