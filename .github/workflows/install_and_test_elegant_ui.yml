@@ -28,10 +28,10 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install Dependencies
-        run: npm install
+        run: cd packages/elegant-ui && npm install
 
       # - name: Build the package
       #   run: npm run build
 
       - name: Run the tests
-        run: npm run test
+        run: cd packages/elegant-ui && npm run test

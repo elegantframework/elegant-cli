@@ -17,7 +17,7 @@ interface Props {
 };
 
 /**
- * A Card element.
+ * A Card component.
  * @returns A pre-styled html card element.
  */
 export default function Card({
