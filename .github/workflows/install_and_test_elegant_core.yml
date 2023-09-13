@@ -1,5 +1,8 @@
 name: Install and Test Elegant core
-on: push
+on: 
+  push:
+    paths:
+      - source/**
 jobs:
   test:
     runs-on: ubuntu-latest
