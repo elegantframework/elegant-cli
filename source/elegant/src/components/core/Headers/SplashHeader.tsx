@@ -3,10 +3,10 @@ import Logo from "../Logos/Logo/Logo";
 import clsx from "clsx";
 import ThemeToggle from '@/components/core/Toggles/ThemeToggle/ThemeToggle';
 import styles from '@/pages/index.module.css';
-import GitHubIcon from "../Icons/GitHubIcon/GitHubIcon";
 import NavItems from "../Navigation/NavItems/NavItems";
 import { NavigationItem } from "@/types/NavigationItem";
 import NavPopover from "../Navigation/NavPopover/NavPopover";
+import { GitHubIcon } from "@brandonowens/elegant-ui";
 
 interface Props {
     /**

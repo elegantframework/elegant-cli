@@ -3,9 +3,7 @@ import { Listbox } from '@headlessui/react';
 import clsx from 'clsx';
 import { Fragment, useEffect, useRef } from 'react';
 import { create } from 'zustand';
-import SunIcon from './core/Icons/SunIcon/SunIcon';
-import MoonIcon from './core/Icons/MoonIcon/MoonIcon';
-import PCIcon from './core/Icons/PCIcon/PCIcon';
+import { MoonIcon, PCIcon, SunIcon } from '@brandonowens/elegant-ui';
 
 const useSetting = create((set) => ({
   setting: null,
