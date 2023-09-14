@@ -112,6 +112,8 @@ exports[`Seo component renders the base seo component properly 1`] = `
       "appId": "",
     }
   }
+  nofollow={false}
+  noindex={false}
   openGraph={
     {
       "description": "",
@@ -248,6 +250,8 @@ exports[`Seo component renders the non-base seo component properly 1`] = `
       "appId": "",
     }
   }
+  nofollow={false}
+  noindex={false}
   openGraph={
     {
       "description": "",

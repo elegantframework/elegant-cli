@@ -91,6 +91,9 @@ export default function App({ Component, pageProps, router }) {
   // set the page type
   let pageType = Component.layoutProps?.pageType ? Component.layoutProps.pageType : "website";
 
+  // set the noindex meta flag on the page.
+  let noIndex = (meta.noIndex ? meta.noIndex : false);
+
   // set the rich snippet page type to 'article' for blog posts
   if(router.pathname.includes("/blog/"))
   {
@@ -131,6 +134,7 @@ export default function App({ Component, pageProps, router }) {
         image={`${url}${image}`}
         facebookAppID={Config('app.facebook_app_id')}
         pageType={pageType}
+        noIndex={noIndex}
       />
       <LogoJsonLd 
         logo={Config('app.url') + SeoLogo.src}
