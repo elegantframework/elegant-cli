@@ -39,13 +39,15 @@ export default async function GenerateRssFeed() {
 
     // add each post to the feed
     posts.forEach((post) => {
-        feed.addItem({
-            title: post.title,
-            id: post.title,
-            link: `${blogUrl}/${post.slug}`,
-            description: post.description,
-            date: new Date(post.publishedAt || ""),
-        });
+        if(post.status === "published"){
+            feed.addItem({
+                title: post.title,
+                id: post.title,
+                link: `${blogUrl}/${post.slug}`,
+                description: post.description,
+                date: new Date(post.publishedAt || ""),
+            });
+        }
     });
 
     // save the feed

@@ -1,5 +1,5 @@
-import { getDocumentBySlug } from "@/utils/core/Collections/collection";
-import { GetServerSideProps } from "next";
+import { getDocumentBySlug, getDocuments } from "@/utils/core/Collections/collection";
+import { GetServerSidePropsContext } from "next";
 import Error from "@/pages/404";
 import MarkdownToHtml from "@/utils/core/Rehype/MarkdownToHtml";
 import { useRouter } from "next/router";
@@ -64,8 +64,8 @@ export default function Index({
             items.links.find(({ href }) => href === router.asPath)
         )?.[0] || ""
     );
-
-    if(sectionIndex !== undefined) {
+    
+    if(sectionIndex) {
         section = documentationNav[sectionIndex].title
     }
 
@@ -108,7 +108,34 @@ export default function Index({
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export async function getStaticPaths() {
+    const posts = getDocuments('docs', [
+      'title',
+      'author',
+      'slug',
+      'description',
+      'coverImage',
+      'publishedAt',
+    ]);
+   
+    // Get the paths we want to pre-render based on posts
+    const paths = posts.map((post) => {
+        if(post.status === "published"){
+            return({
+                params: { slug: post.slug }
+            });
+        }
+    });
+   
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return { 
+      paths, 
+      fallback: false 
+    };
+}
+
+export async function getStaticProps(context: GetServerSidePropsContext) {
     const post = getDocumentBySlug('docs', context.params?.slug as string, [
         'title',
         'status',
@@ -117,12 +144,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         'description',
         'coverImage',
         'publishedAt',
-        'content',
-        'section'
+        'content'
     ]);
 
-    const content = await MarkdownToHtml(post.content);
-    const toc = await HtmlToToc(content);
+    let content = "";
+    let toc: TableOfContentsItem[] = [];
+
+    if(post.status === "published")
+    {
+        content = await MarkdownToHtml(post.content);
+        toc = await HtmlToToc(content);
+    }
     
     return {
         props: { 

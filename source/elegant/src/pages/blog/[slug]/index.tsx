@@ -1,11 +1,11 @@
 import { NewsletterForm } from "@/components/core/NewsletterForm/NewsletterForm";
 import Error from "@/pages/404";
 import { Post } from "@/types/Post";
-import { getDocumentBySlug } from "@/utils/core/Collections/collection";
+import { getDocumentBySlug, getDocuments } from "@/utils/core/Collections/collection";
 import Config from "@/utils/core/Config/Config";
 import MarkdownToHtml from "@/utils/core/Rehype/MarkdownToHtml";
 import moment from "moment";
-import { GetServerSideProps } from "next";
+import { GetServerSidePropsContext } from "next";
 import { ArticleJsonLd } from "next-seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -160,7 +160,33 @@ export default function Index({
     </>;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export async function getStaticPaths() {
+    const posts = getDocuments('posts', [
+      'title',
+      'author',
+      'slug',
+      'description',
+      'coverImage',
+      'publishedAt',
+    ]);
+
+    const paths = posts.map((post) => {
+        if(post.status === "published"){
+            return({
+                params: { slug: post.slug }
+            });
+        }
+    });
+   
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return { 
+      paths, 
+      fallback: false 
+    };
+}
+
+export async function getStaticProps(context: GetServerSidePropsContext) {
     const post = getDocumentBySlug('posts', context.params?.slug as string, [
         'title',
         'status',
@@ -169,11 +195,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         'description',
         'coverImage',
         'publishedAt',
-        'content',
-        'section'
+        'content'    
     ]);
 
-    const content = await MarkdownToHtml(post.content);
+    let content = "";
+
+    if(post.status === "published")
+    {
+        content = await MarkdownToHtml(post.content);
+    }
     
     return {
         props: { 
@@ -181,4 +211,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             content,
         }
     };
-};
+}

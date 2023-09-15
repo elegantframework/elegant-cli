@@ -2,7 +2,7 @@ import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm'
 import Link from 'next/link';
 import clsx from 'clsx';
 import Config from "Config";
-import { getDocuments } from '@/utils/core/Collections/collection'
+import { getDocuments } from '@/utils/core/Collections/collection';
 import { Post } from '@/types/Post';
 import moment from 'moment';
 import GenerateRssFeed from '@/utils/core/RSS/GenerateRSSFeed';
@@ -129,6 +129,12 @@ export const getStaticProps = async () => {
     'coverImage',
     'publishedAt',
   ]);
+
+  posts.map((post) => {
+    if(post.status === "published"){
+      return post;
+    }
+  });
 
   return {
     props: {
