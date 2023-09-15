@@ -122,7 +122,10 @@ const CMS = ({ missingEnvVars, providerData }: Props) => {
 export default CMS;
 
 CMS.layoutProps = {
-  stickyHeader: false
+  stickyHeader: false,
+  meta: {
+    noIndex: true
+  }
 };
 
 export const CMSServerSideProps: GetServerSideProps = async ({ req }) => {
