@@ -1,28 +1,63 @@
-import { createPageList } from '@/utils/createPageList';
+import { NavigationSection } from '@/types/Navigation';
 
-// map our documentation files to a page
-const pages = createPageList(
-  require.context(`../../_content/docs/?meta=title,shortTitle,published`, false, /\.mdx$/),
-  'docs'
-);
 
-export const documentationNav = {
-  'Prologue': [
-    pages['release-notes'],
-    pages['upgrade'],
-    pages['contribution-guide']
-  ],
-  'Getting Started': [
-    pages['installation'],
-    pages['configuration'],
-    pages['new-documents'],
-    pages['deployment']
-  ],
-  'Customization': [
-    pages['theme']
-  ],
-  'Plugins': [
-    pages['convertkit'],
-    pages['google-analytics']
-  ]
-}
+export const documentationNav: NavigationSection[] = [
+  {
+    title: "Prologue",
+    links: [
+      {
+        title: "Release Notes",
+        href: "/docs/release-notes"
+      },
+      {
+        title: "Upgrade Guide",
+        href: "/docs/upgrade"
+      },
+      {
+        title: "Contribution Guide",
+        href: "/docs/contribution-guide"
+      }
+    ]
+  },
+  {
+    title: "Getting Started",
+    links: [
+      {
+        title: "Installation",
+        href: "/docs/installation"
+      },
+      {
+        title: "Configuration",
+        href: "/docs/configuration"
+      },
+      {
+        title: "New Documents",
+        href: "/docs/new-documents"
+      },
+      {
+        title: "Deployment",
+        href: "/docs/deployment"
+      }
+    ]
+  },
+  {
+    title: "Customization",
+    links: [{
+      title: "Theme",
+      href: "/docs/theme"
+    }]
+  },
+  {
+    title: "Plugins",
+    links: [
+      {
+        title: "ConvertKit",
+        href: "/docs/convertkit"
+      },
+      {
+        title: "Google Analytics",
+        href: "/docs/google-analytics"
+      }
+    ]
+  }
+];

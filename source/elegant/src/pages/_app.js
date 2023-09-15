@@ -9,7 +9,6 @@ import Router from 'next/router';
 import ProgressBar from '@badrap/bar-of-progress';
 import Seo from "@/components/core/Seo/Seo";
 import Head from 'next/head';
-import { SearchProvider } from '@/components/Search';
 import AnalyticsHead from '@/components/core/Analytics/AnalyticsHead';
 import AnalyticsBody from '@/components/core/Analytics/AnalyticsBody';
 import * as gtag from '@/utils/core/Analytics/gtag';
@@ -98,11 +97,9 @@ export default function App({ Component, pageProps, router }) {
     pageType = "article";
   }
 
-  let section =
-    meta.section ||
-    Object.entries(Component.layoutProps?.Layout?.nav ?? {}).find(([, items]) =>
-      items.find(({ href }) => href === router.pathname)
-    )?.[0];
+  let section = Object.entries(Component.layoutProps?.Layout?.nav ?? {}).find(([, items]) =>
+    items.links.find(({ href }) => href === router.pathname)
+  )?.[0];
 
   // set our url
   let url = Config('app.url');
@@ -156,8 +153,7 @@ export default function App({ Component, pageProps, router }) {
           sameAs={socialSchema}
         />
       )}
-      <SearchProvider>
-        {stickyHeader && (
+      {stickyHeader && (
           <Header
             hasNav={Boolean(Component.layoutProps?.Layout?.nav)}
             navIsOpen={navIsOpen}
@@ -170,7 +166,6 @@ export default function App({ Component, pageProps, router }) {
           <AnalyticsBody googleAnalyticsID={Config('app.google_analytics_id')}/>
           <Component section={section} {...Component.layoutProps} {...pageProps} />
         </Layout>
-      </SearchProvider>
     </>
   )
 }

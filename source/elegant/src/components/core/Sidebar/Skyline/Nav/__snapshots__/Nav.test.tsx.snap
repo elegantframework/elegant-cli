@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation for the sidebar renders the navigation section as expected 1`] = `
+<nav
+  className="lg:text-sm lg:leading-6 relative"
+>
+  <div
+    className="sticky top-0 -ml-0.5 pointer-events-none"
+  >
+    <div
+      className="h-10 bg-white dark:bg-slate-900"
+    />
+    <div
+      className="bg-white dark:bg-slate-900 relative pointer-events-auto"
+    />
+    <div
+      className="h-8 bg-gradient-to-b from-white dark:from-slate-900"
+    />
+  </div>
+  <ul>
+    <li
+      className="mt-12 lg:mt-8"
+    >
+      <h5
+        className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
+      >
+        Prologue
+      </h5>
+      <ul
+        className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
+      >
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/release-notes"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Release Notes
+          </a>
+        </li>
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/upgrade"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Upgrade Guide
+          </a>
+        </li>
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/contribution-guide"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Contribution Guide
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="mt-12 lg:mt-8"
+    >
+      <h5
+        className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
+      >
+        Getting Started
+      </h5>
+      <ul
+        className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
+      >
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/installation"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Installation
+          </a>
+        </li>
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/configuration"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Configuration
+          </a>
+        </li>
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/new-documents"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            New Documents
+          </a>
+        </li>
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/deployment"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Deployment
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="mt-12 lg:mt-8"
+    >
+      <h5
+        className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
+      >
+        Customization
+      </h5>
+      <ul
+        className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
+      >
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/theme"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Theme
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="mt-12 lg:mt-8"
+    >
+      <h5
+        className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
+      >
+        Plugins
+      </h5>
+      <ul
+        className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
+      >
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/convertkit"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            ConvertKit
+          </a>
+        </li>
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/google-analytics"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Google Analytics
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+`;
