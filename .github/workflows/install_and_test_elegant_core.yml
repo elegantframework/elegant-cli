@@ -1,5 +1,8 @@
-name: Build and Test Elegant UI package
-on: push
+name: Install and Test Elegant core
+on: 
+  push:
+    paths:
+      - source/**
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,11 +27,14 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install Dependencies
+      # Install required deps for action
+      - name: Install CLI Dependencies
         run: npm install
 
-      # - name: Build the package
-      #   run: npm run build
+      # Install required deps for elegant framework subfolder
+      - name: Install Elegant Package Dependencies
+        run:  cd source/elegant && npm install --legacy-peer-deps
 
+      # Finally, run our tests
       - name: Run the tests
-        run: npm run test
+        run: npm run test:ci

@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from 'react-test-renderer';
 import Nav from "./Nav";
-import { documentationNavNew } from "@/config/Navigation";
+import { documentationNav } from "@/config/Navigation";
 
 describe("Navigation for the sidebar", () => {
 
@@ -24,7 +24,7 @@ describe("Navigation for the sidebar", () => {
     it('renders the navigation section as expected', () => {
         const nav = renderer
         .create(
-            <Nav nav={documentationNavNew}/>
+            <Nav nav={documentationNav}/>
         )
         .toJSON();
         expect(nav).toMatchSnapshot();

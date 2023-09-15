@@ -1,7 +1,7 @@
-import { NavigationSection, NavigationLink } from '@/types/Navigation';
+import { NavigationSection } from '@/types/Navigation';
 
 
-export const documentationNavNew: NavigationSection[] = [
+export const documentationNav: NavigationSection[] = [
   {
     title: "Prologue",
     links: [

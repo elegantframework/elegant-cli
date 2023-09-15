@@ -1,5 +1,8 @@
-name: Build Status
-on: push
+name: Install and Test Elegant UI package
+on: 
+  push:
+    paths:
+      - packages/elegant-ui/**
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,14 +27,11 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      # Install required deps for action
-      - name: Install CLI Dependencies
-        run: npm install
+      - name: Install Dependencies
+        run: cd packages/elegant-ui && npm install
 
-      # Install required deps for elegant framework subfolder
-      - name: Install Elegant Package Dependencies
-        run:  cd source/elegant && npm install --legacy-peer-deps
+      # - name: Build the package
+      #   run: npm run build
 
-      # Finally, run our tests
       - name: Run the tests
-        run: npm run test:ci
+        run: cd packages/elegant-ui && npm run test
