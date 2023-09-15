@@ -45,13 +45,17 @@ interface Props {
      * The type of page.. For the open graph. Ex. website, video.move, article, book, profile 
      */
     pageType?: string;
+    /**
+     * Should this page be set to noindex?
+     */
+    noIndex?: boolean;
 };
 
 /**
  * A simple SEO head component for rendering all of the perfect seo meta data you could need.
  * @returns All of the seo meta data needed to inject into the html head component.
  */
-const Seo = ({
+export default function Seo({
     title = "",
     description = "",
     siteName = "",
@@ -61,8 +65,9 @@ const Seo = ({
     url = "",
     image = "",
     facebookAppID = "",
-    pageType = "website"
-}: Props) => {
+    pageType = "website",
+    noIndex = false
+}: Props) {
     return(
         <NextSeo 
             canonical={url}
@@ -101,8 +106,8 @@ const Seo = ({
                     color: themeColor
                 })
             }
+            noindex={noIndex}
+            nofollow={noIndex}
         />
     );
 };
-
-export default Seo;
