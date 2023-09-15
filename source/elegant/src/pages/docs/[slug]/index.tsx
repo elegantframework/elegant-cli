@@ -15,7 +15,7 @@ import { Heading } from "@/types/Heading";
 import DocsFooter from "@/components/core/Footer/DocsFooter/DocsFooter";
 import Config from "@/utils/core/Config/Config";
 import Link from "next/link";
-import { documentationNavNew } from "@/config/Navigation";
+import { documentationNav } from "@/config/Navigation";
 
 export const ContentsContext = createContext({});
 
@@ -60,13 +60,13 @@ export default function Index({
 
     let section = "";
     let sectionIndex = parseInt(
-        Object.entries(documentationNavNew).find(([, items]) =>
+        Object.entries(documentationNav).find(([, items]) =>
             items.links.find(({ href }) => href === router.asPath)
         )?.[0] || ""
     );
 
     if(sectionIndex !== undefined) {
-        section = documentationNavNew[sectionIndex].title
+        section = documentationNav[sectionIndex].title
     }
 
     return(
