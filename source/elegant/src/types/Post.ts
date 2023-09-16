@@ -18,10 +18,6 @@ export interface Post {
      */
     coverImage?: string;
     /**
-     * The post section to be displayed about the post heading.
-     */
-    section?: string;
-    /**
      * The post content.
      */
     content?: string;
