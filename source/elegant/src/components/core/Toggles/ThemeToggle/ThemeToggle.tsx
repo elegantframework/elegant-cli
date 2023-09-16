@@ -1,10 +1,8 @@
 import { useTheme } from '@/utils/themeToggle';
 import { Listbox } from '@headlessui/react';
-import SunIcon from '../../Icons/SunIcon/SunIcon';
-import MoonIcon from '../../Icons/MoonIcon/MoonIcon';
 import clsx from 'clsx';
-import PCIcon from '../../Icons/PCIcon/PCIcon';
 import { Fragment } from 'react';
+import { MoonIcon, PCIcon, SunIcon } from '@brandonowens/elegant-ui';
 
 interface Props {
   /**

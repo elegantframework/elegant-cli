@@ -1,7 +1,7 @@
 import { CMSContext } from '@/utils/core/Context';
 import Link from 'next/link';
 import { useContext } from 'react';
-import GitHubIcon from '../../Icons/GitHubIcon/GitHubIcon';
+import { GitHubIcon } from "@brandonowens/elegant-ui";
 
 interface Props {
   /**

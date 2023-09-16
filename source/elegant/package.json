@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "@apollo/client": "^3.7.17",
-    "@brandonowens/elegant-ui": "^0.2.1",
+    "@brandonowens/elegant-ui": "^0.3.0",
     "@docsearch/react": "^3.5.1",
     "@hapi/iron": "^7.0.1",
     "@heroicons/react": "^2.0.17",
