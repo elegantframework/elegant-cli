@@ -1,6 +1,3 @@
-import '../css/fonts.css';
-import '../css/main.css';
-import 'focus-visible';
 import { useState, useEffect, Fragment } from 'react';
 import { BrandJsonLd, LogoJsonLd, SocialProfileJsonLd, WebPageJsonLd } from 'next-seo';
 import SeoLogo from './../../public/favicons/apple-icon-180x180.png';
@@ -15,6 +12,10 @@ import * as gtag from '@/utils/core/Analytics/gtag';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import Config from 'Config';
 import SocialSchema from '@/utils/core/Meta/SocialSchema';
+import '../css/fonts.css';
+import '../css/main.css';
+import 'focus-visible';
+import '@/components/core/Admin/Pages/styles.css';
 
 const progress = new ProgressBar({
   size: 2,

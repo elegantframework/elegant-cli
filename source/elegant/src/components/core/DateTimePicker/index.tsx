@@ -71,7 +71,7 @@ const DateTimePicker = ({ date, setDate, id, label }: DateTimePickerProps) => {
           {label}
         </label>
       )}
-      {/* The outter div serves as a referrence to positioning the DatePicker */}
+      {/* The outer div serves as a reference to positioning the DatePicker */}
       <div>
         <Datepicker
           name={id}
