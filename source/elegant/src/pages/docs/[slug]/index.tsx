@@ -16,6 +16,7 @@ import DocsFooter from "@/components/core/Footer/DocsFooter/DocsFooter";
 import Config from "@/utils/core/Config/Config";
 import Link from "next/link";
 import { documentationNav } from "@/config/Navigation";
+import Seo from "@/components/core/Seo/Seo";
 
 export const ContentsContext = createContext({});
 
@@ -66,45 +67,65 @@ export default function Index({
     );
     
     if(sectionIndex) {
-        section = documentationNav[sectionIndex].title
+        section = documentationNav[sectionIndex].title;
+    }
+
+    // set our url
+    let url = Config('app.url');
+
+    if(
+        process.env.NEXT_PUBLIC_VERCEL_URL !== undefined &&
+        process.env.NEXT_PUBLIC_VERCEL_ENV !== undefined &&
+        process.env.NEXT_PUBLIC_VERCEL_ENV !== "production"
+    ){
+        url = "https://" + process.env.NEXT_PUBLIC_VERCEL_URL;
     }
 
     return(
-        <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
-            <DocumentationHeading 
-                title={post.title}
-                description={post.description}
-                section={section}
+        <>
+            <Seo 
+                title={`${post.title} - ${Config('app.description')}`}
+                description={post.description || Config('app.description')}
+                themeColor={"#f8fafc"}
+                url={`${url}${router.asPath}`}
+                image={`${url}${post.coverImage}`}
             />
-            <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
-                <div
-                    id="content-wrapper"
-                    className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
-                >
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
-                </div>
-                <DocsFooter previous={prev} next={next}>
-                    {Config('app.repository').length > 0 &&
-                        <Link
-                            href={`${Config('app.repository')}/edit/main/${Config('admin.cms_monorepo_path')}${Config('admin.cms_content_path')}/docs/${post.slug}.mdx`}
-                            className="hover:text-slate-900 dark:hover:text-slate-400"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Edit this page on GitHub
-                        </Link>
-                    }
-                </DocsFooter>
-                <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
-                    {toc.length > 0 && (
-                        <TableOfContents 
-                            tableOfContents={toc} 
-                            currentSection={currentSection} 
-                        />
-                    )}
-                </div>
-            </ContentsContext.Provider>
-        </div>
+            <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
+                <DocumentationHeading 
+                    title={post.title}
+                    description={post.description}
+                    section={section}
+                />
+                <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
+                    <div
+                        id="content-wrapper"
+                        className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
+                    >
+                        <div dangerouslySetInnerHTML={{ __html: content }} />
+                    </div>
+                    <DocsFooter previous={prev} next={next}>
+                        {Config('app.repository').length > 0 &&
+                            <Link
+                                href={`${Config('app.repository')}/edit/main/${Config('admin.cms_monorepo_path')}${Config('admin.cms_content_path')}/docs/${post.slug}.mdx`}
+                                className="hover:text-slate-900 dark:hover:text-slate-400"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Edit this page on GitHub
+                            </Link>
+                        }
+                    </DocsFooter>
+                    <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
+                        {toc.length > 0 && (
+                            <TableOfContents 
+                                tableOfContents={toc} 
+                                currentSection={currentSection} 
+                            />
+                        )}
+                    </div>
+                </ContentsContext.Provider>
+            </div>
+        </>
     );
 };
 

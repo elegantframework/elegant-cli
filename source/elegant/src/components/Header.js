@@ -101,7 +101,7 @@ export function NavItems() {
         className={
             clsx(
               'hover:text-primary-500 dark:hover:text-primary-400', 
-              (router.pathname.indexOf('/docs/') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
+              (router.asPath.indexOf('/docs/') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
             )
       }>
         Docs
@@ -113,7 +113,7 @@ export function NavItems() {
         className={
             clsx(
               'hover:text-primary-500 dark:hover:text-primary-400', 
-              (router.pathname.indexOf('/blog') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
+              (router.asPath.indexOf('/blog') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
             )
           }>
           Blog
