@@ -162,7 +162,6 @@ const MDEMenu = ({ editor }: MDEMenuProps) => {
                 <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.879 7.05 8.464 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.415 1.414zm-2.828 2.828l-1.415 1.414a7 7 0 0 1-9.9-9.9l1.415-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.415 1.414zm-.708-10.607l1.415 1.415-7.071 7.07-1.415-1.414 7.071-7.07z" />
               </svg>
             </MDEMenuButton>
-
             <MDEMenuButton
               onClick={() => editor.chain().focus().toggleCode().run()}
               editor={editor}
@@ -247,6 +246,20 @@ const MDEMenu = ({ editor }: MDEMenuProps) => {
                 <path fill="none" d="M0 0h24v24H0z" />
                 <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
               </svg>
+            </MDEMenuButton>
+            <MDEMenuButton 
+              onClick={
+                () => {
+                  const url = prompt('Enter YouTube URL');
+                  editor.chain().focus().setYoutubeVideo({
+                    src: url || ""
+                  })
+                }
+              }
+              editor={editor}
+              name='add YouTube video'
+            >
+              YT
             </MDEMenuButton>
             <MDEMenuButton
               onClick={() => editor.chain().focus().clearNodes().run()}
