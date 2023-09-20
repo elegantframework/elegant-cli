@@ -2,6 +2,7 @@ import { Editor, FloatingMenu } from '@tiptap/react'
 import { useState } from 'react'
 import MDEInsertImage from '../MDEInsertImage'
 import MDEMenuButton from '../MDEMenuButton'
+import { YouTubeIcon } from '@brandonowens/elegant-ui'
 
 type MDEFloatingMenuProps = {
   editor: Editor
@@ -103,9 +104,11 @@ const MDEFloatingMenu = ({ editor }: MDEFloatingMenuProps) => {
                 }
               }
               editor={editor}
-              name='add YouTube video'
+              name='Add YouTube video'
             >
-              YT
+              <YouTubeIcon 
+                className='h-5 w-5 mb-0.5'
+              />
             </MDEMenuButton>
             <MDEMenuButton
               onClick={() => editor.chain().focus().toggleBlockquote().run()}

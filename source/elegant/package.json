@@ -162,7 +162,6 @@
     "rehype-slug": "^5.1.0",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
-    "remark-html": "^15.0.2",
     "remark-parse": "^10.0.2",
     "remark-rehype": "^10.1.0",
     "remark-smartypants": "^2.0.0",

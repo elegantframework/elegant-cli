@@ -2,6 +2,7 @@ import { BubbleMenu, Editor, isTextSelection } from '@tiptap/react';
 import { useCallback, useEffect, useState } from 'react';
 import MDEMenuButton from '../MDEMenuButton';
 import MDEImageMenu from '../MDEImageMenu';
+import { YouTubeIcon } from '@brandonowens/elegant-ui';
 
 type MDEMenuProps = {
   editor: Editor
@@ -257,9 +258,11 @@ const MDEMenu = ({ editor }: MDEMenuProps) => {
                 }
               }
               editor={editor}
-              name='add YouTube video'
+              name='Add YouTube video'
             >
-              YT
+              <YouTubeIcon 
+                className='h-5 w-5 mb-0.5'
+              />
             </MDEMenuButton>
             <MDEMenuButton
               onClick={() => editor.chain().focus().clearNodes().run()}

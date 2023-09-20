@@ -3,7 +3,6 @@ import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import smartypants from 'remark-smartypants';
 import remarkUnwrapImages from 'remark-unwrap-images';
-import remarkHtml from 'remark-html';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
@@ -23,8 +22,7 @@ export default async function MarkdownToHtml(content: string) {
       .use(remarkUnwrapImages)
       .use(remarkParse)
       .use(remarkGfm)
-      .use(remarkHtml)
-      .use(remarkRehype)
+      .use(remarkRehype, {allowDangerousHtml: true})
       .use(rehypeRewrite, {
         rewrite: (node) => {
           if (
@@ -75,7 +73,7 @@ export default async function MarkdownToHtml(content: string) {
           ],
         },
       })
-      .use(rehypeStringify)
+      .use(rehypeStringify, {allowDangerousHtml: true})
       .process(content);
   
     return String(file);
