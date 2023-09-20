@@ -1,5 +1,4 @@
-import Card from "@/components/core/Cards/Card";
-import { GitHubIcon } from "@brandonowens/elegant-ui";
+import { Card, GitHubIcon } from "@brandonowens/elegant-ui";
 import Logo from "@/components/core/Logos/Logo/Logo";
 import Config from "@/utils/core/Config/Config";
 import MetaTitle from "@/utils/core/Meta/MetaTitle";

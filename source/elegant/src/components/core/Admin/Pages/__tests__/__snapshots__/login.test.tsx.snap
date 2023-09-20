@@ -11,7 +11,7 @@ exports[`The Admin Log In page renders properly 1`] = `
       className="w-auto h-8 mx-auto"
     />
   </div>
-  <Card
+  <h
     className="mt-10"
   >
     <p
@@ -28,7 +28,7 @@ exports[`The Admin Log In page renders properly 1`] = `
       />
        Sign in with GitHub
     </a>
-  </Card>
+  </h>
   <div
     className="sm:mx-auto sm:w-full sm:max-w-md xs:pl-0 sm:pl-4 text-left -mt-6 dark:text-white"
   >

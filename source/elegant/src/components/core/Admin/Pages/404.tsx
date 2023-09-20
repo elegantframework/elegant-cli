@@ -1,8 +1,8 @@
 import Config from '@/utils/core/Config/Config';
+import { Card } from '@brandonowens/elegant-ui';
 import { ArrowLongLeftIcon } from '@heroicons/react/20/solid';
 import Head from 'next/head'
 import { useRouter } from 'next/router';
-import Card from '../../Cards/Card';
 
 /**
  * The 404 Error page for the admin area.

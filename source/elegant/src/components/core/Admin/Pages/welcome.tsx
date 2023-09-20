@@ -2,10 +2,10 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
 import { envVars } from '@/utils/core/envVarsCheck';
 import Logo from '../../Logos/Logo/Logo';
-import Card from '../../Cards/Card';
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
 import Config from '@/utils/core/Config/Config';
 import MetaTitle from '@/utils/core/Meta/MetaTitle';
+import { Card } from '@brandonowens/elegant-ui';
 
 type WelcomeProps = {
   variables: {
