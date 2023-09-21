@@ -17,7 +17,7 @@ import { DocumentContext } from '@/utils/core/Context';
 import AdminLayout from '@/components/core/AdminLayout';
 import DocumentSettings from '@/components/core/DocumentSettings';
 import DocumentTitleInput from '@/components/core/DocumentTitleInput';
-import MDEditor from '@/components/core/MDEditor';
+import Editor from '@/components/core/Editor/Editor/Editor';
 
 export default function EditDocument({ collection }: { collection: string }) {
   const router = useRouter()
@@ -28,8 +28,8 @@ export default function EditDocument({ collection }: { collection: string }) {
   const [files, setFiles] = useState<FileType[]>([])
   const [showDelete, setShowDelete] = useState(false)
   const [documentSchema, setDocumentSchema] = useState(editDocumentSchema)
-  const methods = useForm<Document>({ resolver: yupResolver(documentSchema) })
-  const { editor } = useTipTap({ ...methods })
+  const methods = useForm<Document>({ resolver: yupResolver(documentSchema) });
+  const { editor } = useTipTap({ ...methods });
   const [customFields, setCustomFields] = useState<CustomFields>({})
 
   const editDocument = (property: string, value: any) => {
@@ -118,7 +118,7 @@ export default function EditDocument({ collection }: { collection: string }) {
                 placeholder={`Your ${singular(collection)} title`}
               />
               <div className="min-h-full prose prose-xl">
-                <MDEditor editor={editor} id="content" />
+                <Editor editor={editor} id="content" />
               </div>
             </form>
           </AdminLayout>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { YouTubeIcon } from '@brandonowens/elegant-ui';
 import MenuButton from '../MenuButton/MenuButton';
 import InsertImage from '../InsertImage/InsertImage';
+import InsertYouTubeVIdeo from '../InsertYouTubeVIdeo/InsertYouTubeVIdeo';
 
 interface Props {
   editor: Editor;
@@ -11,7 +12,8 @@ interface Props {
 export default function FloatingMenu({ 
     editor 
 }: Props) {
-  const [imageMenu, setImageMenu] = useState(false)
+  const [imageMenu, setImageMenu] = useState(false);
+  const [youTubeMenu, setYoutubeMenu] = useState(false);
 
   return (
     <>
@@ -24,7 +26,7 @@ export default function FloatingMenu({
         }}
         className="prose-sm"
       >
-        {!imageMenu ? (
+        {!imageMenu && !youTubeMenu ? (
           <div className="rounded-sm border border-black">
             <MenuButton
               onClick={() =>
@@ -113,6 +115,15 @@ export default function FloatingMenu({
               />
             </MenuButton>
             <MenuButton
+              onClick={() => setYoutubeMenu(true)}
+              editor={editor}
+              name="Add YouTube Video"
+            >
+              <YouTubeIcon 
+                className='h-5 w-5 mb-0.5'
+              />
+            </MenuButton>
+            <MenuButton
               onClick={() => editor.chain().focus().toggleBlockquote().run()}
               editor={editor}
               name="blockquote"
@@ -128,9 +139,19 @@ export default function FloatingMenu({
               </svg>
             </MenuButton>
           </div>
-        ) : (
-          <InsertImage editor={editor} setImageMenu={setImageMenu} />
-        )}
+        ) : null}
+        {imageMenu ? (
+          <InsertImage 
+            editor={editor} 
+            setImageMenu={setImageMenu} 
+          />
+        ) : null}
+        {youTubeMenu ? (
+          <InsertYouTubeVIdeo 
+            editor={editor} 
+            setYoutubeMenu={setYoutubeMenu} 
+          />
+        ) : null}
       </TipTapFloatingMenu>
     </>
   )

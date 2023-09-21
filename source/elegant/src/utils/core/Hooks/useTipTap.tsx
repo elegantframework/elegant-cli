@@ -66,6 +66,11 @@ const useTipTap = ({ ...rhfMethods }) => {
           })
       
           HTMLAttributes.src = embedUrl;
+
+          // set our seo objects if the data exists
+          let videoSchema = [];
+
+          //@todo: if title and description, add schema below to object and return it
       
           return [
             'div',

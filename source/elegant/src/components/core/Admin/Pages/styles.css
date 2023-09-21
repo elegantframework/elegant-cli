@@ -223,16 +223,16 @@ input.react-datepicker-time__input {
   margin: 2rem 0;
 }
 
-.ProseMirror a {
+/* .ProseMirror a {
   text-decoration: underline;
   color: blue;
   cursor: pointer;
   display: inline-block !important;
-}
+} */
 
-.ProseMirror pre {
+/* .ProseMirror pre {
   font-family: 'JetBrainsMono', monospace;
-}
+} */
 
 .ProseMirror code {
   background-color: #6161611a;
@@ -328,10 +328,6 @@ input.react-datepicker-time__input {
   border-radius: 0;
 }
 
-.tippy-box,
-.tippy-content {
-  outline: none; /* TODO: Improve accessibility */
-}
 
 .ProseMirror .image-error {
   @apply block bg-red-50 border border-red-300 relative w-full h-32 text-base font-normal font-sans;
