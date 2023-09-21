@@ -1,14 +1,14 @@
 import { Editor } from '@tiptap/react';
 import { useCallback, useContext, useState } from 'react';
-import MDEMenuButton from '../MDEMenuButton';
 import { DocumentContext } from '@/utils/core/Context';
+import MenuButton from '../MenuButton/MenuButton';
 
-type MDEUImageMenuProps = {
-  editor: Editor
-  setImageSelected: (value: boolean) => void
+interface Props {
+  editor: Editor;
+  setImageSelected: (value: boolean) => void;
 }
 
-const MDEUImageMenu = ({ editor, setImageSelected }: MDEUImageMenuProps) => {
+export default function ImageMenu({ editor, setImageSelected }: Props) {
   const { setFiles } = useContext(DocumentContext)
   const [showLink, setShowLink] = useState(false)
   const [url, setUrl] = useState('')
@@ -61,7 +61,7 @@ const MDEUImageMenu = ({ editor, setImageSelected }: MDEUImageMenuProps) => {
     <>
       {showAltText && (
         <>
-          <MDEMenuButton
+          <MenuButton
             onClick={() => {
               setShowAltText(false)
               setImageSelected(true)
@@ -78,7 +78,7 @@ const MDEUImageMenu = ({ editor, setImageSelected }: MDEUImageMenuProps) => {
               <path fill="none" d="M0 0h24v24H0z" />
               <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" />
             </svg>
-          </MDEMenuButton>
+          </MenuButton>
           <input
             id="alt-text"
             name="alt-text"
@@ -100,14 +100,14 @@ const MDEUImageMenu = ({ editor, setImageSelected }: MDEUImageMenuProps) => {
             defaultValue={altText}
             autoFocus
           />
-          <MDEMenuButton onClick={addAltText} editor={editor} name="addAltText">
+          <MenuButton onClick={addAltText} editor={editor} name="addAltText">
             Done
-          </MDEMenuButton>
+          </MenuButton>
         </>
       )}
       {showLink && (
         <>
-          <MDEMenuButton
+          <MenuButton
             onClick={() => {
               if (editor.isActive('image')) {
                 setImageSelected(true)
@@ -126,7 +126,7 @@ const MDEUImageMenu = ({ editor, setImageSelected }: MDEUImageMenuProps) => {
               <path fill="none" d="M0 0h24v24H0z" />
               <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" />
             </svg>
-          </MDEMenuButton>
+          </MenuButton>
           <input
             id="link"
             name="link"
@@ -148,14 +148,14 @@ const MDEUImageMenu = ({ editor, setImageSelected }: MDEUImageMenuProps) => {
             autoFocus
             defaultValue={url}
           />
-          <MDEMenuButton onClick={setLink} editor={editor} name="submitLink">
+          <MenuButton onClick={setLink} editor={editor} name="submitLink">
             Done
-          </MDEMenuButton>
+          </MenuButton>
         </>
       )}
       {!showAltText && !showLink && (
         <>
-          <MDEMenuButton
+          <MenuButton
             onClick={() => {
               setUrl(editor.getAttributes('link').href)
               setShowLink(true)
@@ -172,8 +172,8 @@ const MDEUImageMenu = ({ editor, setImageSelected }: MDEUImageMenuProps) => {
               <path fill="none" d="M0 0h24v24H0z" />
               <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.879 7.05 8.464 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.415 1.414zm-2.828 2.828l-1.415 1.414a7 7 0 0 1-9.9-9.9l1.415-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.415 1.414zm-.708-10.607l1.415 1.415-7.071 7.07-1.415-1.414 7.071-7.07z" />
             </svg>
-          </MDEMenuButton>
-          <MDEMenuButton
+          </MenuButton>
+          <MenuButton
             onClick={() => {
               setAltText(editor.getAttributes('image').alt)
               setShowAltText(true)
@@ -187,18 +187,16 @@ const MDEUImageMenu = ({ editor, setImageSelected }: MDEUImageMenuProps) => {
             }
           >
             Alt Text
-          </MDEMenuButton>
-          <MDEMenuButton
+          </MenuButton>
+          <MenuButton
             onClick={removeImage}
             editor={editor}
             name="remove-image"
           >
             Remove Image
-          </MDEMenuButton>
+          </MenuButton>
         </>
       )}
     </>
   )
 }
-
-export default MDEUImageMenu

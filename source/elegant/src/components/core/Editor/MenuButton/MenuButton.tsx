@@ -1,17 +1,17 @@
 import { Editor } from '@tiptap/react'
 
-type MDEMenuButtonProps = {
-  editor: Editor
-  onClick: () => void
-  children: React.ReactNode
-  name: string
-  disabled?: boolean
-  attributes?: {} | undefined
-  tag?: keyof JSX.IntrinsicElements
-  htmlFor?: string
+type Props = {
+  editor: Editor;
+  onClick: () => void;
+  children: React.ReactNode;
+  name: string;
+  disabled?: boolean;
+  attributes?: {} | undefined;
+  tag?: keyof JSX.IntrinsicElements;
+  htmlFor?: string;
 }
 
-const MDEMenuButton = ({
+export default function MenuButton ({
   onClick,
   editor,
   children,
@@ -20,7 +20,7 @@ const MDEMenuButton = ({
   attributes = {},
   tag = 'button',
   htmlFor
-}: MDEMenuButtonProps) => {
+}: Props) {
   const Tag = tag
   const inputProps = {} as any
   if (htmlFor) {
@@ -44,6 +44,4 @@ const MDEMenuButton = ({
       {children}
     </Tag>
   )
-}
-
-export default MDEMenuButton
+};

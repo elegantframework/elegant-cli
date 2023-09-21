@@ -1,12 +1,12 @@
 import { Editor } from '@tiptap/react';
 import { ChangeEvent, useCallback, useContext, useState } from 'react';
 import { FileType } from '@/types/Index';
-import MDEMenuButton from '../MDEMenuButton';
 import { DocumentContext } from '@/utils/core/Context';
+import MenuButton from '../MenuButton/MenuButton';
 
-type MDEInsertImageProps = {
-  editor: Editor
-  setImageMenu: (value: boolean) => void
+interface Props {
+  editor: Editor;
+  setImageMenu: (value: boolean) => void;
 }
 
 const isValidUrl = (urlString: string) => {
@@ -17,7 +17,7 @@ const isValidUrl = (urlString: string) => {
   }
 }
 
-const MDEInsertImage = ({ editor, setImageMenu }: MDEInsertImageProps) => {
+export default function InsertImage({ editor, setImageMenu }: Props) {
   const { setFiles } = useContext(DocumentContext)
   const [showLink, setShowLink] = useState(false)
   const [imageUrl, setImageUrl] = useState('')
@@ -76,7 +76,7 @@ const MDEInsertImage = ({ editor, setImageMenu }: MDEInsertImageProps) => {
     <>
       {showLink ? (
         <div className="flex w-[500px] rounded-sm border border-black outline-none">
-          <MDEMenuButton
+          <MenuButton
             onClick={() => setShowLink(false)}
             editor={editor}
             name="back"
@@ -90,7 +90,7 @@ const MDEInsertImage = ({ editor, setImageMenu }: MDEInsertImageProps) => {
               <path fill="none" d="M0 0h24v24H0z" />
               <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" />
             </svg>
-          </MDEMenuButton>
+          </MenuButton>
           <div
             className={`relative w-[500px] border-r outline-none border-black`}
           >
@@ -119,13 +119,13 @@ const MDEInsertImage = ({ editor, setImageMenu }: MDEInsertImageProps) => {
               </span>
             )}
           </div>
-          <MDEMenuButton onClick={addImageUrl} editor={editor} name="back">
+          <MenuButton onClick={addImageUrl} editor={editor} name="back">
             Done
-          </MDEMenuButton>
+          </MenuButton>
         </div>
       ) : (
         <div className="flex rounded-sm border border-black outline-none">
-          <MDEMenuButton
+          <MenuButton
             onClick={() => setImageMenu(false)}
             editor={editor}
             name="back"
@@ -139,14 +139,14 @@ const MDEInsertImage = ({ editor, setImageMenu }: MDEInsertImageProps) => {
               <path fill="none" d="M0 0h24v24H0z" />
               <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" />
             </svg>
-          </MDEMenuButton>
-          <MDEMenuButton
+          </MenuButton>
+          <MenuButton
             onClick={() => setShowLink(true)}
             editor={editor}
             name="imageFromLink"
           >
             From link
-          </MDEMenuButton>
+          </MenuButton>
 
           <label
             htmlFor="upload-button"
@@ -165,6 +165,4 @@ const MDEInsertImage = ({ editor, setImageMenu }: MDEInsertImageProps) => {
       )}
     </>
   )
-}
-
-export default MDEInsertImage
+};
