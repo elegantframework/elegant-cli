@@ -9,6 +9,7 @@ import StarterKit from '@tiptap/starter-kit';
 import { lowlight } from 'lowlight/lib/common';
 import { mergeAttributes } from '@tiptap/core';
 import { getEmbedUrlFromYoutubeUrl } from '../YouTube/GetEmbedUrlFromYouTubeUrl';
+import moment from 'moment';
 
 const useTipTap = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -21,12 +22,17 @@ const useTipTap = ({ ...rhfMethods }) => {
       Image.extend({
         renderHTML({ HTMLAttributes }) {
           return [
-            'img',
-            {
-              ...HTMLAttributes,
-              onError:
-                'this.classList.add("image-error");this.alt="Couldn\'t load image.";'
-            }
+            'div',
+            {class: "my-8 shadow-xl"},
+            [
+              'img',
+              {
+                class: "rounded-xl",
+                ...HTMLAttributes,
+                onError:
+                  'this.classList.add("image-error");this.alt="Couldn\'t load image.";'
+              }
+            ]
           ]
         }
       }).configure({ inline: true }),
@@ -63,24 +69,32 @@ const useTipTap = ({ ...rhfMethods }) => {
             playlist: this.options.playlist,
             progressBarColor: this.options.progressBarColor,
             startAt: HTMLAttributes.start || 0,
-          })
+          });
+
+          const videoId = "bS66QUBKljM";
+          const title = "How to get started with Elegant";
+          const description = "A detailed guide on how to get started with Elegant.";
       
           HTMLAttributes.src = embedUrl;
 
           // set our seo objects if the data exists
-          let videoSchema = [];
+          let videoSchema = [
+            'div', {}
+          ];
 
-          //@todo: if title and description, add schema below to object and return it
-      
-          return [
-            'div',
-            { 'data-youtube-video': '' },
-            [
+          if(title.length > 0) {
+            videoSchema = [
               'script', {
                 type: 'application/ld+json'
               },
-              '{"@context":"https://schema.org","@type":"VideoObject","name":"How to get started with Elegant.","description":"A detailed guide on how to get started with Elegant.","contentUrl":"https://youtu.be/bS66QUBKljM","embedUrl":"https://www.youtube.com/embed/bS66QUBKljM","uploadDate":"2023-05-29T08:00:00+08:00","thumbnailUrl":["https://img.youtube.com/vi/bS66QUBKljM/0.jpg"]}'
-            ],
+              `{"@context":"https://schema.org","@type":"VideoObject","name":"${title}","description":"${description}","contentUrl":"https://youtu.be/${videoId}","embedUrl":"https://www.youtube.com/embed/${videoId}","uploadDate":"${moment().utc().format('YYYY-MM-DDTHH:mm:ss.SSSZ')}","thumbnailUrl":["https://img.youtube.com/vi/${videoId}/0.jpg"]}`
+            ];
+          }
+      
+          return [
+            'div',
+            { 'data-youtube-video': videoId },
+            videoSchema,
             [
               'iframe',
               mergeAttributes(
