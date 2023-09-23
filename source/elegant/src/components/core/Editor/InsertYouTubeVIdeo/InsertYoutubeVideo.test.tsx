@@ -14,13 +14,13 @@ describe('Editor insert youtube video', () => {
     render(
       <div>
         {result.current && (
-          <InsertYouTubeVIdeo editor={result.current} setImageMenu={() => {}} />
+          <InsertYouTubeVIdeo editor={result.current} setYoutubeMenu={() => {}} />
         )}
       </div>
     )
 
     expect(
-      screen.getByRole('button', { name: /from link/i })
+      screen.getByRole('button', { name: /back/i })
     ).toBeInTheDocument()
   })
 })

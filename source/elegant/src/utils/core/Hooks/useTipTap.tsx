@@ -28,9 +28,7 @@ const useTipTap = ({ ...rhfMethods }) => {
               'img',
               {
                 class: "rounded-xl",
-                ...HTMLAttributes,
-                onError:
-                  'this.classList.add("image-error");this.alt="Couldn\'t load image.";'
+                ...HTMLAttributes
               }
             ]
           ]
