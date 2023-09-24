@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import HtmlToToc from "@/utils/core/Rehype/HtmlToToc";
 import DocumentationLayout from "@/components/core/Layouts/DocumentationLayout";
 import { Post } from "@/types/Post";
-import { DocumentationHeading } from "@/components/core/Headings/DocumentationHeading";
 import TableOfContents from "@/components/core/TableOfContents/TableOfContents";
 import { TableOfContentsItem } from "@/types/TableOfContentsItem";
 import { createContext, useCallback, useEffect, useState } from "react";
@@ -17,6 +16,7 @@ import Config from "@/utils/core/Config/Config";
 import Link from "next/link";
 import { documentationNav } from "@/config/Navigation";
 import Seo from "@/components/core/Seo/Seo";
+import { DocumentationHeading } from "@/components/core/Headings/DocumentationHeading";
 
 export const ContentsContext = createContext({});
 
@@ -93,7 +93,6 @@ export default function Index({
             <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
                 <DocumentationHeading 
                     title={post.title}
-                    description={post.description}
                     section={section}
                 />
                 <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
