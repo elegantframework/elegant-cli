@@ -2,7 +2,6 @@ import LegalLayout from "@/components/core/Layouts/LegalLayout";
 import Seo from "@/components/core/Seo/Seo";
 import MetaTitle from "@/utils/core/Meta/MetaTitle";
 import Config from "Config";
-import Link from "next/link";
 
 /**
  * A standard boilerplate brand copyright policy page.
