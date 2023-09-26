@@ -1,16 +1,16 @@
 import React from 'react';
+import Image from 'next/image';
 import UnifiedFramework from '@/components/home/UnifiedFramework';
 import Logo from '@/components/core/Logos/Logo/Logo';
 import { Footer } from '@/components/home/Footer';
 import NextLink from 'next/link';
+import { NavItems, NavPopover } from '@/components/Header';
 import styles from './index.module.css';
 import clsx from 'clsx';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import MetaTitle from '@/utils/core/Meta/MetaTitle';
 import Config from "Config";
-import NavPopover from '@/components/core/Navigation/NavPopover/NavPopover';
-import NavItems from '@/components/core/Navigation/NavItems/NavItems';
-import ThemeToggle from '@/components/core/Toggles/ThemeToggle/ThemeToggle';
 
 Home.layoutProps = {
   meta: {
@@ -57,24 +57,27 @@ const Header = () => {
           <div className="relative pt-6 lg:pt-8 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
             <Logo className="w-auto h-7" />
             <div className="flex items-center">
+              {/* <SearchButton className="text-slate-500 hover:text-slate-600 w-8 h-8 -my-1 flex items-center justify-center md:hidden dark:hover:text-slate-300">
+                <span className="sr-only">Search</span>
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m19 19-3.5-3.5" />
+                  <circle cx="11" cy="11" r="6" />
+                </svg>
+              </SearchButton> */}
               <NavPopover className="-my-1 ml-2 -mr-1" display="md:hidden" />
               <div className="hidden md:flex items-center">
                 <nav>
                   <ul className="flex items-center gap-x-8">
-                    <NavItems 
-                      navItems={[
-                        {
-                            href: "/docs/installation",
-                            path: "/docs/",
-                            label: "Docs",        
-                        },
-                        {
-                            href: "/blog",
-                            path: "/blog",
-                            label: "Blog",        
-                        }
-                      ]}
-                    />
+                    <NavItems />
                   </ul>
                 </nav>
                 <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
