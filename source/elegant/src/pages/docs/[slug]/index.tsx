@@ -62,7 +62,7 @@ export default function Index({
     let section = "";
     let sectionIndex = parseInt(
         Object.entries(documentationNav).find(([, items]) =>
-            items.links.find(({ href }) => href === router.asPath)
+            items.links.find(({ href }) => href === router.asPath.split('#')[0])
         )?.[0] || ""
     );
     
@@ -87,7 +87,7 @@ export default function Index({
                 title={`${post.title} - ${Config('app.description')}`}
                 description={post.description || Config('app.description')}
                 themeColor={"#f8fafc"}
-                url={`${url}${router.asPath}`}
+                url={`${url}${router.asPath.split('#')[0]}`}
                 image={`${url}${post.coverImage}`}
             />
             <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
@@ -197,10 +197,16 @@ function useTableOfContents(tableOfContents: TableOfContentsItem[]) {
     let [headings, setHeadings] = useState<Heading[]>([])
   
     const registerHeading = useCallback((id: string) => {
+
+        console.log('register heading')
+
         setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top: getTop(id) }])
     }, [])
   
     const unregisterHeading = useCallback((id: string) => {
+
+        console.log('unregister heading')
+
         setHeadings((headings) => headings.filter((h) => id !== h.id))
     }, [])
   
