@@ -3,27 +3,37 @@ import { TableOfContentsItem } from "@/types/TableOfContentsItem";
 import { NextRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export default function useTableOfContents(tableOfContents: TableOfContentsItem[], router: NextRouter) {
+/**
+ * A table of contents hook method.
+ * @param tableOfContents The table of contents list.
+ * @param router The next router.
+ * @returns The current active section.
+ */
+export default function useTableOfContents(
+    tableOfContents: TableOfContentsItem[], 
+    router: NextRouter
+) {
     let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug);
   
     useEffect(() => {
         let headingList: Heading[] = getHeadingList(tableOfContents);
   
         function onScroll() {
-            let style = window.getComputedStyle(document.documentElement)
-            let scrollMt = parseFloat(style.getPropertyValue('--scroll-mt').match(/[\d.]+/)?.[0] as string ?? 0)
-            let fontSize = parseFloat(style.fontSize.match(/[\d.]+/)?.[0] as string ?? 16)
+            let style = window.getComputedStyle(document.documentElement);
+            let scrollMt = parseFloat(style.getPropertyValue('--scroll-mt').match(/[\d.]+/)?.[0] as string ?? 0);
+            let fontSize = parseFloat(style.fontSize.match(/[\d.]+/)?.[0] as string ?? 16);
             scrollMt = scrollMt * fontSize;
             
-            let sortedHeadings = headingList.concat([]).sort((a, b) => a.top - b.top)
-            let top = window.pageYOffset + scrollMt + 1
-            let current = sortedHeadings[0].id
+            let sortedHeadings = headingList.concat([]).sort((a, b) => a.top - b.top);
+            let top = window.pageYOffset + scrollMt + 1;
+            let current = sortedHeadings[0].id;
+
             for (let i = 0; i < sortedHeadings.length; i++) {
                 if (top >= sortedHeadings[i].top) {
-                    current = sortedHeadings[i].id
+                    current = sortedHeadings[i].id;
                 }
             }
-            setCurrentSection(current)
+            setCurrentSection(current);
         }
   
         window.addEventListener('scroll', onScroll, {
@@ -32,7 +42,6 @@ export default function useTableOfContents(tableOfContents: TableOfContentsItem[
         });
     
         onScroll();
-    
     }, [tableOfContents]);
 
     // detect a url change
@@ -43,6 +52,11 @@ export default function useTableOfContents(tableOfContents: TableOfContentsItem[
     return currentSection;
 }
 
+/**
+ * Get a list of headings from a table of contents list.
+ * @param tableOfContents A table of contents list.
+ * @returns A heading list.
+ */
 function getHeadingList(tableOfContents: TableOfContentsItem[]) {
     let headingList: Heading[] = [];
 
@@ -59,13 +73,18 @@ function getHeadingList(tableOfContents: TableOfContentsItem[]) {
             headingList.push({
                 id: child.slug,
                 top: getTop(child.slug)
-            })
+            });
         });
     });
 
     return headingList;
 }
 
+/**
+ * Get the top position of an element from its id.
+ * @param id An html id selector.
+ * @returns An elements position.
+ */
 function getTop(id: string) {
     //@ts-ignore
     return document.getElementById(id).getBoundingClientRect().top + window.scrollY;

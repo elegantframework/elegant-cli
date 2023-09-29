@@ -21,7 +21,7 @@ import useTableOfContents from "@/utils/core/Hooks/useTableOfContents";
 
 export const ContentsContext = createContext({});
 
-type Props = {
+interface Props {
     /**
      * A documentation page to be displayed.
      */

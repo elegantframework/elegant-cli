@@ -4,10 +4,20 @@ import clsx from "clsx";
 import { Fragment, useContext } from "react";
 
 interface Props {
-    tableOfContents: TableOfContentsItem[];
-    currentSection: string;
+  /**
+   * The table of contents list.
+   */
+  tableOfContents: TableOfContentsItem[];
+  /**
+   * The currently active section of the contents.
+   */
+  currentSection: string;
 };
 
+/**
+ * Create a table of contents element from a toc list.
+ * @returns An automatically generated table of contents.
+ */
 export default function TableOfContents({
     tableOfContents,
     currentSection
