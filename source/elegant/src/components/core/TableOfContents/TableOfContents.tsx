@@ -8,10 +8,10 @@ interface Props {
     currentSection: string;
 };
 
-const TableOfContents = ({
+export default function TableOfContents({
     tableOfContents,
     currentSection
-}: Props) => {
+}: Props) {
     let sidebarContext = useContext(SidebarContext)
     let isMainNav = Boolean(sidebarContext)
   
@@ -22,13 +22,15 @@ const TableOfContents = ({
     }
   
     function isActive(section: TableOfContentsItem) {
+
       if (section.slug === currentSection) {
-        return true
+        return true;
       }
       if (!section.children) {
-        return false
+        return false;
       }
-      return section.children.findIndex(isActive) > -1
+
+      return section.children.findIndex(isActive) > -1;
     }
   
     let pageHasSubsections = tableOfContents.some((section) => section.children.length > 0);
@@ -94,5 +96,3 @@ const TableOfContents = ({
       </>
     );
 };
-
-export default TableOfContents;

@@ -2,7 +2,7 @@ import { getDocumentBySlug, getDocuments } from "@/utils/core/Collections/collec
 import { GetServerSidePropsContext } from "next";
 import Error from "@/pages/404";
 import MarkdownToHtml from "@/utils/core/Rehype/MarkdownToHtml";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import HtmlToToc from "@/utils/core/Rehype/HtmlToToc";
 import DocumentationLayout from "@/components/core/Layouts/DocumentationLayout";
 import { Post } from "@/types/Post";
@@ -17,6 +17,7 @@ import Config from "@/utils/core/Config/Config";
 import Link from "next/link";
 import { documentationNav } from "@/config/Navigation";
 import Seo from "@/components/core/Seo/Seo";
+import useTableOfContents from "@/utils/core/Hooks/useTableOfContents";
 
 export const ContentsContext = createContext({});
 
@@ -32,7 +33,7 @@ type Props = {
     /**
      * Table of contents item list.
      */
-    toc: [];
+    toc: TableOfContentsItem[];
 };
 
 Index.layoutProps = {
@@ -48,6 +49,7 @@ export default function Index({
     content,
     toc
 }: Props) {
+
     const router = useRouter();
 
     if (!router.isFallback && !post?.slug) {
@@ -56,7 +58,8 @@ export default function Index({
         );
     }
 
-    const { currentSection, registerHeading, unregisterHeading } = useTableOfContents(toc);
+    let currentSection = useTableOfContents(toc, router);
+
     let { prev, next } = usePrevNext();
 
     let section = "";
@@ -96,7 +99,7 @@ export default function Index({
                     description={post.description}
                     section={section}
                 />
-                <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
+                <ContentsContext.Provider value={{}}>
                     <div
                         id="content-wrapper"
                         className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
@@ -185,81 +188,3 @@ export async function getStaticProps(context: GetServerSidePropsContext) {
         }
     };
 };
-
-/**
- * 
- * @param tableOfContents 
- * @returns 
- */
-function useTableOfContents(tableOfContents: TableOfContentsItem[]) {
-
-    let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
-    let [headings, setHeadings] = useState<Heading[]>([])
-  
-    const registerHeading = useCallback((id: string) => {
-
-        console.log('register heading')
-
-        setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top: getTop(id) }])
-    }, [])
-  
-    const unregisterHeading = useCallback((id: string) => {
-
-        console.log('unregister heading')
-
-        setHeadings((headings) => headings.filter((h) => id !== h.id))
-    }, [])
-  
-    useEffect(() => {
-      if (tableOfContents.length === 0 || headings.length === 0) {
-        return;
-      }
-  
-      function onScroll() {
-        let style = window.getComputedStyle(document.documentElement)
-        let scrollMt = parseFloat(style.getPropertyValue('--scroll-mt').match(/[\d.]+/)?.[0] as string ?? 0)
-        let fontSize = parseFloat(style.fontSize.match(/[\d.]+/)?.[0] as string ?? 16)
-        scrollMt = scrollMt * fontSize;
-        
-        let sortedHeadings = headings.concat([]).sort((a, b) => a.top - b.top)
-        let top = window.pageYOffset + scrollMt + 1
-        let current = sortedHeadings[0].id
-        for (let i = 0; i < sortedHeadings.length; i++) {
-          if (top >= sortedHeadings[i].top) {
-            current = sortedHeadings[i].id
-          }
-        }
-        setCurrentSection(current)
-      }
-  
-      window.addEventListener('scroll', onScroll, {
-        capture: true,
-        passive: true,
-      })
-  
-      onScroll()
-  
-      let resizeObserver = new window.ResizeObserver(() => {
-        for (let heading of headings) {
-          heading.top = getTop(heading.id)
-        }
-      })
-  
-      resizeObserver.observe(document.body)
-      return () => {
-        resizeObserver.disconnect()
-        window.removeEventListener('scroll', onScroll, {
-          capture: true,
-          //@ts-ignore
-          passive: true,
-        })
-      }
-    }, [headings, tableOfContents])
-  
-    return { currentSection, registerHeading, unregisterHeading }
-  }
-
-function getTop(id: string) {
-    //@ts-ignore
-    return document.getElementById(id).getBoundingClientRect().top + window.scrollY;
-}
