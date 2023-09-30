@@ -154,32 +154,6 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 Google Analytics
               </a>
             </li>
-            <li>
-              <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
-                href="/docs/convertkit"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-                target=""
-              >
-                ConvertKit
-              </a>
-            </li>
-            <li>
-              <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
-                href="/docs/deployment"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-                target=""
-              >
-                Vercel
-              </a>
-            </li>
           </ul>
         </div>
       </div>
