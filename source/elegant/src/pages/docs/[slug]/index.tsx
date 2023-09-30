@@ -2,16 +2,15 @@ import { getDocumentBySlug, getDocuments } from "@/utils/core/Collections/collec
 import { GetServerSidePropsContext } from "next";
 import Error from "@/pages/404";
 import MarkdownToHtml from "@/utils/core/Rehype/MarkdownToHtml";
-import { NextRouter, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import HtmlToToc from "@/utils/core/Rehype/HtmlToToc";
 import DocumentationLayout from "@/components/core/Layouts/DocumentationLayout";
 import { Post } from "@/types/Post";
 import { DocumentationHeading } from "@/components/core/Headings/DocumentationHeading";
 import TableOfContents from "@/components/core/TableOfContents/TableOfContents";
 import { TableOfContentsItem } from "@/types/TableOfContentsItem";
-import { createContext, useCallback, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
 import { usePrevNext } from "@/utils/core/Hooks/usePrevNext";
-import { Heading } from "@/types/Heading";
 import DocsFooter from "@/components/core/Footer/DocsFooter/DocsFooter";
 import Config from "@/utils/core/Config/Config";
 import Link from "next/link";
