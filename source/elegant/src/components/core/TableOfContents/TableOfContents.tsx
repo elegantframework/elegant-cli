@@ -1,17 +1,27 @@
 import { SidebarContext } from "@/components/core/Layouts/SidebarLayout";
 import { TableOfContentsItem } from "@/types/TableOfContentsItem";
 import clsx from "clsx";
-import { Fragment, useCallback, useContext, useEffect, useState } from "react";
+import { Fragment, useContext } from "react";
 
 interface Props {
-    tableOfContents: TableOfContentsItem[];
-    currentSection: string;
+  /**
+   * The table of contents list.
+   */
+  tableOfContents: TableOfContentsItem[];
+  /**
+   * The currently active section of the contents.
+   */
+  currentSection: string;
 };
 
-const TableOfContents = ({
+/**
+ * Create a table of contents element from a toc list.
+ * @returns An automatically generated table of contents.
+ */
+export default function TableOfContents({
     tableOfContents,
     currentSection
-}: Props) => {
+}: Props) {
     let sidebarContext = useContext(SidebarContext)
     let isMainNav = Boolean(sidebarContext)
   
@@ -22,13 +32,15 @@ const TableOfContents = ({
     }
   
     function isActive(section: TableOfContentsItem) {
+
       if (section.slug === currentSection) {
-        return true
+        return true;
       }
       if (!section.children) {
-        return false
+        return false;
       }
-      return section.children.findIndex(isActive) > -1
+
+      return section.children.findIndex(isActive) > -1;
     }
   
     let pageHasSubsections = tableOfContents.some((section) => section.children.length > 0);
@@ -94,5 +106,3 @@ const TableOfContents = ({
       </>
     );
 };
-
-export default TableOfContents;

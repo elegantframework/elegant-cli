@@ -32,8 +32,8 @@ export default function NavItem({
                 'text-primary-500 border-current font-semibold dark:text-primary-400': isActive,
                 'border-transparent hover:border-slate-400 dark:hover:border-slate-500': !isActive
             })}
-            >
-                {label}
+        >
+            {label}
         </Link>
     );
 };
