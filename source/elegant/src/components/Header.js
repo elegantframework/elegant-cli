@@ -7,6 +7,7 @@ import { Dialog } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import ThemeToggle, {ThemeSelect} from '@/components/core/Toggles/ThemeToggle/ThemeToggle';
+import useHeaderStore from '@/utils/core/Hooks/useHeaderStore';
 import Config from "Config";
 
 /**
@@ -122,8 +123,10 @@ export function NavItems() {
   </>;
 }
 
-export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section }) {
-  let [isOpaque, setIsOpaque] = useState(false)
+export function Header({ hasNav = false, navIsOpen, onNavToggle }) {
+  let [isOpaque, setIsOpaque] = useState(false);
+  const title = useHeaderStore((state) => state.title);
+  const section = useHeaderStore((state) => state.section);
 
   useEffect(() => {
     let offset = 50
@@ -139,7 +142,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
     return () => {
       window.removeEventListener('scroll', onScroll, { passive: true })
     }
-  }, [isOpaque])
+  }, [isOpaque]);
 
   return <>
     <div className="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
@@ -202,7 +205,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
               <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
                 <ThemeToggle panelClassName="mt-8" />
                 <a
-                   href={Config('app.repository')}
+                  href={Config('app.repository')}
                   className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                   target="_blank"
                 >
