@@ -22,7 +22,7 @@ const progress = new ProgressBar({
   color: '#7c3aed',
   className: 'bar-of-progress',
   delay: 100,
-})
+});
 
 // this fixes safari jumping to the bottom of the page
 // when closing the search modal using the `esc` key
@@ -101,10 +101,6 @@ export default function App({ Component, pageProps, router }) {
     pageType = "article";
   }
 
-  let section = Object.entries(Component.layoutProps?.Layout?.nav ?? {}).find(([, items]) =>
-    items.links.find(({ href }) => href === router.pathname)
-  )?.[0];
-
   // set our url
   let url = Config('app.url');
 
@@ -163,13 +159,11 @@ export default function App({ Component, pageProps, router }) {
             hasNav={Boolean(Component.layoutProps?.Layout?.nav)}
             navIsOpen={navIsOpen}
             onNavToggle={(isOpen) => setNavIsOpen(isOpen)}
-            title={meta.title}
-            section={section}
           />
         )}
         <Layout {...layoutProps}>
           <AnalyticsBody googleAnalyticsID={Config('app.google_analytics_id')}/>
-          <Component section={section} {...Component.layoutProps} {...pageProps} />
+          <Component {...Component.layoutProps} {...pageProps} />
         </Layout>
     </>
   )
