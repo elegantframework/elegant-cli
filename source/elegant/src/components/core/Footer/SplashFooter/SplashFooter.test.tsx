@@ -27,8 +27,6 @@ describe("Splash page footer component", () => {
                   title: "Services",
                   links: [
                       { title: 'Google Analytics', href: '/docs/google-analytics/' },
-                      { title: 'ConvertKit', href: '/docs/convertkit/' },
-                      { title: 'Vercel', href: '/docs/deployment/' },
                   ]
               }
         ]}/>)

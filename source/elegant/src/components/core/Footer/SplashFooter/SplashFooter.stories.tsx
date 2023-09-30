@@ -33,8 +33,6 @@ export const Footer: Story = {
       title: "Services",
       links: [
           { title: 'Google Analytics', href: 'https://elegantframework.com/docs/google-analytics/' },
-          { title: 'ConvertKit', href: 'https://elegantframework.com/docs/convertkit/' },
-          { title: 'Vercel', href: 'https://elegantframework.com/docs/deployment/' },
       ]
     },
     {

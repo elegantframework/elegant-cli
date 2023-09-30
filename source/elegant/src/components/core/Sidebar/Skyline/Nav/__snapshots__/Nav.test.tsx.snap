@@ -108,17 +108,6 @@ exports[`Navigation for the sidebar renders the navigation section as expected 1
             New Documents
           </a>
         </li>
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/deployment"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            Deployment
-          </a>
-        </li>
       </ul>
     </li>
     <li
@@ -156,17 +145,6 @@ exports[`Navigation for the sidebar renders the navigation section as expected 1
       <ul
         className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
       >
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/convertkit"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            ConvertKit
-          </a>
-        </li>
         <li>
           <a
             className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"

@@ -35,10 +35,6 @@ export const documentationNav: NavigationSection[] = [
       {
         title: "New Documents",
         href: "/docs/new-documents"
-      },
-      {
-        title: "Deployment",
-        href: "/docs/deployment"
       }
     ]
   },
@@ -52,10 +48,6 @@ export const documentationNav: NavigationSection[] = [
   {
     title: "Plugins",
     links: [
-      {
-        title: "ConvertKit",
-        href: "/docs/convertkit"
-      },
       {
         title: "Google Analytics",
         href: "/docs/google-analytics"
