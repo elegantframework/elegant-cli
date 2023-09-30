@@ -17,6 +17,7 @@ import Config from "@/utils/core/Config/Config";
 import Link from "next/link";
 import { documentationNav } from "@/config/Navigation";
 import Seo from "@/components/core/Seo/Seo";
+import useHeaderStore from "@/utils/core/Hooks/useHeaderStore";
 import useTableOfContents from "@/utils/core/Hooks/useTableOfContents";
 
 export const ContentsContext = createContext({});
@@ -61,6 +62,8 @@ export default function Index({
     let currentSection = useTableOfContents(toc, router);
 
     let { prev, next } = usePrevNext();
+    const setSection = useHeaderStore((state) => state.setSection);
+    const setTitle = useHeaderStore((state) => state.setTitle);
 
     let section = "";
     let sectionIndex = parseInt(
@@ -72,6 +75,11 @@ export default function Index({
     if(sectionIndex) {
         section = documentationNav[sectionIndex].title;
     }
+
+    useEffect(() => {
+        setSection(section);
+        setTitle(post.title);
+    }, [section]);
 
     // set our url
     let url = Config('app.url');
