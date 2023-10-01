@@ -98,7 +98,7 @@ const useTipTap = ({ ...rhfMethods }) => {
               mergeAttributes(
                 this.options.HTMLAttributes,
                 {
-                  width: this.options.width,
+                  width: "100%",
                   height: this.options.height,
                   allowfullscreen: this.options.allowFullscreen,
                   autoplay: this.options.autoplay,
