@@ -24,7 +24,7 @@ export default async function MarkdownToHtml(content: string) {
       .use(remarkParse)
       .use(remarkGfm)
       .use(remarkHtml)
-      .use(remarkRehype)
+      .use(remarkRehype, {allowDangerousHtml: true})
       .use(rehypeRewrite, {
         rewrite: (node) => {
           if (
@@ -75,7 +75,7 @@ export default async function MarkdownToHtml(content: string) {
           ],
         },
       })
-      .use(rehypeStringify)
+      .use(rehypeStringify, {allowDangerousHtml: true})
       .process(content);
   
     return String(file);
