@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import UnifiedFramework from '@/components/home/UnifiedFramework';
-import Logo from '@/components/core/Logos/Logo/Logo';
 import { Footer } from '@/components/home/Footer';
 import NextLink from 'next/link';
 import { NavItems, NavPopover } from '@/components/Header';
@@ -9,8 +8,9 @@ import styles from './index.module.css';
 import clsx from 'clsx';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
-import MetaTitle from '@/utils/core/Meta/MetaTitle';
-import Config from "Config";
+import Config from '@/utils/Config/Config';
+import MetaTitle from '@/utils/Meta/MetaTitle';
+import Logo from '@/components/Logos/Logo/Logo';
 
 Home.layoutProps = {
   meta: {

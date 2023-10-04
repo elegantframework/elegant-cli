@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getLoginSession } from '@/utils/core/Auth/auth';
-import Config from '@/utils/core/Config/Config';
+import { getLoginSession } from '@/utils/Auth/auth';
+import Config from '@/utils/Config/Config';
 
 const REPO_SLUG = Config('admin.cms_repository_slug');
 const REPO_BRANCH = Config('admin.cms_repository_branch');

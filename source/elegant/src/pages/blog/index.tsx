@@ -1,11 +1,11 @@
-import { NewsletterForm } from '@/components/core/NewsletterForm/NewsletterForm';
+import { NewsletterForm } from '@/components/NewsletterForm/NewsletterForm';
 import Link from 'next/link';
 import clsx from 'clsx';
-import Config from "Config";
-import { getDocuments } from '@/utils/core/Collections/collection';
+import { getDocuments } from '@/utils/Collections/collection';
 import { Post } from '@/types/Post';
 import moment from 'moment';
-import GenerateRssFeed from '@/utils/core/RSS/GenerateRSSFeed';
+import GenerateRssFeed from '@/utils/RSS/GenerateRSSFeed';
+import Config from '@/utils/Config/Config';
 
 interface Props {
   /**

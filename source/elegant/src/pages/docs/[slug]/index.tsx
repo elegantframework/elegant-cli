@@ -1,23 +1,23 @@
-import { getDocumentBySlug, getDocuments } from "@/utils/core/Collections/collection";
+import { getDocumentBySlug, getDocuments } from "@/utils/Collections/collection";
 import { GetServerSidePropsContext } from "next";
 import Error from "@/pages/404";
-import MarkdownToHtml from "@/utils/core/Rehype/MarkdownToHtml";
+import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
 import { useRouter } from "next/router";
-import HtmlToToc from "@/utils/core/Rehype/HtmlToToc";
-import DocumentationLayout from "@/components/core/Layouts/DocumentationLayout";
+import HtmlToToc from "@/utils/Rehype/HtmlToToc";
+import DocumentationLayout from "@/components/Layouts/DocumentationLayout";
 import { Post } from "@/types/Post";
-import { DocumentationHeading } from "@/components/core/Headings/DocumentationHeading";
-import TableOfContents from "@/components/core/TableOfContents/TableOfContents";
+import { DocumentationHeading } from "@/components/Headings/DocumentationHeading";
+import TableOfContents from "@/components/TableOfContents/TableOfContents";
 import { TableOfContentsItem } from "@/types/TableOfContentsItem";
 import { createContext, useEffect } from "react";
-import { usePrevNext } from "@/utils/core/Hooks/usePrevNext";
-import DocsFooter from "@/components/core/Footer/DocsFooter/DocsFooter";
-import Config from "@/utils/core/Config/Config";
+import { usePrevNext } from "@/utils/Hooks/usePrevNext";
+import DocsFooter from "@/components/Footer/DocsFooter/DocsFooter";
+import Config from "@/utils/Config/Config";
 import Link from "next/link";
 import { documentationNav } from "@/config/Navigation";
-import Seo from "@/components/core/Seo/Seo";
-import useHeaderStore from "@/utils/core/Hooks/useHeaderStore";
-import useTableOfContents from "@/utils/core/Hooks/useTableOfContents";
+import Seo from "@/components/Seo/Seo";
+import useHeaderStore from "@/utils/Hooks/useHeaderStore";
+import useTableOfContents from "@/utils/Hooks/useTableOfContents";
 
 export const ContentsContext = createContext({});
 

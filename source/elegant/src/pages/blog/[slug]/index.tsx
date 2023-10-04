@@ -1,10 +1,10 @@
-import { NewsletterForm } from "@/components/core/NewsletterForm/NewsletterForm";
-import Seo from "@/components/core/Seo/Seo";
+import { NewsletterForm } from "@/components/NewsletterForm/NewsletterForm";
+import Seo from "@/components/Seo/Seo";
 import Error from "@/pages/404";
 import { Post } from "@/types/Post";
-import { getDocumentBySlug, getDocuments } from "@/utils/core/Collections/collection";
-import Config from "@/utils/core/Config/Config";
-import MarkdownToHtml from "@/utils/core/Rehype/MarkdownToHtml";
+import { getDocumentBySlug, getDocuments } from "@/utils/Collections/collection";
+import Config from "@/utils/Config/Config";
+import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
 import moment from "moment";
 import { GetServerSidePropsContext } from "next";
 import { ArticleJsonLd } from "next-seo";

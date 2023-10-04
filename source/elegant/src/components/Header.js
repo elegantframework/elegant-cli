@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import VersionSwitcher from '@/components/core/Headers/VersionSwitcher';
+import VersionSwitcher from '@/components/Headers/VersionSwitcher';
 import Router from 'next/router';
-import Logo from '@/components/core/Logos/Logo/Logo';
+import Logo from '@/components/Logos/Logo/Logo';
 import { Dialog } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import ThemeToggle, {ThemeSelect} from '@/components/core/Toggles/ThemeToggle/ThemeToggle';
-import useHeaderStore from '@/utils/core/Hooks/useHeaderStore';
+import ThemeToggle, {ThemeSelect} from '@/components/Toggles/ThemeToggle/ThemeToggle';
+import useHeaderStore from '@/utils/Hooks/useHeaderStore';
 import Config from "Config";
 
 /**
