@@ -9,19 +9,19 @@ import { Post } from "@/types/Post";
 import { DocumentationHeading } from "@/components/core/Headings/DocumentationHeading";
 import TableOfContents from "@/components/core/TableOfContents/TableOfContents";
 import { TableOfContentsItem } from "@/types/TableOfContentsItem";
-import { createContext, useCallback, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
 import { usePrevNext } from "@/utils/core/Hooks/usePrevNext";
-import { Heading } from "@/types/Heading";
 import DocsFooter from "@/components/core/Footer/DocsFooter/DocsFooter";
 import Config from "@/utils/core/Config/Config";
 import Link from "next/link";
 import { documentationNav } from "@/config/Navigation";
 import Seo from "@/components/core/Seo/Seo";
 import useHeaderStore from "@/utils/core/Hooks/useHeaderStore";
+import useTableOfContents from "@/utils/core/Hooks/useTableOfContents";
 
 export const ContentsContext = createContext({});
 
-type Props = {
+interface Props {
     /**
      * A documentation page to be displayed.
      */
@@ -33,7 +33,7 @@ type Props = {
     /**
      * Table of contents item list.
      */
-    toc: [];
+    toc: TableOfContentsItem[];
 };
 
 Index.layoutProps = {
@@ -49,6 +49,7 @@ export default function Index({
     content,
     toc
 }: Props) {
+
     const router = useRouter();
 
     if (!router.isFallback && !post?.slug) {
@@ -57,7 +58,8 @@ export default function Index({
         );
     }
 
-    const { currentSection, registerHeading, unregisterHeading } = useTableOfContents(toc);
+    let currentSection = useTableOfContents(toc, router);
+
     let { prev, next } = usePrevNext();
     const setSection = useHeaderStore((state) => state.setSection);
     const setTitle = useHeaderStore((state) => state.setTitle);
@@ -65,7 +67,7 @@ export default function Index({
     let section = "";
     let sectionIndex = parseInt(
         Object.entries(documentationNav).find(([, items]) =>
-            items.links.find(({ href }) => href === router.asPath)
+            items.links.find(({ href }) => href === router.asPath.split('#')[0])
         )?.[0] || ""
     );
     
@@ -95,7 +97,7 @@ export default function Index({
                 title={`${post.title} - ${Config('app.description')}`}
                 description={post.description || Config('app.description')}
                 themeColor={"#f8fafc"}
-                url={`${url}${router.asPath}`}
+                url={`${url}${router.asPath.split('#')[0]}`}
                 image={`${url}${post.coverImage}`}
             />
             <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
@@ -104,7 +106,7 @@ export default function Index({
                     description={post.description}
                     section={section}
                 />
-                <ContentsContext.Provider value={{ registerHeading, unregisterHeading }}>
+                <ContentsContext.Provider value={{}}>
                     <div
                         id="content-wrapper"
                         className="relative z-20 prose prose-slate mt-8 dark:prose-dark"
@@ -193,75 +195,3 @@ export async function getStaticProps(context: GetServerSidePropsContext) {
         }
     };
 };
-
-/**
- * 
- * @param tableOfContents 
- * @returns 
- */
-function useTableOfContents(tableOfContents: TableOfContentsItem[]) {
-
-    let [currentSection, setCurrentSection] = useState(tableOfContents[0]?.slug)
-    let [headings, setHeadings] = useState<Heading[]>([])
-  
-    const registerHeading = useCallback((id: string) => {
-        setHeadings((headings) => [...headings.filter((h) => id !== h.id), { id, top: getTop(id) }])
-    }, [])
-  
-    const unregisterHeading = useCallback((id: string) => {
-        setHeadings((headings) => headings.filter((h) => id !== h.id))
-    }, [])
-  
-    useEffect(() => {
-      if (tableOfContents.length === 0 || headings.length === 0) {
-        return;
-      }
-  
-      function onScroll() {
-        let style = window.getComputedStyle(document.documentElement)
-        let scrollMt = parseFloat(style.getPropertyValue('--scroll-mt').match(/[\d.]+/)?.[0] as string ?? 0)
-        let fontSize = parseFloat(style.fontSize.match(/[\d.]+/)?.[0] as string ?? 16)
-        scrollMt = scrollMt * fontSize;
-        
-        let sortedHeadings = headings.concat([]).sort((a, b) => a.top - b.top)
-        let top = window.pageYOffset + scrollMt + 1
-        let current = sortedHeadings[0].id
-        for (let i = 0; i < sortedHeadings.length; i++) {
-          if (top >= sortedHeadings[i].top) {
-            current = sortedHeadings[i].id
-          }
-        }
-        setCurrentSection(current)
-      }
-  
-      window.addEventListener('scroll', onScroll, {
-        capture: true,
-        passive: true,
-      })
-  
-      onScroll()
-  
-      let resizeObserver = new window.ResizeObserver(() => {
-        for (let heading of headings) {
-          heading.top = getTop(heading.id)
-        }
-      })
-  
-      resizeObserver.observe(document.body)
-      return () => {
-        resizeObserver.disconnect()
-        window.removeEventListener('scroll', onScroll, {
-          capture: true,
-          //@ts-ignore
-          passive: true,
-        })
-      }
-    }, [headings, tableOfContents])
-  
-    return { currentSection, registerHeading, unregisterHeading }
-  }
-
-function getTop(id: string) {
-    //@ts-ignore
-    return document.getElementById(id).getBoundingClientRect().top + window.scrollY;
-}

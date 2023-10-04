@@ -1,6 +1,4 @@
 import { useRouter } from 'next/router';
-import { createContext, forwardRef, useRef } from 'react';
-import { useIsomorphicLayoutEffect } from '@/utils/core/Hooks/useIsomorphicLayoutEffect';
 import { NavigationSection } from '@/types/Navigation';
 import clsx from 'clsx';
 import NavItem from '../NavItem/NavItem';
@@ -25,30 +23,6 @@ export default function Nav({
     nav
 }: Props) {
     const router = useRouter();
-    //       previousActiveItemRef.current = activeItemRef.current;
-    //     }
-    
-    //     if (activeItemRef.current) {
-    //       if (activeItemRef.current === previousActiveItemRef.current) {
-    //         updatePreviousRef();
-    //         return;
-    //       }
-    
-    //       updatePreviousRef();
-    
-    //       const scrollable = nearestScrollableContainer(scrollRef.current);
-    
-    //       const scrollRect = scrollable.getBoundingClientRect();
-    //       const activeItemRect = activeItemRef.current.getBoundingClientRect();
-    
-    //       const top = activeItemRef.current.offsetTop;
-    //       const bottom = top - scrollRect.height + activeItemRect.height;
-    
-    //       if (scrollable.scrollTop > top || scrollable.scrollTop < bottom) {
-    //         scrollable.scrollTop = (top - scrollRect.height / 2 + activeItemRect.height / 2);
-    //       }
-    //     }
-    //   }, [router.pathname]);
     
     return(
         <nav className="lg:text-sm lg:leading-6 relative">
@@ -108,7 +82,7 @@ export default function Nav({
                                 <li key={item.title}>
                                     <NavItem 
                                         href={item.href}
-                                        isActive={item.href === router.asPath}
+                                        isActive={item.href === router.asPath.split('#')[0]}
                                         label={item.title}
                                     />
                                 </li>
