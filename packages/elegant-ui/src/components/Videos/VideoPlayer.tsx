@@ -1,4 +1,3 @@
-import { VideoJsonLd } from 'next-seo';
 import React from 'react';
 
 interface Props {
@@ -10,14 +9,6 @@ interface Props {
    * The id of the video provided by YouTube. Ex. bS66QUBKljM
    */
   videoId: string;
-  /**
-   * A description of the video.
-   */
-  description: string;
-  /**
-   * The date time string that this video was uploaded.
-   */
-  uploadDate: string;
   /**
    * The width of the video player.
    */
@@ -39,8 +30,6 @@ interface Props {
 const VideoPlayer = ({
   title,
   videoId,
-  description,
-  uploadDate,
   width = '100%',
   height = 350,
   allowFullScreen = true
@@ -55,17 +44,6 @@ const VideoPlayer = ({
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen={allowFullScreen}
         ></iframe>
-
-        <VideoJsonLd
-          name={title}
-          description={description}
-          contentUrl={`https://youtu.be/${videoId}`}
-          embedUrl={`https://www.youtube.com/embed/${videoId}`}
-          thumbnailUrls={[
-            `https://img.youtube.com/vi/${videoId}/0.jpg`,
-          ]}
-          uploadDate={uploadDate}
-        />
     </>
   );
 }
