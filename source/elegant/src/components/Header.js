@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import ThemeToggle, {ThemeSelect} from '@/components/Toggles/ThemeToggle/ThemeToggle';
 import useHeaderStore from '@/utils/Hooks/useHeaderStore';
-import Config from "Config";
+import Config from '@/utils/Config/Config';
 
 /**
  * @deprecated - To be removed by 2.3
