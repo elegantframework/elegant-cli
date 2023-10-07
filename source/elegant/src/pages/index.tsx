@@ -26,7 +26,6 @@ export default function Home() {
       <div className="mb-20 overflow-hidden sm:mb-32 md:mb-40">
         <Header />
       </div> 
-      <Footer />
     </>
   )
 };
@@ -57,22 +56,6 @@ const Header = () => {
           <div className="relative pt-6 lg:pt-8 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
             <Logo className="w-auto h-7" />
             <div className="flex items-center">
-              {/* <SearchButton className="text-slate-500 hover:text-slate-600 w-8 h-8 -my-1 flex items-center justify-center md:hidden dark:hover:text-slate-300">
-                <span className="sr-only">Search</span>
-                <svg
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m19 19-3.5-3.5" />
-                  <circle cx="11" cy="11" r="6" />
-                </svg>
-              </SearchButton> */}
               <NavPopover className="-my-1 ml-2 -mr-1" display="md:hidden" />
               <div className="hidden md:flex items-center">
                 <nav>
@@ -101,181 +84,98 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
-            <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white">
-              {Config('app.tagline')}
-            </h1>
-            <p className="mt-6 text-lg text-slate-600 text-center max-w-3xl mx-auto dark:text-slate-400">
-              Elegant is the easiest way to create a new static{' '}
-              <code className="font-mono font-medium text-primary-500 dark:text-primary-400">website</code>{' '} 
-              or{' '}
-              <code className="font-mono font-medium text-primary-500 dark:text-primary-400">blog</code>,{' '}
-              and publish it online. No need for databases, external services, or complicated server setups.
-            </p>
-            <div className="mt-6 sm:mt-10 md:flex justify-center md:space-x-6 text-sm max-w-3xl mx-auto">
-              <form 
-                action={"https://app.convertkit.com/forms/5032790/subscriptions"} 
-                method="post"
-                target="_blank"
-                className="md:flex flex-wrap md:-mx-2 w-full md:max-w-xl"
-              >
-                <div className="md:px-2 grow-[9999] basis-64">
-                  <div className="group relative">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                        className="w-6 h-full absolute inset-y-0 left-3 text-slate-400 pointer-events-none group-focus-within:text-primary-500 dark:group-focus-within:text-slate-400"
-                      >
-                        <path d="M5 7.92C5 6.86 5.865 6 6.931 6h10.138C18.135 6 19 6.86 19 7.92v8.16c0 1.06-.865 1.92-1.931 1.92H6.931A1.926 1.926 0 0 1 5 16.08V7.92Z" />
-                        <path d="m6 7 6 5 6-5" />
-                      </svg>
-                      <input
-                        name="email_address"
-                        type="email"
-                        required
-                        autoComplete="email"
-                        aria-label="Email address"
-                        className="appearance-none shadow rounded-md mb-5 md:mb-0 ring-1 ring-slate-900/5 leading-5 sm:text-sm border border-transparent py-2 h-12 w-full placeholder:text-slate-400 pl-12 pr-3 block w-full text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white dark:bg-primary-700/20 dark:ring-primary-200/20 dark:focus:ring-primary-500 dark:text-white"
-                        placeholder="Email address"
-                      />
-                  </div>
-                </div>
-                <div className="md:px-2 grow flex">
-                  <button
-                    type="submit"
-                    className="bg-primary-500 flex-auto shadow text-white rounded-md mb-5 md:mb-0 text-sm border-y border-transparent py-2 font-semibold px-12 h-12 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700"
-                  >
-                      Sign Up
-                  </button>
-                </div>
-              </form>
-              <div className='border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-600 md:mx-3 mb-5 md:mb-0'></div>
-              <NextLink
-                href="/docs/installation"
-                className="bg-secondary-500 hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto min-w-[128px] dark:bg-secondary-500 dark:highlight-white/20 dark:hover:bg-secondary-400">
-                
-                  Get Started
-                
-              </NextLink>
+          {/* <div className="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
+      
+          </div> */}
+          <main className="flex min-h-screen flex-col items-center justify-between p-24">
+            <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+              <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 pb-6 pt-8 dark:border-neutral-800 lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
+                Get started by editing&nbsp;
+                <code className="font-mono font-bold">src/pages/index.tsx</code>
+              </p>
             </div>
-          </div>
+            <div className="z-10 max-w-5xl w-full items-center justify-between text-sm">
+              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
+                <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  Welcome to Elegant
+                </p>
+                <p className="mt-6 text-lg leading-8 text-gray-300">
+
+                </p>
+              </div>
+            </div>
+            <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+              <a
+                href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Docs{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                  Find in-depth information about Next.js features and API.
+                </p>
+              </a>
+
+              <a
+                href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Learn{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                  Learn about Next.js in an interactive course with&nbsp;quizzes!
+                </p>
+              </a>
+
+              <a
+                href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Templates{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                  Explore the Next.js 13 playground.
+                </p>
+              </a>
+
+              <a
+                href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Deploy{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                  Instantly deploy your Next.js site to a shareable URL with Vercel.
+                </p>
+              </a>
+            </div>
+          </main>
         </div>
       </header>
-      <UnifiedFramework />
-      <section className="bg-slate-900 dark:bg-white py-20 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl sm:text-4xl text-white dark:text-slate-900 font-extrabold tracking-tight dark:text-slate-50">
-              Frequently asked questions
-            </h2>
-          </div>
-          <ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-            <li>
-              <ul className="flex flex-col gap-y-8">
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900 dark:text-slate-900">
-                    What is Elegant and how does it work?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Elegant is a modern content creation framework that is the perfect starting point for your next project or idea. 
-                    <br />
-                    <br />
-                    Elegant comes complete with everything you need to launch and grow a beautiful and amazing web application.
-                  </p>
-                </li>
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900">
-                    How much does Elegant cost?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Elegant is completely free, and super affordable to host.
-                  </p>
-                </li>
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900">
-                    What kind of web applications can I build with Elegant?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Elegant is perfect for building rich landing pages, detailed user guides, and amazing blog posts. 100% of this website has been built using the Elegant framework.
-                  </p>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <ul className="flex flex-col gap-y-8">
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900">
-                    Do I have to write any setup code?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Nope! We have taken care of all the boilerplate code for you. Simply insert your custom idea and spin up a beautiful looking server side rendered web application.
-                  </p>
-                </li>
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900">
-                    Can I customize and extend the Elegant framework?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Yes! Elegant is 100% open source and extendable. We actively encourage code <NextLink
-                    href="/docs/contribution-guide"
-                    className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">contributions</NextLink> from the development community.
-                  </p>
-                </li>
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900">
-                    Does Elegant offer simple Cloud based hosting for my web application?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Not currently. We are actively developing Elegant and hope to debut seamless hosting in a future release. Please subscribe to our newsletter to be the first to know when we launch native hosting.
-                  </p>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <ul className="flex flex-col gap-y-8">
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900">
-                    Can I host my Elegant web application myself?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Of course, you can host your application on any cloud provider. Elegant has been built for optimal performance on the Vercel hosting platform.
-                  </p>
-                </li>
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900">
-                    What tools and features are included?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Elegant comes completely integrated with <NextLink
-                    href="/docs/google-analytics"
-                    className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">Google Analytics</NextLink>, <NextLink
-                    href="/docs/google-analytics"
-                    className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">ConvertKit</NextLink>, and more. 
-                    <br />
-                    <br />
-                    We have included an SEO perfect theme that looks great on any device, and is perfect for blogging or writing user docs.
-                  </p>
-                </li>
-                <li>
-                  <h3 className="font-semibold text-lg leading-7 text-white dark:text-slate-900">
-                    But why another framework?
-                  </h3>
-                  <p className="mt-4 text-sm text-slate-300 dark:text-slate-700">
-                    Elegant is a simple <NextLink
-                    href="/blog/2023-04-24-but-why-another-framework"
-                    className="text-primary-500 font-semibold dark:text-primary-400 hover:underline">framework</NextLink> made up of the latest cutting edge frontend technologies. Elegant is meant to help you rapidly build your next idea, and not get in your way. 
-                  </p>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </section>
     </React.Fragment>
   );
 };
