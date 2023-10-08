@@ -19,7 +19,7 @@ exports[`The Admin Log In page renders properly 1`] = `
     >
       Sign in with GitHub to access your dashboard.
     </p>
-    <a
+    <ForwardRef(LinkComponent)
       className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700"
       href="/api/admin/login"
     >
@@ -27,12 +27,12 @@ exports[`The Admin Log In page renders properly 1`] = `
         className="h-5 w-5 mr-2"
       />
        Sign in with GitHub
-    </a>
+    </ForwardRef(LinkComponent)>
   </Card>
   <div
     className="sm:mx-auto sm:w-full sm:max-w-md xs:pl-0 sm:pl-4 text-left -mt-6 dark:text-white"
   >
-    <a
+    <ForwardRef(LinkComponent)
       className="hover:underline"
       href="/"
     >
@@ -41,7 +41,7 @@ exports[`The Admin Log In page renders properly 1`] = `
       />
       Go to 
       Elegant - The unit testing application.
-    </a>
+    </ForwardRef(LinkComponent)>
   </div>
 </main>
 `;
