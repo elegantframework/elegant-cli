@@ -89,18 +89,13 @@ const Header = () => {
           </div> */}
           <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-              <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 pb-6 pt-8 dark:border-neutral-800 lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-                Get started by editing&nbsp;
-                <code className="font-mono font-bold">src/pages/index.tsx</code>
-              </p>
-            </div>
-            <div className="z-10 max-w-5xl w-full items-center justify-between text-sm">
-              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-                <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <div className='m-auto fixed left-0 top-0 w-full justify-center pb-6 pt-8 dark:border-neutral-800 lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30'>
+                <p className=''>
                   Welcome to Elegant
                 </p>
-                <p className="mt-6 text-lg leading-8 text-gray-300">
-
+                <p className="">
+                  Get started by editing&nbsp;
+                  <code className="font-mono font-bold">src/pages/index.tsx</code>
                 </p>
               </div>
             </div>
@@ -118,7 +113,7 @@ const Header = () => {
                   </span>
                 </h2>
                 <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                  Find in-depth information about Next.js features and API.
+                  Find in-depth information about Elegant's features.
                 </p>
               </a>
 
@@ -152,7 +147,7 @@ const Header = () => {
                   </span>
                 </h2>
                 <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                  Explore the Next.js 13 playground.
+                  Get started creating content with your CMS editor.
                 </p>
               </a>
 
@@ -169,7 +164,7 @@ const Header = () => {
                   </span>
                 </h2>
                 <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                  Instantly deploy your Next.js site to a shareable URL with Vercel.
+                  Quickly deploy your Elegant web application to a production URL.
                 </p>
               </a>
             </div>
