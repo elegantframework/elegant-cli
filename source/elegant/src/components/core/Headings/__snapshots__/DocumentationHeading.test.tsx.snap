@@ -20,10 +20,5 @@ exports[`Documentation Heading component renders the documentation heading prope
       </h1>
     </div>
   </div>
-  <p
-    className="mt-2 text-lg text-slate-700 dark:text-slate-400"
-  >
-    This is a unit test.
-  </p>
 </div>
 `;
