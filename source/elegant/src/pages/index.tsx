@@ -11,6 +11,8 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
 import MetaTitle from '@/utils/core/Meta/MetaTitle';
 import Config from "Config";
+import Link from 'next/link';
+import { Card } from '@brandonowens/elegant-ui';
 
 Home.layoutProps = {
   meta: {
@@ -23,7 +25,7 @@ Home.layoutProps = {
 export default function Home() {
   return (
     <>
-      <div className="mb-20 overflow-hidden sm:mb-32 md:mb-40">
+      <div className="overflow-hidden">
         <Header />
       </div> 
     </>
@@ -37,11 +39,11 @@ export default function Home() {
 const Header = () => {
   return (
     <React.Fragment>
-      <header className="relative mb-20 pb-40">
+      <header className="relative">
         <div className="px-4 sm:px-6 md:px-8">
           <div
             className={clsx(
-              'absolute inset-0 bottom-10 bg-bottom bg-no-repeat bg-slate-50 dark:bg-[#0B1120]',
+              'absolute inset-0 bottom-0 bg-bottom bg-no-repeat bg-slate-50 dark:bg-[#0B1120]',
               styles.beams
             )}
           >
@@ -84,42 +86,22 @@ const Header = () => {
               </div>
             </div>
           </div>
-          {/* <div className="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
-      
-          </div> */}
-          <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-              <div className='m-auto fixed left-0 top-0 w-full justify-center pb-6 pt-8 dark:border-neutral-800 lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30'>
-                <p className=''>
-                  Welcome to Elegant
-                </p>
-                <p className="">
+          <main className="flex min-h-[92vh] flex-col items-center justify-between p-0 pt-24 md:p-24">
+            <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
+              <div className='rounded-3xl p-8 ring-1 ring-gray-900/10 sm:p-10 relative bg-gray-900 dark:bg-white shadow-2xl'>
+                <h2 className='text-3xl font-bold tracking-tight text-gray-300 dark:text-gray-900 sm:text-4xl'>
+                  Welcome.
+                </h2>
+                <p className="mt-14 pl-2 pr-4 font-mono text-gray-400 dark:text-gray-600">
                   Get started by editing&nbsp;
                   <code className="font-mono font-bold">src/pages/index.tsx</code>
                 </p>
               </div>
             </div>
-            <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+            <div className="mb-32 grid text-center lg:max-w-6xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left z-10 mt-16 lg:mt-0">
               <a
-                href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h2 className={`mb-3 text-2xl font-semibold`}>
-                  Docs{' '}
-                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                    -&gt;
-                  </span>
-                </h2>
-                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                  Find in-depth information about Elegant's features.
-                </p>
-              </a>
-
-              <a
-                href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                href="https://www.elegantframework.com/docs/rich-snippets?utm_source=elegant_cli"
+                className="group text-gray-900 dark:text-gray-200 hover:dark:text-white px-5 py-4 h-auto transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -129,31 +111,27 @@ const Header = () => {
                     -&gt;
                   </span>
                 </h2>
-                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                  Learn about Next.js in an interactive course with&nbsp;quizzes!
+                <p className={`m-0 max-w-[30ch] text-sm text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300`}>
+                  Find in-depth information about Elegant's features, and take your website to the next level.
                 </p>
               </a>
-
-              <a
-                href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="http://localhost:3000/admin"
+                className="group text-gray-900 dark:text-gray-200 hover:dark:text-white px-5 py-4 h-auto transition-colors"
               >
                 <h2 className={`mb-3 text-2xl font-semibold`}>
-                  Templates{' '}
+                  Create{' '}
                   <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                     -&gt;
                   </span>
                 </h2>
-                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                  Get started creating content with your CMS editor.
+                <p className={`m-0 max-w-[30ch] text-sm text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300`}>
+                  Get started creating amazing content with your new CMS editor.
                 </p>
-              </a>
-
+              </Link>
               <a
-                href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                href="https://www.elegantframework.com/docs/deployment?utm_source=elegant_cli"
+                className="group text-gray-900 dark:text-gray-200 hover:dark:text-white px-5 py-4 h-auto transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -163,8 +141,24 @@ const Header = () => {
                     -&gt;
                   </span>
                 </h2>
-                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                  Quickly deploy your Elegant web application to a production URL.
+                <p className={`m-0 max-w-[30ch] text-sm text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300`}>
+                  Quickly deploy your Elegant web application to your own custom URL.
+                </p>
+              </a>
+              <a
+                href="https://www.elegantframework.com/docs/contribution-guide?utm_source=elegant_cli"
+                className="group text-gray-900 dark:text-gray-200 hover:dark:text-white px-5 py-4 h-auto transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                  Contribute{' '}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                    -&gt;
+                  </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300`}>
+                  Suggest new ideas and features, report bugs and user friction, and get involved in the Elegant community.
                 </p>
               </a>
             </div>
