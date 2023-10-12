@@ -5,6 +5,7 @@ import Config from "@/utils/core/Config/Config";
 import MetaTitle from "@/utils/core/Meta/MetaTitle";
 import { ArrowLongLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import Head from "next/head";
 
 Login.layoutProps = {
   meta: {
@@ -15,6 +16,10 @@ Login.layoutProps = {
 
 export default function Login() {
   return (
+    <>
+    <Head>
+      <title>{Login.layoutProps.meta.title}</title>
+    </Head>
     <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Logo className="w-auto h-8 mx-auto"/>
@@ -38,6 +43,7 @@ export default function Login() {
           <ArrowLongLeftIcon className="h-6 w-6 inline mr-2"/>Go to {Config("app.name")}
         </Link>
       </div>
-    </main>
+    </main>    
+    </>
   )
 }
