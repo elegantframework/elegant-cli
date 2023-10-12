@@ -116,7 +116,7 @@ const Header = () => {
                 </p>
               </a>
               <Link
-                href="http://localhost:3000/admin"
+                href="/admin"
                 className="group text-gray-900 dark:text-gray-200 hover:dark:text-white px-5 py-4 h-auto transition-colors"
               >
                 <h2 className={`mb-3 text-2xl font-semibold`}>
