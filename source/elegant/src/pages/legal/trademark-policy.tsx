@@ -1,7 +1,7 @@
-import LegalLayout from "@/components/core/Layouts/LegalLayout";
-import Seo from "@/components/core/Seo/Seo";
-import MetaTitle from "@/utils/core/Meta/MetaTitle";
-import Config from "Config";
+import LegalLayout from "@/components/Layouts/LegalLayout";
+import Seo from "@/components/Seo/Seo";
+import MetaTitle from "@/utils/Meta/MetaTitle";
+import Config from '@/utils/Config/Config';
 import Link from "next/link";
 
 /**

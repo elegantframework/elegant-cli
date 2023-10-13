@@ -4,18 +4,18 @@ import SeoLogo from './../../public/favicons/apple-icon-180x180.png';
 import { Header } from '@/components/Header';
 import Router from 'next/router';
 import ProgressBar from '@badrap/bar-of-progress';
-import Seo from "@/components/core/Seo/Seo";
+import Seo from "@/components/Seo/Seo";
 import Head from 'next/head';
-import AnalyticsHead from '@/components/core/Analytics/AnalyticsHead';
-import AnalyticsBody from '@/components/core/Analytics/AnalyticsBody';
-import * as gtag from '@/utils/core/Analytics/gtag';
+import AnalyticsHead from '@/components/Analytics/AnalyticsHead';
+import AnalyticsBody from '@/components/Analytics/AnalyticsBody';
+import * as gtag from '@/utils/Analytics/gtag';
 import socialCardLarge from '@/img/social-card-large.jpg';
-import Config from 'Config';
-import SocialSchema from '@/utils/core/Meta/SocialSchema';
+import Config from '@/utils/Config/Config';
+import SocialSchema from '@/utils/Meta/SocialSchema';
 import '../css/fonts.css';
 import '../css/main.css';
 import 'focus-visible';
-import '@/components/core/Admin/Pages/styles.css';
+import '@/components/Admin/Pages/styles.css';
 
 const progress = new ProgressBar({
   size: 2,

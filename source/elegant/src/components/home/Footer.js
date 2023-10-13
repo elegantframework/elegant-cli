@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Logo from '@/components/core/Logos/Logo/Logo';
+import Logo from '@/components/Logos/Logo/Logo';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
-import Config from "Config";
+import Config from '@/utils/Config/Config';
 
 const footerNav = [
   {
