@@ -1,5 +1,6 @@
 import BuiltWithElegant from "./components/Marks/BuiltWithElegant/BuiltWithElegant";
 import Card from "./components/Cards/Card";
+import FacebookIcon from "./components/Icons/Facebook/FacebookIcon";
 import GitHubIcon from "./components/Icons/GitHub/GitHubIcon";
 import InstagramIcon from "./components/Icons/Instagram/InstagramIcon";
 import LinkedInIcon from "./components/Icons/LinkedIn/LinkedInIcon";
@@ -16,6 +17,7 @@ export {
     BuiltWithElegant,
     Card,
     DiscordIcon,
+    FacebookIcon,
     GitHubIcon,
     InstagramIcon,
     LinkedInIcon,
