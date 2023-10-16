@@ -11,6 +11,7 @@ import socialCardLarge from '@/img/social-card-large.jpg';
 import Config from '@/utils/Config/Config';
 import MetaTitle from '@/utils/Meta/MetaTitle';
 import Logo from '@/components/Logos/Logo/Logo';
+import Link from 'next/link';
 
 Home.layoutProps = {
   meta: {
