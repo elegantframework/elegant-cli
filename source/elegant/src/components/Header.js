@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import VersionSwitcher from '@/components/core/Headers/VersionSwitcher';
+import VersionSwitcher from '@/components/Headers/VersionSwitcher';
 import Router from 'next/router';
-import Logo from '@/components/core/Logos/Logo/Logo';
+import Logo from '@/components/Logos/Logo/Logo';
 import { Dialog } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import ThemeToggle, {ThemeSelect} from '@/components/core/Toggles/ThemeToggle/ThemeToggle';
-import useHeaderStore from '@/utils/core/Hooks/useHeaderStore';
-import Config from "Config";
+import ThemeToggle, {ThemeSelect} from '@/components/Toggles/ThemeToggle/ThemeToggle';
+import useHeaderStore from '@/utils/Hooks/useHeaderStore';
+import Config from '@/utils/Config/Config';
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated -To be removed in version 3
  */
 export function NavPopover({ display = 'md:hidden', className, ...props }) {
   let [isOpen, setIsOpen] = useState(false)
@@ -91,14 +91,14 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
 }
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated - To be removed in version 3
  */
 export function NavItems() {
   const router = useRouter();
   return <>
     <li>
       <Link
-        href="/docs/installation"
+        href="/docs/welcome"
         className={
             clsx(
               'hover:text-primary-500 dark:hover:text-primary-400', 

@@ -5,53 +5,12 @@ import { NavigationSection } from '@/types/Navigation';
  */
 export const documentationNav: NavigationSection[] = [
   {
-    title: "Prologue",
+    title: "Welcome",
     links: [
       {
-        title: "Release Notes",
-        href: "/docs/release-notes"
+        title: "Welcome to Elegant",
+        href: "/docs/welcome"
       },
-      {
-        title: "Upgrade Guide",
-        href: "/docs/upgrade"
-      },
-      {
-        title: "Contribution Guide",
-        href: "/docs/contribution-guide"
-      }
     ]
   },
-  {
-    title: "Getting Started",
-    links: [
-      {
-        title: "Installation",
-        href: "/docs/installation"
-      },
-      {
-        title: "Configuration",
-        href: "/docs/configuration"
-      },
-      {
-        title: "New Documents",
-        href: "/docs/new-documents"
-      }
-    ]
-  },
-  {
-    title: "Customization",
-    links: [{
-      title: "Theme",
-      href: "/docs/theme"
-    }]
-  },
-  {
-    title: "Plugins",
-    links: [
-      {
-        title: "Google Analytics",
-        href: "/docs/google-analytics"
-      }
-    ]
-  }
 ];

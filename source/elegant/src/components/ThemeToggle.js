@@ -1,4 +1,4 @@
-import { useIsomorphicLayoutEffect } from '@/utils/core/Hooks/useIsomorphicLayoutEffect';
+import { useIsomorphicLayoutEffect } from '@/utils/Hooks/useIsomorphicLayoutEffect';
 import { Listbox } from '@headlessui/react';
 import clsx from 'clsx';
 import { Fragment, useEffect, useRef } from 'react';
@@ -45,7 +45,7 @@ let settings = [
 ]
 
 /**
- * @deprecated - To be removed in 2.2
+ * @deprecated - To be removed in version 3
  */
 function SunIconOld({ selected, ...props }) {
   return (
@@ -73,7 +73,7 @@ function SunIconOld({ selected, ...props }) {
 
 
 /**
- * @deprecated - To be removed in 2.2
+ * @deprecated - To be removed in version 3
  */
 function MoonIconOld({ selected, ...props }) {
   return (
@@ -99,7 +99,7 @@ function MoonIconOld({ selected, ...props }) {
 }
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated - To be removed in version 3
  */
 function useTheme() {
   let { setting, setSetting } = useSetting()
@@ -162,7 +162,7 @@ function useTheme() {
 }
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated - To be removed in version 3
  */
 export function ThemeToggle({ panelClassName = 'mt-4' }) {
   let [setting, setSetting] = useTheme()
@@ -206,7 +206,7 @@ export function ThemeToggle({ panelClassName = 'mt-4' }) {
 }
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated - To be removed in version 3
  */
 export function ThemeSelect() {
   let [setting, setSetting] = useTheme()

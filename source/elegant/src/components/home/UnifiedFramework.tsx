@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
-import ReactLogo from "../core/Logos/ReactLogo/ReactLogo";
-import NextJsLogo from "../core/Logos/NextJsLogo/NextJsLogo";
-import TailwindCSSLogo from "../core/Logos/TailwindCSSLogo/TailwindCSSLogo";
-import MDXLogo from "../core/Logos/MDXLogo/MDXLogo";
+import ReactLogo from "../Logos/ReactLogo/ReactLogo";
+import NextJsLogo from "../Logos/NextJsLogo/NextJsLogo";
+import TailwindCSSLogo from "../Logos/TailwindCSSLogo/TailwindCSSLogo";
+import MDXLogo from "../Logos/MDXLogo/MDXLogo";
 
 const UnifiedFramework = () => {
   return (

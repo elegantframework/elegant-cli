@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation for the sidebar renders the navigation section as expected 1`] = `
+<nav
+  className="lg:text-sm lg:leading-6 relative"
+>
+  <div
+    className="sticky top-0 -ml-0.5 pointer-events-none"
+  >
+    <div
+      className="h-10 bg-white dark:bg-slate-900"
+    />
+    <div
+      className="bg-white dark:bg-slate-900 relative pointer-events-auto"
+    />
+    <div
+      className="h-8 bg-gradient-to-b from-white dark:from-slate-900"
+    />
+  </div>
+  <ul>
+    <li
+      className="mt-12 lg:mt-8"
+    >
+      <h5
+        className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
+      >
+        Welcome
+      </h5>
+      <ul
+        className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
+      >
+        <li>
+          <a
+            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
+            href="/docs/welcome"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onTouchStart={[Function]}
+          >
+            Welcome to Elegant
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+`;

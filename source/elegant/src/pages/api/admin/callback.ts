@@ -2,9 +2,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { createRouter } from 'next-connect';
 import nextSession from 'next-session';
 import { Session } from 'next-session/lib/types';
-import { setLoginSession } from '@/utils/core/Auth/auth';
-import { MAX_AGE } from '@/utils/core/Auth/auth-cookies';
-import Config from '@/utils/core/Config/Config';
+import { setLoginSession } from '@/utils/Auth/auth';
+import { MAX_AGE } from '@/utils/Auth/auth-cookies';
+import Config from '@/utils/Config/Config';
 
 interface Request extends NextApiRequest {
   session: Session

@@ -1,4 +1,4 @@
-import CMS, { CMSServerSideProps } from '@/components/core/Admin/Pages/cms';
+import CMS, { CMSServerSideProps } from '@/components/Admin/Pages/cms';
 
 export default CMS;
 
