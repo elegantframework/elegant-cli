@@ -11,10 +11,12 @@ import SunIcon from "./components/Icons/Sun/SunIcon";
 import TwitterIcon from "./components/Icons/Twitter/TwitterIcon";
 import YouTubeIcon from "./components/Icons/YouTube/YouTubeIcon";
 import VideoPlayer from "./components/Videos/VideoPlayer";
+import DiscordIcon from "./components/Icons/Discord/DiscordIcon";
 
 export {
     BuiltWithElegant,
     Card,
+    DiscordIcon,
     FacebookIcon,
     GitHubIcon,
     InstagramIcon,
