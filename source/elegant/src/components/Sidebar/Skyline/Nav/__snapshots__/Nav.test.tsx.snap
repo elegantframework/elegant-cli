@@ -24,7 +24,7 @@ exports[`Navigation for the sidebar renders the navigation section as expected 1
       <h5
         className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
       >
-        Prologue
+        Welcome
       </h5>
       <ul
         className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
@@ -32,128 +32,12 @@ exports[`Navigation for the sidebar renders the navigation section as expected 1
         <li>
           <a
             className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/release-notes"
+            href="/docs/welcome"
             onClick={[Function]}
             onMouseEnter={[Function]}
             onTouchStart={[Function]}
           >
-            Release Notes
-          </a>
-        </li>
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/upgrade"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            Upgrade Guide
-          </a>
-        </li>
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/contribution-guide"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            Contribution Guide
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li
-      className="mt-12 lg:mt-8"
-    >
-      <h5
-        className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
-      >
-        Getting Started
-      </h5>
-      <ul
-        className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
-      >
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/installation"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            Installation
-          </a>
-        </li>
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/configuration"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            Configuration
-          </a>
-        </li>
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/new-documents"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            New Documents
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li
-      className="mt-12 lg:mt-8"
-    >
-      <h5
-        className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
-      >
-        Customization
-      </h5>
-      <ul
-        className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
-      >
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/theme"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            Theme
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li
-      className="mt-12 lg:mt-8"
-    >
-      <h5
-        className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200"
-      >
-        Plugins
-      </h5>
-      <ul
-        className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-800"
-      >
-        <li>
-          <a
-            className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500"
-            href="/docs/google-analytics"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onTouchStart={[Function]}
-          >
-            Google Analytics
+            Welcome to Elegant
           </a>
         </li>
       </ul>
