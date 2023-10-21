@@ -11,7 +11,7 @@ import useHeaderStore from '@/utils/Hooks/useHeaderStore';
 import Config from '@/utils/Config/Config';
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated -To be removed in version 3
  */
 export function NavPopover({ display = 'md:hidden', className, ...props }) {
   let [isOpen, setIsOpen] = useState(false)
@@ -91,7 +91,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
 }
 
 /**
- * @deprecated - To be removed by 2.3
+ * @deprecated - To be removed in version 3
  */
 export function NavItems() {
   const router = useRouter();
