@@ -98,7 +98,7 @@ export function NavItems() {
   return <>
     <li>
       <Link
-        href="/docs/installation"
+        href="/docs/welcome"
         className={
             clsx(
               'hover:text-primary-500 dark:hover:text-primary-400', 

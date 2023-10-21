@@ -19,7 +19,7 @@ export function SplashPageLayout({
                 gitHubUrl={Config('app.repository')}
                 navigationItems={[
                     {
-                        href: "/docs/installation",
+                        href: "/docs/welcome",
                         path: "/docs/",
                         label: "Docs",        
                     },
