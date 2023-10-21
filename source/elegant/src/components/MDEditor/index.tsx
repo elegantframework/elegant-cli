@@ -1,21 +1,28 @@
 import { Editor, EditorContent } from '@tiptap/react';
-import { useFormContext } from 'react-hook-form'
-import MDEFloatingMenu from '../MDEFloatingMenu'
-import MDEMenu from '../MDEMenu'
+import { useFormContext } from 'react-hook-form';
+import MDEFloatingMenu from '../MDEFloatingMenu';
+import MDEMenu from '../MDEMenu';
 
 interface MDEditorProps {
-  editor: Editor
-  id: string
+  editor: Editor;
+  id: string;
 }
 
 const MDEditor = ({ id, editor }: MDEditorProps) => {
   const {
     watch,
     formState: { errors }
-  } = useFormContext()
+  } = useFormContext();
 
-  const watchContent = watch('content')
+  const watchContent = watch('content');
 
+  console.log(watchContent)
+
+
+  // @TODO: Watch the content?
+  // When it changes, look at the image paths and replace them with the gh urls so the user sees their saved images instantly
+
+  // gh url: https://raw.githubusercontent.com/elegantframework/elegantframework.com/v3.0-alpha/public/images/screenshot-2023-07-03-115238-IyND.png
   return (
     <>
       {editor && (
