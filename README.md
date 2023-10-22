@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/npm/v/elegant-cli.svg?style=flat" alt="npm version">
   </a>
   <a href="https://github.com/elegantframework/elegant/actions">
-    <img src="https://github.com/elegantframework/elegant/actions/workflows/jest.yml/badge.svg" alt="Build Status">
+    <img src="https://github.com/elegantframework/elegant/actions/workflows/install_and_test_elegant_core.yml/badge.svg" alt="Build Status">
   </a>
   <a href="https://github.com/facebook/jest">
     <img src="https://img.shields.io/badge/tested_with-jest-99424f.svg" alt="Tested with Jest">
