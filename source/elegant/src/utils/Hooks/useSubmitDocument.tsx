@@ -125,7 +125,7 @@ function useSubmitDocument({
               )
 
               // replace blob in content with path
-              content = content.replace(blob, `/${filePath}/${newFilename}`)
+              content = content.replace(blob, `/api/${filePath}/${newFilename}`)
             }
           })
         }
