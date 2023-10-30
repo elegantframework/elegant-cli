@@ -1,8 +1,10 @@
+import Seo from '@/components/Seo/Seo';
 import Config from '@/utils/Config/Config';
+import MetaTitle from '@/utils/Meta/MetaTitle';
+import { Card } from '@brandonowens/elegant-ui';
 import { ArrowLongLeftIcon } from '@heroicons/react/20/solid';
 import Head from 'next/head'
 import { useRouter } from 'next/router';
-import Card from '../../Cards/Card';
 
 /**
  * The 404 Error page for the admin area.
@@ -13,9 +15,9 @@ export default function Error() {
 
   return (
     <>
-      <Head>
-        <title>Page not found | {Config('admin.cms_name')}</title>
-      </Head>
+      <Seo 
+        title={`Page not found - ${MetaTitle(Config('app.name'), "Elegant CMS")}`}
+      /> 
       <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
         <Card>
           <p className="text-base font-semibold text-indigo-600">404</p>
