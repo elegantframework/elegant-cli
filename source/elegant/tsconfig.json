@@ -20,19 +20,30 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "Config": ["src/utils/core/Config/Config.ts"]
-    }
+      "@/*": [
+        "src/*"
+      ],
+      "Config": [
+        "src/utils/core/Config/Config.ts"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "types.d.ts" ],
+    "types.d.ts",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "**/*.test.ts",
-    ".next", 
-    "out", 
+    ".next",
+    "out"
   ]
 }
