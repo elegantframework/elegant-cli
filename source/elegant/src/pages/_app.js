@@ -144,7 +144,7 @@ export default function App({ Component, pageProps, router }) {
       />
       <WebPageJsonLd 
         description={meta.metaDescription || meta.description}
-        id={`${Config('app.url')}${router.pathname}`}
+        id={`${Config('app.url')}${router.asPath.split('#')[0]}`}
       />
       {socialSchema.length > 0 && (
         <SocialProfileJsonLd 
