@@ -12,6 +12,7 @@ import TwitterIcon from "./components/Icons/Twitter/TwitterIcon";
 import YouTubeIcon from "./components/Icons/YouTube/YouTubeIcon";
 import VideoPlayer from "./components/Videos/VideoPlayer";
 import DiscordIcon from "./components/Icons/Discord/DiscordIcon";
+import VersionSelector from "./components/Selectors/VersionSelector";
 
 export {
     BuiltWithElegant,
@@ -27,5 +28,6 @@ export {
     SunIcon,
     TwitterIcon,
     YouTubeIcon,
+    VersionSelector,
     VideoPlayer
 };
