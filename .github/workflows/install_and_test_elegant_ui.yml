@@ -1,7 +1,6 @@
 name: Install and Test Elegant UI package
 on: 
   push:
-  pull_request:
     paths:
       - packages/elegant-ui/**
 jobs:
