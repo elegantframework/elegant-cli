@@ -18,11 +18,13 @@ import MDXLogo from "./components/Logos/MDXLogo/MDXLogo";
 import NextJsLogo from "./components/Logos/NextJsLogo/NextJsLogo";
 import ReactLogo from "./components/Logos/ReactLogo/ReactLogo";
 import TailwindCSSLogo from "./components/Logos/TailwindCSSLogo/TailwindCSSLogo";
+import DropdownSelector from "./components/Selectors/DropdownSelector";
 
 export {
     BuiltWithElegant,
     Card,
     DiscordIcon,
+    DropdownSelector,
     ElegantLogo,
     FacebookIcon,
     GitHubIcon,
