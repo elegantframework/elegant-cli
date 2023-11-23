@@ -13,19 +13,29 @@ import YouTubeIcon from "./components/Icons/YouTube/YouTubeIcon";
 import VideoPlayer from "./components/Videos/VideoPlayer";
 import DiscordIcon from "./components/Icons/Discord/DiscordIcon";
 import VersionSelector from "./components/Selectors/VersionSelector";
+import ElegantLogo from "./components/Logos/ElegantLogo/ElegantLogo";
+import MDXLogo from "./components/Logos/MDXLogo/MDXLogo";
+import NextJsLogo from "./components/Logos/NextJsLogo/NextJsLogo";
+import ReactLogo from "./components/Logos/ReactLogo/ReactLogo";
+import TailwindCSSLogo from "./components/Logos/TailwindCSSLogo/TailwindCSSLogo";
 
 export {
     BuiltWithElegant,
     Card,
     DiscordIcon,
+    ElegantLogo,
     FacebookIcon,
     GitHubIcon,
     InstagramIcon,
     LinkedInIcon,
+    MDXLogo,
     MoonIcon,
+    NextJsLogo,
     PCIcon,
+    ReactLogo,
     PoweredByElegant,
     SunIcon,
+    TailwindCSSLogo,
     TwitterIcon,
     YouTubeIcon,
     VersionSelector,
