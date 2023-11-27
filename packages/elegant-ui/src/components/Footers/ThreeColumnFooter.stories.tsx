@@ -12,7 +12,7 @@ type Story = StoryObj<typeof ThreeColumnFooter>;
 
 export const Footer: Story = {
   args: {
-    navigation1: [
+    column1: [
       {
         title: "Community",
         links: [
@@ -43,7 +43,7 @@ export const Footer: Story = {
         ]
       }  
     ],
-    navigation2: [
+    column2: [
       {
         title: "Navigation 2",
         links: [
@@ -62,7 +62,7 @@ export const Footer: Story = {
         ]
       },
     ],
-    navigation3: [
+    column3: [
       {
         title: "Navigation 3",
         links: [

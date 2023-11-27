@@ -9,19 +9,27 @@ interface Props {
     /**
      * Column 1 of links.
      */
-    navigation1: NavigationSection[];
+    column1: NavigationSection[];
     /**
      * Column 2 of links.
      */
-    navigation2?: NavigationSection[];
+    column2?: NavigationSection[];
     /**
      * Column 3 of links.
      */
-    navigation3?: NavigationSection[];
+    column3?: NavigationSection[];
     /**
      * The background css color classes.
      */
     background?: string;
+    /**
+     * The heading css color classes.
+     */
+    headings?: string;
+    /**
+     * The links css color classes.
+     */
+    links?: string;
     /**
      * A logo to be displayed in the footer.
      */
@@ -37,10 +45,12 @@ interface Props {
  * @returns An html footer with three columns of navigation links.
  */
 export default function ThreeColumnFooter({
-    navigation1,
-    navigation2=[],
-    navigation3=[],
+    column1,
+    column2=[],
+    column3=[],
     background="bg-gray-900 dark:bg-white",
+    headings="text-white dark:text-slate-900",
+    links="text-slate-300 dark:text-slate-500 hover:text-white dark:hover:text-slate-700",
     logo=<Logo className="w-auto h-6 text-white dark:text-slate-900"/>,
     copyright=""
 }: Props) {
@@ -59,18 +69,24 @@ export default function ThreeColumnFooter({
                             ))} */}
                         </div>
                         {copyright.length > 0 && (
-                            <div className="text-white dark:text-slate-900 absolute -bottom-4 lg:bottom-2 left-0 xs:pt-4">
+                            <div className={clsx(
+                                "absolute -bottom-4 lg:bottom-2 left-0 xs:pt-4",
+                                headings
+                            )}>
                                 &copy; {new Date().getFullYear()} {copyright}
                             </div>
                         )}
                     </div>
                     <div className="mt-16 ml-0 md:ml-16 grid grid-cols-2 md:grid-cols-3 md:auto-columns-min gap-4 lg:col-span-2 lg:mt-0">
                          <div>
-                            {navigation1.map((item, index) => (
+                            {column1.map((item, index) => (
                                 <section className={clsx(
                                     index !== 0 ? "mt-8" : ""
                                 )}>
-                                    <h3 className="text-sm font-semibold leading-6 text-white dark:text-slate-900">
+                                    <h3 className={clsx(
+                                        "text-sm font-semibold leading-6",
+                                        headings
+                                    )}>
                                         {item.title}
                                     </h3>
                                     <ul role="list" className="mt-2 space-y-2">
@@ -78,7 +94,9 @@ export default function ThreeColumnFooter({
                                             <li key={link.href}>
                                                 <Link
                                                     href={link.href}
-                                                    className="text-sm leading-6 text-slate-300 dark:text-slate-500 hover:text-white dark:hover:text-slate-700"
+                                                    className={clsx(
+                                                        "text-sm leading-6", links
+                                                    )}
                                                     target={link.external === true ? "_blank" : ""}
                                                     rel={link.external === true ? "noopener noreferrer" : ""}
                                                 >
@@ -98,11 +116,14 @@ export default function ThreeColumnFooter({
                             ))}
                         </div>
                          <div className="mt-0">
-                            {navigation2.map((item, index) => (
+                            {column2.map((item, index) => (
                                 <section className={clsx(
                                     index !== 0 ? "mt-8" : ""
                                 )}>
-                                    <h3 className="text-sm font-semibold leading-6 text-white dark:text-slate-900">
+                                    <h3 className={clsx(
+                                        "text-sm font-semibold leading-6",
+                                        headings
+                                    )}>
                                         {item.title}
                                     </h3>
                                     <ul role="list" className="mt-2 space-y-2">
@@ -110,7 +131,9 @@ export default function ThreeColumnFooter({
                                             <li key={link.href}>
                                                 <Link
                                                     href={link.href}
-                                                    className="text-sm leading-6 text-slate-300 dark:text-slate-500 hover:text-white dark:hover:text-slate-700"
+                                                    className={clsx(
+                                                        "text-sm leading-6", links
+                                                    )}
                                                     target={link.external === true ? "_blank" : ""}
                                                     rel={link.external === true ? "noopener noreferrer" : ""}
                                                 >
@@ -130,11 +153,14 @@ export default function ThreeColumnFooter({
                             ))}
                         </div>
                          <div className="mt-0">
-                            {navigation3.map((item, index) => (
+                            {column3.map((item, index) => (
                                 <section className={clsx(
                                     index !== 0 ? "mt-8" : ""
                                 )}>
-                                    <h3 className="text-sm font-semibold leading-6 text-white dark:text-slate-900">
+                                    <h3 className={clsx(
+                                        "text-sm font-semibold leading-6",
+                                        headings
+                                    )}>
                                         {item.title}
                                     </h3>
                                     <ul role="list" className="mt-2 space-y-2">
@@ -142,7 +168,9 @@ export default function ThreeColumnFooter({
                                             <li key={link.href}>
                                                 <Link
                                                     href={link.href}
-                                                    className="text-sm leading-6 text-slate-300 dark:text-slate-500 hover:text-white dark:hover:text-slate-700"
+                                                    className={clsx(
+                                                        "text-sm leading-6", links
+                                                    )}
                                                     target={link.external === true ? "_blank" : ""}
                                                     rel={link.external === true ? "noopener noreferrer" : ""}
                                                 >
