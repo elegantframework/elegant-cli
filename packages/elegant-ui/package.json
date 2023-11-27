@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --dts --minify && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "test": "jest --env=jsdom --watch",
+    "test": "jest --env=jsdom",
     "test:ci": "jest --init",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
