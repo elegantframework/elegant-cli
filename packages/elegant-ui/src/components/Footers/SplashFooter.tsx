@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationLink, NavigationSection } from "./../../types/Navigation";
 import Link from "next/link";
 import Logo from './../Logos/ElegantLogo/ElegantLogo';
+import ArrowTopRightOnSquareIcon from "@heroicons/react/20/solid/ArrowTopRightOnSquareIcon";
 
 interface Props {
     /**
@@ -70,7 +71,7 @@ export function renderNavigationSection(
             key={section.title} 
             className="lg:flex-none lg:w-1/2"
         >
-            <h2 className="font-semibold text-slate-900 dark:text-slate-100">
+            <h2 className="font-semibold text-slate-900">
                 {section.title}
             </h2>
             <ul className="mt-3 space-y-2">
@@ -92,11 +93,18 @@ export function renderNavigationLink(
         <li key={link.href}>
             <Link
                 href={link.href}
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 target={link.external === true ? "_blank" : ""}
                 rel={link.external === true ? "noopener noreferrer" : ""}
             >
-                {link.title}
+                <span className="mr-2">
+                    {link.title}
+                </span>
+                {link.external === true && (
+                    <ArrowTopRightOnSquareIcon 
+                        className="w-4 h-4 inline-flex relative -top-[1px]"
+                    />
+                )}
             </Link>
         </li>
     );
