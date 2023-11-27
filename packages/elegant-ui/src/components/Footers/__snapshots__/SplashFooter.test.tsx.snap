@@ -17,7 +17,7 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           className="lg:flex-none lg:w-1/2"
         >
           <h2
-            className="font-semibold text-slate-900 dark:text-slate-100"
+            className="font-semibold text-slate-900"
           >
             Community
           </h2>
@@ -26,7 +26,7 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           >
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 href="https://www.indiehackers.com/product/elegant-framework"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -34,12 +34,16 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 rel=""
                 target=""
               >
-                Indie Hackers
+                <span
+                  className="mr-2"
+                >
+                  Indie Hackers
+                </span>
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 href="https://twitter.com/thebrandonowens"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -47,12 +51,16 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 rel=""
                 target=""
               >
-                Twitter
+                <span
+                  className="mr-2"
+                >
+                  Twitter
+                </span>
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 href="https://www.reddit.com/r/elegantframework/"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -60,7 +68,11 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 rel=""
                 target=""
               >
-                Reddit
+                <span
+                  className="mr-2"
+                >
+                  Reddit
+                </span>
               </a>
             </li>
           </ul>
@@ -69,7 +81,7 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           className="lg:flex-none lg:w-1/2"
         >
           <h2
-            className="font-semibold text-slate-900 dark:text-slate-100"
+            className="font-semibold text-slate-900"
           >
             Features
           </h2>
@@ -78,7 +90,7 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           >
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/theme"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -86,12 +98,16 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 rel=""
                 target=""
               >
-                Theme Customization
+                <span
+                  className="mr-2"
+                >
+                  Theme Customization
+                </span>
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/configuration"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -99,12 +115,16 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 rel=""
                 target=""
               >
-                Easy Configuration
+                <span
+                  className="mr-2"
+                >
+                  Easy Configuration
+                </span>
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/deployment"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -112,12 +132,16 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 rel=""
                 target=""
               >
-                Affordable Hosting
+                <span
+                  className="mr-2"
+                >
+                  Affordable Hosting
+                </span>
               </a>
             </li>
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 href="/blog/2023-04-20-the-future-is-markdown"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -125,7 +149,11 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 rel=""
                 target=""
               >
-                Safe & Fast
+                <span
+                  className="mr-2"
+                >
+                  Safe & Fast
+                </span>
               </a>
             </li>
           </ul>
@@ -134,7 +162,7 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           className="lg:flex-none lg:w-1/2"
         >
           <h2
-            className="font-semibold text-slate-900 dark:text-slate-100"
+            className="font-semibold text-slate-900"
           >
             Services
           </h2>
@@ -143,7 +171,7 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
           >
             <li>
               <a
-                className="hover:text-slate-900 dark:hover:text-slate-300"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300"
                 href="/docs/google-analytics"
                 onClick={[Function]}
                 onMouseEnter={[Function]}
@@ -151,7 +179,11 @@ exports[`Splash page footer component renders a splash page footer properly 1`] 
                 rel=""
                 target=""
               >
-                Google Analytics
+                <span
+                  className="mr-2"
+                >
+                  Google Analytics
+                </span>
               </a>
             </li>
           </ul>
