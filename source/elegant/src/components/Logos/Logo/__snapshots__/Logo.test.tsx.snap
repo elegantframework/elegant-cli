@@ -2,7 +2,7 @@
 
 exports[`Logo component renders an SVG logo 1`] = `
 <svg
-  className="text-slate-900 dark:text-white w-auto h-8"
+  className="w-auto h-8 text-slate-900 dark:text-white"
   fill="none"
   viewBox="0 0 980 185"
 >

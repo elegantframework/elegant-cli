@@ -17,7 +17,7 @@ exports[`Splash Header component renders a splash header component properly 1`] 
         onTouchStart={[Function]}
       >
         <svg
-          className="text-slate-900 dark:text-white w-auto h-7 cursor-pointer"
+          className="w-auto h-7 cursor-pointer text-slate-900 dark:text-white"
           fill="none"
           viewBox="0 0 980 185"
         >
