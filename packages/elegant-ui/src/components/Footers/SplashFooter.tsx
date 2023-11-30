@@ -1,8 +1,8 @@
 import React from "react";
 import { NavigationLink, NavigationSection } from "./../../types/Navigation";
 import Link from "next/link";
-import Logo from './../Logos/ElegantLogo/ElegantLogo';
 import ArrowTopRightOnSquareIcon from "@heroicons/react/20/solid/ArrowTopRightOnSquareIcon";
+import Logo from './../Logos/ElegantLogo/ElegantLogo';
 
 interface Props {
     /**
