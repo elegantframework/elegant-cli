@@ -14,7 +14,11 @@ interface Props {
     /**
      * css classes to be applied to the link to give it color.
      */
-     linkColor?: string;
+    linkColor?: string;
+    /**
+     * Custom css classnames to be applied to the icon
+     */
+    className?: string;
 };
 
 /**
@@ -24,10 +28,11 @@ interface Props {
 export default function VersionSelector({
     version,
     pastVersions,
-    linkColor="text-indigo-500 dark:text-indigo-400"
+    linkColor="text-indigo-500 dark:text-indigo-400",
+    className
 }: Props) {
   return (
-    <Menu as="div" className="relative">
+    <Menu as="div" className={clsx("relative z-50", className)}>
         <Menu.Button className="text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">
             v{version}
             <svg width="6" height="3" className="ml-2 overflow-visible" aria-hidden="true">
@@ -57,7 +62,7 @@ export default function VersionSelector({
         </Menu.Item>
         {pastVersions.map(
           (version: Link) => (
-            <Menu.Item>
+            <Menu.Item key={version.href}>
               {({ active }) => (
                 <a
                   href={version.href}

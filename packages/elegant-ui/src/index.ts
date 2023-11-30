@@ -18,6 +18,8 @@ import MDXLogo from "./components/Logos/MDXLogo/MDXLogo";
 import NextJsLogo from "./components/Logos/NextJsLogo/NextJsLogo";
 import ReactLogo from "./components/Logos/ReactLogo/ReactLogo";
 import TailwindCSSLogo from "./components/Logos/TailwindCSSLogo/TailwindCSSLogo";
+import ThreeColumnFooter from "./components/Footers/ThreeColumnFooter";
+import SplashFooter from "./components/Footers/SplashFooter";
 
 export {
     BuiltWithElegant,
@@ -34,8 +36,10 @@ export {
     PCIcon,
     ReactLogo,
     PoweredByElegant,
+    SplashFooter,
     SunIcon,
     TailwindCSSLogo,
+    ThreeColumnFooter,
     TwitterIcon,
     YouTubeIcon,
     VersionSelector,

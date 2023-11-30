@@ -49,7 +49,7 @@ exports[`Admin Header component renders an admin header properly 1`] = `
           onTouchStart={[Function]}
         >
           <svg
-            className="text-slate-900 dark:text-white w-auto h-7"
+            className="w-auto h-7 text-slate-900 dark:text-white"
             fill="none"
             viewBox="0 0 980 185"
           >

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import VersionSwitcher from '@/components/Headers/VersionSwitcher';
 import Router from 'next/router';
 import Logo from '@/components/Logos/Logo/Logo';
 import { Dialog } from '@headlessui/react';
