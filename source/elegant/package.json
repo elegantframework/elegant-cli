@@ -23,7 +23,7 @@
     "@brandonowens/elegant-ui": "^1.0.3",
     "@docsearch/react": "^3.5.1",
     "@hapi/iron": "^7.0.1",
-    "@heroicons/react": "^2.0.17",
+    "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^2.9.11",
     "@napi-rs/canvas": "^0.1.41",
     "@next/env": "^13.4.1",
