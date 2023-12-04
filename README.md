@@ -34,7 +34,7 @@
 
 **👩🏻‍💻 Developer Ready**: An all-in-one web application and blogging solution. All the features you need are included right out of the box.
 
-**💰 Simple Hosting**: Deploy your application on the latest and most affordable serverless tech. No need for any complicated server setups or vendor locked services.
+**💰 Simple Hosting**: Deploy your application on the latest and most affordable serverless tech. No need for any complicated server setups or vendor-locked services.
 
 **🖼️ Content Creation**: Create amazing content with a next-level rich text editor. Perfect for writing blog posts, user guides, and documentation.
 
