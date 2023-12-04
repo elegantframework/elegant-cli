@@ -47,6 +47,7 @@
 ## Table of Contents
 
 - [What is Elegant?](#what-is-elegant)
+- [Screenshot](#screenshot)
 - [Install](#install)
 - [Documentation](#documentation)
 - [Community](#community)
@@ -61,7 +62,11 @@
 
 Elegant is a community-driven project for building, deploying, and maintaining websites easily. 
 
-Built with Next.js and Markdown loading, Elegant is perfect for blogging, documentation websites, or just about any type of web application.
+Built with Next.js, Tailwind CSS, TipTap, and more. Elegant is perfect for blogging, documentation websites, or just about any type of web application.
+
+## <a name="screenshot">Screenshot</a>
+
+![ezgif-3-0641bce339](https://github.com/elegantframework/elegant-cli/assets/10189130/5cc3741d-3df9-4c11-80ae-8f307cce5c1e)
 
 
 ## <a name="install">Install</a>
