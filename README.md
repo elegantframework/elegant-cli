@@ -28,38 +28,47 @@
   </a>
 </p>
 
-<p align="left">
-  Elegant is the easiest way to create a new static website or blog, and publish it online. No need for databases, external services, or complicated server setups.
+**Build SEO-friendly websites, super fast full-stack web applications, and much more with Elegant.**
 
-  Built with Next.js, Tailwind CSS, Markdown loading, & much more.
-</p>
+
+**👩🏻‍💻 Developer Ready**: An all-in-one web application and blogging solution. All the features you need are included right out of the box.
+
+**💰 Simple Hosting**: Deploy your application on the latest and most affordable serverless tech. No need for any complicated server setups or vendor-locked services.
+
+**🖼️ Content Creation**: Create amazing content with a next-level rich text editor. Perfect for writing blog posts, user guides, and documentation.
+
+**✅ Professional Themes**: Use our professionally crafted themes that are built with Tailwind CSS, or create your own.
+
+**📡 3rd Party Services**: Connect up your favorite services and grow your audience. Analytics services, Newsletter Subscription providers, and more. 
 
 ---
 
-<div align="center">
-    <img 
-      src="https://user-images.githubusercontent.com/10189130/252122573-399eb351-8dbc-4205-b044-7163cd59520b.png" 
-      alt="Built with the Elegant Framework" 
-      style="width: 50%;"
-    >
-</div>
+## Table of Contents
 
-## Introduction
+- [What is Elegant?](#what-is-elegant)
+- [Screenshot](#screenshot)
+- [Install](#install)
+- [Documentation](#documentation)
+- [Community](#community)
+- [Contributing](#contributing)
+  - [Feature Suggestions](#feature_suggestions)
+  - [Reporting Issues](#reporting_issues)
+  - [Good First Issues](#good_first_issues)
+- [Stay Up-To-Date](#stay_up_to_date)
+- [License]()
+
+## <a name="what-is-elegant">What is Elegant?</a>
 
 Elegant is a community-driven project for building, deploying, and maintaining websites easily. 
 
-Built with Next.js and Markdown loading, Elegant is perfect for blogging, documentation websites, or just about any type of web application.
+Built with Next.js, Tailwind CSS, TipTap, and more. Elegant is perfect for blogging, documentation websites, or just about any type of web application.
 
-### Key Features
+## <a name="screenshot">Screenshot</a>
 
-- 🚀 Fast and easy setup
-- 💾 No database
-- 🏠 Self-host for free
-- ✅ Optimized for all search engines
+![ezgif-2-2b841a89fd](https://github.com/elegantframework/elegant-cli/assets/10189130/74001fe1-b6ae-46ad-b736-164df13fea22)
 
----
 
-## Getting Started
+## <a name="install">Install</a>
 
 To get started using Elegant, simply install our CLI tool:
 
@@ -74,11 +83,12 @@ npx elegant-init
 
 Visit [https://www.elegantframework.com/docs/installation](https://www.elegantframework.com/docs/installation) for the complete installation guide.
 
-## Documentation
+
+## <a name="documentation">Documentation</a>
 
 You can find the complete version of the Elegant documentation at [https://elegantframework.com/docs](https://elegantframework.com/docs)
 
-## Community
+## <a name="community">Community</a>
 
 The Elegant community can be found on [GitHub Discussions](https://github.com/orgs/elegantframework/discussions), where you can ask questions, voice ideas, and share your projects.
 
@@ -86,39 +96,35 @@ To chat with other community members you can join the [Elegant Discord](https://
 
 Our [Code of Conduct](https://github.com/elegantframework/elegant-cli/blob/v2.3/CODE_OF_CONDUCT.md) applies to all Elegant community channels.
 
-## Contributing
+## <a name="contributing">Contributing</a>
 
 We've built Elegant because we feel that developers should be more empowered to create better websites and content. We hope that other startups and organizations can benefit from the project. We are thankful for any contributions from the community.
 
 If you're interested in contributing to the Elegant project, please read our [contributing docs](https://github.com/elegantframework/docs/blob/main/CONTRIBUTING.md) **before submitting a pull request**.
 
 
-### Feature Suggestions
+### <a name="feature_suggestions">Feature Suggestions</a>
 
 Elegant is a community driven project, and open to all suggestions and ideas that help to empower developers everywhere.
 
 Visit our [Feature Request](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=) page to submit your feedback.
 
-### Reporting Issues
+### <a name="reporting_issues">Reporting Issues</a>
 
 Bugs and user friction is our top priority. If you experience any issues or friction during your experience with Elegant, please submit a [Bug Report](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
 
-### Good First Issues
+### <a name="good_first_issues">Good First Issues</a>
 
 We have a list of [good first issues](https://github.com/elegantframework/elegant-cli/labels/good%20first%20issue) that contain bugs and features that have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with our contribution process.
 
 
-## Stay Up-To-Date
+## <a name="stay_up_to_date">Stay Up-To-Date</a>
 
 The Elegant project is constantly evolving and improving on a daily basis. You can keep up and show your support by hitting the **Star** button! We really appreciate it! 😊
 
 ![support-elegant-with-a-star-on-github](https://github.com/elegantframework/elegant-cli/assets/10189130/28132259-174b-43ac-a850-8437298885be)
 
 
-## License
+## <a name="license">License</a>
 
 The Elegant Framework is open-sourced software licensed under the [MIT license](https://opensource.org/license/mit/).
-
-## Author
-
-- Brandon Owens ([@thebrandonowens](https://twitter.com/thebrandonowens))
