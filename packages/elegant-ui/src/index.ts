@@ -20,6 +20,7 @@ import ReactLogo from "./components/Logos/ReactLogo/ReactLogo";
 import TailwindCSSLogo from "./components/Logos/TailwindCSSLogo/TailwindCSSLogo";
 import ThreeColumnFooter from "./components/Footers/ThreeColumnFooter";
 import SplashFooter from "./components/Footers/SplashFooter";
+import TrashIcon from "./components/Icons/Trash/TrashIcon";
 
 export {
     BuiltWithElegant,
@@ -40,6 +41,7 @@ export {
     SunIcon,
     TailwindCSSLogo,
     ThreeColumnFooter,
+    TrashIcon,
     TwitterIcon,
     YouTubeIcon,
     VersionSelector,
