@@ -14,7 +14,7 @@ exports[`Three column footer component renders the three column footer as expect
         className="ml-0 md:ml-16 md:max-w-min space-y-8 relative"
       >
         <svg
-          className="text-slate-900 dark:text-white w-auto h-6 text-white dark:text-slate-900"
+          className="w-auto h-6 text-white dark:text-slate-900 text-slate-900 dark:text-white"
           fill="none"
           viewBox="0 0 980 185"
         >
