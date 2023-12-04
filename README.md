@@ -28,9 +28,8 @@
   </a>
 </p>
 
-<p align="left">
-  Build SEO-friendly websites, super fast full-stack web applications, and much more with Elegant.
-</p>
+**Build SEO-friendly websites, super fast full-stack web applications, and much more with Elegant.**
+
 
 **👩🏻‍💻 Developer Ready**: An all-in-one web application and blogging solution. All the features you need are included right out of the box.
 
