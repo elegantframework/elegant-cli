@@ -2,13 +2,13 @@ import React from "react";
 
 interface Props {
     /**
-     * Custom css classnames to be applied to the icon
+     * Custom css classnames to be applied to the icon.
      */
     className?: string;
 };
 
 /**
- * A GitHub SVG Icon
+ * A GitHub SVG Icon.
  * @returns A GitHub svg icon.
  */
 export default function GitHubIcon({
