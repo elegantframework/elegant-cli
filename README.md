@@ -65,7 +65,7 @@ Built with Next.js, Tailwind CSS, TipTap, and more. Elegant is perfect for blogg
 
 ## <a name="screenshot">Screenshot</a>
 
-![ezgif-3-0641bce339](https://github.com/elegantframework/elegant-cli/assets/10189130/5cc3741d-3df9-4c11-80ae-8f307cce5c1e)
+![ezgif-2-2b841a89fd](https://github.com/elegantframework/elegant-cli/assets/10189130/74001fe1-b6ae-46ad-b736-164df13fea22)
 
 
 ## <a name="install">Install</a>
