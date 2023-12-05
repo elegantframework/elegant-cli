@@ -1,6 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import NextLink from 'next/link';
 import { NavItems, NavPopover } from '@/components/Header';
 import styles from './index.module.css';
 import clsx from 'clsx';
