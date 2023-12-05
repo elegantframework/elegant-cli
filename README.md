@@ -52,6 +52,11 @@
 - [Creating Content](#creating_content)
 - [Growing Your Audience](#growing_your_audience)
   - [Analytics](#analytics)
+  - [Newsletter Subscriptions](#newsletter_subscriptions)
+- [Core Features](#core_features)
+  - [Sitemaps](#sitemaps)
+  - [Robots.txt](#robots_txt)
+  - [Rich Snippets](#rich_snippets)
 - [Full Documentation](#documentation)
 - [Community](#community)
 - [Contributing](#contributing)
@@ -122,6 +127,57 @@ To start using Google Analytics with your Elegant application, simply provide a 
 ```
 NEXT_PUBLIC_GOOGLE_ANALYTICS_ID="G-4G410MD92K"
 ```
+
+### <a name="newsletter_subscriptions">Newsletter Subscriptions</a>
+
+Elegant makes it easy to grow your email subscriber lists with included newsletter sign up templates, and native subscription services.
+
+ConvertKit is automatically configured with all new Elegant applications so you may start using it immediately. 
+
+If you are interested in using ConvertKit with your Elegant application, you may simply provide an action URL string to the NEXT_PUBLIC_CONVERTKIT_ACTION_URL environment variable in your .env file.
+
+```
+NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/21224410/subscriptions"
+```
+
+## <a name="core_features">Core Features</a>
+
+
+### <a name="sitemaps">Sitemaps</a>
+
+A sitemap is a special file that helps search engines like Google understand the structure of a website. It’s like a map that shows all the pages on a website and how they’re connected to each other.
+
+Elegant is configured right out of the box to generate a sitemap.xml file for your web application automatically.
+
+To learn more, view the complete [Sitemap Guide Here](https://www.elegantframework.com/docs/sitemaps). 
+
+### <a name="robots_txt">Robots.txt</a>
+
+A robots.txt file is a simple text file that tells search engine crawlers which parts of your web application they are allowed to access and index.
+
+Elegant is configured right out of the box to generate a robots.txt for your web application automatically.
+
+Below is a snippet of our robots.txt for our documentation website.
+
+```
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.elegantframework.com
+
+# Sitemaps
+Sitemap: https://www.elegantframework.com/sitemap.xml
+```
+
+To learn more, view the complete [Robots.txt Guide Here](https://www.elegantframework.com/docs/robots-txt). 
+
+### <a name="rich_snippets">Rich Snippets</a>
+
+Rich snippets are a way to provide additional information about a webpage to search engines, like Google, so that they can better understand the content and context of the page. This information can then be displayed in search engine results, making it easier for users to understand what the page is about and whether it’s relevant to their search query.
+
+We have built Elegant to automatically add the most essential [Rich Snippets](https://www.elegantframework.com/docs/rich-snippets) to your web pages.
 
 ## <a name="documentation">Full Documentation</a>
 
