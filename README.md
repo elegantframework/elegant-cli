@@ -94,9 +94,9 @@ Visit [https://www.elegantframework.com/docs/installation](https://www.elegantfr
 
 ## <a name="deploying">Hosting and Deployments</a>
 
-Deploying your Elegant application to production is a breeze with Vercel, or any other serverless hosting provider.
+Deploying your Elegant application to production is a breeze with Vercel or any other serverless hosting provider.
 
-Because Elegant is built with the lightweight Next.js framework, your application will run ultra fast, and at the most affordable monthly hosting costs.
+Because Elegant is built with the lightweight Next.js framework, your application will run ultra-fast, and at the most affordable monthly hosting costs.
 
 Read the full [Elegant Deployment Guide](https://www.elegantframework.com/docs/deployment).
 
@@ -104,7 +104,7 @@ Read the full [Elegant Deployment Guide](https://www.elegantframework.com/docs/d
 
 Elegant gives you complete control over your content creation experience with an included content editor for creating and editing documents.
 
-![image](https://github.com/elegantframework/elegant-cli/assets/10189130/4c6e7ccd-ae4e-4217-a855-48b25d57149a)
+![elegant_content_editor-U4MT](https://github.com/elegantframework/elegant-cli/assets/10189130/a7118506-2a1d-4e60-81e4-9e55edced2df)
 
 The content editor is where you will write content, add images, and links, and even embed YouTube videos.
 
@@ -112,7 +112,7 @@ Read the complete guide on [Creating Content here](https://www.elegantframework.
 
 ## <a name="growing_your_audience">Growing Your Audience</a>
 
-We have taken care of most of the boilerplate setup code needed to launch the perfect web application, so that you can focus on what is important to you.
+We have taken care of most of the boilerplate setup code needed to launch the perfect web application so that you can focus on what is important to you.
 
 Growing your audience is simple with our included native integrations into the most commonly used 3rd party services.
 
@@ -130,7 +130,7 @@ NEXT_PUBLIC_GOOGLE_ANALYTICS_ID="G-4G410MD92K"
 
 ### <a name="newsletter_subscriptions">Newsletter Subscriptions</a>
 
-Elegant makes it easy to grow your email subscriber lists with included newsletter sign up templates, and native subscription services.
+Elegant makes it easy to grow your email subscriber lists with included newsletter sign-up templates, and native subscription services.
 
 ConvertKit is automatically configured with all new Elegant applications so you may start using it immediately. 
 
@@ -200,13 +200,13 @@ If you're interested in contributing to the Elegant project, please read our [co
 
 ### <a name="feature_suggestions">Feature Suggestions</a>
 
-Elegant is a community driven project, and open to all suggestions and ideas that help to empower developers everywhere.
+Elegant is a community-driven project, and open to all suggestions and ideas that help to empower developers everywhere.
 
 Visit our [Feature Request](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=) page to submit your feedback.
 
 ### <a name="reporting_issues">Reporting Issues</a>
 
-Bugs and user friction is our top priority. If you experience any issues or friction during your experience with Elegant, please submit a [Bug Report](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
+Bugs and user friction are our top priority. If you experience any issues or friction during your experience with Elegant, please submit a [Bug Report](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
 
 ### <a name="good_first_issues">Good First Issues</a>
 
@@ -215,7 +215,7 @@ We have a list of [good first issues](https://github.com/elegantframework/elegan
 
 ## <a name="stay_up_to_date">Stay Up-To-Date</a>
 
-The Elegant project is constantly evolving and improving on a daily basis. You can keep up and show your support by hitting the **Star** button! We really appreciate it! 😊
+The Elegant project is constantly evolving and improving daily. You can keep up and show your support by hitting the **Star** button! We appreciate it! 😊
 
 ![support-elegant-with-a-star-on-github](https://github.com/elegantframework/elegant-cli/assets/10189130/28132259-174b-43ac-a850-8437298885be)
 
