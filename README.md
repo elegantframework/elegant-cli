@@ -48,14 +48,18 @@
 - [What is Elegant?](#what-is-elegant)
 - [Screenshot](#screenshot)
 - [Install](#install)
-- [Documentation](#documentation)
+- [Hosting and Deployments](#deploying)
+- [Creating Content](#creating_content)
+- [Growing Your Audience](#growing_your_audience)
+  - [Analytics](#analytics)
+- [Full Documentation](#documentation)
 - [Community](#community)
 - [Contributing](#contributing)
   - [Feature Suggestions](#feature_suggestions)
   - [Reporting Issues](#reporting_issues)
   - [Good First Issues](#good_first_issues)
 - [Stay Up-To-Date](#stay_up_to_date)
-- [License]()
+- [License](#license)
 
 ## <a name="what-is-elegant">What is Elegant?</a>
 
@@ -83,8 +87,43 @@ npx elegant-init
 
 Visit [https://www.elegantframework.com/docs/installation](https://www.elegantframework.com/docs/installation) for the complete installation guide.
 
+## <a name="deploying">Hosting and Deployments</a>
 
-## <a name="documentation">Documentation</a>
+Deploying your Elegant application to production is a breeze with Vercel, or any other serverless hosting provider.
+
+Because Elegant is built with the lightweight Next.js framework, your application will run ultra fast, and at the most affordable monthly hosting costs.
+
+Read the full [Elegant Deployment Guide](https://www.elegantframework.com/docs/deployment).
+
+## <a name="creating_content">Creating Content</a>
+
+Elegant gives you complete control over your content creation experience with an included content editor for creating and editing documents.
+
+![image](https://github.com/elegantframework/elegant-cli/assets/10189130/4c6e7ccd-ae4e-4217-a855-48b25d57149a)
+
+The content editor is where you will write content, add images, and links, and even embed YouTube videos.
+
+Read the complete guide on [Creating Content here](https://www.elegantframework.com/docs/creating-content#writing-content).
+
+## <a name="growing_your_audience">Growing Your Audience</a>
+
+We have taken care of most of the boilerplate setup code needed to launch the perfect web application, so that you can focus on what is important to you.
+
+Growing your audience is simple with our included native integrations into the most commonly used 3rd party services.
+
+### <a name="analytics">Analytics</a>
+
+Track your website traffic, and measure your traffic sources to understand which marketing and social channels are most effective.
+
+Google Analytics is automatically configured with all new Elegant applications, so you can start tracking your web application user traffic immediately.
+
+To start using Google Analytics with your Elegant application, simply provide a Google Analytics ID string to the NEXT_PUBLIC_GOOGLE_ANALYTICS_ID environment variable in your .env file.
+
+```
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID="G-4G410MD92K"
+```
+
+## <a name="documentation">Full Documentation</a>
 
 You can find the complete version of the Elegant documentation at [https://elegantframework.com/docs](https://elegantframework.com/docs)
 
