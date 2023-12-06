@@ -47,6 +47,7 @@
 
 - [What is Elegant?](#what-is-elegant)
 - [Screenshot](#screenshot)
+- [Demo](#demo)
 - [Install](#install)
 - [Hosting and Deployments](#deploying)
 - [Creating Content](#creating_content)
@@ -76,6 +77,12 @@ Built with Next.js, Tailwind CSS, TipTap, and more. Elegant is perfect for blogg
 
 ![ezgif-2-2b841a89fd](https://github.com/elegantframework/elegant-cli/assets/10189130/74001fe1-b6ae-46ad-b736-164df13fea22)
 
+## <a name="demo">Demo</a>
+
+**With Base Theme**
+
+Online Demo: [https://demo.myelegant.app/](https://demo.myelegant.app/)
+Admin Demo: [https://demo.myelegant.app/admin](https://demo.myelegant.app/admin)
 
 ## <a name="install">Install</a>
 
