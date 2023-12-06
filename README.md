@@ -48,14 +48,23 @@
 - [What is Elegant?](#what-is-elegant)
 - [Screenshot](#screenshot)
 - [Install](#install)
-- [Documentation](#documentation)
+- [Hosting and Deployments](#deploying)
+- [Creating Content](#creating_content)
+- [Growing Your Audience](#growing_your_audience)
+  - [Analytics](#analytics)
+  - [Newsletter Subscriptions](#newsletter_subscriptions)
+- [Core Features](#core_features)
+  - [Sitemaps](#sitemaps)
+  - [Robots.txt](#robots_txt)
+  - [Rich Snippets](#rich_snippets)
+- [Full Documentation](#documentation)
 - [Community](#community)
 - [Contributing](#contributing)
   - [Feature Suggestions](#feature_suggestions)
   - [Reporting Issues](#reporting_issues)
   - [Good First Issues](#good_first_issues)
 - [Stay Up-To-Date](#stay_up_to_date)
-- [License]()
+- [License](#license)
 
 ## <a name="what-is-elegant">What is Elegant?</a>
 
@@ -83,8 +92,94 @@ npx elegant-init
 
 Visit [https://www.elegantframework.com/docs/installation](https://www.elegantframework.com/docs/installation) for the complete installation guide.
 
+## <a name="deploying">Hosting and Deployments</a>
 
-## <a name="documentation">Documentation</a>
+Deploying your Elegant application to production is a breeze with Vercel or any other serverless hosting provider.
+
+Because Elegant is built with the lightweight Next.js framework, your application will run ultra-fast, and at the most affordable monthly hosting costs.
+
+Read the full [Elegant Deployment Guide](https://www.elegantframework.com/docs/deployment).
+
+## <a name="creating_content">Creating Content</a>
+
+Elegant gives you complete control over your content creation experience with an included content editor for creating and editing documents.
+
+![elegant_content_editor-U4MT](https://github.com/elegantframework/elegant-cli/assets/10189130/a7118506-2a1d-4e60-81e4-9e55edced2df)
+
+The content editor is where you will write content, add images, and links, and even embed YouTube videos.
+
+Read the complete guide on [Creating Content here](https://www.elegantframework.com/docs/creating-content#writing-content).
+
+## <a name="growing_your_audience">Growing Your Audience</a>
+
+We have taken care of most of the boilerplate setup code needed to launch the perfect web application so that you can focus on what is important to you.
+
+Growing your audience is simple with our included native integrations into the most commonly used 3rd party services.
+
+### <a name="analytics">Analytics</a>
+
+Track your website traffic, and measure your traffic sources to understand which marketing and social channels are most effective.
+
+Google Analytics is automatically configured with all new Elegant applications, so you can start tracking your web application user traffic immediately.
+
+To start using Google Analytics with your Elegant application, simply provide a Google Analytics ID string to the NEXT_PUBLIC_GOOGLE_ANALYTICS_ID environment variable in your .env file.
+
+```
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID="G-4G410MD92K"
+```
+
+### <a name="newsletter_subscriptions">Newsletter Subscriptions</a>
+
+Elegant makes it easy to grow your email subscriber lists with included newsletter sign-up templates, and native subscription services.
+
+ConvertKit is automatically configured with all new Elegant applications so you may start using it immediately. 
+
+If you are interested in using ConvertKit with your Elegant application, you may simply provide an action URL string to the NEXT_PUBLIC_CONVERTKIT_ACTION_URL environment variable in your .env file.
+
+```
+NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/21224410/subscriptions"
+```
+
+## <a name="core_features">Core Features</a>
+
+
+### <a name="sitemaps">Sitemaps</a>
+
+A sitemap is a special file that helps search engines like Google understand the structure of a website. It’s like a map that shows all the pages on a website and how they’re connected to each other.
+
+Elegant is configured right out of the box to generate a sitemap.xml file for your web application automatically.
+
+To learn more, view the complete [Sitemap Guide Here](https://www.elegantframework.com/docs/sitemaps). 
+
+### <a name="robots_txt">Robots.txt</a>
+
+A robots.txt file is a simple text file that tells search engine crawlers which parts of your web application they are allowed to access and index.
+
+Elegant is configured right out of the box to generate a robots.txt for your web application automatically.
+
+Below is a snippet of our robots.txt for our documentation website.
+
+```
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.elegantframework.com
+
+# Sitemaps
+Sitemap: https://www.elegantframework.com/sitemap.xml
+```
+
+To learn more, view the complete [Robots.txt Guide Here](https://www.elegantframework.com/docs/robots-txt). 
+
+### <a name="rich_snippets">Rich Snippets</a>
+
+Rich snippets are a way to provide additional information about a webpage to search engines, like Google, so that they can better understand the content and context of the page. This information can then be displayed in search engine results, making it easier for users to understand what the page is about and whether it’s relevant to their search query.
+
+We have built Elegant to automatically add the most essential [Rich Snippets](https://www.elegantframework.com/docs/rich-snippets) to your web pages.
+
+## <a name="documentation">Full Documentation</a>
 
 You can find the complete version of the Elegant documentation at [https://elegantframework.com/docs](https://elegantframework.com/docs)
 
@@ -105,13 +200,13 @@ If you're interested in contributing to the Elegant project, please read our [co
 
 ### <a name="feature_suggestions">Feature Suggestions</a>
 
-Elegant is a community driven project, and open to all suggestions and ideas that help to empower developers everywhere.
+Elegant is a community-driven project, and open to all suggestions and ideas that help to empower developers everywhere.
 
 Visit our [Feature Request](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=) page to submit your feedback.
 
 ### <a name="reporting_issues">Reporting Issues</a>
 
-Bugs and user friction is our top priority. If you experience any issues or friction during your experience with Elegant, please submit a [Bug Report](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
+Bugs and user friction are our top priority. If you experience any issues or friction during your experience with Elegant, please submit a [Bug Report](https://github.com/elegantframework/elegant-cli/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
 
 ### <a name="good_first_issues">Good First Issues</a>
 
@@ -120,7 +215,7 @@ We have a list of [good first issues](https://github.com/elegantframework/elegan
 
 ## <a name="stay_up_to_date">Stay Up-To-Date</a>
 
-The Elegant project is constantly evolving and improving on a daily basis. You can keep up and show your support by hitting the **Star** button! We really appreciate it! 😊
+The Elegant project is constantly evolving and improving daily. You can keep up and show your support by hitting the **Star** button! We appreciate it! 😊
 
 ![support-elegant-with-a-star-on-github](https://github.com/elegantframework/elegant-cli/assets/10189130/28132259-174b-43ac-a850-8437298885be)
 
