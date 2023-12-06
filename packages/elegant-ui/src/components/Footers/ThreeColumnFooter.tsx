@@ -1,9 +1,9 @@
 import React from "react";
-import { NavigationLink, NavigationSection } from "../../types/Navigation";
+import { NavigationSection } from "../../types/Navigation";
 import Link from "next/link";
-import Logo from '../Logos/ElegantLogo/ElegantLogo';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
 import clsx from "clsx";
+import Logo from "../Logos/ElegantLogo/ElegantLogo";
 
 interface Props {
     /**
@@ -51,16 +51,16 @@ export default function ThreeColumnFooter({
     background="bg-gray-900 dark:bg-white",
     headings="text-white dark:text-slate-900",
     links="text-slate-300 dark:text-slate-500 hover:text-white dark:hover:text-slate-700",
-    logo=<Logo className="w-auto h-6 text-white dark:text-slate-900"/>,
+    logo=<Logo className="w-auto h-6" color="text-white dark:text-slate-900"/>,
     copyright=""
 }: Props) {
     return(
         <footer className={clsx("pb-16 text-sm leading-6", background)}>
             <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
                 <div className="lg:grid lg:grid-cols-3 lg:gap-8">
-                    <div className="ml-0 md:ml-16 md:max-w-min space-y-8 relative">
+                    <div className="ml-0 md:ml-16 space-y-8 relative">
                         {logo}
-                        <div className="flex space-x-6">
+                        <div className="md:flex md:space-x-6">
                             {/* {navigation.social.map((item) => (
                                 <a key={item.name} href={item.href} className="text-gray-500 hover:text-gray-400">
                                 <span className="sr-only">{item.name}</span>
@@ -70,19 +70,22 @@ export default function ThreeColumnFooter({
                         </div>
                         {copyright.length > 0 && (
                             <div className={clsx(
-                                "absolute -bottom-4 lg:bottom-2 left-0 xs:pt-4",
+                                "md:absolute md:-bottom-4 lg:bottom-2 left-0",
                                 headings
                             )}>
                                 &copy; {new Date().getFullYear()} {copyright}
                             </div>
                         )}
                     </div>
-                    <div className="mt-16 ml-0 md:ml-16 grid grid-cols-2 md:grid-cols-3 md:auto-columns-min gap-4 lg:col-span-2 lg:mt-0">
+                    <div className="mt-16 ml-0 md:ml-16 grid grid-cols-2 lg:grid-cols-3 md:auto-columns-min gap-4 lg:col-span-2 lg:mt-0">
                          <div>
                             {column1.map((item, index) => (
-                                <section className={clsx(
-                                    index !== 0 ? "mt-8" : ""
-                                )}>
+                                <section 
+                                    className={clsx(
+                                        index !== 0 ? "mt-8" : ""
+                                    )}
+                                    key={item.title}
+                                >
                                     <h3 className={clsx(
                                         "text-sm font-semibold leading-6",
                                         headings
@@ -117,9 +120,12 @@ export default function ThreeColumnFooter({
                         </div>
                          <div className="mt-0">
                             {column2.map((item, index) => (
-                                <section className={clsx(
-                                    index !== 0 ? "mt-8" : ""
-                                )}>
+                                <section 
+                                    key={item.title}
+                                    className={clsx(
+                                        index !== 0 ? "mt-8" : ""
+                                    )}
+                                >
                                     <h3 className={clsx(
                                         "text-sm font-semibold leading-6",
                                         headings
@@ -152,11 +158,14 @@ export default function ThreeColumnFooter({
                                 </section>
                             ))}
                         </div>
-                         <div className="mt-0">
+                         <div className="mt-4 md:mt-0">
                             {column3.map((item, index) => (
-                                <section className={clsx(
-                                    index !== 0 ? "mt-8" : ""
-                                )}>
+                                <section 
+                                    key={item.title}
+                                    className={clsx(
+                                        index !== 0 ? "mt-8" : ""
+                                    )}
+                                >
                                     <h3 className={clsx(
                                         "text-sm font-semibold leading-6",
                                         headings
