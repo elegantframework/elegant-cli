@@ -146,7 +146,7 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
         chalk.white("The next steps are to run ", chalk.green( `npm run dev`)," to start your app locally."),
         '\n',
         '\n',
-        chalk.white("For more information, check out our install guide: "),chalk.underline.white("https://www.elegantframework.com/docs/installation#your-first-elegant-application"),
+        chalk.white("For more information, check out our install guide: "),chalk.underline.white("https://www.elegantframework.com/docs/installation#starting-elegant"),
         '\n',
         '\n',
         chalk.bgBlue.bold.white("Thank you for supporting Elegant :)"),
