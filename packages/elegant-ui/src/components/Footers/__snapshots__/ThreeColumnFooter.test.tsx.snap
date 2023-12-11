@@ -11,10 +11,10 @@ exports[`Three column footer component renders the three column footer as expect
       className="lg:grid lg:grid-cols-3 lg:gap-8"
     >
       <div
-        className="ml-0 md:ml-16 md:max-w-min space-y-8 relative"
+        className="ml-0 md:ml-16 space-y-8 relative"
       >
         <svg
-          className="w-auto h-6 text-white dark:text-slate-900 text-slate-900 dark:text-white"
+          className="w-auto h-6 text-white dark:text-slate-900"
           fill="none"
           viewBox="0 0 980 185"
         >
@@ -111,10 +111,10 @@ exports[`Three column footer component renders the three column footer as expect
           </defs>
         </svg>
         <div
-          className="flex space-x-6"
+          className="md:flex md:space-x-6"
         />
         <div
-          className="absolute -bottom-4 lg:bottom-2 left-0 xs:pt-4 text-white dark:text-slate-900"
+          className="md:absolute md:-bottom-4 lg:bottom-2 left-0 text-white dark:text-slate-900"
         >
           © 
           2023
@@ -123,7 +123,7 @@ exports[`Three column footer component renders the three column footer as expect
         </div>
       </div>
       <div
-        className="mt-16 ml-0 md:ml-16 grid grid-cols-2 md:grid-cols-3 md:auto-columns-min gap-4 lg:col-span-2 lg:mt-0"
+        className="mt-16 ml-0 md:ml-16 grid grid-cols-2 lg:grid-cols-3 md:auto-columns-min gap-4 lg:col-span-2 lg:mt-0"
       >
         <div>
           <section
@@ -613,7 +613,7 @@ exports[`Three column footer component renders the three column footer as expect
           </section>
         </div>
         <div
-          className="mt-0"
+          className="mt-4 md:mt-0"
         >
           <section
             className=""
