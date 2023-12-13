@@ -8,4 +8,12 @@ export default {
   async redirects() {
     return JSON.parse(fs.readFileSync(require.resolve('./redirects.json'), 'utf8'))
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.githubusercontent.com',
+      },
+    ],
+  },
 };
