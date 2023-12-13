@@ -1,12 +1,13 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { CMSSignOut } from '@/utils/Auth/hooks';
 import docs_light from "@/img/beams/docs-light.png";
 import docs_dark from "@/img/beams/docs-dark@tinypng.png";
 import clsx from 'clsx';
-import Config from '@/utils/Config/Config';
 import Logo from '@/components/Logos/Logo/Logo';
-import ThemeToggle from '../../Toggles/ThemeToggle/ThemeToggle';
+import Image from 'next/image';
+import { Menu, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 type Props = {
     /**
@@ -25,6 +26,9 @@ type Props = {
      * The admin users status.
      */
     status?: 'authenticated' | 'unauthenticated' | 'loading';
+    /**
+     * Pass the method that toggles the sidebar open and closed.
+     */
     toggleSidebar: () => void;
     /**
      * Display the background "Beams" image?
@@ -50,7 +54,6 @@ export default function AdminHeader({
     hasNav = false
 }: Props) {
 
-    const [isOpen, setIsOpen] = useState(false);
     const [isOpaque, setIsOpaque] = useState(false);
 
     useEffect(() => {
@@ -117,53 +120,73 @@ export default function AdminHeader({
                         >
                             <Logo className="w-auto h-7"/>
                         </Link>
-                        {status === 'loading' || (
-                            <div className="flex items-center md:order-2">
-                                <button
-                                    type="button"
-                                    className="mr-3 flex items-center rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:mr-0"
-                                    id="user-menu-button"
-                                    aria-expanded="false"
-                                    data-dropdown-toggle="dropdown"
-                                    onClick={() => setIsOpen(!isOpen)}
-                                >
-                                    <span className="sr-only">Open user menu</span>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        className="h-8 w-8 rounded-full"
-                                        src={image || ''}
-                                        alt="user"
-                                    />
-                                </button>
-                                <div
-                                    className={`right-0 top-[60px] z-50 my-4 w-full list-none divide-y divide-gray-100 rounded-br rounded-bl bg-white text-base shadow md:-right-0 md:top-[52px] md:w-auto ${
-                                        isOpen ? 'block' : 'hidden'
-                                    }`}
-                                    id="dropdown"
-                                    style={{
-                                        position: 'absolute',
-                                        margin: '0px'
-                                    }}
-                                >
-                                    <div className="py-3 px-4">
-                                        <span className="block text-sm text-gray-900">{name}</span>
-                                        <span className="block truncate text-sm font-medium text-gray-500">
-                                        {email}
-                                        </span>
-                                    </div>
-                                    <ul className="py-1" aria-labelledby="dropdown">
-                                        <li>
-                                        <a
-                                            className="block cursor-pointer py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
-                                            onClick={() => CMSSignOut()}
+                        <div className="flex items-center md:order-2">
+                            <Menu as="div" className="relative inline-block text-left z-22">
+                                {({open}) => (
+                                    <>
+                                        <div>
+                                            <Menu.Button 
+                                                className={clsx(
+                                                    "mr-3 flex items-center rounded-full bg-gray-800 text-sm md:mr-0",
+                                                    open ? "ring-2 ring-gray-300 dark:ring-gray-600" : ""
+                                                )}
+                                            >
+                                                <span className="sr-only">Open user settings menu</span>
+                                                <Image 
+                                                    className="h-8 w-8 rounded-full"
+                                                    src={image}
+                                                    alt="Profile Image"
+                                                    height={32}
+                                                    width={32}
+                                                />
+                                            </Menu.Button>
+                                        </div>
+                                        <Transition
+                                            as={Fragment}
+                                            enter="transition ease-out duration-100"
+                                            enterFrom="transform opacity-0 scale-95"
+                                            enterTo="transform opacity-100 scale-100"
+                                            leave="transition ease-in duration-75"
+                                            leaveFrom="transform opacity-100 scale-100"
+                                            leaveTo="transform opacity-0 scale-95"
                                         >
-                                            Sign out
-                                        </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        )}
+                                            <Menu.Items className="absolute right-0 mt-2 min-w-fit origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                                                <div className="px-1 py-1">
+                                                    <Menu.Item>
+                                                        <span className='text-gray-900 flex w-full items-center rounded-md px-2 py-2 text-sm'>
+                                                            {name}
+                                                        </span>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        <span className='text-gray-500 flex w-full items-center rounded-md px-2 py-2 text-sm font-medium'>
+                                                            {email}
+                                                        </span>
+                                                    </Menu.Item>
+                                                </div>
+                                                <div className="px-1 py-1">
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                        <Link 
+                                                            href=""
+                                                            className={
+                                                                clsx(
+                                                                    'group flex w-full items-center rounded-md px-2 py-2 text-sm', 
+                                                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'
+                                                                )
+                                                            }
+                                                            onClick={() => CMSSignOut()}
+                                                        >
+                                                            Sign Out
+                                                        </Link>
+                                                        )}
+                                                    </Menu.Item>
+                                                </div>
+                                            </Menu.Items>
+                                        </Transition>
+                                    </>
+                                )}
+                            </Menu>
+                        </div>
                     </div>
                 </div>
             </div>
