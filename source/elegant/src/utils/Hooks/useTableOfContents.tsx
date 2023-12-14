@@ -26,7 +26,12 @@ export default function useTableOfContents(
             
             let sortedHeadings = headingList.concat([]).sort((a, b) => a.top - b.top);
             let top = window.pageYOffset + scrollMt + 1;
-            let current = sortedHeadings[0].id;
+            let current = "";
+
+            // set the current heading if it exists
+            if(sortedHeadings.length > 0){
+                current = sortedHeadings[0].id;
+            }
 
             for (let i = 0; i < sortedHeadings.length; i++) {
                 if (top >= sortedHeadings[i].top) {
