@@ -4,6 +4,12 @@
  * @returns A kebab cased string.
  */
 const TextToKebabCase = (str: string) => {
+
+    // if the string is null, return gracefully
+    if(str.length === 0){
+        return "";
+    }
+
     const words = str.split(" ");
 
     return words.map((word) => { 
