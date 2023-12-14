@@ -9,4 +9,9 @@ describe('Text To Title Case', () => {
       result = TextToTitleCase("HEY NOW, THIS IS COOL");
       expect(result).toBe("HEY NOW, THIS IS COOL");
     });
+
+    it('handles a null string gracefully', () => {
+      let result = TextToTitleCase("");
+      expect(result).toBe("");
+    });
 });

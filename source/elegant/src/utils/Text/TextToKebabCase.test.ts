@@ -15,4 +15,9 @@ describe('Text To kebab Case', () => {
       let result = TextToKebabCase("hello world - The test thing");
       expect(result).toBe("Hello World - The Test Thing");
     });
+
+    it('handles no string gracefully', () => {
+      let result = TextToKebabCase("");
+      expect(result).toBe("");
+    })
 });

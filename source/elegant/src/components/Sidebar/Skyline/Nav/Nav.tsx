@@ -82,7 +82,7 @@ export default function Nav({
                                 <li key={item.title}>
                                     <NavItem 
                                         href={item.href}
-                                        isActive={item.href === router.asPath.split('#')[0]}
+                                        isActive={item.href === router.asPath.split('#')[0].split('?')[0]}
                                         label={item.title}
                                     />
                                 </li>
