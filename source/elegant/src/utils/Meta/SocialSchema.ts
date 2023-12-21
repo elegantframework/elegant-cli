@@ -1,4 +1,4 @@
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 
 /**
  * Put our social data from our env vars into an object.

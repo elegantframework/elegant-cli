@@ -4,7 +4,7 @@ import nextSession from 'next-session';
 import { Session } from 'next-session/lib/types';
 import { setLoginSession } from '@/utils/Auth/auth';
 import { MAX_AGE } from '@/utils/Auth/auth-cookies';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 
 interface Request extends NextApiRequest {
   session: Session

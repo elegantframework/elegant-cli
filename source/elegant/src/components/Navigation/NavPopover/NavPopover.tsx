@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import NavItems from "../NavItems/NavItems";
 import { ThemeSelect } from "../../Toggles/ThemeToggle/ThemeToggle";
 import { NavigationItem } from "@/types/NavigationItem";
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 
 interface Props {
     /**

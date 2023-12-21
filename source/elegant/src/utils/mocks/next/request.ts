@@ -3,7 +3,7 @@ import { LoginSession } from '@/utils/Auth/auth';
 
  // @ts-ignore
 import hm from 'node-mocks-http';
-import Config from '../../Config/Config';
+import Config from 'Config';
 
 export const createMockRequest = async (
   options: hm.RequestOptions,
