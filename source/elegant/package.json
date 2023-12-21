@@ -168,7 +168,7 @@
     "remark-smartypants": "^2.0.0",
     "remark-unwrap-images": "^3.0.1",
     "seedrandom": "^3.0.5",
-    "start-server-and-test": "^2.0.0",
+    "start-server-and-test": "^2.0.3",
     "storybook": "^7.4.1",
     "storybook-dark-mode": "^3.0.1",
     "stringify-object": "^3.3.0",
