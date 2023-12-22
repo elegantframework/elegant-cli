@@ -2,7 +2,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { envVars } from '@/utils/envVarsCheck';
 import Logo from '../../Logos/Logo/Logo';
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 import MetaTitle from '@/utils/Meta/MetaTitle';
 import { Card } from '@brandonowens/elegant-ui';
 import Seo from '@/components/Seo/Seo';

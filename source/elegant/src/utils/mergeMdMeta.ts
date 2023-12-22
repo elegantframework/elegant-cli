@@ -2,7 +2,7 @@ import showdown from 'showdown';
 import DOMPurify from 'dompurify';
 import { Document } from '@/types/Document';
 import { replaceImageSrcRoot } from './replaceImageSrc';
-import Config from './Config/Config';
+import Config from 'Config';
 
 export const mergeMdMeta = (data: Document): string => {
   const meta = Object.entries(

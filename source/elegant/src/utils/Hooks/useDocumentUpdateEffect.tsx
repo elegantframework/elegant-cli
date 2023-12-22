@@ -9,7 +9,7 @@ import { replaceImageSrcRoot } from '../replaceImageSrc';
 import { escapeRegExp } from '../escapeRegExp';
 import { getLocalDate } from '../getLocalDate';
 import useFileQuery from './useFileQuery';
-import Config from '../Config/Config';
+import Config from 'Config';
 
 interface UseDocumentUpdateEffectProps {
   collection: string

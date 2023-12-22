@@ -1,9 +1,8 @@
 import Seo from '@/components/Seo/Seo';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 import MetaTitle from '@/utils/Meta/MetaTitle';
 import { Card } from '@brandonowens/elegant-ui';
 import { ArrowLongLeftIcon } from '@heroicons/react/20/solid';
-import Head from 'next/head'
 import { useRouter } from 'next/router';
 
 /**

@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { NextIncomingMessage } from 'next/dist/server/request-meta';
 import { MAX_AGE, setTokenCookie, getTokenCookie } from './auth-cookies';
 import { Session } from '@/types/Index';
-import Config from '../Config/Config';
+import Config from 'Config';
 
 export type LoginSession = {
   user: {
