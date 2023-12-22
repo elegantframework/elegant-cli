@@ -3,7 +3,7 @@ import { FileType } from '@/types/Index';
 import { Document } from '@/types/Document';
 import Input from '../Input';
 import { DocumentContext } from '@/utils/Context';
-import Config from 'Config';
+import Config from '@/utils/Config/Config';
 
 type DocumentSettingsImageSelectionProps = {
   name: 'coverImage' | 'author.picture'
