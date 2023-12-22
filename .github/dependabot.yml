@@ -1,0 +1,19 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "npm"
+    directory: "source/elegant"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "npm"
+    directory: "packages/elegant-ui"
+    schedule:
+      interval: "weekly"
