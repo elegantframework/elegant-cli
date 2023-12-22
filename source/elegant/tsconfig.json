@@ -24,7 +24,7 @@
         "src/*"
       ],
       "Config": [
-        "src/utils/core/Config/Config.ts"
+        "src/utils/Config/Config.ts"
       ]
     },
     "plugins": [

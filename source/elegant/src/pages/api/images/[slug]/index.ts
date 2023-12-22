@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 
 const REPO_SLUG = Config('admin.cms_repository_slug');
 const REPO_BRANCH = Config('admin.cms_repository_branch');
