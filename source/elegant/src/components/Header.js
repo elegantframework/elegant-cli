@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import ThemeToggle, {ThemeSelect} from '@/components/Toggles/ThemeToggle/ThemeToggle';
 import useHeaderStore from '@/utils/Hooks/useHeaderStore';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 import { GitHubIcon } from '@brandonowens/elegant-ui';
 
 /**

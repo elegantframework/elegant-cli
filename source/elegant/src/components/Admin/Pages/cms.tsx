@@ -20,7 +20,7 @@ import Settings from './settings';
 import Welcome from './welcome';
 import AddCustomField from '@/components/Admin/Pages/add-custom-field';
 import { Session } from '@/types/Index';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 import Login from './login';
 
 type Props = {

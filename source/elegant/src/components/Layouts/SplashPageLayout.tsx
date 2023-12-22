@@ -1,6 +1,6 @@
 import SplashHeader from "@/components/Headers/SplashHeader";
 import SplashFooter from '@/components/Footer/SplashFooter/SplashFooter';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 
 interface Props {
     /**

@@ -1,6 +1,6 @@
 {
   "name": "elegant-cli",
-  "version": "3.0.9-innovators.0",
+  "version": "3.0.9-innovators.1",
   "description": "Build SEO-friendly websites, super fast full-stack web applications, and much more with Elegant.",
   "scripts": {
     "build:elegant": "cd source/elegant && npm run build",
@@ -37,7 +37,7 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "clear": "^0.1.0",
-    "commander": "^10.0.0",
+    "commander": "^11.1.0",
     "cross-spawn": "^7.0.3",
     "figlet": "^1.5.2",
     "path": "^0.12.7"
@@ -48,7 +48,7 @@
   "devDependencies": {
     "@babel/types": "^7.22.17",
     "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.0",
+    "@types/node": "^20.10.5",
     "@types/react-test-renderer": "^18.0.0",
     "child_process": "^1.0.2",
     "jest": "^29.5.0",

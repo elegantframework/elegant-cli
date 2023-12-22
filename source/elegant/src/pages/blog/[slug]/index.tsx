@@ -3,7 +3,7 @@ import Seo from "@/components/Seo/Seo";
 import Error from "@/pages/404";
 import { Post } from "@/types/Post";
 import { getDocumentBySlug, getDocuments } from "@/utils/Collections/collection";
-import Config from "@/utils/Config/Config";
+import Config from 'Config';
 import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
 import moment from "moment";
 import { GetServerSidePropsContext } from "next";

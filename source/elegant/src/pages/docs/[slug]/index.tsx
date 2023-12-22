@@ -12,7 +12,7 @@ import { TableOfContentsItem } from "@/types/TableOfContentsItem";
 import { createContext, useEffect } from "react";
 import { usePrevNext } from "@/utils/Hooks/usePrevNext";
 import DocsFooter from "@/components/Footer/DocsFooter/DocsFooter";
-import Config from "@/utils/Config/Config";
+import Config from 'Config';
 import Link from "next/link";
 import { documentationNav } from "@/config/Navigation";
 import Seo from "@/components/Seo/Seo";

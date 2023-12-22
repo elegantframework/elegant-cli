@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { BuiltWithElegant } from "@brandonowens/elegant-ui";
-import Config from "@/utils/Config/Config";
+import Config from '@/utils/Config/Config';
 import { NavigationLink } from "@/types/Navigation";
 
 interface Props {

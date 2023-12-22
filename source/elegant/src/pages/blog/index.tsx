@@ -5,7 +5,7 @@ import { getDocuments } from '@/utils/Collections/collection';
 import { Post } from '@/types/Post';
 import moment from 'moment';
 import GenerateRssFeed from '@/utils/RSS/GenerateRSSFeed';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 
 interface Props {
   /**

@@ -4,7 +4,7 @@ import styles from './index.module.css';
 import clsx from 'clsx';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import socialCardLarge from '@/img/social-card-large.jpg';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 import MetaTitle from '@/utils/Meta/MetaTitle';
 import Logo from '@/components/Logos/Logo/Logo';
 import Link from 'next/link';
