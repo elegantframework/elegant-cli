@@ -55,7 +55,7 @@
     "next": "13.5",
     "next-connect": "^1.0.0",
     "next-router-mock": "^0.9.7",
-    "next-seo": "^6.0.0",
+    "next-seo": "^6.4.0",
     "next-session": "^4.0.5",
     "pluralize": "^8.0.0",
     "react": "^18.2.0",
