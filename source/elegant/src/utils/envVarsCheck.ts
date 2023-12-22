@@ -1,4 +1,4 @@
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 
 export type EnvVarsType = {
   required: {

@@ -1,5 +1,5 @@
 import { Feed } from 'feed';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 import { getDocuments } from '../Collections/collection';
 import fs from 'fs';
 

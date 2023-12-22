@@ -1,4 +1,4 @@
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 
 export const GA_TRACKING_ID = Config('app.google_analytics_id');
 

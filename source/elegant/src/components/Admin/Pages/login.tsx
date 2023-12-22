@@ -1,6 +1,6 @@
 import { Card, GitHubIcon } from "@brandonowens/elegant-ui";
 import Logo from "@/components/Logos/Logo/Logo";
-import Config from "@/utils/Config/Config";
+import Config from '@/utils/Config/Config';
 import MetaTitle from "@/utils/Meta/MetaTitle";
 import { ArrowLongLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";

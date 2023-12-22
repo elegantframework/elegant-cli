@@ -3,4 +3,10 @@
     "include": [
       "**/*.test.ts"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "Config": [
+        "src/utils/Config/Config.ts"
+      ]
+    },
 }

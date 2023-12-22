@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-import Config from '../Config/Config';
+import Config from 'Config';
 
 const CONTENT_PATH = join(
   process.cwd(),

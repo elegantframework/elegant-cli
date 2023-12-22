@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useCMSSession } from '@/utils/Auth/hooks';
 import Sidebar from '../Sidebar/Admin/Sidebar';
-import Config from '@/utils/Config/Config';
+import Config from 'Config';
 import AdminHeader from '../Headers/AdminHeader/AdminHeader';
 
 export type AdminLayoutProps = {
