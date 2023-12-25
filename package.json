@@ -55,6 +55,6 @@
     "nodemon": "^3.0.2",
     "react-test-renderer": "^18.2.0",
     "shelljs": "^0.8.5",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.2"
   }
 }
