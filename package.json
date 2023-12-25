@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/elegantframework/elegant#readme",
   "dependencies": {
-    "chalk": "^5.3.0",
+    "chalk": "^4.1.2",
     "clear": "^0.1.0",
     "commander": "^11.1.0",
     "cross-spawn": "^7.0.3",
