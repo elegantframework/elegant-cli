@@ -140,7 +140,7 @@
     "follow-redirects": "^1.14.9",
     "framer-motion": "2.9.5",
     "glyphhanger": "^5.0.0",
-    "jest": "^29.5.0",
+    "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.5.0",
     "mini-svg-data-uri": "^1.4.3",
     "minimatch": "^3.0.4",
