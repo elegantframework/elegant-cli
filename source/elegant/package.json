@@ -112,7 +112,7 @@
     "@types/react": "^18.0.28",
     "@types/react-datepicker": "^4.11.2",
     "@types/react-dom": "^18.2.6",
-    "@types/react-test-renderer": "^17.0.2",
+    "@types/react-test-renderer": "^18.0.7",
     "@types/showdown": "^2.0.1",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@types/video.js": "^5.16.1",
