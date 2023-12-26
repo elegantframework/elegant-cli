@@ -1,6 +1,6 @@
 {
   "name": "@brandonowens/elegant-ui",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Elegant is the easiest way to create a new static website or blog, and publish it online. This is the core Elegant UI component library.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
