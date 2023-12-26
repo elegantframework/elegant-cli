@@ -62,7 +62,7 @@
     "react-datepicker": "^4.15.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.1",
-    "react-select": "^5.7.3",
+    "react-select": "^5.8.0",
     "react-textarea-autosize": "^8.5.2",
     "schema-to-yup": "^1.12.15",
     "showdown": "^2.1.0",
