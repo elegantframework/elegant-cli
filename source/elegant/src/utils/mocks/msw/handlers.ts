@@ -1,23 +1,17 @@
-import { graphql } from 'msw';
+import { HttpResponse, graphql } from 'msw';
 
 export const handlers = [
-  // Collections query. Use the owner to determine the possible response
-  // to get from GitHub's API
-  graphql.query('Collections', (req, res, ctx) => {
-    const { owner } = req.variables
+  graphql.query('Collections', ({ variables }) => {
+    const { owner } = variables;
 
     if (owner === 'msw::collections::not-implemented') {
-      return res(
-        ctx.errors([
-          {
-            message: 'MSW - Not implemented'
-          }
-        ])
-      )
+      return HttpResponse.json({
+        errors: [{ message: 'MSW - Not implemented' }],
+      });
     }
-    
-    return res(
-      ctx.data({
+
+    return HttpResponse.json({
+      data: {
         repository: {
           id: 'R_kgDOID1vsA',
           object: {
@@ -38,7 +32,7 @@ export const handlers = [
             ]
           }
         }
-      })
-    )
+      }
+    });
   })
 ]

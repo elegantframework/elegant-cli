@@ -65,6 +65,7 @@
     "react-select": "^5.8.0",
     "react-textarea-autosize": "^8.5.2",
     "schema-to-yup": "^1.12.15",
+    "sharp": "^0.28.3",
     "showdown": "^2.1.0",
     "swr": "^2.2.0",
     "url-slug": "^4.0.1",
@@ -174,7 +175,7 @@
     "tailwindcss": "^3.2.7",
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.2",
-    "unified": "^11.0.4"
+    "unified": "^10.1.2"
   },
   "engines": {
     "node": ">=14 <=18"
