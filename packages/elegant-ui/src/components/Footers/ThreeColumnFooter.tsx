@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationSection } from "../../types/Navigation";
+import { NavigationLink, NavigationSection } from "../../types/Navigation";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
 import clsx from "clsx";
