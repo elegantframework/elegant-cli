@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "@apollo/client": "^3.7.17",
-    "@brandonowens/elegant-ui": "^1.2.2",
+    "@brandonowens/elegant-ui": "^1.2.4",
     "@docsearch/react": "^3.5.1",
     "@hapi/iron": "^7.0.1",
     "@heroicons/react": "^2.0.18",
@@ -125,7 +125,7 @@
     "concurrently": "^8.2.0",
     "cypress": "^12.8.1",
     "debounce": "^1.2.0",
-    "elegant-cli": "^3.0.8",
+    "elegant-cli": "^3.0.10",
     "encoding": "^0.1.13",
     "eslint": "^8.44.0",
     "eslint-config-react-app": "^7.0.1",
