@@ -8,7 +8,6 @@ import { Document } from '@/types/Document'
 import { useCMSSession } from '@/utils/Auth/hooks';
 import { deepReplace } from '@/utils/deepReplace';
 import useNavigationLock from '@/utils/Hooks/useNavigationLock';
-import useTipTap from '@/utils/Hooks/useTipTap';
 import { convertSchemaToYup, editDocumentSchema } from '@/utils/yup';
 import useFileQuery from '@/utils/Hooks/useFileQuery';
 import useSubmitDocument from '@/utils/Hooks/useSubmitDocument';
@@ -17,7 +16,8 @@ import { DocumentContext } from '@/utils/Context';
 import AdminLayout from '@/components/AdminLayout';
 import DocumentSettings from '@/components/DocumentSettings';
 import DocumentTitleInput from '@/components/DocumentTitleInput';
-import MDEditor from '@/components/MDEditor';
+import { useEditor } from '@/utils/Hooks/useEditor';
+import Editor from '@/components/Editor/Editor';
 
 export default function EditDocument({ collection }: { collection: string }) {
   const router = useRouter()
@@ -29,7 +29,7 @@ export default function EditDocument({ collection }: { collection: string }) {
   const [showDelete, setShowDelete] = useState(false)
   const [documentSchema, setDocumentSchema] = useState(editDocumentSchema)
   const methods = useForm<Document>({ resolver: yupResolver(documentSchema) })
-  const { editor } = useTipTap({ ...methods })
+  const { editor } = useEditor({ ...methods })
   const [customFields, setCustomFields] = useState<CustomFields>({})
 
   const editDocument = (property: string, value: any) => {
@@ -118,7 +118,7 @@ export default function EditDocument({ collection }: { collection: string }) {
                 placeholder={`Your ${singular(collection)} title`}
               />
               <div className="min-h-full prose prose-xl">
-                <MDEditor editor={editor} id="content" />
+                <Editor editor={editor} id="content" />
               </div>
             </form>
           </AdminLayout>

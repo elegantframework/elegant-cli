@@ -7,6 +7,9 @@ import { Editor, ReactNodeViewRenderer, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { lowlight } from 'lowlight/lib/common';
 
+/**
+ * @deprecated - This method will be removed in favor of source\elegant\src\utils\Hooks\useEditor.tsx
+ */
 const useTipTap = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
 

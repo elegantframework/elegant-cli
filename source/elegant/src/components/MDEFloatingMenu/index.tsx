@@ -7,6 +7,9 @@ type MDEFloatingMenuProps = {
   editor: Editor
 }
 
+/**
+ * @deprecated - 
+ */
 const MDEFloatingMenu = ({ editor }: MDEFloatingMenuProps) => {
   const [imageMenu, setImageMenu] = useState(false)
 
