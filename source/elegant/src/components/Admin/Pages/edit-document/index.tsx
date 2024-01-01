@@ -18,6 +18,7 @@ import AdminLayout from '@/components/AdminLayout';
 import DocumentSettings from '@/components/DocumentSettings';
 import DocumentTitleInput from '@/components/DocumentTitleInput';
 import MDEditor from '@/components/MDEditor';
+import { Editor as NovelEditor } from "novel";
 
 export default function EditDocument({ collection }: { collection: string }) {
   const router = useRouter()
@@ -74,17 +75,19 @@ export default function EditDocument({ collection }: { collection: string }) {
   })
 
   useEffect(() => {
-    const documentQueryObject = schemaQueryData?.repository?.object
+    const documentQueryObject = schemaQueryData?.repository?.object;
+
     if (documentQueryObject?.__typename === 'Blob') {
-      const schema = JSON.parse(documentQueryObject?.text || '{}')
-      const yupSchema = convertSchemaToYup(schema)
-      setDocumentSchema(yupSchema)
-      setCustomFields(schema.properties)
+      const schema = JSON.parse(documentQueryObject?.text || '{}');
+      const yupSchema = convertSchemaToYup(schema);
+      setDocumentSchema(yupSchema);
+      setCustomFields(schema.properties);
     }
   }, [schemaQueryData])
 
   // Ask for confirmation before leaving page if changes were made.
   useNavigationLock(hasChanges)
+
 
   return (
     <>
@@ -118,6 +121,11 @@ export default function EditDocument({ collection }: { collection: string }) {
                 placeholder={`Your ${singular(collection)} title`}
               />
               <div className="min-h-full prose prose-xl">
+                <NovelEditor 
+                  className="relative block"
+                  defaultValue={[undefined]}
+                  disableLocalStorage={true}
+                />
                 <MDEditor editor={editor} id="content" />
               </div>
             </form>
