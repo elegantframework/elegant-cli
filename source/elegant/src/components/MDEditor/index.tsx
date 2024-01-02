@@ -8,6 +8,9 @@ interface MDEditorProps {
   id: string
 }
 
+/**
+ * @deprecated - 
+ */
 const MDEditor = ({ id, editor }: MDEditorProps) => {
   const {
     watch,
