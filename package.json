@@ -3,7 +3,7 @@
   "version": "3.0.10",
   "description": "Build SEO-friendly websites, super fast full-stack web applications, and much more with Elegant.",
   "scripts": {
-    "build:elegant": "cd source/elegant && npm run build",
+    "build:elegant": "cd source/elegant && npm install && npm run build",
     "dev": "cd source/elegant && npm run dev",
     "publish:innovators": "node scripts/publish-innovators-prerelease.ts",
     "publish:patch": "node scripts/publish-patch.ts",
