@@ -33,7 +33,7 @@ jobs:
 
       # Verify that the project builds without errors
       - name: Build the core Elegant project
-        run: npm run build:elegant
+        run: cd source/elegant && npm run build
 
       # Finally, run our CI tests
       - name: Run the tests
