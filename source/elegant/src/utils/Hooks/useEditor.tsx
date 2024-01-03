@@ -1,12 +1,16 @@
 import Placeholder from '@tiptap/extension-placeholder';
 import { Editor, useEditor as useTipTap } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+import Document from '@tiptap/extension-document';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
 
   const editor = useTipTap({
     extensions: [
+      Document.extend({
+        content: '(block|columns)+',
+      }),
       StarterKit.configure({
         codeBlock: false
       }),
