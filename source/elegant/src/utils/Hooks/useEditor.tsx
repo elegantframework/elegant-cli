@@ -8,6 +8,7 @@ import Selection from '@/components/Editor/Extensions/Selection';
 import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
 import Column from '@/components/Editor/Extensions/Column';
+import Heading from '@/components/Editor/Extensions/Heading';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -24,6 +25,9 @@ export const useEditor = ({ ...rhfMethods }) => {
       }),
       Column,
       Selection,
+      Heading.configure({
+        levels: [1, 2, 3, 4, 5, 6],
+      }),
       StarterKit.configure({
         document: false,
         dropcursor: false,
