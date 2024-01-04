@@ -7,6 +7,7 @@ import Link from '@/components/Editor/Extensions/Link';
 import Selection from '@/components/Editor/Extensions/Selection';
 import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
+import Column from '@/components/Editor/Extensions/Column';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -16,11 +17,12 @@ export const useEditor = ({ ...rhfMethods }) => {
       Document.extend({
         // content: '(block|columns)+',
       }),
-      // Columns,
+      Columns,
       TaskList,
       TaskItem.configure({
         nested: true,
       }),
+      Column,
       Selection,
       StarterKit.configure({
         document: false,
