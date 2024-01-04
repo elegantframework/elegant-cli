@@ -1,7 +1,8 @@
 import { Editor as TipTapEditor, EditorContent, PureEditorContent } from '@tiptap/react';
 import { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
-import ActionMenu from './ActionMenu/ActionMenu';
+import ActionMenu from './Menus/ActionMenu';
+import LinkMenu from './Menus/LinkMenu';
 
 interface Props {
   /**
@@ -43,6 +44,7 @@ export default function Editor({
           className="flex-1 overflow-y-auto"
         />
         <ActionMenu editor={editor} />
+        <LinkMenu editor={editor} appendTo={menuContainerRef} />
         <div className="mt-1">
           {errors[id]?.message && (
             <span className="text-sm text-red-500">

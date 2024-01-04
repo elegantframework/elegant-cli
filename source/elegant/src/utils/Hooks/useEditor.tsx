@@ -1,7 +1,12 @@
 import Placeholder from '@tiptap/extension-placeholder';
 import { Editor, useEditor as useTipTap } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import Document from '@tiptap/extension-document';
+import { Document } from '@tiptap/extension-document';
+import Columns from '@/components/Editor/Extensions/Columns';
+import Link from '@/components/Editor/Extensions/Link';
+import Selection from '@/components/Editor/Extensions/Selection';
+import TaskList from '@tiptap/extension-task-list';
+import TaskItem from '@tiptap/extension-task-item';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -9,14 +14,30 @@ export const useEditor = ({ ...rhfMethods }) => {
   const editor = useTipTap({
     extensions: [
       Document.extend({
-        content: '(block|columns)+',
+        // content: '(block|columns)+',
       }),
+      // Columns,
+      TaskList,
+      TaskItem.configure({
+        nested: true,
+      }),
+      Selection,
       StarterKit.configure({
-        codeBlock: false
+        document: false,
+        dropcursor: false,
+        heading: false,
+        horizontalRule: false,
+        blockquote: false,
+        history: false,
+        codeBlock: false,
+      }),
+      Link.configure({
+        openOnClick: false,
       }),
       Placeholder.configure({
-        placeholder: "What's your story?",
-        showOnlyWhenEditable: false
+        includeChildren: true,
+        showOnlyCurrent: false,
+        placeholder: () => "What's your story?",
       }),
     ],
     editorProps: {
