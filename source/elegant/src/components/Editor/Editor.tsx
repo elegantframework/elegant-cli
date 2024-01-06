@@ -44,7 +44,7 @@ export default function Editor({
           className="flex-1 overflow-y-auto"
         />
         <ActionMenu editor={editor} />
-        <LinkMenu editor={editor} appendTo={menuContainerRef} />
+        {/* <LinkMenu editor={editor} appendTo={menuContainerRef} /> */}
         <div className="mt-1">
           {errors[id]?.message && (
             <span className="text-sm text-red-500">
