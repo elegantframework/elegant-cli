@@ -37,6 +37,7 @@ export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
 
   const editor = useTipTap({
+    autofocus: true,
     extensions: [
       Document.extend({
         content: '(block|columns)+',
