@@ -15,7 +15,6 @@ import { TextStyle } from '@tiptap/extension-text-style';
 import { FontFamily } from '@tiptap/extension-font-family';
 import { Typography } from '@tiptap/extension-typography';
 import { Color } from '@tiptap/extension-color';
-import lowlight from 'lowlight';
 import FontSize from '@/components/Editor/Extensions/FontSize';
 import { TrailingNode } from '@/components/Editor/Extensions/TrailingNode';
 import { Highlight } from '@tiptap/extension-highlight';
@@ -32,6 +31,7 @@ import { FocusClasses as Focus } from '@tiptap/extension-focus';
 import Figcaption from '@/components/Editor/Extensions/Figcaption';
 import BlockquoteFigure from '@/components/Editor/Extensions/BlockquoteFigure';
 import { Dropcursor } from '@tiptap/extension-dropcursor';
+import { lowlight } from 'lowlight/lib/common';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -62,10 +62,10 @@ export const useEditor = ({ ...rhfMethods }) => {
         history: false,
         codeBlock: false,
       }),
-      // CodeBlockLowlight.configure({
-      //   lowlight,
-      //   defaultLanguage: null,
-      // }),
+      CodeBlockLowlight.configure({
+        lowlight,
+        defaultLanguage: null,
+      }),
       TextStyle,
       FontSize,
       FontFamily,
