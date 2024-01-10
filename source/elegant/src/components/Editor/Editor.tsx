@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 import ActionMenu from './Menus/ActionMenu';
 import LinkMenu from './Menus/LinkMenu';
+import ColumnsMenu from './Menus/ColumnsMenu';
 
 interface Props {
   /**
@@ -40,14 +41,14 @@ export default function Editor({
           name="content" 
           value={watchContent} 
           editor={editor} 
-          ref={editorRef}
+          // ref={editorRef}
           className="flex-1 overflow-y-auto"
         />
         <ActionMenu editor={editor} />
         {/* <LinkMenu editor={editor} appendTo={menuContainerRef} /> */}
-        {/* <TextMenu editor={editor} />
+        {/* <TextMenu editor={editor} /> */}
         <ColumnsMenu editor={editor} appendTo={menuContainerRef} />
-        <TableRowMenu editor={editor} appendTo={menuContainerRef} />
+        {/* <TableRowMenu editor={editor} appendTo={menuContainerRef} />
         <TableColumnMenu editor={editor} appendTo={menuContainerRef} />
         <ImageBlockMenu editor={editor} appendTo={menuContainerRef} /> */}
         <div className="mt-1">
