@@ -45,6 +45,11 @@ export default function Editor({
         />
         <ActionMenu editor={editor} />
         {/* <LinkMenu editor={editor} appendTo={menuContainerRef} /> */}
+        {/* <TextMenu editor={editor} />
+        <ColumnsMenu editor={editor} appendTo={menuContainerRef} />
+        <TableRowMenu editor={editor} appendTo={menuContainerRef} />
+        <TableColumnMenu editor={editor} appendTo={menuContainerRef} />
+        <ImageBlockMenu editor={editor} appendTo={menuContainerRef} /> */}
         <div className="mt-1">
           {errors[id]?.message && (
             <span className="text-sm text-red-500">
