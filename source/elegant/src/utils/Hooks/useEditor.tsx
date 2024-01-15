@@ -28,6 +28,7 @@ import { Dropcursor } from '@tiptap/extension-dropcursor';
 import { lowlight } from 'lowlight/lib/common';
 import { Column, Columns } from '@/components/Editor/Extensions/MultiColumn';
 import { Table, TableCell, TableHeader, TableRow } from '@/components/Editor/Extensions/Table';
+import { ImageBlock } from '@/components/Editor/Extensions/ImageBlock';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -75,7 +76,7 @@ export const useEditor = ({ ...rhfMethods }) => {
       // ImageUpload.configure({
       //   clientId: provider?.document?.clientID,
       // }),
-      // ImageBlock,
+      ImageBlock,
       // FileHandler.configure({
       //   allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
       //   onDrop: (currentEditor, files, pos) => {
