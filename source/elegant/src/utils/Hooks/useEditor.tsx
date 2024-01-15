@@ -20,9 +20,6 @@ import { Underline } from '@tiptap/extension-underline';
 import { TextAlign } from '@tiptap/extension-text-align';
 import { Subscript } from '@tiptap/extension-subscript';
 import { Superscript } from '@tiptap/extension-superscript';
-import { TableCell } from '@/components/Editor/Extensions/Cell';
-import TableHeader from '@/components/Editor/Extensions/Header';
-import TableRow from '@/components/Editor/Extensions/Row';
 import SlashCommand from '@/components/Editor/Extensions/SlashCommand';
 import { FocusClasses as Focus } from '@tiptap/extension-focus';
 import Figcaption from '@/components/Editor/Extensions/Figcaption';
@@ -30,7 +27,7 @@ import BlockquoteFigure from '@/components/Editor/Extensions/BlockquoteFigure';
 import { Dropcursor } from '@tiptap/extension-dropcursor';
 import { lowlight } from 'lowlight/lib/common';
 import { Column, Columns } from '@/components/Editor/Extensions/MultiColumn';
-import { Table } from '@/components/Editor/Extensions/Table';
+import { Table, TableCell, TableHeader, TableRow } from '@/components/Editor/Extensions/Table';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods

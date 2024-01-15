@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 import ActionMenu from './Menus/ActionMenu';
 import LinkMenu from './Menus/LinkMenu';
-import { TableRowMenu } from './Extensions/Table/menus';
+import { TableColumnMenu, TableRowMenu } from './Extensions/Table/menus';
 import { ColumnsMenu } from './Extensions/MultiColumn/menus';
 
 interface Props {
@@ -50,7 +50,7 @@ export default function Editor({
         {/* <TextMenu editor={editor} /> */}
         <ColumnsMenu editor={editor} appendTo={menuContainerRef} />
         <TableRowMenu editor={editor} appendTo={menuContainerRef} />
-        {/* <TableColumnMenu editor={editor} appendTo={menuContainerRef} /> */}
+        <TableColumnMenu editor={editor} appendTo={menuContainerRef} />
         {/* <ImageBlockMenu editor={editor} appendTo={menuContainerRef} /> */}
         <div className="mt-1">
           {errors[id]?.message && (
