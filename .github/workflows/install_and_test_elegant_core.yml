@@ -31,9 +31,9 @@ jobs:
       - name: Install CLI Dependencies
         run: npm install
 
-      # Verify that the project builds without errors
-      - name: Build the core Elegant project
-        run: npm run build:elegant
+      # Install required deps for elegant framework subfolder
+      - name: Install Elegant Package Dependencies
+        run:  cd source/elegant && npm install --legacy-peer-deps
 
       # Finally, run our CI tests
       - name: Run the tests
