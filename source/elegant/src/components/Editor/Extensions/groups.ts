@@ -169,6 +169,17 @@ export const GROUPS: Group[] = [
       //     editor.chain().focus().insertTableOfContent().run()
       //   },
       // },
+      {
+        name: 'YouTubeVideo',
+        label: 'YouTube Video',
+        iconName: 'Youtube',
+        description: 'Insert a YouTube video link',
+        action: editor => {
+          editor.chain().focus().setYoutubeVideo({
+            src: 'https://www.youtube.com/watch?v=bS66QUBKljM'
+          }).run()
+        },
+      },
     ],
   },
 ]

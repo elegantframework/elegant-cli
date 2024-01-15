@@ -29,6 +29,7 @@ import { lowlight } from 'lowlight/lib/common';
 import { Column, Columns } from '@/components/Editor/Extensions/MultiColumn';
 import { Table, TableCell, TableHeader, TableRow } from '@/components/Editor/Extensions/Table';
 import { ImageBlock } from '@/components/Editor/Extensions/ImageBlock';
+import { Youtube } from '@tiptap/extension-youtube';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -125,6 +126,7 @@ export const useEditor = ({ ...rhfMethods }) => {
         width: 2,
         class: 'ProseMirror-dropcursor border-black',
       }),
+      Youtube
     ],
     editorProps: {
       attributes: {
