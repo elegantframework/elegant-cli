@@ -1,3 +1,5 @@
+'use client'
+
 import { Editor as TipTapEditor, EditorContent, PureEditorContent } from '@tiptap/react';
 import { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -6,6 +8,7 @@ import LinkMenu from './Menus/LinkMenu';
 import { TableColumnMenu, TableRowMenu } from './Extensions/Table/menus';
 import { ColumnsMenu } from './Extensions/MultiColumn/menus';
 import ImageBlockMenu from './Extensions/ImageBlock/components/ImageBlockMenu';
+import { TextMenu } from './Menus/TextMenu';
 
 interface Props {
   /**
@@ -38,7 +41,7 @@ export default function Editor({
 
   return (
     <div className="flex h-full" ref={menuContainerRef}>
-      <div className="relative flex flex-col flex-1 h-full overflow-hidden">
+      <div className="relative flex flex-col flex-1 h-full">
         <EditorContent 
           name="content" 
           value={watchContent} 
@@ -48,7 +51,7 @@ export default function Editor({
         />
         <ActionMenu editor={editor} />
         {/* <LinkMenu editor={editor} appendTo={menuContainerRef} /> */}
-        {/* <TextMenu editor={editor} /> */}
+        <TextMenu editor={editor} />
         <ColumnsMenu editor={editor} appendTo={menuContainerRef} />
         <TableRowMenu editor={editor} appendTo={menuContainerRef} />
         <TableColumnMenu editor={editor} appendTo={menuContainerRef} />
