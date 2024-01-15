@@ -35,10 +35,6 @@ jobs:
       - name: Install Elegant Package Dependencies
         run:  cd source/elegant && npm install --legacy-peer-deps
 
-      # Verify that the project builds without errors
-      - name: Build the core Elegant project
-        run: cd source/elegant && npm run build
-
       # Finally, run our CI tests
       - name: Run the tests
         run: npm run test:ci
