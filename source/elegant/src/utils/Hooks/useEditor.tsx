@@ -2,12 +2,10 @@ import Placeholder from '@tiptap/extension-placeholder';
 import { Editor, useEditor as useTipTap } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { Document } from '@tiptap/extension-document';
-import Columns from '@/components/Editor/Extensions/Columns';
 import Link from '@/components/Editor/Extensions/Link';
 import Selection from '@/components/Editor/Extensions/Selection';
 import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
-import Column from '@/components/Editor/Extensions/Column';
 import Heading from '@/components/Editor/Extensions/Heading';
 import HorizontalRule from '@/components/Editor/Extensions/HorizontalRule';
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight';
@@ -22,7 +20,6 @@ import { Underline } from '@tiptap/extension-underline';
 import { TextAlign } from '@tiptap/extension-text-align';
 import { Subscript } from '@tiptap/extension-subscript';
 import { Superscript } from '@tiptap/extension-superscript';
-import Table from '@/components/Editor/Extensions/Table';
 import { TableCell } from '@/components/Editor/Extensions/Cell';
 import TableHeader from '@/components/Editor/Extensions/Header';
 import TableRow from '@/components/Editor/Extensions/Row';
@@ -32,6 +29,8 @@ import Figcaption from '@/components/Editor/Extensions/Figcaption';
 import BlockquoteFigure from '@/components/Editor/Extensions/BlockquoteFigure';
 import { Dropcursor } from '@tiptap/extension-dropcursor';
 import { lowlight } from 'lowlight/lib/common';
+import { Column, Columns } from '@/components/Editor/Extensions/MultiColumn';
+import { Table } from '@/components/Editor/Extensions/Table';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods

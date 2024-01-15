@@ -1,4 +1,4 @@
-import { Node, mergeAttributes } from '@tiptap/core';
+import { Node, mergeAttributes } from '@tiptap/core'
 
 export const Column = Node.create({
   name: 'column',

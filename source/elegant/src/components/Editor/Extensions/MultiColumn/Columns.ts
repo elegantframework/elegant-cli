@@ -1,10 +1,10 @@
-import { Node } from '@tiptap/core';
+import { Node } from '@tiptap/core'
 
 export enum ColumnLayout {
   SidebarLeft = 'sidebar-left',
   SidebarRight = 'sidebar-right',
   TwoColumn = 'two-column',
-};
+}
 
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
@@ -13,14 +13,19 @@ declare module '@tiptap/core' {
       setLayout: (layout: ColumnLayout) => ReturnType
     }
   }
-};
+}
 
 export const Columns = Node.create({
   name: 'columns',
+
   group: 'columns',
+
   content: 'column column',
+
   defining: true,
+
   isolating: true,
+
   addAttributes() {
     return {
       layout: {
@@ -28,6 +33,7 @@ export const Columns = Node.create({
       },
     }
   },
+
   addCommands() {
     return {
       setColumns:
@@ -42,9 +48,11 @@ export const Columns = Node.create({
           commands.updateAttributes('columns', { layout }),
     }
   },
+
   renderHTML({ HTMLAttributes }) {
     return ['div', { 'data-type': 'columns', class: `layout-${HTMLAttributes.layout}` }, 0]
   },
+
   parseHTML() {
     return [
       {
@@ -54,4 +62,4 @@ export const Columns = Node.create({
   },
 })
 
-export default Columns;
+export default Columns
