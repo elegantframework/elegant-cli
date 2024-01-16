@@ -336,3 +336,7 @@ input.react-datepicker-time__input {
 .ProseMirror .image-error {
   @apply block bg-red-50 border border-red-300 relative w-full h-32 text-base font-normal font-sans;
 }
+
+.prose :where(ul > li):not(:where([class~="not-prose"] *))::before {
+  content: none;
+}
