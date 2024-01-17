@@ -122,32 +122,32 @@ export const GROUPS: Group[] = [
           editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: false }).run()
         },
       },
-      // {
-      //   name: 'image',
-      //   label: 'Image',
-      //   iconName: 'Image',
-      //   description: 'Insert an image',
-      //   aliases: ['img'],
-      //   action: editor => {
-      //     editor.chain().focus().setImageUpload().run()
-      //   },
-      // },
-      // {
-      //   name: 'columns',
-      //   label: 'Columns',
-      //   iconName: 'Columns',
-      //   description: 'Add two column content',
-      //   aliases: ['cols'],
-      //   shouldBeHidden: editor => editor.isActive('columns'),
-      //   action: editor => {
-      //     editor
-      //       .chain()
-      //       .focus()
-      //       .setColumns()
-      //       .focus(editor.state.selection.head - 1)
-      //       .run()
-      //   },
-      // },
+      {
+        name: 'image',
+        label: 'Image',
+        iconName: 'Image',
+        description: 'Insert an image',
+        aliases: ['img'],
+        action: editor => {
+          editor.chain().focus().setImageUpload().run()
+        },
+      },
+      {
+        name: 'columns',
+        label: 'Columns',
+        iconName: 'Columns2',
+        description: 'Add two column content',
+        aliases: ['cols'],
+        shouldBeHidden: editor => editor.isActive('columns'),
+        action: editor => {
+          editor
+            .chain()
+            .focus()
+            .setColumns()
+            .focus(editor.state.selection.head - 1)
+            .run()
+        },
+      },
       {
         name: 'horizontalRule',
         label: 'Horizontal Rule',
