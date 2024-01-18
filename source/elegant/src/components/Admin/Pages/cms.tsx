@@ -9,7 +9,7 @@ import {
   CollectionsQueryVariables
 } from '@/graphql/generated';
 import { initializeApollo, useApollo } from '@/utils/Apollo/apollo';
-import { getLoginSession } from '@/utils/Auth/auth';
+import { getLoginSession } from '@/utils/Auth/Login';
 import { envVars, EnvVarsType } from '@/utils/envVarsCheck';
 import Error from './404';
 import NewCollection from '@/components/Admin/Pages/new-collection';
@@ -81,7 +81,7 @@ const CMS = ({ missingEnvVars, providerData }: Props) => {
   const { session } = providerData;
 
   // if the user is not logged in, redirect them to the sign in page
-  if (!session) {  
+  if (!session || session.user.email !== "example@example.com") {  
     return <Login />;
   }
 

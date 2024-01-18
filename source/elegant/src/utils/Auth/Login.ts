@@ -1,7 +1,7 @@
 import * as Iron from '@hapi/iron';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { NextIncomingMessage } from 'next/dist/server/request-meta';
-import { MAX_AGE, setTokenCookie, getTokenCookie } from './auth-cookies';
+import { MAX_AGE, setTokenCookie, getTokenCookie } from './AuthCookies';
 import { Session } from '@/types/Index';
 import Config from 'Config';
 

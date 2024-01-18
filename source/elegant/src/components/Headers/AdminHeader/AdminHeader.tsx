@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Fragment, useEffect, useState } from 'react';
-import { CMSSignOut } from '@/utils/Auth/hooks';
+import { CMSSignOut } from '@/utils/Auth/Hooks';
 import docs_light from "@/img/beams/docs-light.png";
 import docs_dark from "@/img/beams/docs-dark@tinypng.png";
 import clsx from 'clsx';

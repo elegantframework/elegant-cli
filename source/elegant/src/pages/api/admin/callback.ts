@@ -2,9 +2,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { createRouter } from 'next-connect';
 import nextSession from 'next-session';
 import { Session } from 'next-session/lib/types';
-import { setLoginSession } from '@/utils/Auth/auth';
-import { MAX_AGE } from '@/utils/Auth/auth-cookies';
+import { MAX_AGE } from '@/utils/Auth/AuthCookies';
 import Config from 'Config';
+import { setLoginSession } from '@/utils/Auth/Login';
 
 interface Request extends NextApiRequest {
   session: Session
@@ -72,6 +72,7 @@ router
       }
     }
 
+    // @Todo add auth check here
     if (userData && access_token) {
       const { name, login, email, avatar_url } = userData
       await setLoginSession(res, {
@@ -80,8 +81,9 @@ router
         expires: new Date(Date.now() + MAX_AGE * 1000)
       })
       res.redirect('/admin') // or to wherever you want to redirect to after logging in
-    } else {
-      res.send('Login did not succeed!')
+    } 
+    else {
+      res.send('The login credentials that you provided were not valid.')
     }
   })
 

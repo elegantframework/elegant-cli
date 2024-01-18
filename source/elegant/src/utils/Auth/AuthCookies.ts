@@ -1,6 +1,6 @@
 import { serialize, parse } from 'cookie';
 import { NextApiResponse } from 'next';
-import { Request } from './auth';
+import { Request } from './Login';
 
 const TOKEN_NAME = 'cms_token';
 

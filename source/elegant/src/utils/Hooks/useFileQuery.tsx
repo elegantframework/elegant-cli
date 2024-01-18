@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useDocumentQuery } from '@/graphql/generated';
-import { useCMSSession } from '../Auth/hooks';
+import { useCMSSession } from '../Auth/Hooks';
 import { CMSContext } from '../Context';
 
 type useFileQueryProps = {

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getLoginSession } from '@/utils/Auth/auth';
+import { getLoginSession } from '@/utils/Auth/Login';
 
 export default async function user(req: NextApiRequest, res: NextApiResponse) {
   try {

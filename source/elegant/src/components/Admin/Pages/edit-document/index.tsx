@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { CustomFields, FileType } from '@/types/Index';
 import { Document } from '@/types/Document'
-import { useCMSSession } from '@/utils/Auth/hooks';
+import { useCMSSession } from '@/utils/Auth/Hooks';
 import { deepReplace } from '@/utils/deepReplace';
 import useNavigationLock from '@/utils/Hooks/useNavigationLock';
 import useTipTap from '@/utils/Hooks/useTipTap';

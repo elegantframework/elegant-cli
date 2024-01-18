@@ -1,7 +1,7 @@
 import { useContext, useCallback } from 'react';
 import { useOidLazyQuery } from '@/graphql/generated';
-import { useCMSSession } from '@/utils/Auth/hooks';
 import { CMSContext } from '../Context';
+import { useCMSSession } from '../Auth/Hooks';
 
 const useOid = () => {
   const { repoSlug, repoBranch, repoOwner } = useContext(CMSContext);

@@ -1,5 +1,5 @@
 import hm from 'node-mocks-http';
-import { LoginSession } from '@/utils/Auth/auth';
+import { LoginSession } from '@/utils/Auth/Login';
 import { createMockRequest } from './request';
 
 export const createMockContext = async (

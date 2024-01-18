@@ -3,7 +3,7 @@ import {
   useCreateCommitMutation,
   useDocumentQuery
 } from '@/graphql/generated';
-import { useCMSSession } from '@/utils/Auth/hooks';
+import { useCMSSession } from '@/utils/Auth/Hooks';
 import { createCommit as createCommitApi } from '@/utils/createCommit';
 import useOid from '@/utils/Hooks/useOid';
 import Modal from '../Modal';

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { TestWrapper } from '@/utils/TestWrapper';
-import { useCMSSession } from '@/utils/Auth/hooks';
+import { useCMSSession } from '@/utils/Auth/Hooks';
 import DocumentSettings from '.';
 import mockRouter from 'next-router-mock';
 

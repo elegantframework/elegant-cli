@@ -1,5 +1,5 @@
 import * as Iron from '@hapi/iron';
-import { LoginSession } from '@/utils/Auth/auth';
+import { LoginSession } from '@/utils/Auth/Login';
 
  // @ts-ignore
 import hm from 'node-mocks-http';

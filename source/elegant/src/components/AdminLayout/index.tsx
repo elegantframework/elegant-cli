@@ -2,7 +2,7 @@ import { ApolloError } from '@apollo/client';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useCMSSession } from '@/utils/Auth/hooks';
+import { useCMSSession } from '@/utils/Auth/Hooks';
 import Sidebar from '../Sidebar/Admin/Sidebar';
 import Config from 'Config';
 import AdminHeader from '../Headers/AdminHeader/AdminHeader';

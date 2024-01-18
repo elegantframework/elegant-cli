@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { CMSContext } from '@/utils/Context';
 import { useDocumentsQuery } from '@/graphql/generated';
 import { Document } from '@/types/Document';
-import { CMSSignOut } from '@/utils/Auth/hooks';
+import { CMSSignOut } from '@/utils/Auth/Hooks';
 import AdminLayout from '@/components/AdminLayout';
 import DocumentsTable from '@/components/DocumentsTable';
 
