@@ -75,7 +75,7 @@ export const useEditor = ({ ...rhfMethods }) => {
       }),
       Highlight.configure({ multicolor: true }),
       Underline,
-      ImageUpload.configure({}),
+      ImageUpload,
       ImageBlock,
       // FileHandler.configure({
       //   allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],

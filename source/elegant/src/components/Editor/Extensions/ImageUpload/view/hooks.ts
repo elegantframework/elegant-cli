@@ -1,8 +1,6 @@
-import { FileType } from '@/types/Index'
-import { DocumentContext } from '@/utils/Context'
-import { DragEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { DragEvent, useCallback, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
-// import { API } from '@/lib/api'
+import API from './api'
 
 export const useUploader = ({ onUpload }: { onUpload: (url: string) => void }) => {
   const [loading, setLoading] = useState(false)
@@ -10,32 +8,9 @@ export const useUploader = ({ onUpload }: { onUpload: (url: string) => void }) =
   const uploadFile = useCallback(async (file: File) => {
     setLoading(true)
     try {
-      const { setFiles } = useContext(DocumentContext);
+      const url = await API.uploadImage(file)
 
-      // const url = await API.uploadImage()
-
-      const blob = URL.createObjectURL(file)
-        //editor.chain().focus().setImage({ src: blob, alt: '' }).run()
-        const reader = new FileReader()
-        reader.readAsArrayBuffer(file)
-        reader.onloadend = () => {
-          const bytes = reader.result as string
-          const buffer = Buffer.from(bytes, 'binary')
-          setFiles((files: FileType[]) => [
-            ...files,
-            {
-              type: 'images',
-              blob,
-              filename: file.name,
-              content: buffer.toString('base64')
-            }
-          ])
-        }
-        //editor.chain().blur().run()
-
-        console.log(blob)
-
-      onUpload(blob)
+      onUpload(url)
     } catch (errPayload: any) {
       const error = errPayload?.response?.data?.error || 'Something went wrong'
       toast.error(error)
