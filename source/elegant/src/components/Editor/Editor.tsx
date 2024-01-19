@@ -46,7 +46,7 @@ export default function Editor({
           editor={editor} 
           className="flex-1 overflow-y-auto"
         />
-        {editor && (<ActionMenu editor={editor} />)}
+        {/* {editor && (<ActionMenu editor={editor} />)} */}
         {editor && (<LinkMenu editor={editor} appendTo={menuContainerRef} />)}
         {editor && (<TextMenu editor={editor} />)}
         {editor && (<ColumnsMenu editor={editor} appendTo={menuContainerRef} />)}
