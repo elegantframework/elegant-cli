@@ -175,9 +175,13 @@ export const GROUPS: Group[] = [
         iconName: 'Youtube',
         description: 'Insert a YouTube video link',
         action: editor => {
-          editor.chain().focus().setYoutubeVideo({
-            src: 'https://www.youtube.com/watch?v=bS66QUBKljM'
-          }).run()
+          const url = prompt('Enter YouTube URL');
+
+          if(url) {
+            editor.chain().focus().setYoutubeVideo({
+              src: url
+            }).run()
+          }
         },
       },
     ],
