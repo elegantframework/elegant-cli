@@ -11,25 +11,26 @@ export const useUploader = ({ onUpload }: { onUpload: (url: string) => void }) =
   const uploadFile = useCallback(async (file: File) => {
     setLoading(true)
     try {
-      const url = await API.uploadImage(file);
+      const blob = await API.uploadImage(file);
       const reader = new FileReader();
 
       reader.readAsArrayBuffer(file);
       reader.onloadend = () => {
         const bytes = reader.result as string
         const buffer = Buffer.from(bytes, 'binary')
+
         setFiles((files: FileType[]) => [
           ...files,
           {
             type: 'images',
-            url,
+            blob,
             filename: file.name,
             content: buffer.toString('base64')
           }
         ])
       };
 
-      onUpload(url);
+      onUpload(blob);
     } catch (errPayload: any) {
       const error = errPayload?.response?.data?.error || 'Something went wrong'
       toast.error(error)
