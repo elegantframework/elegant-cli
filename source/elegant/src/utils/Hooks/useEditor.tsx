@@ -31,6 +31,7 @@ import { Table, TableCell, TableHeader, TableRow } from '@/components/Editor/Ext
 import { ImageBlock } from '@/components/Editor/Extensions/ImageBlock';
 import { Youtube } from '@tiptap/extension-youtube';
 import { ImageUpload } from '@/components/Editor/Extensions/ImageUpload';
+import Image from '@tiptap/extension-image';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -75,6 +76,21 @@ export const useEditor = ({ ...rhfMethods }) => {
       }),
       Highlight.configure({ multicolor: true }),
       Underline,
+      Image.extend({
+        renderHTML({ HTMLAttributes }) {
+          return [
+             'div',
+            {class: "my-8 shadow-xl"},
+            [
+              'img',
+              {
+                class: "rounded-xl",
+                ...HTMLAttributes
+              }
+            ]
+          ]
+        }
+      }).configure({inline: true}),
       ImageUpload,
       ImageBlock,
       // FileHandler.configure({
