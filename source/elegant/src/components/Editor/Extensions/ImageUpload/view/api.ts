@@ -1,6 +1,6 @@
 export class API {
   public static uploadImage = async (file: File) => {
-    await new Promise(r => setTimeout(r, 300));
+    await new Promise(r => setTimeout(r, 100));
 
     const blob = URL.createObjectURL(file);
 

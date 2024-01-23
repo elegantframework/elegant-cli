@@ -1,16 +1,35 @@
-import { DragEvent, useCallback, useEffect, useRef, useState } from 'react'
+import { DragEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
 import API from './api'
+import { DocumentContext } from '@/utils/Context';
+import { FileType } from '@/types/Index';
 
 export const useUploader = ({ onUpload }: { onUpload: (url: string) => void }) => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const { setFiles } = useContext(DocumentContext);
 
   const uploadFile = useCallback(async (file: File) => {
     setLoading(true)
     try {
-      const url = await API.uploadImage(file)
+      const url = await API.uploadImage(file);
+      const reader = new FileReader();
 
-      onUpload(url)
+      reader.readAsArrayBuffer(file);
+      reader.onloadend = () => {
+        const bytes = reader.result as string
+        const buffer = Buffer.from(bytes, 'binary')
+        setFiles((files: FileType[]) => [
+          ...files,
+          {
+            type: 'images',
+            url,
+            filename: file.name,
+            content: buffer.toString('base64')
+          }
+        ])
+      };
+
+      onUpload(url);
     } catch (errPayload: any) {
       const error = errPayload?.response?.data?.error || 'Something went wrong'
       toast.error(error)
