@@ -1,6 +1,6 @@
 {
   "name": "elegant-cli",
-  "version": "3.1.0",
+  "version": "3.1.1-innovators.0",
   "description": "Build SEO-friendly websites, super fast full-stack web applications, and much more with Elegant.",
   "scripts": {
     "build:elegant": "cd source/elegant && npm install && npm run build",
