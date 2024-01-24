@@ -13,7 +13,7 @@ import useFileQuery from '@/utils/Hooks/useFileQuery';
 import useSubmitDocument from '@/utils/Hooks/useSubmitDocument';
 import { useDocumentUpdateEffect } from '@/utils/Hooks/useDocumentUpdateEffect';
 import { DocumentContext } from '@/utils/Context';
-import AdminLayout from '@/components/AdminLayout';
+import AdminLayout from '@/components/Layouts/AdminLayout';
 import DocumentSettings from '@/components/DocumentSettings';
 import DocumentTitleInput from '@/components/DocumentTitleInput';
 import { useEditor } from '@/utils/Hooks/useEditor';

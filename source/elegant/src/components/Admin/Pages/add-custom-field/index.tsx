@@ -15,7 +15,7 @@ import useNavigationLock from '@/utils/Hooks/useNavigationLock';
 import useOid from '@/utils/Hooks/useOid';
 import { createCommit as createCommitApi } from '@/utils/createCommit';
 import { CMSContext } from '@/utils/Context';
-import AdminLayout from '@/components/AdminLayout';
+import AdminLayout from '@/components/Layouts/AdminLayout';
 import Input from '@/components/Input';
 import Alert from '@/components/Alert';
 import Modal from '@/components/Modal';
