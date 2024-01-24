@@ -79,10 +79,5 @@
       @apply bg-black/5;
       @apply dark:bg-white/10;
     }
-
-    hr {
-      @apply border-0 border-t border-black/20 bg-black/80;
-      @apply dark:border-white/20 dark:bg-white/80;
-    }
   }
 }
