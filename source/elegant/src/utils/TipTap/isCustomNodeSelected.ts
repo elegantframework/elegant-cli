@@ -1,4 +1,4 @@
-import CodeBlock from '@/components/CodeBlock'
+import CodeBlock from '@tiptap/extension-code-block';
 import Figcaption from '@/components/Editor/Extensions/Figcaption'
 import HorizontalRule from '@/components/Editor/Extensions/HorizontalRule'
 import { ImageBlock } from '@/components/Editor/Extensions/ImageBlock'
