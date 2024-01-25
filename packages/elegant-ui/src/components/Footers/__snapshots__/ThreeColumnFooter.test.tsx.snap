@@ -117,7 +117,7 @@ exports[`Three column footer component renders the three column footer as expect
           className="md:absolute md:-bottom-4 lg:bottom-2 left-0 text-white dark:text-slate-900"
         >
           © 
-          2023
+          2024
            
           Elegant, Inc. Unit Test
         </div>
