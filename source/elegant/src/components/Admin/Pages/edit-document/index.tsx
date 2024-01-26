@@ -8,16 +8,16 @@ import { Document } from '@/types/Document'
 import { useCMSSession } from '@/utils/Auth/hooks';
 import { deepReplace } from '@/utils/deepReplace';
 import useNavigationLock from '@/utils/Hooks/useNavigationLock';
-import useTipTap from '@/utils/Hooks/useTipTap';
 import { convertSchemaToYup, editDocumentSchema } from '@/utils/yup';
 import useFileQuery from '@/utils/Hooks/useFileQuery';
 import useSubmitDocument from '@/utils/Hooks/useSubmitDocument';
 import { useDocumentUpdateEffect } from '@/utils/Hooks/useDocumentUpdateEffect';
 import { DocumentContext } from '@/utils/Context';
-import AdminLayout from '@/components/AdminLayout';
+import AdminLayout from '@/components/Layouts/AdminLayout';
 import DocumentSettings from '@/components/DocumentSettings';
 import DocumentTitleInput from '@/components/DocumentTitleInput';
-import MDEditor from '@/components/MDEditor';
+import { useEditor } from '@/utils/Hooks/useEditor';
+import Editor from '@/components/Editor/Editor';
 
 export default function EditDocument({ collection }: { collection: string }) {
   const router = useRouter()
@@ -29,7 +29,7 @@ export default function EditDocument({ collection }: { collection: string }) {
   const [showDelete, setShowDelete] = useState(false)
   const [documentSchema, setDocumentSchema] = useState(editDocumentSchema)
   const methods = useForm<Document>({ resolver: yupResolver(documentSchema) })
-  const { editor } = useTipTap({ ...methods })
+  const { editor } = useEditor({ ...methods })
   const [customFields, setCustomFields] = useState<CustomFields>({})
 
   const editDocument = (property: string, value: any) => {
@@ -111,16 +111,16 @@ export default function EditDocument({ collection }: { collection: string }) {
               />
             }
           >
-            <form className="m-auto max-w-[700px] space-y-4">
+            <div className="m-auto max-w-[700px] space-y-4">
               <DocumentTitleInput
                 id="title"
                 className="w-full resize-none outline-none bg-transparent text-5xl scrollbar-hide min-h-[55px] overflow-hidden"
                 placeholder={`Your ${singular(collection)} title`}
               />
               <div className="min-h-full prose prose-xl">
-                <MDEditor editor={editor} id="content" />
+                <Editor editor={editor} id="content" />
               </div>
-            </form>
+            </div>
           </AdminLayout>
         </FormProvider>
       </DocumentContext.Provider>

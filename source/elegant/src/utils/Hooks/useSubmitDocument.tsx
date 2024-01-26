@@ -97,8 +97,10 @@ function useSubmitDocument({
 
         if (files.length > 0) {
           files.forEach(({ filename, blob, type, content: fileContents }) => {
+
             // check if blob is still in the document before adding file to the commit
             if (blob && content.search(blob) !== -1) {
+
               const randString = window
                 .btoa(Math.random().toString())
                 .substring(10, 6)

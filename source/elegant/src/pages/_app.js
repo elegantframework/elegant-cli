@@ -16,6 +16,7 @@ import '../css/fonts.css';
 import '../css/main.css';
 import 'focus-visible';
 import '@/components/Admin/Pages/styles.css';
+import '../css/editor.css';
 
 const progress = new ProgressBar({
   size: 2,
