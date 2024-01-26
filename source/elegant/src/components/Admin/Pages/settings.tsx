@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CMSContext } from '@/utils/Context';
-import AdminLayout from '@/components/AdminLayout';
+import AdminLayout from '@/components/Layouts/AdminLayout';
 
 /**
  * The admin settings page for the cms.

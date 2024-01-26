@@ -7,7 +7,7 @@ import { CMSContext } from '@/utils/Context';
 import { useDocumentsQuery } from '@/graphql/generated';
 import { Document } from '@/types/Document';
 import { CMSSignOut } from '@/utils/Auth/hooks';
-import AdminLayout from '@/components/AdminLayout';
+import AdminLayout from '@/components/Layouts/AdminLayout';
 import DocumentsTable from '@/components/DocumentsTable';
 
 type GQLErrorExtended = GraphQLError & { type: string }
