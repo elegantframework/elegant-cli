@@ -5,8 +5,8 @@ import { CMSContext } from '@/utils/Context';
 import { useCreateCommitMutation } from '@/graphql/generated';
 import { collectionCommitInput } from '@/utils/collectionCommitInput';
 import useOid from '@/utils/Hooks/useOid';
-import AdminLayout from '@/components/AdminLayout';
 import { TrashIcon } from '@brandonowens/elegant-ui';
+import AdminLayout from '@/components/Layouts/AdminLayout';
 
 export default function Collections() {
   const {

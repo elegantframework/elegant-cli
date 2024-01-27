@@ -12,9 +12,9 @@ import { collectionCommitInput } from '@/utils/collectionCommitInput';
 import useNavigationLock from '@/utils/Hooks/useNavigationLock';
 import useOid from '@/utils/Hooks/useOid';
 import { Collection } from '@/types/Index';
-import AdminLayout from '@/components/AdminLayout';
 import Input from '@/components/Input';
 import Alert from '@/components/Alert';
+import AdminLayout from '@/components/Layouts/AdminLayout';
 
 export default function NewCollection() {
   const {
