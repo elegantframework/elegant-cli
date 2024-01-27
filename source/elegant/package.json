@@ -67,7 +67,7 @@
     "@tiptap/starter-kit": "2.1.10",
     "@tiptap/suggestion": "2.1.10",
     "camelcase": "^6.3.0",
-    "clsx": "^1.2.1",
+    "clsx": "^2.1.0",
     "cookie": "^0.5.0",
     "cross-fetch": "^4.0.0",
     "cross-spawn": "^7.0.3",
