@@ -52,7 +52,7 @@
     "@tiptap/extension-placeholder": "2.1.10",
     "@tiptap/extension-subscript": "2.1.10",
     "@tiptap/extension-superscript": "2.1.10",
-    "@tiptap/extension-table": "2.1.10",
+    "@tiptap/extension-table": "2.2.0",
     "@tiptap/extension-table-header": "2.1.10",
     "@tiptap/extension-table-row": "2.1.10",
     "@tiptap/extension-task-item": "2.1.10",
