@@ -91,6 +91,9 @@ function getHeadingList(tableOfContents: TableOfContentsItem[]) {
  * @returns An elements position.
  */
 function getTop(id: string) {
-    //@ts-ignore
-    return document.getElementById(id).getBoundingClientRect().top + window.scrollY;
+    if(document.getElementById(id)){
+        return document.getElementById(id)!.getBoundingClientRect().top + window.scrollY;
+    }
+
+    return 0;
 }
