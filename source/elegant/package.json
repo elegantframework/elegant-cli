@@ -142,7 +142,7 @@
     "@types/json-stable-stringify": "^1.0.34",
     "@types/lowlight": "^0.0.3",
     "@types/node": "^20.10.5",
-    "@types/pluralize": "^0.0.29",
+    "@types/pluralize": "^0.0.33",
     "@types/react": "^18.0.28",
     "@types/react-datepicker": "^4.11.2",
     "@types/react-dom": "^18.2.6",
