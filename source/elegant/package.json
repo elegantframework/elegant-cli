@@ -97,7 +97,6 @@
     "react-textarea-autosize": "^8.5.2",
     "schema-to-yup": "^1.12.15",
     "sharp": "^0.33.2",
-    "showdown": "^2.1.0",
     "swr": "^2.2.0",
     "tippy.js": "^6.3.7",
     "url-slug": "^4.0.1",

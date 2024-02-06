@@ -52,16 +52,7 @@ function useSubmitDocument({
     contentPath, 
     monorepoPath 
   } = useContext(CMSContext);
-  const fetchOid = useOid()
-
-  //
-  //@TODO: Remove this metadata.json reference
-  // 8/5/2023 - Left behind during the CMS MVP build.. Didn't
-  // want to change too much core logic yet in version 3.0.
-  //
-  const { data: metadata } = useFileQuery({
-    file: `metadata.json`
-  })
+  const fetchOid = useOid();
 
   const onSubmit = useCallback(
     async (data: Document) => {
@@ -230,7 +221,6 @@ function useSubmitDocument({
       setCustomFields,
       repoSlug,
       repoBranch,
-      metadata,
       setHasChanges
     ]
   )
