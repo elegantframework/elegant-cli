@@ -140,7 +140,11 @@ export const useEditor = ({ ...rhfMethods }) => {
         width: 2,
         class: 'ProseMirror-dropcursor border-black',
       }),
-      Youtube
+      Youtube.configure({
+        HTMLAttributes: {
+          class: 'w-full',
+        },
+      })
     ],
     editorProps: {
       attributes: {
