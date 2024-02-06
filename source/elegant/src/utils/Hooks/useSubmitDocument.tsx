@@ -1,5 +1,4 @@
 import { useCallback, useContext } from 'react';
-import { mergeMdMeta } from '../mergeMdMeta';
 import {
   CustomFieldArrayValue,
   CustomFields,
@@ -16,6 +15,7 @@ import { UseFormReturn } from 'react-hook-form';
 import useFileQuery from './useFileQuery';
 import useOid from './useOid';
 import { CMSContext } from '../Context';
+import MergeMarkdownData from '../Editor/MergeMarkdownData';
 
 type SubmitDocumentProps = {
   session: Session | null
@@ -60,7 +60,7 @@ function useSubmitDocument({
 
       try {
         const document = methods.getValues()
-        let content = mergeMdMeta({ ...data })
+        let content = MergeMarkdownData({ ...data })
         const oid = await fetchOid()
         const owner = repoOwner || session?.user?.login || ''
         const newSlug = document.slug
