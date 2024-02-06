@@ -3,7 +3,7 @@
  * @param content Post content.
  * @param adminImagePath The admin image url path.
  * @param imagePath The image path that admin url path should replaced with.
- * @returns Updated post content with using api image urls.
+ * @returns Updated post content without using api image urls.
  */
 export default function UpdateImagePath(
     content: string, 

@@ -16,6 +16,7 @@ import useFileQuery from './useFileQuery';
 import useOid from './useOid';
 import { CMSContext } from '../Context';
 import MergeMarkdownData from '../Editor/MergeMarkdownData';
+import { Editor } from '@tiptap/react';
 
 type SubmitDocumentProps = {
   session: Session | null
@@ -28,7 +29,8 @@ type SubmitDocumentProps = {
   collection: string
   customFields: CustomFields
   setCustomFields: (customFields: CustomFields) => void
-  setHasChanges: (hasChanges: boolean) => void
+  setHasChanges: (hasChanges: boolean) => void,
+  editor: Editor
 }
 
 function useSubmitDocument({
@@ -42,7 +44,8 @@ function useSubmitDocument({
   collection,
   customFields,
   setCustomFields,
-  setHasChanges
+  setHasChanges,
+  editor
 }: SubmitDocumentProps) {
   const [createCommit] = useCreateCommitMutation()
   const { 
@@ -59,11 +62,18 @@ function useSubmitDocument({
       setLoading(true)
 
       try {
-        const document = methods.getValues()
-        let content = MergeMarkdownData({ ...data })
-        const oid = await fetchOid()
-        const owner = repoOwner || session?.user?.login || ''
-        const newSlug = document.slug
+        const document = methods.getValues();
+
+        console.log(JSON.stringify(editor.storage))
+
+        const editorContent = editor.storage.markdown.getMarkdown();
+        let content = MergeMarkdownData({ ...data, content: editorContent });
+
+        console.log(JSON.stringify(content))
+
+        const oid = await fetchOid();
+        const owner = repoOwner || session?.user?.login || '';
+        const newSlug = document.slug;
 
         // If the slug has changed, commit should delete old file
         const oldSlug = slug !== newSlug && slug !== 'new' ? slug : undefined
@@ -221,7 +231,8 @@ function useSubmitDocument({
       setCustomFields,
       repoSlug,
       repoBranch,
-      setHasChanges
+      setHasChanges,
+      editor
     ]
   )
 
