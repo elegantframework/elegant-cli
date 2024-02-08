@@ -12,7 +12,6 @@ import { assertUnreachable } from '../assertUnreachable';
 import matter from 'gray-matter';
 import { useCreateCommitMutation } from '@/graphql/generated';
 import { UseFormReturn } from 'react-hook-form';
-import useFileQuery from './useFileQuery';
 import useOid from './useOid';
 import { CMSContext } from '../Context';
 import MergeMarkdownData from '../Editor/MergeMarkdownData';
@@ -124,7 +123,7 @@ function useSubmitDocument({
               )
 
               // replace blob in content with path
-              content = content.replace(blob, `/api/${filePath}/${newFilename}`)
+              content = content.replace(blob, `/${filePath}/${newFilename}`)
             }
           })
         }
