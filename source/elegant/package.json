@@ -187,7 +187,7 @@
     "postcss-focus-visible": "^5.0.0",
     "postcss-import": "^14.0.1",
     "prettier": "^2.5.0",
-    "react-intersection-observer": "^8.29.0",
+    "react-intersection-observer": "^9.7.0",
     "react-test-renderer": "^18.2.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-highlight": "^6.0.0",
