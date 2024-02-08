@@ -64,19 +64,15 @@ function useSubmitDocument({
       try {
         const document = methods.getValues();
 
-        console.log(JSON.stringify(editor.storage))
-
         const editorContent = editor.storage.markdown.getMarkdown();
         let content = MergeMarkdownData({ ...data, content: editorContent });
-
-        console.log(JSON.stringify(content))
 
         const oid = await fetchOid();
         const owner = repoOwner || session?.user?.login || '';
         const newSlug = document.slug;
 
         // If the slug has changed, commit should delete old file
-        const oldSlug = slug !== newSlug && slug !== 'new' ? slug : undefined
+        const oldSlug = slug !== newSlug && slug !== 'new' ? slug : undefined;
 
         const capi = createCommitApi({
           message: oldSlug
@@ -86,14 +82,14 @@ function useSubmitDocument({
           oid: oid ?? '',
           name: repoSlug,
           branch: repoBranch
-        })
+        });
 
         if (oldSlug) {
           capi.removeFile(
             `${
               monorepoPath
             }${contentPath}/${collection}/${oldSlug}.mdx`
-          )
+          );
         }
 
         if (files.length > 0) {
