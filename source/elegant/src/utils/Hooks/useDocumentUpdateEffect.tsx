@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction, useEffect } from 'react';
-import showdown from 'showdown';
 import matter from 'gray-matter';
 import { UseFormReturn } from 'react-hook-form';
 import { Session } from '@/types/Index';
@@ -7,7 +6,6 @@ import { Document } from '@/types/Document';
 import { Editor } from '@tiptap/react';
 import { getLocalDate } from '../getLocalDate';
 import useFileQuery from './useFileQuery';
-import Config from 'Config';
 import UpdateImagePathForAdmin from '../Editor/UpdateImagePathForAdmin';
 
 interface UseDocumentUpdateEffectProps {
