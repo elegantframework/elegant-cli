@@ -1,4 +1,4 @@
-.ProseMirror {
+.ProseMirror, .prose {
   .tableWrapper {
     @apply my-12;
   }
