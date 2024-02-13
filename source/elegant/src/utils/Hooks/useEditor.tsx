@@ -68,8 +68,8 @@ export const useEditor = ({ ...rhfMethods }) => {
         defaultLanguage: null,
       }),
       TextStyle,
-      FontSize,
-      FontFamily,
+      // FontSize,
+      // FontFamily,
       Color,
       TrailingNode,
       Link.configure({
