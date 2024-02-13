@@ -53,7 +53,8 @@ export default function EditDocument({ collection }: { collection: string }) {
     collection,
     customFields,
     setCustomFields,
-    setHasChanges
+    setHasChanges,
+    editor
   })
 
   useEffect(() => {

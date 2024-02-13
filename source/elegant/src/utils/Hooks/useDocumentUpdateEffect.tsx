@@ -1,15 +1,12 @@
 import { Dispatch, SetStateAction, useEffect } from 'react';
-import showdown from 'showdown';
 import matter from 'gray-matter';
 import { UseFormReturn } from 'react-hook-form';
 import { Session } from '@/types/Index';
 import { Document } from '@/types/Document';
 import { Editor } from '@tiptap/react';
-import { replaceImageSrcRoot } from '../replaceImageSrc';
-import { escapeRegExp } from '../escapeRegExp';
 import { getLocalDate } from '../getLocalDate';
 import useFileQuery from './useFileQuery';
-import Config from 'Config';
+import UpdateImagePathForAdmin from '../Editor/UpdateImagePathForAdmin';
 
 interface UseDocumentUpdateEffectProps {
   collection: string
@@ -43,18 +40,12 @@ export const useDocumentUpdateEffect = ({
       const { data, content } = matter(mdContent)
 
       const parseContent = () => {
-        const converter = new showdown.Converter({ noHeaderId: true })
-        const newContent = converter.makeHtml(content)
-
-        // fetch images from GitHub in case deploy is not done yet
-        return replaceImageSrcRoot(
-          newContent,
-          `/${Config('admin.cms_asset_path')}`,
-          '/api/admin/images/'
+        return UpdateImagePathForAdmin(
+          content,
         )
       }
 
-      const parsedContent = parseContent()
+      const parsedContent = parseContent();
 
       const newDate = data.publishedAt
         ? new Date(data.publishedAt)

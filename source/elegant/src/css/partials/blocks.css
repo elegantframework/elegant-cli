@@ -1,4 +1,4 @@
-.ProseMirror {
+.ProseMirror, .prose {
   /* Image Block */
   figure[data-type='imageBlock'] {
     @apply m-0;
