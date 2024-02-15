@@ -1,7 +1,7 @@
 @import 'base.css';
+@import '@brandonowens/elegant-ui/dist/styles.css';
 
 /*! purgecss start ignore */
-@import 'docsearch.css';
 @import 'prism.css';
 @import 'bar-of-progress.css';
 /*! purgecss end ignore */

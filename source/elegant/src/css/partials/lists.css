@@ -1,4 +1,4 @@
-.ProseMirror {
+.ProseMirror, .prose {
   ol {
     @apply list-decimal;
   }
