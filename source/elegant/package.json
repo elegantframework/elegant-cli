@@ -112,7 +112,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@badrap/bar-of-progress": "^0.1.1",
     "@graphql-codegen/cli": "^5.0.0",
-    "@graphql-codegen/typed-document-node": "^5.0.1",
+    "@graphql-codegen/typed-document-node": "^5.0.4",
     "@graphql-codegen/typescript": "^4.0.1",
     "@graphql-codegen/typescript-operations": "^4.0.1",
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
