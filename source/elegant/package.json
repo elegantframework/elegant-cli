@@ -38,7 +38,7 @@
     "@tiptap/extension-collaboration": "2.1.10",
     "@tiptap/extension-collaboration-cursor": "2.1.10",
     "@tiptap/extension-color": "2.1.10",
-    "@tiptap/extension-document": "^2.2.1",
+    "@tiptap/extension-document": "^2.2.2",
     "@tiptap/extension-dropcursor": "2.1.10",
     "@tiptap/extension-focus": "2.1.10",
     "@tiptap/extension-font-family": "2.1.10",
