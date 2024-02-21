@@ -1,5 +1,4 @@
 import { useCallback, useContext } from 'react';
-import { mergeMdMeta } from '../mergeMdMeta';
 import {
   CustomFieldArrayValue,
   CustomFields,
@@ -13,9 +12,10 @@ import { assertUnreachable } from '../assertUnreachable';
 import matter from 'gray-matter';
 import { useCreateCommitMutation } from '@/graphql/generated';
 import { UseFormReturn } from 'react-hook-form';
-import useFileQuery from './useFileQuery';
 import useOid from './useOid';
 import { CMSContext } from '../Context';
+import MergeMarkdownData from '../Editor/MergeMarkdownData';
+import { Editor } from '@tiptap/react';
 
 type SubmitDocumentProps = {
   session: Session | null
@@ -28,7 +28,8 @@ type SubmitDocumentProps = {
   collection: string
   customFields: CustomFields
   setCustomFields: (customFields: CustomFields) => void
-  setHasChanges: (hasChanges: boolean) => void
+  setHasChanges: (hasChanges: boolean) => void,
+  editor: Editor
 }
 
 function useSubmitDocument({
@@ -42,7 +43,8 @@ function useSubmitDocument({
   collection,
   customFields,
   setCustomFields,
-  setHasChanges
+  setHasChanges,
+  editor
 }: SubmitDocumentProps) {
   const [createCommit] = useCreateCommitMutation()
   const { 
@@ -52,30 +54,24 @@ function useSubmitDocument({
     contentPath, 
     monorepoPath 
   } = useContext(CMSContext);
-  const fetchOid = useOid()
-
-  //
-  //@TODO: Remove this metadata.json reference
-  // 8/5/2023 - Left behind during the CMS MVP build.. Didn't
-  // want to change too much core logic yet in version 3.0.
-  //
-  const { data: metadata } = useFileQuery({
-    file: `metadata.json`
-  })
+  const fetchOid = useOid();
 
   const onSubmit = useCallback(
     async (data: Document) => {
       setLoading(true)
 
       try {
-        const document = methods.getValues()
-        let content = mergeMdMeta({ ...data })
-        const oid = await fetchOid()
-        const owner = repoOwner || session?.user?.login || ''
-        const newSlug = document.slug
+        const document = methods.getValues();
+
+        const editorContent = editor.storage.markdown.getMarkdown();
+        let content = MergeMarkdownData({ ...data, content: editorContent });
+
+        const oid = await fetchOid();
+        const owner = repoOwner || session?.user?.login || '';
+        const newSlug = document.slug;
 
         // If the slug has changed, commit should delete old file
-        const oldSlug = slug !== newSlug && slug !== 'new' ? slug : undefined
+        const oldSlug = slug !== newSlug && slug !== 'new' ? slug : undefined;
 
         const capi = createCommitApi({
           message: oldSlug
@@ -85,14 +81,14 @@ function useSubmitDocument({
           oid: oid ?? '',
           name: repoSlug,
           branch: repoBranch
-        })
+        });
 
         if (oldSlug) {
           capi.removeFile(
             `${
               monorepoPath
             }${contentPath}/${collection}/${oldSlug}.mdx`
-          )
+          );
         }
 
         if (files.length > 0) {
@@ -127,7 +123,7 @@ function useSubmitDocument({
               )
 
               // replace blob in content with path
-              content = content.replace(blob, `/api/${filePath}/${newFilename}`)
+              content = content.replace(blob, `/${filePath}/${newFilename}`)
             }
           })
         }
@@ -230,8 +226,8 @@ function useSubmitDocument({
       setCustomFields,
       repoSlug,
       repoBranch,
-      metadata,
-      setHasChanges
+      setHasChanges,
+      editor
     ]
   )
 

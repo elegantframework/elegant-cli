@@ -10,6 +10,7 @@ import { GetServerSidePropsContext } from "next";
 import { ArticleJsonLd } from "next-seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import socialCardLarge from '@/img/social-card-large.jpg';
 
 type Props = {
     /**
@@ -45,6 +46,13 @@ export default function Index({
         url = "https://" + process.env.NEXT_PUBLIC_VERCEL_URL;
     }
 
+    // Set the social share image
+    let image = socialCardLarge.src;
+
+    if(post.coverImage){
+        image = post.coverImage;
+    }
+
     return(
         <>
             <Seo 
@@ -52,7 +60,7 @@ export default function Index({
                 description={post.description || Config('app.description')}
                 themeColor={"#f8fafc"}
                 url={`${url}${router.asPath}`}
-                image={`${url}${post.coverImage}`}
+                image={`${url}${image}`}
             />
             <ArticleJsonLd 
                 useAppDir={false}

@@ -1,14 +1,13 @@
 @import './partials/animations.css';
 @import './partials/blocks.css';
 @import './partials/code.css';
-@import './partials/collab.css';
 @import './partials/lists.css';
 @import './partials/placeholder.css';
 @import './partials/table.css';
 @import './partials/typography.css';
 
 .ProseMirror {
-  @apply caret-black dark:caret-white outline-0 pr-8 pl-20 py-16 z-0 lg:pl-4 lg:pr-8;
+  @apply caret-black dark:caret-white outline-0 py-16 z-0 pl-2 pr-8;
 
   & > * {
     @apply mx-auto max-w-2xl;
