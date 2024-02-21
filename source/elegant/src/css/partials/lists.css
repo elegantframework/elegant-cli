@@ -3,10 +3,6 @@
     @apply list-decimal;
   }
 
-  ul {
-    @apply list-disc;
-  }
-
   ul,
   ol {
     @apply py-0 px-8 my-6 first:mt-0 last:mb-0;
