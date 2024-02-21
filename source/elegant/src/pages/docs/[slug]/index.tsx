@@ -18,6 +18,7 @@ import { documentationNav } from "@/config/Navigation";
 import Seo from "@/components/Seo/Seo";
 import useHeaderStore from "@/utils/Hooks/useHeaderStore";
 import useTableOfContents from "@/utils/Hooks/useTableOfContents";
+import socialCardLarge from '@/img/social-card-large.jpg';
 
 export const ContentsContext = createContext({});
 
@@ -91,6 +92,13 @@ export default function Index({
         url = "https://" + process.env.NEXT_PUBLIC_VERCEL_URL;
     }
 
+    // Set the social share image
+    let image = socialCardLarge.src;
+
+    if(post.coverImage){
+        image = post.coverImage;
+    }
+
     return(
         <>
             <Seo 
@@ -98,7 +106,7 @@ export default function Index({
                 description={post.description || Config('app.description')}
                 themeColor={"#f8fafc"}
                 url={`${url}${router.asPath.split('#')[0]}`}
-                image={`${url}${post.coverImage}`}
+                image={`${url}${image}`}
             />
             <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
                 <DocumentationHeading 
