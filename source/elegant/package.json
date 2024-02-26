@@ -62,7 +62,7 @@
     "@tiptap/extension-typography": "2.1.10",
     "@tiptap/extension-underline": "2.1.10",
     "@tiptap/extension-youtube": "^2.1.16",
-    "@tiptap/pm": "2.1.10",
+    "@tiptap/pm": "2.2.4",
     "@tiptap/react": "2.1.10",
     "@tiptap/starter-kit": "2.1.10",
     "@tiptap/suggestion": "2.1.10",
