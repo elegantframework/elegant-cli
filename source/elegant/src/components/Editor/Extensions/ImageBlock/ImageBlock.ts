@@ -68,7 +68,7 @@ export const ImageBlock = Image.extend({
   renderHTML({ HTMLAttributes }) {
     return [
       'div',
-     {class: "my-8 shadow-xl"},
+     {class: "my-8 shadow-xl rounded-xl"},
      [
        'img',
        {
