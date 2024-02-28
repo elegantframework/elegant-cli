@@ -66,7 +66,17 @@ export const ImageBlock = Image.extend({
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['img', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes)]
+    return [
+      'div',
+     {class: "my-8 shadow-xl rounded-xl"},
+     [
+       'img',
+       {
+         class: "rounded-xl",
+         ...HTMLAttributes
+       }
+     ]
+   ]
   },
 
   addCommands() {

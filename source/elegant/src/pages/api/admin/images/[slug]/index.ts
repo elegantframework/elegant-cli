@@ -18,7 +18,12 @@ export default async function handler(
     const response = await fetch(
       `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_SLUG}/${REPO_BRANCH}/${
         MONOREPO_PATH ? MONOREPO_PATH + '/' : ''
-      }public/images/${req.query?.slug}`
+      }public/images/${req.query?.slug}`,
+      {
+        headers: {
+          authorization: `token ${session.access_token}`
+        }
+      }
     );
     
     if (response.status === 200 && response.body) {
