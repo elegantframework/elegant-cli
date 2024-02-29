@@ -81,7 +81,7 @@ export const useEditor = ({ ...rhfMethods }) => {
         renderHTML({ HTMLAttributes }) {
           return [
              'div',
-            {class: "my-8 shadow-xl"},
+            {class: "my-8 shadow-xl rounded-xl"},
             [
               'img',
               {
