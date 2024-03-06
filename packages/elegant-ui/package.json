@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/elegantframework/elegant#readme",
   "dependencies": {
-    "next": "^13.4.12",
+    "next": "^14.1.2",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
