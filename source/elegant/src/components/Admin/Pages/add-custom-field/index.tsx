@@ -222,7 +222,7 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
                 setShowAddModal(true)
               }}
             >
-              <div className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700 cursor-pointer">
+              <div className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer">
                 Add Custom Field
               </div>
             </button>
@@ -241,7 +241,7 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
                     </p>
 
                     <div
-                      className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700 cursor-pointer"
+                      className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer"
                       onClick={() => setShowAddModal(true)}
                     >
                       Add Custom Field
@@ -268,12 +268,12 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
                             }}
                             className="text-left"
                           >
-                            <span className="block text-xl cursor-pointer font-bold tracking-tight text-gray-900 capitalize hover:text-primary-500 mb-2">
+                            <span className="block text-xl cursor-pointer font-bold tracking-tight text-gray-900 capitalize hover:text-indigo-500 mb-2">
                               {field.title}
                               {/* This span allows for full card click */}
                               <span className="absolute top-0 bottom-0 left-0 right-16"></span>
                             </span>
-                            <span className="bg-primary-100 text-primary-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
+                            <span className="bg-indigo-100 text-indigo-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
                               {field.fieldType}
                             </span>
                             {field.required ? (
@@ -374,7 +374,7 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
                     {...methods.register('fieldType')}
                     name="fieldType"
                     id="fieldType"
-                    className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-primary-500"
+                    className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500"
                     defaultValue={
                       selectedField
                         ? customFields[selectedField].fieldType
@@ -416,7 +416,7 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
                         {...methods.register('required')}
                         id="required"
                         type="checkbox"
-                        className="cursor-pointer w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 focus:ring-2"
+                        className="cursor-pointer w-4 h-4 text-indigo-600 bg-gray-100 rounded border-gray-300 focus:ring-indigo-500 focus:ring-2"
                         defaultChecked={
                           selectedField
                             ? customFields[selectedField].required
