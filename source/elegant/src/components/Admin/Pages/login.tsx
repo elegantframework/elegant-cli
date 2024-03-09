@@ -1,5 +1,4 @@
-import { Card, GitHubIcon } from "@brandonowens/elegant-ui";
-import Logo from "@/components/Logos/Logo/Logo";
+import { Card, GitHubIcon, ElegantLogo } from "@brandonowens/elegant-ui";
 import Config from '@/utils/Config/Config';
 import MetaTitle from "@/utils/Meta/MetaTitle";
 import { ArrowLongLeftIcon } from "@heroicons/react/20/solid";
@@ -18,7 +17,7 @@ export default function Login() {
       />
       <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <Logo className="w-auto h-8 mx-auto"/>
+          <ElegantLogo className="w-auto h-8 mx-auto"/>
         </div>
         <Card className="mt-10">
           <p className="mb-5 dark:text-slate-200">

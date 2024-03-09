@@ -11,7 +11,7 @@ exports[`The Admin Log In page renders properly 1`] = `
     <div
       className="sm:mx-auto sm:w-full sm:max-w-md"
     >
-      <Logo
+      <Or
         className="w-auto h-8 mx-auto"
       />
     </div>
