@@ -38,3 +38,7 @@ jobs:
       # Finally, run our CI tests
       - name: Run the tests
         run: npm run test:ci
+
+      # Build the code package
+      - name: Build the core package
+        run: npm run build:elegant
