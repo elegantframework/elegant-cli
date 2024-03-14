@@ -17,12 +17,12 @@ const sizes = {
   small: {
     label: 'mb-1 block text-sm font-medium text-gray-900',
     input:
-      'block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-primary-500'
+      'block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500'
   },
   medium: {
     label: 'block mb-2 text-sm font-medium text-gray-900',
     input:
-      'block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm outline-none focus:ring-primary-500 focus:border-primary-500'
+      'block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm outline-none focus:ring-indigo-500 focus:border-indigo-500'
   }
 }
 

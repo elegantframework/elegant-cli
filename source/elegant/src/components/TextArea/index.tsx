@@ -46,7 +46,7 @@ export default function TextArea({
           readOnly={readOnly}
           placeholder={placeholder}
           aria-describedby={id}
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-primary-500"
+          className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500"
         />
       </div>
       <div className="mt-1">
