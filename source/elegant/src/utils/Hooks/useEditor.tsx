@@ -10,10 +10,8 @@ import Heading from '@/components/Editor/Extensions/Heading';
 import HorizontalRule from '@/components/Editor/Extensions/HorizontalRule';
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight';
 import { TextStyle } from '@tiptap/extension-text-style';
-import { FontFamily } from '@tiptap/extension-font-family';
 import { Typography } from '@tiptap/extension-typography';
 import { Color } from '@tiptap/extension-color';
-import FontSize from '@/components/Editor/Extensions/FontSize';
 import { TrailingNode } from '@/components/Editor/Extensions/TrailingNode';
 import { Highlight } from '@tiptap/extension-highlight';
 import { Underline } from '@tiptap/extension-underline';
@@ -68,8 +66,6 @@ export const useEditor = ({ ...rhfMethods }) => {
         defaultLanguage: null,
       }),
       TextStyle,
-      // FontSize,
-      // FontFamily,
       Color,
       TrailingNode,
       Link.configure({
