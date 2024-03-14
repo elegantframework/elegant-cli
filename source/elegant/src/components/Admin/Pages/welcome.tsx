@@ -1,10 +1,9 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import { envVars } from '@/utils/envVarsCheck';
-import Logo from '../../Logos/Logo/Logo';
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
 import Config from 'Config';
 import MetaTitle from '@/utils/Meta/MetaTitle';
-import { Card } from '@brandonowens/elegant-ui';
+import { Card, ElegantLogo } from '@brandonowens/elegant-ui';
 import Seo from '@/components/Seo/Seo';
 
 interface Props {
@@ -26,7 +25,7 @@ export default function Welcome({ variables }: Props) {
       />
       <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <Logo className="w-auto h-8 mx-auto"/>
+          <ElegantLogo className="w-auto h-8 mx-auto"/>
         </div>
         <Card className="mt-10">
           <div className="w-full border-b border-gray-200 dark:border-slate-200 pb-5 text-left -mt-[10px]">
@@ -48,7 +47,7 @@ export default function Welcome({ variables }: Props) {
             You will need to restart Next.js to apply the changes.
           </p>
           <p className='w-full text-left dark:text-slate-200'>
-            See the <a className="hover:underline font-mono font-medium text-primary-500 dark:text-primary-400" href="https://www.elegantframework.com/docs/getting-started-with-elegant-cms#configuring-authentication" target={"_blank"}>documentation</a> for further help.
+            See the <a className="hover:underline font-mono font-medium text-indigo-500 dark:text-indigo-400" href="https://www.elegantframework.com/docs/getting-started-with-elegant-cms#configuring-authentication" target={"_blank"}>documentation</a> for further help.
           </p>
         </Card>
         <div className="sm:mx-auto sm:w-full max-w-2xl xs:pl-0 sm:pl-4 text-left -mt-6 dark:text-white">

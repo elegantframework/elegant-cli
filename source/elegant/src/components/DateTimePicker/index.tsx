@@ -57,7 +57,7 @@ const DateTimePicker = ({ date, setDate, id, label }: DateTimePickerProps) => {
     <button
       {...props}
       ref={ref}
-      className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500"
+      className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-indigo-500 focus:ring-indigo-500"
       disabled={!date}
     >
       {date ? moment.utc(date).format('MMMM D, YYYY').toString() : 'Loading'}
@@ -90,7 +90,7 @@ const DateTimePicker = ({ date, setDate, id, label }: DateTimePickerProps) => {
           }) => (
             <div className="react-datepicker__header">
               <select
-                className="react-datepicker__current-month appearance-none cursor-pointer hover:text-primary-500"
+                className="react-datepicker__current-month appearance-none cursor-pointer hover:text-indigo-500"
                 value={getYear(date)}
                 onChange={({ target: { value } }) => changeYear(Number(value))}
               >
@@ -101,7 +101,7 @@ const DateTimePicker = ({ date, setDate, id, label }: DateTimePickerProps) => {
                 ))}
               </select>
               <select
-                className="react-datepicker__current-month appearance-none cursor-pointer hover:text-primary-500"
+                className="react-datepicker__current-month appearance-none cursor-pointer hover:text-indigo-500"
                 value={months[getMonth(date)]}
                 onChange={({ target: { value } }) =>
                   changeMonth(months.indexOf(value))
