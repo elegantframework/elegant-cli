@@ -90,7 +90,7 @@ const DocumentSettings = ({
           name="status"
           id="status"
           defaultValue={document.status}
-          className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-primary-500"
+          className="block cursor-pointer appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500"
         >
           <option value="draft">Draft</option>
           <option value="published">Published</option>
@@ -117,7 +117,7 @@ const DocumentSettings = ({
           onClick={saveFunc}
           type="button"
           disabled={loading || !hasChanges}
-          className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700 cursor-pointer disabled:cursor-not-allowed disabled:bg-primary-300"
+          className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer disabled:cursor-not-allowed disabled:bg-indigo-300"
         >
           {loading ? (
             <>
@@ -191,7 +191,7 @@ const DocumentSettings = ({
             label="Write a description (optional)"
             id="description"
             rows={5}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-primary-500"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500"
           />
         </Accordion>
 

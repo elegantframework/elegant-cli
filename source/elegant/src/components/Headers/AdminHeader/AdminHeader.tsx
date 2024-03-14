@@ -4,10 +4,9 @@ import { CMSSignOut } from '@/utils/Auth/hooks';
 import docs_light from "@/img/beams/docs-light.png";
 import docs_dark from "@/img/beams/docs-dark@tinypng.png";
 import clsx from 'clsx';
-import Logo from '@/components/Logos/Logo/Logo';
+import { ElegantLogo } from '@brandonowens/elegant-ui';
 import Image from 'next/image';
 import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 type Props = {
     /**
@@ -118,7 +117,7 @@ export default function AdminHeader({
                             href="/admin"
                             className="mr-3 flex-none w-[2.0625rem] overflow-hidden"
                         >
-                            <Logo className="w-auto h-7"/>
+                            <ElegantLogo className="w-auto h-7"/>
                         </Link>
                         <div className="flex items-center md:order-2">
                             <Menu as="div" className="relative inline-block text-left z-22">

@@ -1,5 +1,4 @@
-import { Card, GitHubIcon } from "@brandonowens/elegant-ui";
-import Logo from "@/components/Logos/Logo/Logo";
+import { Card, GitHubIcon, ElegantLogo } from "@brandonowens/elegant-ui";
 import Config from '@/utils/Config/Config';
 import MetaTitle from "@/utils/Meta/MetaTitle";
 import { ArrowLongLeftIcon } from "@heroicons/react/20/solid";
@@ -18,14 +17,14 @@ export default function Login() {
       />
       <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <Logo className="w-auto h-8 mx-auto"/>
+          <ElegantLogo className="w-auto h-8 mx-auto"/>
         </div>
         <Card className="mt-10">
           <p className="mb-5 dark:text-slate-200">
             Sign in with GitHub to access your dashboard.
           </p>
           <Link
-            className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-primary-600 hover:bg-primary-600 dark:hover:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-700"
+            className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700"
             href={"/api/admin/login"}
           >
             <GitHubIcon className="h-5 w-5 mr-2"/> Sign in with GitHub
