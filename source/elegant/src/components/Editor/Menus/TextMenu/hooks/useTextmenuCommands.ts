@@ -34,10 +34,10 @@ export const useTextmenuCommands = (editor: Editor) => {
 
   const onSetFont = useCallback(
     (font: string) => {
-      if (!font || font.length === 0) {
-        return editor.chain().focus().unsetFontFamily().run()
-      }
-      return editor.chain().focus().setFontFamily(font).run()
+      // if (!font || font.length === 0) {
+      //   return editor.chain().focus().unsetFontFamily().run()
+      // }
+      // return editor.chain().focus().setFontFamily(font).run()
     },
     [editor],
   )
