@@ -71,15 +71,18 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
           </button>
           <ul className="space-y-6">
             <NavItems />
-            <li>
-              <a
-                href={Config('app.repository')}
-                className="hover:text-primary-500 dark:hover:text-primary-400"
-                target="_blank"
-              >
-                GitHub
-              </a>
-            </li>
+            {Config('app.repository').length > 0 && (
+              <li>
+                <a
+                  href={Config('app.repository')}
+                  className="hover:text-primary-500 dark:hover:text-primary-400"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </li>
+            )}
           </ul>
           <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-200/10">
             <ThemeSelect />
