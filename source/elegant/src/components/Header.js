@@ -77,6 +77,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
                   href={Config('app.repository')}
                   className="hover:text-primary-500 dark:hover:text-primary-400"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   GitHub
                 </a>
