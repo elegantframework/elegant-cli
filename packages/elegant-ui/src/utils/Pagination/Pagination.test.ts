@@ -24,8 +24,8 @@ describe('Show Next Button utility method', () => {
 
 describe('Get Page List utility method', () => {
     it('returns a list as expected',() => {
-      let result = GetPageList(100, 2);
+      let result = GetPageList(10, 2);
 
-      expect(result).toBe([]);
+      expect(result).toStrictEqual(["1", "2", "3", "4", "5"]);
     });
 });
