@@ -21,6 +21,7 @@ import TailwindCSSLogo from "./components/Logos/TailwindCSSLogo/TailwindCSSLogo"
 import ThreeColumnFooter from "./components/Footers/ThreeColumnFooter";
 import SplashFooter from "./components/Footers/SplashFooter";
 import TrashIcon from "./components/Icons/Trash/TrashIcon";
+import { ShowNextButton, GetPageList } from "./utils/Pagination/Pagintation";
 
 export {
     BuiltWithElegant,
@@ -28,6 +29,7 @@ export {
     DiscordIcon,
     ElegantLogo,
     FacebookIcon,
+    GetPageList,
     GitHubIcon,
     InstagramIcon,
     LinkedInIcon,
@@ -37,6 +39,7 @@ export {
     PCIcon,
     ReactLogo,
     PoweredByElegant,
+    ShowNextButton,
     SplashFooter,
     SunIcon,
     TailwindCSSLogo,
