@@ -22,6 +22,7 @@ import ThreeColumnFooter from "./components/Footers/ThreeColumnFooter";
 import SplashFooter from "./components/Footers/SplashFooter";
 import TrashIcon from "./components/Icons/Trash/TrashIcon";
 import { ShowNextButton, GetPageList } from "./utils/Pagination/Pagintation";
+import { SimpleSearch } from "./utils/Search/SimpleSearch";
 
 export {
     BuiltWithElegant,
@@ -39,6 +40,7 @@ export {
     PCIcon,
     ReactLogo,
     PoweredByElegant,
+    SimpleSearch,
     ShowNextButton,
     SplashFooter,
     SunIcon,
