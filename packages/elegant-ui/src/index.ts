@@ -23,6 +23,7 @@ import SplashFooter from "./components/Footers/SplashFooter";
 import TrashIcon from "./components/Icons/Trash/TrashIcon";
 import { ShowNextButton, GetPageList } from "./utils/Pagination/Pagintation";
 import { SimpleSearch } from "./utils/Search/SimpleSearch";
+import HeroSection from "./components/Heros/HeroSection";
 
 export {
     BuiltWithElegant,
@@ -32,6 +33,7 @@ export {
     FacebookIcon,
     GetPageList,
     GitHubIcon,
+    HeroSection,
     InstagramIcon,
     LinkedInIcon,
     MDXLogo,

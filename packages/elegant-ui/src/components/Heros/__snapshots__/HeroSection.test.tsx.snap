@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Section component renders a hero section component properly 1`] = `
+<section
+  className="relative mt-20 mb-20 sm:mt-32 md:mt-40"
+>
+  <div
+    className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8"
+  >
+    <h2
+      className="text-primary-500 dark:text-primary-400 text-xl tracking-tight font-bold sm:text-xl mb-10"
+    >
+      This is a Unit Test
+    </h2>
+    <p
+      className="mt-4 text-3xl sm:text-4xl text-slate-900 font-extrabold tracking-tight dark:text-slate-50"
+    >
+      Hello World!
+    </p>
+  </div>
+</section>
+`;
