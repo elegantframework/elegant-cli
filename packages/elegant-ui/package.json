@@ -1,6 +1,6 @@
 {
   "name": "@brandonowens/elegant-ui",
-  "version": "1.2.6",
+  "version": "1.2.8",
   "description": "Elegant is the easiest way to create a new static website or blog, and publish it online. This is the core Elegant UI component library.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/elegantframework/elegant#readme",
   "dependencies": {
-    "next": "^13.4.12",
+    "next": "^14.1.4",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
@@ -73,7 +73,7 @@
     "postcss": "^8.4.33",
     "react": "^18.2.0",
     "react-test-renderer": "^18.2.0",
-    "storybook": "^7.6.1",
+    "storybook": "^8.0.5",
     "storybook-dark-mode": "^3.0.3",
     "tailwindcss": "^3.3.3",
     "ts-jest": "^29.1.1",
