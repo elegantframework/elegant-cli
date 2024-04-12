@@ -94,7 +94,7 @@
     "react-select": "^5.8.0",
     "react-textarea-autosize": "^8.5.2",
     "schema-to-yup": "^1.12.15",
-    "sharp": "^0.33.2",
+    "sharp": "^0.33.3",
     "swr": "^2.2.0",
     "tippy.js": "^6.3.7",
     "tiptap-markdown": "^0.8.9",
