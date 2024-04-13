@@ -30,7 +30,7 @@ interface InputProps {
 };
 
 type ComponentType = {
-  component: typeof Input | typeof TextArea | typeof TagInput;
+  component: typeof Input | typeof TextArea;
   props: InputProps;
 };
 
@@ -53,16 +53,9 @@ const DocumentSettings = ({
   showDelete,
   customFields = {}
 }: DocumentSettingsProps) => {
-  const {
-    register,
-    formState: { errors }
-  } = useFormContext()
-  const router = useRouter()
-  const { document, editDocument, hasChanges, collection } =
-    useContext(DocumentContext)
-
-
-  console.log(document)
+  const { register, formState: { errors }} = useFormContext();
+  const router = useRouter();
+  const { document, editDocument, hasChanges, collection } = useContext(DocumentContext);
 
   return (
     <aside className="relative w-full border-b border-gray-300 bg-white md:w-64 md:flex-none md:flex-col md:flex-wrap md:items-start md:justify-start md:border-b-0 md:border-l md:py-6 max-h-[calc(100vh-53px)] scrollbar-hide overflow-scroll">
@@ -190,7 +183,6 @@ const DocumentSettings = ({
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500"
           />
         </Accordion>
-
         <Accordion title="Cover Image">
           <DocumentSettingsImageSelection
             name="coverImage"
@@ -198,45 +190,33 @@ const DocumentSettings = ({
           />
         </Accordion>
         <Accordion title="Tags">
-          <span className="inline-flex items-center gap-x-0.5 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 mr-2">
-            blog
-            <button type="button" className="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-gray-500/20">
-              <span className="sr-only">Remove</span>
-              <svg viewBox="0 0 14 14" className="h-3.5 w-3.5 stroke-gray-700/50 group-hover:stroke-gray-700/75">
-                <path d="M4 4l6 6m0-6l-6 6" />
-              </svg>
-              <span className="absolute -inset-1" />
-            </button>
-          </span>
-          <span className="inline-flex items-center gap-x-0.5 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 mr-2">
-            cms
-            <button type="button" className="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-gray-500/20">
-              <span className="sr-only">Remove</span>
-              <svg viewBox="0 0 14 14" className="h-3.5 w-3.5 stroke-gray-700/50 group-hover:stroke-gray-700/75">
-                <path d="M4 4l6 6m0-6l-6 6" />
-              </svg>
-              <span className="absolute -inset-1" />
-            </button>
-          </span>
-          <span className="inline-flex items-center gap-x-0.5 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 mr-2">
-            sysadmin
-            <button type="button" className="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-gray-500/20">
-              <span className="sr-only">Remove</span>
-              <svg viewBox="0 0 14 14" className="h-3.5 w-3.5 stroke-gray-700/50 group-hover:stroke-gray-700/75">
-                <path d="M4 4l6 6m0-6l-6 6" />
-              </svg>
-              <span className="absolute -inset-1" />
-            </button>
-          </span>
+          {document.tags?.map((tag) => (
+            <span className="inline-flex items-center gap-x-0.5 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 mr-2">
+              {tag}
+              <button 
+                className="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-gray-500/20"
+                onClick={() => {
+                  editDocument('tags', document.tags?.filter(e => e !== tag));
+                }}
+              >
+                <span className="sr-only">Remove</span>
+                <svg viewBox="0 0 14 14" className="h-3.5 w-3.5 stroke-gray-700/50 group-hover:stroke-gray-700/75">
+                  <path d="M4 4l6 6m0-6l-6 6" />
+                </svg>
+                <span className="absolute -inset-1" />
+              </button>
+            </span>
+          ))}
           <Input
             label="Add Tag"
             name="tag"
             id="add_tag"
             inputSize="small"
-            wrapperClass="mb-4"
+            wrapperClass="mb-4 mt-4"
           />
           <TagInput 
             id="tags"
+            label='Add Tag'
           />
         </Accordion>
         {customFields &&

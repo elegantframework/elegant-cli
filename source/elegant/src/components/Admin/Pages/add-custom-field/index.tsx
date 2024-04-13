@@ -19,7 +19,6 @@ import AdminLayout from '@/components/Layouts/AdminLayout';
 import Input from '@/components/Input';
 import Alert from '@/components/Alert';
 import Modal from '@/components/Modal';
-import TagInput from '@/components/TagInput';
 import { TrashIcon } from '@brandonowens/elegant-ui';
 
 type AddCustomFieldProps = {
