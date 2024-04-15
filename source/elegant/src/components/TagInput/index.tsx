@@ -15,7 +15,7 @@ export type TagProps = {
   registerOptions?: RegisterOptions
   wrapperClass?: string
   className?: string
-  suggestions?: CustomFieldArrayValue[]
+  suggestions?: string[]
   inputSize?: 'small' | 'medium'
 } & React.ComponentPropsWithoutRef<CreatableSelect>
 
@@ -56,10 +56,9 @@ const TagInput = ({
   })
 
   const handleCreate = (inputValue: string) => {
-    const newOption = createOption(inputValue)
-    setOptions((prev) => [...prev, newOption])
+    setOptions((prev) => [...prev, inputValue])
     const values = getValues(id) || []
-    setValue(id, [...values, newOption])
+    setValue(id, [...values, inputValue])
   }
 
   return (
@@ -76,9 +75,8 @@ const TagInput = ({
         <Controller
           name={id}
           control={control}
-          render={({ field }) => (
+          render={() => (
             <Creatable
-              {...field}
               options={options}
               isMulti
               className={errors.multiSelect ? 'is-invalid' : ''}

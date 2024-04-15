@@ -207,16 +207,10 @@ const DocumentSettings = ({
               </button>
             </span>
           ))}
-          <Input
-            label="Add Tag"
-            name="tag"
-            id="add_tag"
-            inputSize="small"
-            wrapperClass="mb-4 mt-4"
-          />
           <TagInput 
             id="tags"
             label='Add Tag'
+            wrapperClass='mt-2'
           />
         </Accordion>
         {customFields &&
