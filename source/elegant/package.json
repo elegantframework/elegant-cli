@@ -79,7 +79,7 @@
     "lucide-react": "^0.303.0",
     "moment": "^2.29.4",
     "net": "^1.0.2",
-    "next": "^14.1.4",
+    "next": "13.5",
     "next-connect": "^1.0.0",
     "next-router-mock": "^0.9.11",
     "next-seo": "^6.4.0",
