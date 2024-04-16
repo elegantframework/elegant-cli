@@ -40,4 +40,8 @@ export type Document = {
      * The category of this document.
      */
     category?: string;
+    /**
+     * Tags that can be added to posts.
+     */
+    tags?: string[];
 };

@@ -19,7 +19,6 @@ import AdminLayout from '@/components/Layouts/AdminLayout';
 import Input from '@/components/Input';
 import Alert from '@/components/Alert';
 import Modal from '@/components/Modal';
-import TagInput from '@/components/TagInput';
 import { TrashIcon } from '@brandonowens/elegant-ui';
 
 type AddCustomFieldProps = {
@@ -141,13 +140,13 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
         title: data.title
       }
 
-      if (fieldDataMap[fieldType] === 'array') {
-        customFields[fieldName] = {
-          ...customFields[fieldName],
-          // @ts-ignore
-          values: data?.values || []
-        }
-      }
+      // if (fieldDataMap[fieldType] === 'array') {
+      //   customFields[fieldName] = {
+      //     ...customFields[fieldName],
+      //     // @ts-ignore
+      //     values: data?.values || []
+      //   }
+      // }
 
       const created = await capiHelper({ customFields })
 
@@ -442,26 +441,6 @@ export default function AddCustomField({ collection }: AddCustomFieldProps) {
                   </div>
                 </fieldset>
               </div>
-              {selectedField &&
-              customFields[selectedField].fieldType === 'Tags' &&
-              customFields[selectedField].dataType === 'array' ? (
-                <div className="flex px-6 text-left gap-4 mb-4">
-                  <TagInput
-                    label="Your tags"
-                    id="values"
-                    helperText="Deleting tags will remove them from suggestions, not from existing documents."
-                    //@ts-ignore
-                    defaultValue={customFields[selectedField].values || []}
-                    noOptionsMessage={() => null}
-                    isClearable={false}
-                    isSearchable={false}
-                    components={{
-                      DropdownIndicator: () => null,
-                      IndicatorSeparator: () => null
-                    }}
-                  />
-                </div>
-              ) : null}
               <div className="space-x-2 rounded-b border-t p-6 text-sm text-gray-700">
                 This field will be accessible on the frontend as:{'  '}
                 <code className="bg-gray-200 font-semibold">
