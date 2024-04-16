@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { RegisterOptions, useFormContext } from 'react-hook-form';
 import { convert } from 'url-slug';
 import Accordion from '../Accordion';
@@ -7,7 +7,6 @@ import DateTimePicker from '../DateTimePicker';
 import DeleteDocumentButton from '../DeleteDocumentButton';
 import Input from '../Input';
 import TextArea from '../TextArea';
-import TagInput from '../TagInput';
 import DocumentSettingsImageSelection from '../DocumentSettingsImageSelection';
 import {
   CustomFieldArrayValue,
@@ -46,16 +45,17 @@ const FieldDataMap: FieldDataMapType = {
   Number: { component: Input, props: { type: 'number' } }
 };
 
-const DocumentSettings = ({
+export default function DocumentSettings({
   saveFunc,
   loading,
   registerOptions,
   showDelete,
   customFields = {}
-}: DocumentSettingsProps) => {
+}: DocumentSettingsProps) {
   const { register, formState: { errors }} = useFormContext();
   const router = useRouter();
   const { document, editDocument, hasChanges, collection } = useContext(DocumentContext);
+  let [ tagInput, setTagInput ] = useState("");
 
   return (
     <aside className="relative w-full border-b border-gray-300 bg-white md:w-64 md:flex-none md:flex-col md:flex-wrap md:items-start md:justify-start md:border-b-0 md:border-l md:py-6 max-h-[calc(100vh-53px)] scrollbar-hide overflow-scroll">
@@ -101,7 +101,6 @@ const DocumentSettings = ({
             className="hover:bg-slate-200 max-h-[2.25rem]"
           />
         )}
-
         <button
           onClick={saveFunc}
           type="button"
@@ -191,7 +190,10 @@ const DocumentSettings = ({
         </Accordion>
         <Accordion title="Tags">
           {document.tags?.map((tag) => (
-            <span className="inline-flex items-center gap-x-0.5 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 mr-2">
+            <span 
+              className="inline-flex items-center gap-x-0.5 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 mr-2"
+              key={`${tag}-tag`}
+            >
               {tag}
               <button 
                 className="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-gray-500/20"
@@ -207,11 +209,41 @@ const DocumentSettings = ({
               </button>
             </span>
           ))}
-          <TagInput 
-            id="tags"
-            label='Add Tag'
-            wrapperClass='mt-2'
-          />
+          <div className='mt-2'>
+            <label htmlFor="tag" className="block text-sm font-medium leading-6 text-gray-900">
+              Add Tag
+            </label>
+            <div className="mt-2 flex rounded-md shadow-sm">
+              <div className="relative flex flex-grow items-stretch focus-within:z-10">
+                <input
+                  type="text"
+                  name="tag"
+                  id="add_tag"
+                  className="block w-full rounded-none rounded-l-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500"
+                  onChange={(e) => {
+                    setTagInput(e.target.value);
+                  }}
+                  value={tagInput}
+                />
+              </div>
+              <button
+                type="button"
+                className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer disabled:cursor-not-allowed disabled:bg-indigo-300"
+                disabled={!isAddTagButtonEnabled(
+                  tagInput,
+                  document.tags || []
+                )}
+                onClick={() => {
+                  if(document.tags) {
+                    editDocument('tags', [...document.tags, tagInput]);
+                    setTagInput("");
+                  }
+                }}
+              >
+                Add
+              </button>
+            </div>
+          </div>
         </Accordion>
         {customFields &&
           Object.entries(customFields).map(([name, field]) => {
@@ -237,6 +269,18 @@ const DocumentSettings = ({
       <hr className="pb-16" />
     </aside>
   )
+};
+
+function isAddTagButtonEnabled(tag: string, currentTags: string[])
+{
+  if(tag !== "" && !currentTags.includes(tag))
+  {
+    return true;
+  }
+
+  return false;
 }
 
-export default DocumentSettings
+function addTag() {
+
+}
