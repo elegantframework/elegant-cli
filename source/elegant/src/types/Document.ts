@@ -43,5 +43,5 @@ export type Document = {
     /**
      * Tags that can be added to posts.
      */
-    tags?: string[];
+    tags: string[];
 };
