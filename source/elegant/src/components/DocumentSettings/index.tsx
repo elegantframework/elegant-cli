@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { RegisterOptions, useFormContext } from 'react-hook-form';
 import { convert } from 'url-slug';
 import Accordion from '../Accordion';
@@ -56,6 +56,15 @@ export default function DocumentSettings({
   const router = useRouter();
   const { document, editDocument, hasChanges, collection } = useContext(DocumentContext);
   let [ tagInput, setTagInput ] = useState("");
+  let [ newTags, setNewTags ] = useState<string[]>([]);
+  let tagsLoaded = false;
+
+  useEffect(() => {
+    if(document.tags && !tagsLoaded) {
+      setNewTags(document.tags);
+      tagsLoaded = true;
+    }
+  }, [document.tags]);
 
   return (
     <aside className="relative w-full border-b border-gray-300 bg-white md:w-64 md:flex-none md:flex-col md:flex-wrap md:items-start md:justify-start md:border-b-0 md:border-l md:py-6 max-h-[calc(100vh-53px)] scrollbar-hide overflow-scroll">
@@ -189,7 +198,7 @@ export default function DocumentSettings({
           />
         </Accordion>
         <Accordion title="Tags">
-          {document.tags?.map((tag) => (
+          {newTags.map((tag) => (
             <span 
               className="inline-flex items-center gap-x-0.5 rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 mr-2"
               key={`${tag}-tag`}
@@ -198,7 +207,11 @@ export default function DocumentSettings({
               <button 
                 className="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-gray-500/20"
                 onClick={() => {
-                  editDocument('tags', document.tags?.filter(e => e !== tag));
+                  setNewTags(
+                    newTags.filter(e => e !== tag)
+                  );
+
+                  editDocument('tags', newTags.filter(e => e !== tag));
                 }}
               >
                 <span className="sr-only">Remove</span>
@@ -231,13 +244,12 @@ export default function DocumentSettings({
                 className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-md px-3 py-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer disabled:cursor-not-allowed disabled:bg-indigo-300"
                 disabled={!isAddTagButtonEnabled(
                   tagInput,
-                  document.tags || []
+                  newTags
                 )}
                 onClick={() => {
-                  if(document.tags) {
-                    editDocument('tags', [...document.tags, tagInput]);
-                    setTagInput("");
-                  }
+                  setNewTags([...newTags, tagInput]);
+                  editDocument('tags', [...newTags, tagInput]);
+                  setTagInput("");
                 }}
               >
                 Add
@@ -279,8 +291,4 @@ function isAddTagButtonEnabled(tag: string, currentTags: string[])
   }
 
   return false;
-}
-
-function addTag() {
-
 }
