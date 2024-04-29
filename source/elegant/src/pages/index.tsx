@@ -68,6 +68,7 @@ const Header = () => {
                       href={Config('app.repository')}
                       className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <span className="sr-only">{Config('app.name')} on GitHub</span>
                       <GitHubIcon className="w-5 h-5 text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"/>
