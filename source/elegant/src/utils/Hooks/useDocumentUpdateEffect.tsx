@@ -50,12 +50,17 @@ export const useDocumentUpdateEffect = ({
       const newDate = data.publishedAt
         ? new Date(data.publishedAt)
         : getLocalDate()
+
+      const tags = data.tags ? data.tags : [];
+
       const document = {
         ...data,
         publishedAt: newDate,
         content: parsedContent,
-        slug
+        slug,
+        tags: tags
       }
+
       methods.reset(document)
       editor.commands.setContent(parsedContent)
       editor.commands.focus('start')
@@ -72,7 +77,8 @@ export const useDocumentUpdateEffect = ({
             picture: session?.user.image ?? ''
           },
           coverImage: '',
-          publishedAt: slug === 'new' ? getLocalDate() : formData.publishedAt
+          publishedAt: slug === 'new' ? getLocalDate() : formData.publishedAt,
+          tags: formData.tags ? formData.tags : []
         })
       }
     }
