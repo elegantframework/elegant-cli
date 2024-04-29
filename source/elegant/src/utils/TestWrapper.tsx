@@ -16,7 +16,8 @@ const documentExample: Document = {
   author: {
     name: 'John Doe',
     picture: 'https://jdoe.com/picture.jpg'
-  }
+  },
+  tags: []
 }
 
 const mocks = [
