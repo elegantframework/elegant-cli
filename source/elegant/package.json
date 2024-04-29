@@ -39,7 +39,7 @@
     "@tiptap/extension-image": "2.1.10",
     "@tiptap/extension-link": "^2.2.4",
     "@tiptap/extension-placeholder": "2.2.4",
-    "@tiptap/extension-subscript": "2.1.10",
+    "@tiptap/extension-subscript": "2.3.0",
     "@tiptap/extension-superscript": "2.1.10",
     "@tiptap/extension-table": "2.2.1",
     "@tiptap/extension-table-header": "2.1.10",
