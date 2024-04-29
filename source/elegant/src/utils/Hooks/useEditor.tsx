@@ -11,7 +11,6 @@ import HorizontalRule from '@/components/Editor/Extensions/HorizontalRule';
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight';
 import { TextStyle } from '@tiptap/extension-text-style';
 import { Typography } from '@tiptap/extension-typography';
-import { Color } from '@tiptap/extension-color';
 import { TrailingNode } from '@/components/Editor/Extensions/TrailingNode';
 import { Highlight } from '@tiptap/extension-highlight';
 import { Underline } from '@tiptap/extension-underline';
@@ -66,7 +65,6 @@ export const useEditor = ({ ...rhfMethods }) => {
         defaultLanguage: null,
       }),
       TextStyle,
-      Color,
       TrailingNode,
       Link.configure({
         openOnClick: false,
