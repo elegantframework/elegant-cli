@@ -33,4 +33,8 @@ export interface Post {
      * The date time string of when this post was published.
      */
     publishedAt?: string;
+    /**
+     * Tags that can be added to posts.
+     */
+    tags?: string[];
 };
