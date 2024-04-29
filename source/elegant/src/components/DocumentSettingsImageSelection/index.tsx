@@ -163,24 +163,11 @@ const DocumentSettingsImageSelection = ({
             {label ?? 'Add an image'}
           </span>
           <div className="w-full flex justify-between mt-2">
-            <button
-              onClick={() => {
-                setShowLink(true)
-                setShowImageOptions(false)
-                setShowImage(false)
-                setLoadingError(false)
-              }}
-              type="button"
-              className="flex rounded-lg border border-gray-600 bg-gray-800 px-5 py-2.5 text-sm font-medium text-white hover:border-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-700 disabled:cursor-not-allowed disabled:bg-gray-600 md:mb-2"
-            >
-              From link
-            </button>
-
             <label
               htmlFor={`${name}-upload`}
               className="flex cursor-pointer rounded-lg border border-gray-600 bg-gray-800 px-5 py-2.5 text-sm font-medium text-white hover:border-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-700 disabled:cursor-not-allowed disabled:bg-gray-600 md:mb-2"
             >
-              From file
+              Upload Image
             </label>
             <input
               type="file"
