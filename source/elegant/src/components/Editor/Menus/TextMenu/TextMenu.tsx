@@ -97,22 +97,6 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
         </Popover.Root>
         <Popover.Root>
           <Popover.Trigger asChild>
-            <MemoButton active={!!states.currentColor} tooltip="Text color">
-              <Icon name="Palette" />
-            </MemoButton>
-          </Popover.Trigger>
-          <Popover.Content side="top" sideOffset={8} asChild>
-            <Surface className="p-1">
-              <MemoColorPicker
-                color={states.currentColor}
-                onChange={commands.onChangeColor}
-                onClear={commands.onClearColor}
-              />
-            </Surface>
-          </Popover.Content>
-        </Popover.Root>
-        <Popover.Root>
-          <Popover.Trigger asChild>
             <MemoButton tooltip="More options">
               <Icon name="MoreVertical" />
             </MemoButton>
