@@ -69,7 +69,8 @@ export default function List({ collection }: ListProps) {
           publishedAt: publishedAt ? new Date(publishedAt) : new Date(),
           slug: document.name.replace('.mdx', ''),
           author,
-          content: ''
+          content: '',
+          tags: []
         })
       }
     })
