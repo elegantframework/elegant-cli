@@ -151,6 +151,16 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
             </Toolbar.Wrapper>
           </Popover.Content>
         </Popover.Root>
+        <Toolbar.Divider />
+        <MemoButton tooltip="Clear Formatting" onClick={commands.onClearFormat}>
+          <Icon name="Eraser" />
+        </MemoButton>
+        <MemoButton tooltip="Undo" onClick={commands.onUndo}>
+          <Icon name="Undo" />
+        </MemoButton>
+        <MemoButton tooltip="Redo" onClick={commands.onRedo}>
+          <Icon name="Redo" />
+        </MemoButton>
       </Toolbar.Wrapper>
     </BubbleMenu>
   )

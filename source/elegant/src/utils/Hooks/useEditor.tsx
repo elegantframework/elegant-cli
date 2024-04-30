@@ -30,6 +30,7 @@ import { Youtube } from '@tiptap/extension-youtube';
 import { ImageUpload } from '@/components/Editor/Extensions/ImageUpload';
 import Image from '@tiptap/extension-image';
 import { Markdown } from 'tiptap-markdown';
+import { History } from '@tiptap/extension-history';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -70,6 +71,7 @@ export const useEditor = ({ ...rhfMethods }) => {
         openOnClick: false,
       }),
       Highlight.configure({ multicolor: true }),
+      History,
       Underline,
       Image.extend({
         renderHTML({ HTMLAttributes }) {
