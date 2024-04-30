@@ -30,6 +30,7 @@ import { Youtube } from '@tiptap/extension-youtube';
 import { ImageUpload } from '@/components/Editor/Extensions/ImageUpload';
 import Image from '@tiptap/extension-image';
 import { Markdown } from 'tiptap-markdown';
+import { History } from '@tiptap/extension-history';
 
 export const useEditor = ({ ...rhfMethods }) => {
   const { setValue, trigger } = rhfMethods
@@ -70,6 +71,7 @@ export const useEditor = ({ ...rhfMethods }) => {
         openOnClick: false,
       }),
       Highlight.configure({ multicolor: true }),
+      History,
       Underline,
       Image.extend({
         renderHTML({ HTMLAttributes }) {
@@ -88,27 +90,6 @@ export const useEditor = ({ ...rhfMethods }) => {
       }).configure({inline: true}),
       ImageUpload,
       ImageBlock,
-      // FileHandler.configure({
-      //   allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
-      //   onDrop: (currentEditor, files, pos) => {
-      //     files.forEach(async () => {
-      //       const url = await API.uploadImage()
-    
-      //       currentEditor.chain().setImageBlockAt({ pos, src: url }).focus().run()
-      //     })
-      //   },
-      //   onPaste: (currentEditor, files) => {
-      //     files.forEach(async () => {
-      //       const url = await API.uploadImage()
-    
-      //       return currentEditor
-      //         .chain()
-      //         .setImageBlockAt({ pos: currentEditor.state.selection.anchor, src: url })
-      //         .focus()
-      //         .run()
-      //     })
-      //   },
-      // }),
       Markdown,
       TextAlign.extend({
         addKeyboardShortcuts() {

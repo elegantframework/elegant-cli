@@ -1,5 +1,3 @@
-'use client'
-
 import { useCallback, useState } from 'react'
 import { HexColorPicker } from 'react-colorful'
 import { ColorButton } from './ColorButton'
