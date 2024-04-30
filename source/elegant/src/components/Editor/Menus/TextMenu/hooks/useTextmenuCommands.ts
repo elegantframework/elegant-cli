@@ -20,9 +20,9 @@ export const useTextmenuCommands = (editor: Editor) => {
   const onClearHighlight = useCallback(() => editor.chain().focus().unsetHighlight().run(), [editor])
 
   const onClearFormat = useCallback(() => editor.chain().focus().clearNodes().unsetAllMarks()
-  .run());
-  const onUndo = useCallback(() => editor.chain().focus().undo().run());
-  const onRedo = useCallback(() => editor.chain().focus().redo().run());
+  .run(), [editor]);
+  const onUndo = useCallback(() => editor.chain().focus().undo().run(), [editor]);
+  const onRedo = useCallback(() => editor.chain().focus().redo().run(), [editor]);
 
   const onLink = useCallback(
     (url: string, inNewTab?: boolean) =>
