@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import MoonIcon from './MoonIcon';
+import type { Meta, StoryObj } from "@storybook/react";
+import MoonIcon from "./MoonIcon";
 
 const meta: Meta<typeof MoonIcon> = {
-  title: 'Core/Icons/Moon Icon',
+  title: "Core/Icons/Moon Icon",
   component: MoonIcon,
 };
 
@@ -13,6 +13,6 @@ type Story = StoryObj<typeof MoonIcon>;
 export const Default: Story = {
   args: {
     className: "w-6 h-6",
-    selected: false
+    selected: false,
   },
 };

@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import VideoPlayer from './VideoPlayer';
+import type { Meta, StoryObj } from "@storybook/react";
+import VideoPlayer from "./VideoPlayer";
 
 const meta: Meta<typeof VideoPlayer> = {
-  title: 'Core/Videos/Video Player',
+  title: "Core/Videos/Video Player",
   component: VideoPlayer,
 };
 
@@ -13,6 +13,6 @@ type Story = StoryObj<typeof VideoPlayer>;
 export const Default: Story = {
   args: {
     title: "How to get started with Elegant.",
-    videoId: 'bS66QUBKljM',
+    videoId: "bS66QUBKljM",
   },
 };
