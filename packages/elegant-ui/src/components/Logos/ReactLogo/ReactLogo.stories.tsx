@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import ReactLogo  from './ReactLogo';
+import ReactLogo from "./ReactLogo";
 
 const meta: Meta<typeof ReactLogo> = {
-  title: 'Core/Logos/React Logo',
+  title: "Core/Logos/React Logo",
   component: ReactLogo,
 };
 

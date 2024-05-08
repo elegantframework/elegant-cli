@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import VersionSelector from './VersionSelector';
+import type { Meta, StoryObj } from "@storybook/react";
+import VersionSelector from "./VersionSelector";
 
 const meta: Meta<typeof VersionSelector> = {
-  title: 'Core/Selectors/Version Selector',
+  title: "Core/Selectors/Version Selector",
   component: VersionSelector,
 };
 
@@ -15,12 +15,12 @@ export const Primary: Story = {
     pastVersions: [
       {
         label: "1.2.1",
-        href: "https://v1.elegantframework.com"
+        href: "https://v1.elegantframework.com",
       },
       {
         label: "1.1.4",
-        href: "https://v1.elegantframework.com"
-      }
-    ]
+        href: "https://v1.elegantframework.com",
+      },
+    ],
   },
 };

@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import DiscordIcon from './DiscordIcon';
+import type { Meta, StoryObj } from "@storybook/react";
+import DiscordIcon from "./DiscordIcon";
 
 const meta: Meta<typeof DiscordIcon> = {
-  title: 'Core/Icons/Discord Icon',
+  title: "Core/Icons/Discord Icon",
   component: DiscordIcon,
 };
 
@@ -12,6 +12,6 @@ type Story = StoryObj<typeof DiscordIcon>;
 
 export const Default: Story = {
   args: {
-    className: "w-5 h-5"
+    className: "w-5 h-5",
   },
 };

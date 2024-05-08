@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "@apollo/client": "^3.7.17",
-    "@brandonowens/elegant-ui": "^1.2.6",
+    "@brandonowens/elegant-ui": "^1.2.8",
     "@hapi/iron": "^7.0.1",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^2.9.11",

@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import ElegantLogo  from './ElegantLogo';
+import ElegantLogo from "./ElegantLogo";
 
 const meta: Meta<typeof ElegantLogo> = {
-  title: 'Core/Logos/Elegant Logo',
+  title: "Core/Logos/Elegant Logo",
   component: ElegantLogo,
 };
 
@@ -12,6 +12,6 @@ type Story = StoryObj<typeof ElegantLogo>;
 
 export const Primary: Story = {
   args: {
-    className: "w-auto h-8"
+    className: "w-auto h-8",
   },
 };
