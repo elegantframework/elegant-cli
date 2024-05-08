@@ -27,7 +27,7 @@ export default function Blog({
 
   const searchParams = useSearchParams();
   const page = searchParams.get('page') ?? 1;
-  const perPage = 2;
+  const perPage = 6;
 
   const start = ((Number(page) - 1) * perPage);
   const end = start + perPage;
@@ -133,11 +133,11 @@ export default function Blog({
                 <p className="text-sm text-gray-700">
                   Showing
                   <span className="font-medium mx-1">
-                    {Number(page) !== 1 ? Number(page) + perPage - 1 : 1}
+                    {start + 1}
                   </span>
                   to
                   <span className="font-medium mx-1">
-                    {Number(page) * perPage < posts.length ? Number(page) * perPage : posts.length}
+                    {end < posts.length ? end : posts.length}
                   </span>
                   of
                   <span className="font-medium mx-1">{posts.length}</span>
