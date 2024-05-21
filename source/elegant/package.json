@@ -4,6 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap",
+    "postinstall": "prisma generate",
     "start": "next start",
     "export": "next build && next export",
     "test": "jest --watch --verbose ./__tests__ ./src --silent",
@@ -12,6 +13,9 @@
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
     "component": "cypress open --component",
     "component:headless": "cypress run --component"
+  },
+  "prisma": {
+    "schema": "db/schema.prisma"
   },
   "browserslist": [
     "> 1%"
@@ -24,6 +28,7 @@
     "@hookform/resolvers": "^2.9.11",
     "@napi-rs/canvas": "^0.1.41",
     "@next/env": "^13.4.1",
+    "@prisma/client": "^5.14.0",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-popover": "^1.0.7",
     "@tippyjs/react": "^4.2.6",
@@ -130,6 +135,7 @@
     "postcss": "^8.4.33",
     "postcss-focus-visible": "^5.0.0",
     "postcss-import": "^14.0.1",
+    "prisma": "^5.14.0",
     "react-test-renderer": "^18.2.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-parse": "^8.0.2",
