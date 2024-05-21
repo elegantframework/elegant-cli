@@ -246,6 +246,7 @@ exports[`Splash Header component renders a splash header component properly 1`] 
             <a
               className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
               href="hello.com"
+              rel="noopener noreferrer"
               target="_blank"
             >
               <span

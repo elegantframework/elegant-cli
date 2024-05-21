@@ -11,7 +11,7 @@ exports[`The Admin Log In page renders properly 1`] = `
     <div
       className="sm:mx-auto sm:w-full sm:max-w-md"
     >
-      <Or
+      <Ur
         className="w-auto h-8 mx-auto"
       />
     </div>
@@ -27,7 +27,7 @@ exports[`The Admin Log In page renders properly 1`] = `
         className="mr-2 mb-2 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700"
         href="/api/admin/login"
       >
-        <Se
+        <Ne
           className="h-5 w-5 mr-2"
         />
          Sign in with GitHub

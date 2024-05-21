@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import BuiltWithElegant from './BuiltWithElegant';
+import type { Meta, StoryObj } from "@storybook/react";
+import BuiltWithElegant from "./BuiltWithElegant";
 
 const meta: Meta<typeof BuiltWithElegant> = {
-  title: 'Core/Marks/Built with Elegant',
+  title: "Core/Marks/Built with Elegant",
   component: BuiltWithElegant,
 };
 

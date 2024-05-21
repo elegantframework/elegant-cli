@@ -1,5 +1,3 @@
-'use client'
-
 import { Editor as TipTapEditor, EditorContent } from '@tiptap/react';
 import { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';

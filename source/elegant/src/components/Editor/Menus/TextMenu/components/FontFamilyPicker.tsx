@@ -1,5 +1,3 @@
-'use client'
-
 import { DropdownButton, DropdownCategoryTitle } from '@/components/Editor/Toolbar/Dropdown'
 import { Icon } from '@/components/Editor/Toolbar/Icon'
 import { Surface } from '@/components/Editor/Toolbar/Surface'

@@ -35,9 +35,10 @@ const DocumentSettingsImageSelection = ({
 
   useEffect(() => {
     const image = resolvedImage?.replace(
-      `/${Config('admin.cms_asset_path')}`,
+      `/images/`,
       `/api/admin/images/`
-    )
+    );
+
     setImage(image || '')
     setShowImageOptions(!resolvedImage)
     setShowImage(!!resolvedImage)

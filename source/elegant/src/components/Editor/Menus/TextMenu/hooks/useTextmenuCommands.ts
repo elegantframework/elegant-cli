@@ -16,11 +16,13 @@ export const useTextmenuCommands = (editor: Editor) => {
   const onAlignRight = useCallback(() => editor.chain().focus().setTextAlign('right').run(), [editor])
   const onAlignJustify = useCallback(() => editor.chain().focus().setTextAlign('justify').run(), [editor])
 
-  const onChangeColor = useCallback((color: string) => editor.chain().setColor(color).run(), [editor])
-  const onClearColor = useCallback(() => editor.chain().focus().unsetColor().run(), [editor])
-
   const onChangeHighlight = useCallback((color: string) => editor.chain().setHighlight({ color }).run(), [editor])
   const onClearHighlight = useCallback(() => editor.chain().focus().unsetHighlight().run(), [editor])
+
+  const onClearFormat = useCallback(() => editor.chain().focus().clearNodes().unsetAllMarks()
+  .run(), [editor]);
+  const onUndo = useCallback(() => editor.chain().focus().undo().run(), [editor]);
+  const onRedo = useCallback(() => editor.chain().focus().redo().run(), [editor]);
 
   const onLink = useCallback(
     (url: string, inNewTab?: boolean) =>
@@ -65,12 +67,13 @@ export const useTextmenuCommands = (editor: Editor) => {
     onAlignCenter,
     onAlignRight,
     onAlignJustify,
-    onChangeColor,
-    onClearColor,
     onChangeHighlight,
     onClearHighlight,
     onSetFont,
     onSetFontSize,
     onLink,
+    onClearFormat,
+    onUndo,
+    onRedo,
   }
 }

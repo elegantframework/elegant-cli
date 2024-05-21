@@ -6,6 +6,9 @@ import { Post } from '@/types/Post';
 import moment from 'moment';
 import GenerateRssFeed from '@/utils/RSS/GenerateRSSFeed';
 import Config from 'Config';
+import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@heroicons/react/20/solid';
+import { ShowNextButton } from '@brandonowens/elegant-ui';
+import { useSearchParams } from 'next/navigation';
 
 interface Props {
   /**
@@ -21,6 +24,16 @@ interface Props {
 export default function Blog({
   posts
 }: Props) {
+
+  const searchParams = useSearchParams();
+  const page = searchParams.get('page') ?? 1;
+  const perPage = 6;
+
+  const start = ((Number(page) - 1) * perPage);
+  const end = start + perPage;
+
+  const entries = posts.slice(start, end);
+  
   return (
     <>
       <main className="max-w-[52rem] mx-auto px-4 pb-28 sm:px-6 md:px-8 xl:px-12 lg:max-w-6xl">
@@ -43,7 +56,7 @@ export default function Blog({
         <div className="relative sm:pb-12 sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]">
           <div className="hidden absolute top-3 bottom-0 right-full mr-7 md:mr-[3.25rem] w-px bg-slate-200 dark:bg-slate-800 sm:block" />
           <div className="space-y-16">
-            {posts.map((post: Post) => (
+            {entries.map((post: Post) => (
               <article key={post.slug} className="relative group">
                 <div className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl group-hover:bg-slate-50/70 dark:group-hover:bg-slate-800/50" />
                 <svg
@@ -103,6 +116,51 @@ export default function Blog({
             ))}
           </div>
         </div>
+        <nav className="flex items-center justify-between mt-10 bg-white px-4 py-3 sm:px-6">
+            <div className="-mt-px flex w-0 flex-1">
+                {Number(page) > 1 && (
+                    <Link
+                        href={`/blog/?page=${Number(page) - 1}`}
+                        className="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-400"
+                    >
+                        <ArrowLongLeftIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                        Previous
+                    </Link>
+                )}
+            </div>
+            <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center pt-4">
+              <div>
+                <p className="text-sm text-gray-700">
+                  Showing
+                  <span className="font-medium mx-1">
+                    {start + 1}
+                  </span>
+                  to
+                  <span className="font-medium mx-1">
+                    {end < posts.length ? end : posts.length}
+                  </span>
+                  of
+                  <span className="font-medium mx-1">{posts.length}</span>
+                  results
+                </p>
+              </div>
+            </div>
+            <div className="-mt-px flex w-0 flex-1 justify-end">
+                {ShowNextButton(
+                    Number(page),
+                    posts.length,
+                    perPage
+                ) && (
+                    <Link
+                        href={`/blog/?page=${Number(page) + 1}`}
+                        className="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:hover:text-gray-400"
+                    >
+                        Next
+                        <ArrowLongRightIcon className="ml-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                    </Link>
+                )}
+            </div>
+        </nav>
       </main>
     </>
   );

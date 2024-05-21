@@ -1,5 +1,3 @@
-'use client'
-
 import { useTextmenuCommands } from './hooks/useTextmenuCommands'
 import { useTextmenuStates } from './hooks/useTextmenuStates'
 import { BubbleMenu, Editor } from '@tiptap/react'
@@ -42,8 +40,6 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
     >
       <Toolbar.Wrapper>
         <MemoContentTypePicker options={blockOptions} />
-        {/* <MemoFontFamilyPicker onChange={commands.onSetFont} value={states.currentFont || ''} />
-        <MemoFontSizePicker onChange={commands.onSetFontSize} value={states.currentSize || ''} /> */}
         <Toolbar.Divider />
         <MemoButton tooltip="Bold" tooltipShortcut={['Mod', 'B']} onClick={commands.onBold} active={states.isBold}>
           <Icon name="Bold" />
@@ -91,22 +87,6 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
                 color={states.currentHighlight}
                 onChange={commands.onChangeHighlight}
                 onClear={commands.onClearHighlight}
-              />
-            </Surface>
-          </Popover.Content>
-        </Popover.Root>
-        <Popover.Root>
-          <Popover.Trigger asChild>
-            <MemoButton active={!!states.currentColor} tooltip="Text color">
-              <Icon name="Palette" />
-            </MemoButton>
-          </Popover.Trigger>
-          <Popover.Content side="top" sideOffset={8} asChild>
-            <Surface className="p-1">
-              <MemoColorPicker
-                color={states.currentColor}
-                onChange={commands.onChangeColor}
-                onClear={commands.onClearColor}
               />
             </Surface>
           </Popover.Content>
@@ -171,6 +151,16 @@ export const TextMenu = ({ editor }: TextMenuProps) => {
             </Toolbar.Wrapper>
           </Popover.Content>
         </Popover.Root>
+        <Toolbar.Divider />
+        <MemoButton tooltip="Clear Formatting" onClick={commands.onClearFormat}>
+          <Icon name="Eraser" />
+        </MemoButton>
+        <MemoButton tooltip="Undo" onClick={commands.onUndo}>
+          <Icon name="Undo" />
+        </MemoButton>
+        <MemoButton tooltip="Redo" onClick={commands.onRedo}>
+          <Icon name="Redo" />
+        </MemoButton>
       </Toolbar.Wrapper>
     </BubbleMenu>
   )

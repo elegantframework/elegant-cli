@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import TailwindCSSLogo from './TailwindCSSLogo';
+import type { Meta, StoryObj } from "@storybook/react";
+import TailwindCSSLogo from "./TailwindCSSLogo";
 
 const meta: Meta<typeof TailwindCSSLogo> = {
-  title: 'Core/Logos/Tailwind CSS Logo',
+  title: "Core/Logos/Tailwind CSS Logo",
   component: TailwindCSSLogo,
 };
 
