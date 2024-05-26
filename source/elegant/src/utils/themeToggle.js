@@ -1,3 +1,5 @@
+'use client'
+
 import { useIsomorphicLayoutEffect } from '@/utils/Hooks/useIsomorphicLayoutEffect';
 import { useEffect, useRef } from 'react';
 import { create } from 'zustand';
