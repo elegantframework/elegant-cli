@@ -1,5 +1,5 @@
 import BuiltWithElegant from "./components/Marks/BuiltWithElegant/BuiltWithElegant";
-import Card from "./components/Cards/Card";
+import Card, { CardProps } from "./components/Cards/Card";
 import FacebookIcon from "./components/Icons/Facebook/FacebookIcon";
 import GitHubIcon from "./components/Icons/GitHub/GitHubIcon";
 import InstagramIcon from "./components/Icons/Instagram/InstagramIcon";
@@ -13,7 +13,7 @@ import YouTubeIcon from "./components/Icons/YouTube/YouTubeIcon";
 import VideoPlayer from "./components/Videos/VideoPlayer";
 import DiscordIcon from "./components/Icons/Discord/DiscordIcon";
 import VersionSelector from "./components/Selectors/VersionSelector";
-import ElegantLogo from "./components/Logos/ElegantLogo/ElegantLogo";
+import ElegantLogo, { ElegantLogoProps } from "./components/Logos/ElegantLogo/ElegantLogo";
 import MDXLogo from "./components/Logos/MDXLogo/MDXLogo";
 import NextJsLogo from "./components/Logos/NextJsLogo/NextJsLogo";
 import ReactLogo from "./components/Logos/ReactLogo/ReactLogo";
@@ -24,18 +24,27 @@ import TrashIcon from "./components/Icons/Trash/TrashIcon";
 import { ShowNextButton, GetPageList } from "./utils/Pagination/Pagintation";
 import { SimpleSearch } from "./utils/Search/SimpleSearch";
 import HeroSection from "./components/Heros/HeroSection";
+import MetaTitle from "./utils/Meta/MetaTitle";
+import TextToKebabCase from "./utils/Text/TextToKebabCase";
+import TextToTitleCase from "./utils/Text/TextToTitleCase";
+import Button, { ButtonProps } from "./components/Buttons/Button";
 
 export {
+    Button,
+    ButtonProps,
     BuiltWithElegant,
     Card,
+    CardProps,
     DiscordIcon,
     ElegantLogo,
+    ElegantLogoProps,
     FacebookIcon,
     GetPageList,
     GitHubIcon,
     HeroSection,
     InstagramIcon,
     LinkedInIcon,
+    MetaTitle,
     MDXLogo,
     MoonIcon,
     NextJsLogo,
@@ -47,6 +56,8 @@ export {
     SplashFooter,
     SunIcon,
     TailwindCSSLogo,
+    TextToKebabCase,
+    TextToTitleCase,
     ThreeColumnFooter,
     TrashIcon,
     TwitterIcon,

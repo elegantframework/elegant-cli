@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from "clsx";
 
-interface Props {
+export interface ElegantLogoProps {
     /**
      * CSS class names to be applied to the logo
      */
@@ -15,11 +15,11 @@ interface Props {
 /**
  * @returns An SVG logo
  */
-const Logo = ({
+export default function ElegantLogo({
     className="w-auto h-8",
     color="text-slate-900 dark:text-white",
     ...props
-}: Props) => {
+}: ElegantLogoProps) {
     return(
         <svg 
             viewBox="0 0 980 185" 
@@ -55,5 +55,3 @@ const Logo = ({
         </svg>
     );
 };
-
-export default Logo;
