@@ -12,7 +12,7 @@ generator client {
 }
 
 model User {
-  id            Int       @id @default(autoincrement())
+  id            String    @id @default(cuid())
   name          String?
   // if you are using Github OAuth, you can get rid of the username attribute (that is for Twitter OAuth)
   username      String?
@@ -23,7 +23,18 @@ model User {
   image         String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+  sessions      Session[]
   posts         Post[]
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 model Post {
@@ -34,10 +45,10 @@ model Post {
   coverImage  String?
   content     String?
   author      User     @relation(fields: [authorId], references: [id])
-  authorId    Int
+  authorId    String
   slug        String?
   tags        String[]
-  createdAt   DateTime @default(now())
+  createdAt   DateTime 
   updatedAt   DateTime @updatedAt
 }
 
