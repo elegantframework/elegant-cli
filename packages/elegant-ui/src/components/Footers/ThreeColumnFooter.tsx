@@ -1,11 +1,11 @@
 import React from "react";
-import { NavigationLink, NavigationSection } from "../../types/Navigation";
+import { NavigationSection } from "../../types/Navigation";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
 import clsx from "clsx";
 import Logo from "../Logos/ElegantLogo/ElegantLogo";
 
-interface Props {
+export interface ThreeColumnFooterProps {
     /**
      * Column 1 of links.
      */
@@ -53,7 +53,7 @@ export default function ThreeColumnFooter({
     links="text-slate-300 dark:text-slate-500 hover:text-white dark:hover:text-slate-700",
     logo=<Logo className="w-auto h-6" color="text-white dark:text-slate-900"/>,
     copyright=""
-}: Props) {
+}: ThreeColumnFooterProps) {
     return(
         <footer className={clsx("pb-16 text-sm leading-6", background)}>
             <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">

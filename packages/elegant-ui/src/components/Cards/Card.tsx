@@ -27,7 +27,7 @@ export default function Card({
 }: CardProps) {
     return(
         <div className={clsx(
-            "text-center mb-20 flex max-w-2xl flex-col items-center text-black bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-800 shadow-md dark:shadow-[inset_0_0_0_1px_#ffffff1a]",
+            "text-center mb-20 flex max-w-2xl flex-col items-center text-black bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm dark:shadow-[inset_0_0_0_1px_#ffffff1a]",
             className,
             padding
         )}>

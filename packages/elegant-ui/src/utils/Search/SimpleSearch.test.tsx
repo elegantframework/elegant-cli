@@ -1,4 +1,4 @@
-import { SimpleSearch } from './SimpleSearch';
+import SimpleSearch from './SimpleSearch';
 import { SamplePost } from './d8a';
 
 describe('The Simple Search method', () => {

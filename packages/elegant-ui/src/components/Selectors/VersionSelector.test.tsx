@@ -2,9 +2,12 @@ import React from "react";
 import VersionSelector from "./VersionSelector";
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import ResizeObserver from 'resize-observer-polyfill';
 
 describe("Version Selector component", () => {
     it('renders a version selector component as expected', () => {
+        global.ResizeObserver = ResizeObserver;
+
         render(
             <VersionSelector 
                 version="1.1.1"
@@ -20,6 +23,8 @@ describe("Version Selector component", () => {
     });
 
     it("shows the dropdown when clicked", () => {
+        global.ResizeObserver = ResizeObserver;
+
         render(
             <VersionSelector 
                 version="1.1.1"

@@ -4,7 +4,7 @@ import Link from "next/link";
 import ArrowTopRightOnSquareIcon from "@heroicons/react/20/solid/ArrowTopRightOnSquareIcon";
 import Logo from './../Logos/ElegantLogo/ElegantLogo';
 
-interface Props {
+export interface SplashFooterProps {
     /**
      * A navigation object containing url links and titles
      */
@@ -22,7 +22,7 @@ interface Props {
 export default function SplashFooter({
     navigation,
     logo=<Logo className="w-auto h-8" />
-}: Props) {
+}: SplashFooterProps) {
     let sections = [];
 
     for(let i = 0; i < navigation.length; i++)

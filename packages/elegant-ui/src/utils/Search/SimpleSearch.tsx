@@ -1,6 +1,12 @@
 import { Post } from "../../types/Post";
 
-export function SimpleSearch(
+/**
+ * A simple text based search of a group of posts.
+ * @param searchValue The search term to find.
+ * @param posts The posts to search through.
+ * @returns Posts that match the search text.
+ */
+export default function SimpleSearch(
     searchValue: string,
     posts: Post[]
 ) {
