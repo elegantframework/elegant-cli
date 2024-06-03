@@ -8,9 +8,6 @@
     - add dark mode selector back
     - test switching between dark mode and how the logo handles that
 
-- the elegant ui package is breaking v4... Fix this
-    - now might be the time to just release elegant-ui v2, under the elegant npm, and not brandon o
-
 - set seo metadata
 - add .env file back
     - add example, starter, and test .env files back

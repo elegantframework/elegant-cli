@@ -15,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark [--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem]">
+    <html lang="en" className="[--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem]">
       <head>
-          <script
+          {/* <script
             dangerouslySetInnerHTML={{
               __html: `
                 try {
@@ -30,7 +30,7 @@ export default function RootLayout({
                 } catch (_) {}
               `,
             }}
-          />
+          /> */}
       </head>
       <body className={inter.className}>{children}</body>
     </html>
