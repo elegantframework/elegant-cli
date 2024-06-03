@@ -1,17 +1,17 @@
 import BuiltWithElegant from "./components/Marks/BuiltWithElegant/BuiltWithElegant";
 import Card, { CardProps } from "./components/Cards/Card";
-import FacebookIcon from "./components/Icons/Facebook/FacebookIcon";
-import GitHubIcon from "./components/Icons/GitHub/GitHubIcon";
-import InstagramIcon from "./components/Icons/Instagram/InstagramIcon";
-import LinkedInIcon from "./components/Icons/LinkedIn/LinkedInIcon";
-import MoonIcon from "./components/Icons/Moon/MoonIcon";
-import PCIcon from "./components/Icons/PC/PCIcon";
+import FacebookIcon, { FacebookIconProps } from "./components/Icons/Facebook/FacebookIcon";
+import GitHubIcon, { GitHubIconProps } from "./components/Icons/GitHub/GitHubIcon";
+import InstagramIcon, { InstagramIconProps } from "./components/Icons/Instagram/InstagramIcon";
+import LinkedInIcon, { LinkedInIconProps } from "./components/Icons/LinkedIn/LinkedInIcon";
+import MoonIcon, { MoonIconProps } from "./components/Icons/Moon/MoonIcon";
+import PCIcon, { PCIconProps } from "./components/Icons/PC/PCIcon";
 import PoweredByElegant from "./components/Marks/PoweredByElegant/PoweredByElegant";
-import SunIcon from "./components/Icons/Sun/SunIcon";
-import TwitterIcon from "./components/Icons/Twitter/TwitterIcon";
-import YouTubeIcon from "./components/Icons/YouTube/YouTubeIcon";
+import SunIcon, { SunIconProps } from "./components/Icons/Sun/SunIcon";
+import TwitterIcon, { TwitterIconProps } from "./components/Icons/Twitter/TwitterIcon";
+import YouTubeIcon, { YouTubeIconProps } from "./components/Icons/YouTube/YouTubeIcon";
 import VideoPlayer, { VideoPlayerProps } from "./components/Videos/VideoPlayer";
-import DiscordIcon from "./components/Icons/Discord/DiscordIcon";
+import DiscordIcon, { DiscordIconProps } from "./components/Icons/Discord/DiscordIcon";
 import VersionSelector from "./components/Selectors/VersionSelector";
 import ElegantLogo from "./components/Logos/ElegantLogo/ElegantLogo";
 import MDXLogo from "./components/Logos/MDXLogo/MDXLogo";
@@ -20,7 +20,7 @@ import ReactLogo from "./components/Logos/ReactLogo/ReactLogo";
 import TailwindCSSLogo from "./components/Logos/TailwindCSSLogo/TailwindCSSLogo";
 import ThreeColumnFooter, { ThreeColumnFooterProps } from "./components/Footers/ThreeColumnFooter";
 import SplashFooter, { SplashFooterProps } from "./components/Footers/SplashFooter";
-import TrashIcon from "./components/Icons/Trash/TrashIcon";
+import TrashIcon, { TrashIconProps } from "./components/Icons/Trash/TrashIcon";
 import { ShowNextButton, GetPageList } from "./utils/Pagination/Pagintation";
 import SimpleSearch from "./utils/Search/SimpleSearch";
 import HeroSection, { HeroSectionProps } from "./components/Heros/HeroSection";
@@ -35,6 +35,28 @@ export {
     ButtonProps,
     Card,
     CardProps,
+    DiscordIcon,
+    DiscordIconProps,
     ElegantLogo,
-    MetaTitle
+    FacebookIcon,
+    FacebookIconProps,
+    GitHubIcon,
+    GitHubIconProps,
+    InstagramIcon,
+    InstagramIconProps,
+    LinkedInIcon,
+    LinkedInIconProps,
+    MetaTitle,
+    MoonIcon,
+    MoonIconProps,
+    PCIcon,
+    PCIconProps,
+    SunIcon,
+    SunIconProps,
+    TrashIcon,
+    TrashIconProps,
+    TwitterIcon,
+    TwitterIconProps,
+    YouTubeIcon,
+    YouTubeIconProps
 };

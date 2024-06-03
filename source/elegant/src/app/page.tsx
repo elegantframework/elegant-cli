@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import { NavItems, NavPopover } from "@/components/Header";
 import { Suspense } from "react";
-import GitHubIcon from "@/components/GitHubIcon";
+import { GitHubIcon } from "@brandonowens/elegant-ui";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
