@@ -70,8 +70,8 @@ export default function Nav({ children }: { children: ReactNode }) {
         },
         {
           name: "Settings",
-          href: `/site/${id}/settings`,
-          isActive: segments.includes("settings"),
+          href: `/admin/settings`,
+          isActive: segments.includes("/admin/settings"),
           icon: <Settings width={18} />,
         },
       ];
@@ -90,8 +90,8 @@ export default function Nav({ children }: { children: ReactNode }) {
         },
         {
           name: "Settings",
-          href: `/post/${id}/settings`,
-          isActive: segments.includes("settings"),
+          href: `/admin/settings`,
+          isActive: segments.includes("/admin/settings"),
           icon: <Settings width={18} />,
         },
       ];
@@ -117,8 +117,8 @@ export default function Nav({ children }: { children: ReactNode }) {
       },
       {
         name: "Settings",
-        href: "/settings",
-        isActive: segments[0] === "settings",
+        href: "/admin/settings",
+        isActive: segments[0] === "/admin/settings",
         icon: <Settings width={18} />,
       },
     ];

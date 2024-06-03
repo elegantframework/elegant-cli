@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import Welcome from "./Pages/Welcome";
 import Error from "./Pages/Error";
 import Onboard from "./Pages/Onboard";
+import { usePathname, useRouter } from "next/navigation";
 
 export interface CMSProps {
     postgresUrl: string | undefined,
@@ -24,21 +25,37 @@ export default function CMS({
     }
 
     const session = "hello";
-    let onboarded = true;
+    const onboarded = true;
+    const router = useRouter();
+    const pathname = usePathname();
 
     if(!session && !onboarded) {
+        router.push("/admin");
         return(
             <Onboard />
         );
     }
 
     if(!session) { 
+        router.push("/admin");
         return(
             <Login />
         );
     }
 
-    if(session) {
+    if(session && pathname === "/admin") {
+        return(
+            <Dashboard />
+        );
+    }
+
+    if(session && pathname === "/admin/settings") {
+        return(
+            <Dashboard />
+        );
+    }
+
+    if(session && pathname === "/admin/user") {
         return(
             <Dashboard />
         );

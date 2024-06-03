@@ -22,3 +22,5 @@
 - delete next.svg logo
 
 - add ga back
+
+- add url redirect functionality back
