@@ -6,7 +6,7 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-    "test": "jest --watch --verbose ./src --silent",
+    "test": "jest",
     "test:ci": "jest ./src --ci --silent"
   },
   "prisma": {
@@ -28,11 +28,16 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.1.0",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^16.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
     "prisma": "^5.14.0",
     "tailwindcss": "^3.4.1",
