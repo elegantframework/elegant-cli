@@ -3,6 +3,7 @@ import Logo from "@/components/Logo";
 import { NavItems, NavPopover } from "@/components/Header";
 import { Suspense } from "react";
 import { GitHubIcon } from "@brandonowens/elegant-ui";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
@@ -24,7 +25,9 @@ export default function Home() {
                   </ul>
                 </nav>
                 <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
-                  {/* <ThemeToggle /> */}
+                  <Suspense>
+                    <ThemeToggle />
+                  </Suspense>
                   {process.env.NEXT_PUBLIC_APP_REPOSITORY && (
                     <a
                       href={process.env.NEXT_PUBLIC_APP_REPOSITORY || ""}

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Login() {
     return(
-        <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
+        <main className="relative flex h-screen flex-col items-center justify-center z-10 p-0 md:p-4">
             <div className="mr-3 flex-none w-[2.0625rem] overflow-hidden">
                 <ElegantLogo className="w-auto h-8 mx-auto"/>
             </div>
@@ -20,7 +20,7 @@ export default function Login() {
                 </h2>
             </div>
             <Card className="mt-10 w-full max-w-xl shadow-md p-0">
-                <div className="bg-white w-full px-6 py-12 sm:px-12">
+                <div className="w-full px-6 py-4 sm:px-12">
                     <form className="space-y-6 text-left" action="#" method="POST">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
