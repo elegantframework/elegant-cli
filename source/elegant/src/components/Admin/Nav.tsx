@@ -122,7 +122,7 @@ export default function Nav({ children }: { children: ReactNode }) {
         icon: <Settings width={18} />,
       },
     ];
-  }, [segments, id, siteId]);
+  }, [segments, id, siteId, pathname]);
 
   const [showSidebar, setShowSidebar] = useState(false);
 
