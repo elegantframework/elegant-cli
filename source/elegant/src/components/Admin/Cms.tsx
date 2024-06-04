@@ -17,6 +17,9 @@ export default function CMS({
     postgresUrl,
     nonPoolingPUrl
 }: CMSProps) {
+    const router = useRouter();
+    const pathname = usePathname();
+    
     if(!postgresUrl || !nonPoolingPUrl) {
         return(
             <Welcome 
@@ -28,8 +31,6 @@ export default function CMS({
 
     const session = "hello";
     const onboarded = true;
-    const router = useRouter();
-    const pathname = usePathname();
 
     if(!session && !onboarded) {
         router.push("/admin");

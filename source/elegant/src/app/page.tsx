@@ -3,7 +3,6 @@ import Logo from "@/components/Logo";
 import { NavItems, NavPopover } from "@/components/Header";
 import { Suspense } from "react";
 import { GitHubIcon } from "@brandonowens/elegant-ui";
-import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
@@ -69,7 +68,7 @@ export default function Home() {
               </span>
             </h2>
             <p className={`m-0 max-w-[30ch] text-sm text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300`}>
-              Find in-depth information about Elegant's features, and take your website to the next level.
+                  {`Find in-depth information about Elegant's features, and take your website to the next level.`}
             </p>
           </a>
           <Link
