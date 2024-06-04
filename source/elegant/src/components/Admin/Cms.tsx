@@ -5,6 +5,8 @@ import Welcome from "./Pages/Welcome";
 import Error from "./Pages/Error";
 import Onboard from "./Pages/Onboard";
 import { usePathname, useRouter } from "next/navigation";
+import SiteSettings from "./Pages/SiteSettings";
+import UserSettings from "./Pages/UserSettings";
 
 export interface CMSProps {
     postgresUrl: string | undefined,
@@ -51,13 +53,13 @@ export default function CMS({
 
     if(session && pathname === "/admin/settings") {
         return(
-            <Dashboard />
+            <SiteSettings />
         );
     }
 
     if(session && pathname === "/admin/user") {
         return(
-            <Dashboard />
+            <UserSettings />
         );
     }
 

@@ -4,14 +4,13 @@ import {
   ArrowLeft,
   BarChart3,
   Edit3,
-  Globe,
   LayoutDashboard,
-  Megaphone,
   Menu,
   Newspaper,
   Settings,
   FileCode,
   Github,
+  WalletCards,
 } from "lucide-react";
 import {
   useParams,
@@ -36,6 +35,7 @@ const externalLinks = [
 
 export default function Nav({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments();
+  const pathname = usePathname();
   const { id } = useParams() as { id?: string };
 
   const [siteId, setSiteId] = useState<string | null>();
@@ -63,7 +63,7 @@ export default function Nav({ children }: { children: ReactNode }) {
           icon: <Newspaper width={18} />,
         },
         {
-          name: "Analytics",
+          name: "Collections",
           href: `/site/${id}/analytics`,
           isActive: segments.includes("analytics"),
           icon: <BarChart3 width={18} />,
@@ -99,8 +99,8 @@ export default function Nav({ children }: { children: ReactNode }) {
     return [
       {
         name: "Overview",
-        href: "/",
-        isActive: segments.length === 0,
+        href: "/admin",
+        isActive: pathname === "/admin",
         icon: <LayoutDashboard width={18} />,
       },
       {
@@ -110,23 +110,21 @@ export default function Nav({ children }: { children: ReactNode }) {
         icon: <Newspaper width={18} />,
       },
       {
-        name: "Analytics",
+        name: "Collections",
         href: `/site/${id}/analytics`,
         isActive: segments.includes("analytics"),
-        icon: <BarChart3 width={18} />,
+        icon: <WalletCards width={18} />,
       },
       {
         name: "Settings",
         href: "/admin/settings",
-        isActive: segments[0] === "/admin/settings",
+        isActive: pathname === "/admin/settings",
         icon: <Settings width={18} />,
       },
     ];
   }, [segments, id, siteId]);
 
   const [showSidebar, setShowSidebar] = useState(false);
-
-  const pathname = usePathname();
 
   useEffect(() => {
     // hide sidebar on path change
