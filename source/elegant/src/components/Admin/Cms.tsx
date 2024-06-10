@@ -1,26 +1,30 @@
-'use client'
 import Dashboard from "./Pages/Dashboard";
 import Login from "./Pages/Login";
 import Welcome from "./Pages/Welcome";
 import Error from "./Pages/Error";
 import Onboard from "./Pages/Onboard";
-import { usePathname, useRouter } from "next/navigation";
 import SiteSettings from "./Pages/SiteSettings";
 import UserSettings from "./Pages/UserSettings";
+import { Session } from "next-auth";
+import Collections from "./Pages/Collections";
 
 export interface CMSProps {
     postgresUrl: string | undefined,
-    nonPoolingPUrl: string | undefined
+    nonPoolingPUrl: string | undefined,
+    adminCount: number,
+    session: Session | null,
+    params: { 
+        cms: string[]
+    } 
 };
 
 export default function CMS({
     postgresUrl,
-    nonPoolingPUrl
+    nonPoolingPUrl,
+    adminCount,
+    session,
+    params
 }: CMSProps) {
-    const router = useRouter();
-    const pathname = usePathname();
-    let onboarded = false;
-
     if(!postgresUrl || !nonPoolingPUrl) {
         return(
             <Welcome 
@@ -30,17 +34,7 @@ export default function CMS({
         );
     }
 
-    const session = null;
-
-    if(session) {
-        onboarded = true;
-    }
-    else {
-        // @todo: check if an admin user has been onboarded
-    }
-
-    if(!session && !onboarded) {
-        router.push("/admin");
+    if(adminCount === 0) {
         return(
             <Onboard />
         );
@@ -52,21 +46,27 @@ export default function CMS({
         );
     }
 
-    if(session && pathname === "/admin") {
+    if(!params.cms) {
         return(
-            <Dashboard />
+            <Dashboard session={session}/>
         );
     }
 
-    if(session && pathname === "/admin/settings") {
+    if(params.cms[0] === "collections" && !params.cms[1]) {
         return(
-            <SiteSettings />
+            <Collections session={session}/>
         );
     }
 
-    if(session && pathname === "/admin/user") {
+    if(params.cms[0] === "settings") {
         return(
-            <UserSettings />
+            <SiteSettings session={session}/>
+        );
+    }
+
+    if(params.cms[0] === "user") {
+        return(
+            <UserSettings session={session}/>
         );
     }
 

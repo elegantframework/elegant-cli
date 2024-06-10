@@ -2,9 +2,11 @@ import NextAuth from 'next-auth';
 import { authConfig } from '../../auth.config';
 import GitHubProvider from "next-auth/providers/github";
 import Credentials from 'next-auth/providers/credentials';
-import { z } from 'zod';
+import { z, string } from 'zod';
+import { getUser } from './Actions';
+import { comparePasswords } from './Bcrypt';
  
-export const { auth, signIn, signOut } = NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     GitHubProvider({
@@ -21,17 +23,50 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
     Credentials({
-      async authorize(credentials) {
+      credentials: {
+        email: {
+        },
+        password: {},
+      },
+      //   let user = null;
+ 
+      //   const pwHash = await hashPassword(credentials.password);
+
+      //   user = await getUser(credentials.email, pwHash)
+
+      //   if (!user) {
+      //     throw new Error("User not found.")
+      //   }
+
+      //   return user
+      // },
+      authorize: async (credentials): Promise<any> => {
         const parsedCredentials = z
-          .object({ email: z.string().email(), password: z.string().min(6) })
-          .safeParse(credentials);
+        .object({
+          email: string({ required_error: "Email is required" })
+          .min(1, "Email is required")
+          .email("Invalid email"),
+        password: string({ required_error: "Password is required" })
+          .min(1, "Password is required")
+          .min(6, "Password must be more than 6 characters")
+          .max(32, "Password must be less than 32 characters"),
+        })
+        .safeParse(credentials);
 
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
-          
-          const user = null;
-          // const user = await getUser(email);
-          if (!user) return null;
+          const user = await getUser(email);
+
+          if (!user) {
+            return null;
+          };
+
+          // @ts-expect-error
+          const passwordsMatch = comparePasswords(password, user.password);
+
+          if (passwordsMatch) {
+            return user;
+          };
         }
 
         return null;

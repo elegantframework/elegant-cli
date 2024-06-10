@@ -1,4 +1,7 @@
 
+- finish adding error handling to admin onboard field
+
+
 - finish header on main page
 
     - add the dark mode selector back

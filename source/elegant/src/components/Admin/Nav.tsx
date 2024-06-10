@@ -111,8 +111,8 @@ export default function Nav({ children }: { children: ReactNode }) {
       },
       {
         name: "Collections",
-        href: `/site/${id}/analytics`,
-        isActive: segments.includes("analytics"),
+        href: `/admin/collections`,
+        isActive: pathname.includes("collections"),
         icon: <WalletCards width={18} />,
       },
       {

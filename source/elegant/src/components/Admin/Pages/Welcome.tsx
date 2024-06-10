@@ -38,7 +38,7 @@ export default function Welcome({
                             {`is not set!`}
                         </li>
                     }
-                    {!process.env.POSTGRES_URL_NON_POOLING && 
+                    {!nonPoolingPUrl && 
                         <li key={'db_url_non_pooling'} className="mb-1 text-left dark:text-slate-200">
                             {`❌`}{' '}
                             <span className="font-semibold">{'POSTGRES_URL_NON_POOLING'}</span>{' '}

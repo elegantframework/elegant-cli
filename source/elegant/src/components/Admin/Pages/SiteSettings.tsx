@@ -1,14 +1,14 @@
-import React, { Suspense } from "react";
+import React from "react";
 import DashboardLayout from "../DashboardLayout";
+import { Session } from "next-auth";
 
-export default function SiteSettings() {
-    // const session = await getSession();
-    // if (!session) {
-    //   redirect("/login");
-    // }
-    
+export default function SiteSettings({
+  session
+}:{
+  session: Session | null
+}) {
     return(
-        <DashboardLayout>
+        <DashboardLayout session={session}>
              <div className="flex max-w-screen-xl flex-col space-y-12 p-8">
                 <div className="mx-auto mt-8 max-w-2xl space-y-16 sm:space-y-20 lg:mx-0 lg:max-w-none">
                     <div>

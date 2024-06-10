@@ -1,23 +1,29 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import LogoutButton from "./LogoutButton";
+import { Session } from "next-auth";
 
-export default async function Profile() {
-  // const session = await getSession();
-  // if (!session?.user) {
-  //   redirect("/login");
-  // }
+export default function Profile({
+  session
+}:{
+  session: Session | null
+}) {
+  // const session = {
+  //   user: {
+  //     id: 1,
+  //     name: "Brandon Owens",
+  //     username: "@thebrandonowens",
+  //     email: "brandon@elegantframework.com",
+  //     image: "https://avatars.githubusercontent.com/u/10189130?v=4"
+  //   }
+  // };
 
-  const session = {
-    user: {
-      id: 1,
-      name: "Brandon Owens",
-      username: "@thebrandonowens",
-      email: "brandon@elegantframework.com",
-      image: "https://avatars.githubusercontent.com/u/10189130?v=4"
-    }
-  };
+
+  console.log(JSON.stringify(session))
+
+  if (!session?.user) {
+    return;
+  }
 
   return (
     <div className="flex w-full items-center justify-between">
@@ -28,7 +34,7 @@ export default async function Profile() {
         <Image
           src={
             session.user.image ??
-            `https://avatar.vercel.sh/${session.user.email}`
+            `https://avatars.githubusercontent.com/u/10189130?v=4`
           }
           width={40}
           height={40}
