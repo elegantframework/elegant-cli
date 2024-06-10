@@ -38,6 +38,15 @@ model Session {
   @@index([userId])
 }
 
+model Collection {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+  coverImage  String?
+  createdAt   DateTime 
+  updatedAt   DateTime @updatedAt
+}
+
 model Post {
   id          String      @id @default(cuid())
   title       String

@@ -57,3 +57,20 @@ export async function getAdminCount() {
 
     return response.length;
 }
+
+export async function createCollection() {
+    try {
+        const response = await prisma.collection.create({
+            data: {
+                
+            }
+        });
+
+        return response;
+    } 
+    catch (error: any) {
+        return {
+            error: error.message,
+        };
+    }
+}
