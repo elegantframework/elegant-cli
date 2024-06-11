@@ -30,7 +30,7 @@ export default function Onboard() {
                     <form 
                         className="space-y-6 text-left"
                         action={async (data: FormData) => {
-                            createAdmin(data).then((res: any) => {
+                            createAdminUser(data).then((res: any) => {
                                 router.refresh();
                             }).catch((error) => {
                                 console.log(error)
@@ -99,4 +99,16 @@ export default function Onboard() {
             </div>
         </main>
     );
+}
+
+export async function createAdminUser(formData: FormData) {
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    return await createAdmin({
+        name: name,
+        email: email,
+        password: password
+    });
 }

@@ -24,42 +24,34 @@ model User {
   role          String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  sessions      Session[]
   posts         Post[]
 }
 
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([userId])
-}
-
 model Collection {
-  id          String      @id @default(cuid())
-  name        String
+  id          String   @id @default(cuid())
+  title       String
   description String?
   coverImage  String?
-  createdAt   DateTime 
+  createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  Post        Post?    @relation(fields: [postId], references: [id])
+  postId      String?
 }
 
 model Post {
-  id          String      @id @default(cuid())
+  id          String       @id @default(cuid())
   title       String
   status      Status
   description String
   coverImage  String?
   content     String?
-  author      User     @relation(fields: [authorId], references: [id])
+  author      User         @relation(fields: [authorId], references: [id])
   authorId    String
   slug        String?
+  collections Collection[]
   tags        String[]
-  createdAt   DateTime 
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
 
 enum Status {

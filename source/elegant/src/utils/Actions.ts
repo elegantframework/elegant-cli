@@ -4,22 +4,25 @@ import { signIn } from "./Auth";
 import { hashPassword } from "./Bcrypt";
 import prisma from "./Prisma";
 
-export async function createAdmin(formData: FormData) {
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
+export interface createAdmin {
+    name: string;
+    email: string;
+    password: string;
+};
+
+export async function createAdmin(user: createAdmin) {
 
     try {
         await prisma.user.create({
             data: {
-                name: name,
-                email: email,
-                password: await hashPassword(password),
+                name: user.name,
+                email: user.email,
+                password: await hashPassword(user.password),
                 role: "admin"
             }
         });
 
-        const response = await signIn('credentials', formData);
+        const response = await signIn('credentials', user);
 
         return response;
     } 
@@ -56,21 +59,4 @@ export async function getAdminCount() {
     });
 
     return response.length;
-}
-
-export async function createCollection() {
-    try {
-        const response = await prisma.collection.create({
-            data: {
-                
-            }
-        });
-
-        return response;
-    } 
-    catch (error: any) {
-        return {
-            error: error.message,
-        };
-    }
 }

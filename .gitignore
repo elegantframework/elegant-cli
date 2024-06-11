@@ -2,3 +2,4 @@
 .vscode/
 packages/elegant-ui/node_modules/
 node_modules/
+source/elegant/src/utils/PrismaRepository.ts

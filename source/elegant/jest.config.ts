@@ -10,8 +10,7 @@ const createJestConfig = nextJest({
 const config: Config = {
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
-  // Add more setup options before each test is run
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/utils/mocks/prisma-singleton.ts'],
   moduleNameMapper: {
 		'@/auth': '<rootDir>/src/utils/mocks/auth.ts',
 		'next-auth/providers/credentials':
