@@ -92,6 +92,23 @@ export async function updatePost(post: UpdatePost) {
     }
 }
 
-export async function deletePost() {
+export interface DeletePost {
+    id: string;
+}
 
+export async function deletePost(post: DeletePost) {
+    try {
+        const response = await prisma.post.delete({
+            where: {
+                id: post.id,
+            }        
+        });
+
+        return response;
+    } 
+    catch (error: any) {
+        return {
+            error: error.message,
+        };
+    }
 }

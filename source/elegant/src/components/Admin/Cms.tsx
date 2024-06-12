@@ -7,6 +7,7 @@ import SiteSettings from "./Pages/SiteSettings";
 import UserSettings from "./Pages/UserSettings";
 import { Session } from "next-auth";
 import Collections from "./Pages/Collections";
+import NewCollection from "./Pages/NewCollection";
 
 export interface CMSProps {
     postgresUrl: string | undefined,
@@ -55,6 +56,12 @@ export default function CMS({
     if(params.cms[0] === "collections" && !params.cms[1]) {
         return(
             <Collections session={session}/>
+        );
+    }
+
+    if(params.cms[0] === "collections" && params.cms[1] === "new") {
+        return(
+            <NewCollection session={session}/>
         );
     }
 

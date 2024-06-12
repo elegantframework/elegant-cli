@@ -11,7 +11,6 @@ export interface createAdmin {
 };
 
 export async function createAdmin(user: createAdmin) {
-
     try {
         await prisma.user.create({
             data: {
