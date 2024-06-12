@@ -1,7 +1,5 @@
-import CMS from "./app/admin/cms";
-import { CMSProps } from "./app/admin/cms";
+import { generateMetadata } from "./utils/Metadata/GenerateMetadata";
 
 export {
-    CMS,
-    CMSProps
+    generateMetadata
 }

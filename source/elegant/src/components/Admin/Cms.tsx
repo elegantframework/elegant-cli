@@ -53,6 +53,18 @@ export default function CMS({
         );
     }
 
+    if(params.cms[0] === "settings") {
+        return(
+            <SiteSettings session={session}/>
+        );
+    }
+
+    if(params.cms[0] === "user") {
+        return(
+            <UserSettings session={session}/>
+        );
+    }
+
     if(params.cms[0] === "collections" && !params.cms[1]) {
         return(
             <Collections session={session}/>
@@ -65,17 +77,9 @@ export default function CMS({
         );
     }
 
-    if(params.cms[0] === "settings") {
-        return(
-            <SiteSettings session={session}/>
-        );
-    }
-
-    if(params.cms[0] === "user") {
-        return(
-            <UserSettings session={session}/>
-        );
-    }
+    // check to see if the collection exists
+    // /admin/[collection_name]
+    // if not, continue to error below 
 
     return(
         <Error />
