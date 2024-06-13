@@ -30,7 +30,7 @@ export default function Onboard() {
                     <form 
                         className="space-y-6 text-left"
                         action={async (data: FormData) => {
-                            createAdminUser(data).then((res: any) => {
+                            await createAdminUser(data).then((res: any) => {
                                 router.refresh();
                             }).catch((error) => {
                                 console.log(error)

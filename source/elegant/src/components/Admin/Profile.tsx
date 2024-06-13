@@ -8,19 +8,6 @@ export default function Profile({
 }:{
   session: Session | null
 }) {
-  // const session = {
-  //   user: {
-  //     id: 1,
-  //     name: "Brandon Owens",
-  //     username: "@thebrandonowens",
-  //     email: "brandon@elegantframework.com",
-  //     image: "https://avatars.githubusercontent.com/u/10189130?v=4"
-  //   }
-  // };
-
-
-  console.log(JSON.stringify(session))
-
   if (!session?.user) {
     return;
   }

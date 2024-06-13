@@ -59,3 +59,21 @@ export async function getAdminCount() {
 
     return response.length;
 }
+
+export interface logUserIn {
+    email: string;
+    password: string;
+};
+
+export async function logUserIn(user: logUserIn) {
+    try {
+        const response = await signIn('credentials', user);
+
+        return response;
+    } 
+    catch (error: any) {
+        return {
+            error: error.message,
+        };
+    }
+}

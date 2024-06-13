@@ -1,5 +1,4 @@
 import Dashboard from "./Pages/Dashboard";
-import Login from "./Pages/Login";
 import Welcome from "./Pages/Welcome";
 import Error from "./Pages/Error";
 import Onboard from "./Pages/Onboard";
@@ -8,6 +7,7 @@ import UserSettings from "./Pages/UserSettings";
 import { Session } from "next-auth";
 import Collections from "./Pages/Collections";
 import NewCollection from "./Pages/NewCollection";
+import Login from "./Pages/Login";
 
 export interface CMSProps {
     postgresUrl: string | undefined,

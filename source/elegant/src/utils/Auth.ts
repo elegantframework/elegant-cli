@@ -28,18 +28,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         },
         password: {},
       },
-      //   let user = null;
- 
-      //   const pwHash = await hashPassword(credentials.password);
-
-      //   user = await getUser(credentials.email, pwHash)
-
-      //   if (!user) {
-      //     throw new Error("User not found.")
-      //   }
-
-      //   return user
-      // },
       authorize: async (credentials): Promise<any> => {
         const parsedCredentials = z
         .object({
@@ -63,6 +51,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
           // @ts-expect-error
           const passwordsMatch = comparePasswords(password, user.password);
+
+          if(!passwordsMatch) {
+            throw new Error("User not found.");
+          }
 
           if (passwordsMatch) {
             return user;

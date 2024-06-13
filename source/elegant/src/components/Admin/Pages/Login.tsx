@@ -1,14 +1,17 @@
-import React from "react";
-import { Metadata } from "next";
-import { Card, ElegantLogo, MetaTitle } from '@brandonowens/elegant-ui';
+'use client'
+import React, { useState } from "react";
+import { Card, ElegantLogo } from '@brandonowens/elegant-ui';
 import Link from "next/link";
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
-
-export const metadata: Metadata = {
-    title: `Log In - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`,
-};
+import { useRouter } from "next/navigation";
+import { logUserIn } from "@/utils/Actions";
+import { XCircleIcon } from "lucide-react";
 
 export default function Login() {
+    const router = useRouter();
+    const [error, setError] = useState("");
+    router.replace('/admin');
+
     return(
         <main className="relative flex h-screen flex-col items-center justify-center z-10 p-0 md:p-4">
             <div className="mr-3 flex-none w-[2.0625rem] overflow-hidden">
@@ -21,66 +24,89 @@ export default function Login() {
             </div>
             <Card className="mt-10 w-full max-w-xl shadow-md p-0">
                 <div className="w-full px-6 py-4 sm:px-12">
-                    <form className="space-y-6 text-left" action="#" method="POST">
+                    {error.length > 0 && (
+                        <div className="rounded-md bg-red-50 p-4 mb-6">
+                            <div className="flex">
+                                <div className="flex-shrink-0">
+                                    <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
+                                </div>
+                                <div className="ml-3">
+                                    <h3 className="text-sm font-medium text-red-800">
+                                        {error}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    <form 
+                        className="space-y-6 text-left" 
+                        action={
+                            async (data: FormData) => {
+                            const email = data.get("email") as string;
+                            const password = data.get("password") as string;
+                            setError("");
+                        
+                            await logUserIn({
+                                email: email,
+                                password: password
+                            }).then((res: any) => {
+                                if(res.error.includes("Read more at ")) {
+                                    setError("Invalid email or password.");
+                                }
+                                else {
+                                    router.refresh();
+                                }
+                            })
+                        }}
+                    >
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
                             </label>
                             <div className="mt-2">
-                            <input
-                                id="email"
-                                name="email"
-                                type="email"
-                                autoComplete="email"
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    autoComplete="email"
+                                    required
+                                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
                             </div>
                         </div>
                         <div>
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                            Password
+                                Password
                             </label>
                             <div className="mt-2">
-                            <input
-                                id="password"
-                                name="password"
-                                type="password"
-                                autoComplete="current-password"
-                                required
-                                className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    required
+                                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
                             </div>
                         </div>
                         <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                            <input
-                                id="remember-me"
-                                name="remember-me"
-                                type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            />
-                            <label htmlFor="remember-me" className="ml-3 block text-sm leading-6 text-gray-900">
-                                Remember me
-                            </label>
-                            </div>
-
+                            <div className="flex items-center"></div>
                             <div className="text-sm leading-6">
-                            <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                                Forgot password?
-                            </a>
+                                {/* <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                                    Forgot password?
+                                </a> */}
                             </div>
                         </div>
                         <div>
                             <button
-                            type="submit"
-                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                type="submit"
+                                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
-                            Sign in
+                                Sign in
                             </button>
                         </div>
                     </form>
-                    <div>
+                    {/* <div>
                         <div className="relative mt-10">
                             <div className="absolute inset-0 flex items-center" aria-hidden="true">
                                 <div className="w-full border-t border-gray-200" />
@@ -129,7 +155,7 @@ export default function Login() {
                             <span className="text-sm font-semibold leading-6">GitHub</span>
                             </a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </Card>
             <div className="sm:mx-auto sm:w-full max-w-xl xs:pl-0 sm:pl-4 text-left mt-10 dark:text-white">
