@@ -1,3 +1,4 @@
+'use client'
 import Dashboard from "./Pages/Dashboard";
 import Welcome from "./Pages/Welcome";
 import Error from "./Pages/Error";

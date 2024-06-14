@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@brandonowens/elegant-ui/styles.css';
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 196, 181, 253, 0.2;

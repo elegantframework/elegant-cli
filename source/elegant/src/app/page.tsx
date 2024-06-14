@@ -1,9 +1,10 @@
+"use client"
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import { NavItems, NavPopover } from "@/components/Header";
 import { Suspense } from "react";
-import { GitHubIcon } from "@brandonowens/elegant-ui";
+import { GitHubIcon, VersionSelector } from "@brandonowens/elegant-ui";
 import ThemeToggle from "@/components/ThemeToggle";
+import { NavPopover, NavItems } from "@/components/Header";
 
 export default function Home() {
   return (
@@ -11,7 +12,19 @@ export default function Home() {
       <header className="relative">
         <div className="px-4 sm:px-6 md:px-8">
           <div className="relative pt-6 lg:pt-8 flex items-center justify-between text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200">
-            <Logo />
+            <div className="flex">
+              <Logo 
+                className="w-auto h-7 mr-4" 
+                title={process.env.NEXT_PUBLIC_APP_NAME || `Elegant` + ` logo`}
+              />
+              {/* <VersionSelector
+                version='3.x'
+                pastVersions={[
+                    {label: "2.x", href: "https://www.v2.elegantframework.com/"},
+                    {label: "1.x", href: "https://www.v1.elegantframework.com/"}
+                ]}
+              /> */}
+            </div>
             <div className="flex items-center">
               <Suspense>
                 <NavPopover className="-my-1 ml-2 -mr-1" display="md:hidden" />

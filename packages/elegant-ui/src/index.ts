@@ -12,7 +12,7 @@ import TwitterIcon, { TwitterIconProps } from "./components/Icons/Twitter/Twitte
 import YouTubeIcon, { YouTubeIconProps } from "./components/Icons/YouTube/YouTubeIcon";
 import VideoPlayer, { VideoPlayerProps } from "./components/Videos/VideoPlayer";
 import DiscordIcon, { DiscordIconProps } from "./components/Icons/Discord/DiscordIcon";
-import VersionSelector from "./components/Selectors/VersionSelector";
+import VersionSelector, { VersionSelectorProps } from "./components/Selectors/VersionSelector";
 import ElegantLogo from "./components/Logos/ElegantLogo/ElegantLogo";
 import MDXLogo from "./components/Logos/MDXLogo/MDXLogo";
 import NextJsLogo from "./components/Logos/NextJsLogo/NextJsLogo";
@@ -57,6 +57,8 @@ export {
     TrashIconProps,
     TwitterIcon,
     TwitterIconProps,
+    VersionSelector,
+    VersionSelectorProps,
     YouTubeIcon,
     YouTubeIconProps
 };

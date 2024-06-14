@@ -42,22 +42,23 @@ export default function Login() {
                         className="space-y-6 text-left" 
                         action={
                             async (data: FormData) => {
-                            const email = data.get("email") as string;
-                            const password = data.get("password") as string;
-                            setError("");
+                                const email = data.get("email") as string;
+                                const password = data.get("password") as string;
+                                setError("");
                         
-                            await logUserIn({
-                                email: email,
-                                password: password
-                            }).then((res: any) => {
-                                if(res.error.includes("Read more at ")) {
-                                    setError("Invalid email or password.");
-                                }
-                                else {
-                                    router.refresh();
-                                }
-                            })
-                        }}
+                                await logUserIn({
+                                    email: email,
+                                    password: password
+                                }).then((res: any) => {
+                                    if(res.error.includes("Read more at ")) {
+                                        setError("Invalid email or password.");
+                                    }
+                                    else {
+                                        router.refresh();
+                                    }
+                                })
+                            }
+                        }
                     >
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
