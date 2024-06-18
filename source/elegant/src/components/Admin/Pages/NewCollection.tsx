@@ -3,13 +3,20 @@ import { Session } from "next-auth";
 import DashboardLayout from "../DashboardLayout";
 import { plural } from 'pluralize';
 import { useState } from "react";
+import { XCircleIcon } from "lucide-react";
+import { createCollection, getCollectionByName } from "@/utils/Db/Actions/Collection";
+import { useRouter } from "next/navigation";
 
 export default function NewCollection({
-    session
+    session,
+    collections
 }:{
-    session: Session | null
+    session: Session | null,
+    collections: string[]
 }) {
     const [pluralized, setPlural] = useState('');
+    const [error, setError] = useState('');
+    const router = useRouter();
 
     return(
         <DashboardLayout session={session}>
@@ -20,7 +27,7 @@ export default function NewCollection({
                     </div>
                 </div>
                 <div>
-                    {pluralized && (
+                    {pluralized && error.length === 0 && (
                         <div className="rounded-md bg-blue-50 p-4">
                             <div className="flex">
                                 <div className="ml-3 flex-1 md:flex md:justify-between">
@@ -33,8 +40,45 @@ export default function NewCollection({
                             </div>
                         </div>
                     )}
+                    {error.length > 0 && (
+                        <div className="rounded-md bg-red-50 p-4 mb-6">
+                            <div className="flex">
+                                <div className="flex-shrink-0">
+                                    <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
+                                </div>
+                                <div className="ml-3">
+                                    <h3 className="text-sm font-medium text-red-800">
+                                        {error}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                     <form action={
                         async (data: FormData) => {
+                            setError("");
+
+                            if(pluralized.toLowerCase() === "settings" ||
+                               pluralized.toLowerCase() === "collections" ||
+                               pluralized.toLowerCase() === "users"
+                            ) {
+                                setError(`${pluralized} is not a valid collection name.`);
+                            }
+
+                            if(collections.includes(pluralized.toLowerCase())) {
+                                setError(`${pluralized} is already taken.`);
+                            }
+
+                            if(await getCollectionByName({title: pluralized.toLowerCase()}) ) {
+                                setError(`${pluralized} is already taken.`);
+                            }
+
+                            // save the collection
+                            await createCollection({
+                                title: pluralized.toLowerCase()
+                            }).then(() => {
+                                router.push(`/admin/${pluralized.toLowerCase()}`);
+                            });
                         }
                     }>
                         <div className="space-y-12">
@@ -54,7 +98,8 @@ export default function NewCollection({
                                                 placeholder="Ex: Posts"
                                                 required
                                                 onChange={(e) => {
-                                                    setPlural(plural(e.target.value))
+                                                    setPlural(plural(e.target.value));
+                                                    setError('');
                                                 }}
                                             />
                                         </div>

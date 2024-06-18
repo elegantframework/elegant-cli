@@ -9,6 +9,8 @@ import { Session } from "next-auth";
 import Collections from "./Pages/Collections";
 import NewCollection from "./Pages/NewCollection";
 import Login from "./Pages/Login";
+import DocumentList from "./Pages/DocumentList";
+import EditDocument from "./Pages/EditDocument";
 
 export interface CMSProps {
     postgresUrl: string | undefined,
@@ -74,13 +76,32 @@ export default function CMS({
 
     if(params.cms[0] === "collections" && params.cms[1] === "new") {
         return(
-            <NewCollection session={session}/>
+            <NewCollection 
+                session={session}
+                collections={[]}
+            />
+        );
+    }
+
+    // temp: mimic the functionality of below
+    if(params.cms[0] === "docs" && !params.cms[1]) {
+        return(
+            <DocumentList session={session}/>
         );
     }
 
     // check to see if the collection exists
     // /admin/[collection_name]
     // if not, continue to error below 
+
+    // temp: mimic the functionality of below
+    if(params.cms[0] === "docs" && params.cms[1].length > 0) {
+        return(
+            <EditDocument session={session}/>
+        );
+    }
+    // check to see the collection and document exist
+    // /admin/docs/new
 
     return(
         <Error />

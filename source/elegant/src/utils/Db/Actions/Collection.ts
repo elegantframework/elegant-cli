@@ -4,7 +4,7 @@ import prisma from "@/utils/Prisma";
 
 export interface CreateCollection {
     title: string;
-    coverImage: string;
+    coverImage?: string;
 };
 
 export async function createCollection(collection: CreateCollection) {
@@ -27,7 +27,20 @@ export interface GetCollectionByName {
 };
 
 export async function getCollectionByName(collection: GetCollectionByName) {
+    try {
+        const response = await prisma.collection.findFirst({
+            where: {
+                title: collection.title
+            }
+        });
 
+        return response;
+    } 
+    catch (error: any) {
+        return {
+            error: error.message,
+        };
+    }
 };
 
 export interface UpdateCollection {
