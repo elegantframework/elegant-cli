@@ -19,6 +19,8 @@ import {
 } from "next/navigation";
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import { ElegantLogo } from "@brandonowens/elegant-ui";
+import { Collection } from "../Types";
+import { getAllCollections } from "@/utils/Db/Actions/Collection";
 
 const externalLinks = [
   {
@@ -38,76 +40,38 @@ export default function Nav({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const { id } = useParams() as { id?: string };
 
-  const [siteId, setSiteId] = useState<string | null>();
+  const [collections, setCollections] = useState<Collection[] | null>();
+
+  const getCollections = async() => {
+    const results = await getAllCollections();
+
+    setCollections(results);
+  };
 
   useEffect(() => {
-    // if (segments[0] === "post" && id) {
-    //   getSiteFromPostId(id).then((id) => {
-    //     setSiteId(id);
-    //   });
-    // }
-  }, [segments, id]);
+      getCollections();
+  }, []);
 
   const tabs = useMemo(() => {
-    if (segments[0] === "site" && id) {
-      return [
-        {
-          name: "Back to All Sites",
-          href: "/sites",
-          icon: <ArrowLeft width={18} />,
-        },
-        {
-          name: "Posts",
-          href: `/site/${id}`,
+    const collectionItems = [];
+
+    if(collections) {
+      collections.forEach(collection => {
+        collectionItems.push({
+          name: collection.title,
+          href: `/admin/${collection.title}`,
           isActive: segments.length === 2,
           icon: <Newspaper width={18} />,
-        },
-        {
-          name: "Collections",
-          href: `/site/${id}/analytics`,
-          isActive: segments.includes("analytics"),
-          icon: <BarChart3 width={18} />,
-        },
-        {
-          name: "Settings",
-          href: `/admin/settings`,
-          isActive: segments.includes("/admin/settings"),
-          icon: <Settings width={18} />,
-        },
-      ];
-    } else if (segments[0] === "post" && id) {
-      return [
-        {
-          name: "Back to All Posts",
-          href: siteId ? `/site/${siteId}` : "/sites",
-          icon: <ArrowLeft width={18} />,
-        },
-        {
-          name: "Editor",
-          href: `/post/${id}`,
-          isActive: segments.length === 2,
-          icon: <Edit3 width={18} />,
-        },
-        {
-          name: "Settings",
-          href: `/admin/settings`,
-          isActive: segments.includes("/admin/settings"),
-          icon: <Settings width={18} />,
-        },
-      ];
+        });
+      });
     }
+
     return [
       {
         name: "Overview",
         href: "/admin",
         isActive: pathname === "/admin",
         icon: <LayoutDashboard width={18} />,
-      },
-      {
-        name: "Posts",
-        href: `/site/${id}`,
-        isActive: segments.length === 2,
-        icon: <Newspaper width={18} />,
       },
       {
         name: "Collections",
@@ -122,7 +86,7 @@ export default function Nav({ children }: { children: ReactNode }) {
         icon: <Settings width={18} />,
       },
     ];
-  }, [segments, id, siteId, pathname]);
+  }, [segments, id, pathname, collections]);
 
   const [showSidebar, setShowSidebar] = useState(false);
 

@@ -11,6 +11,9 @@ import NewCollection from "./Pages/NewCollection";
 import Login from "./Pages/Login";
 import DocumentList from "./Pages/DocumentList";
 import EditDocument from "./Pages/EditDocument";
+import { useEffect, useState } from "react";
+import { Collection } from "../Types";
+import { getAllCollections } from "@/utils/Db/Actions/Collection";
 
 export interface CMSProps {
     postgresUrl: string | undefined,
@@ -29,6 +32,19 @@ export default function CMS({
     session,
     params
 }: CMSProps) {
+    const [collections, setCollections] = useState<Collection[]>();
+
+    useEffect(() => {
+        getAllCollections().then(
+            collections => {
+                setCollections(collections)
+            }
+        );
+    }, [params.cms]);
+
+    // console.log('here --< ' + collections?.includes(params.cms[0]))
+    console.log(collections)
+
     if(!postgresUrl || !nonPoolingPUrl) {
         return(
             <Welcome 
@@ -84,7 +100,7 @@ export default function CMS({
     }
 
     // temp: mimic the functionality of below
-    if(params.cms[0] === "docs" && !params.cms[1]) {
+    if(params.cms[0] === 'docs' && !params.cms[1]) {
         return(
             <DocumentList session={session}/>
         );

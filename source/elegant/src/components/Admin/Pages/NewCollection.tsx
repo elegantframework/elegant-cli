@@ -15,13 +15,51 @@ export default function NewCollection({
     collections: string[]
 }) {
     const [pluralized, setPlural] = useState('');
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const router = useRouter();
+
+    const onSubmit = async() => {
+        setError("");
+        setLoading(true);
+
+        try {
+            if(pluralized.toLowerCase() === "settings" ||
+                pluralized.toLowerCase() === "collections" ||
+                pluralized.toLowerCase() === "users"
+            ) {
+                setError(`${pluralized} is not a valid collection name.`);
+            }
+
+            else if(collections.includes(pluralized.toLowerCase())) {
+                setError(`${pluralized} is already taken.`);
+            }
+
+            else if(await getCollectionByName({title: pluralized.toLowerCase()}) ) {
+                setError(`${pluralized} is already taken.`);
+            }
+
+            else {
+                // save the collection
+               await createCollection({
+                   title: pluralized.toLowerCase()
+               }).then(() => {
+                   router.push(`/admin/${pluralized.toLowerCase()}`);
+               });
+           }
+
+           setLoading(false);
+        }
+        catch(error) {
+            // setError(error);
+            setLoading(false);
+        }
+    };
 
     return(
         <DashboardLayout session={session}>
             <div className="flex max-w-screen-xl flex-col space-y-12 p-5 md:p-8">
-                <div className="mt-16 md:mt-8 md:mx-auto flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none">
+                <div className="mt-16 md:mt-8 flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none">
                     <div className="flex items-center gap-x-6">
                         <h2 className="text-lg font-semibold leading-7 text-gray-900">New Collection</h2>
                     </div>
@@ -54,33 +92,7 @@ export default function NewCollection({
                             </div>
                         </div>
                     )}
-                    <form action={
-                        async (data: FormData) => {
-                            setError("");
-
-                            if(pluralized.toLowerCase() === "settings" ||
-                               pluralized.toLowerCase() === "collections" ||
-                               pluralized.toLowerCase() === "users"
-                            ) {
-                                setError(`${pluralized} is not a valid collection name.`);
-                            }
-
-                            if(collections.includes(pluralized.toLowerCase())) {
-                                setError(`${pluralized} is already taken.`);
-                            }
-
-                            if(await getCollectionByName({title: pluralized.toLowerCase()}) ) {
-                                setError(`${pluralized} is already taken.`);
-                            }
-
-                            // save the collection
-                            await createCollection({
-                                title: pluralized.toLowerCase()
-                            }).then(() => {
-                                router.push(`/admin/${pluralized.toLowerCase()}`);
-                            });
-                        }
-                    }>
+                    <form action={() => {onSubmit()}}>
                         <div className="space-y-12">
                             <div className="">
                                 <div className="mt-10 grid grid-cols-1 gap-y-8 sm:grid-cols-4">
@@ -108,9 +120,36 @@ export default function NewCollection({
                                     <div className="sm:col-span-1">
                                         <button
                                             type="submit"
+                                            disabled={loading}
                                             className="mb-2 mt-0 sm:mt-[30px] ml-0 sm:ml-4 mr-0 sm:mr-2 w-full sm:w-auto justify-center sm:justify-between inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer"
                                         >
-                                            Save
+                                            {loading ? (
+                                                <>
+                                                    <svg
+                                                        className="mr-3 -ml-1 h-5 w-5 animate-spin text-white"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <circle
+                                                            className="opacity-25"
+                                                            cx="12"
+                                                            cy="12"
+                                                            r="10"
+                                                            stroke="currentColor"
+                                                            strokeWidth="4"
+                                                        ></circle>
+                                                        <path
+                                                            className="opacity-75"
+                                                            fill="currentColor"
+                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                                        ></path>
+                                                    </svg>
+                                                    Saving
+                                                </>
+                                            ) : (
+                                                'Save'
+                                            )}
                                         </button>
                                     </div>
                                 </div>
