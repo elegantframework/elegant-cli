@@ -7,6 +7,7 @@ import EmptyState from "../Collections/EmptyState";
 import { PlusIcon } from "lucide-react";
 import { getAllCollections } from "@/utils/Db/Actions/Collection";
 import { Collection } from "@/components/Types";
+import Heading from "../Heading";
 
 export default function Collections({
     session
@@ -31,10 +32,7 @@ export default function Collections({
     return(
         <DashboardLayout session={session}>
             <div className="flex max-w-screen-xl flex-col space-y-12 p-5 md:p-8">
-                <div className="mt-16 md:mt-8 flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none">
-                    <div className="flex items-center gap-x-6">
-                        <h2 className="text-lg font-semibold leading-7 text-gray-900">Collections</h2>
-                    </div>
+                <Heading title={'Collections'}>
                     <div className="flex items-center gap-x-4 sm:gap-x-6">
                         <Link 
                             href={"/admin/collections/new"}
@@ -44,7 +42,7 @@ export default function Collections({
                             New Collection
                         </Link>
                     </div>
-                </div>
+                </Heading>
                 {isLoading && (
                     <div>
                         <ContentLoader

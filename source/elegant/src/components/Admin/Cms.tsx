@@ -102,7 +102,7 @@ export default function CMS({
     // temp: mimic the functionality of below
     if(params.cms[0] === 'docs' && !params.cms[1]) {
         return(
-            <DocumentList session={session}/>
+            <DocumentList session={session} title="Docs"/>
         );
     }
 

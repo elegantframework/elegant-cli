@@ -74,6 +74,12 @@ export default function Nav({ children }: { children: ReactNode }) {
         icon: <LayoutDashboard width={18} />,
       },
       {
+        name: "Posts",
+        href: `/site/${id}`,
+        isActive: segments.length === 2,
+        icon: <Newspaper width={18} />,
+      },
+      {
         name: "Collections",
         href: `/admin/collections`,
         isActive: pathname.includes("collections"),

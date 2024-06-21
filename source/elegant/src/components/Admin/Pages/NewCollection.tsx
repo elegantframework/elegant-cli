@@ -6,6 +6,7 @@ import { useState } from "react";
 import { XCircleIcon } from "lucide-react";
 import { createCollection, getCollectionByName } from "@/utils/Db/Actions/Collection";
 import { useRouter } from "next/navigation";
+import Heading from "../Heading";
 
 export default function NewCollection({
     session,
@@ -59,11 +60,9 @@ export default function NewCollection({
     return(
         <DashboardLayout session={session}>
             <div className="flex max-w-screen-xl flex-col space-y-12 p-5 md:p-8">
-                <div className="mt-16 md:mt-8 flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none">
-                    <div className="flex items-center gap-x-6">
-                        <h2 className="text-lg font-semibold leading-7 text-gray-900">New Collection</h2>
-                    </div>
-                </div>
+                <Heading title="New Collection">
+
+                </Heading>
                 <div>
                     {pluralized && error.length === 0 && (
                         <div className="rounded-md bg-blue-50 p-4">

@@ -19,10 +19,17 @@ jest.mock("next/navigation", () => ({
 
 describe('The main CMS component', () => {
     it('shows the welcome page when env vars have not been set', () => {
-        render(<Cms 
-            postgresUrl={undefined}
-            nonPoolingPUrl={undefined}
-        />)
+        render(
+            <Cms 
+                postgresUrl={undefined}
+                nonPoolingPUrl={undefined}
+                adminCount={0}
+                session={null}
+                params={{
+                    cms: []
+                }}
+            />
+        )
 
         const heading = screen.getByText('Welcome to Elegant CMS');
  
