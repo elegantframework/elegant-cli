@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import '@brandonowens/elegant-ui/styles.css';
+@import './../css/editor.css';
 
 :root {
   --foreground-rgb: 0, 0, 0;

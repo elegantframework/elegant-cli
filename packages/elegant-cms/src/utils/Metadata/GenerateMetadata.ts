@@ -1,3 +1,4 @@
+import { MetaTitle } from "@brandonowens/elegant-ui";
 import { Metadata, ResolvingMetadata } from "next";
 
 interface Props {
@@ -19,9 +20,6 @@ export async function generateMetadata(
     // const previousImages = (await parent).openGraph?.images || []
    
     return {
-      title: "Hello world",
-      openGraph: {
-        // images: ['/some-specific-page-image.jpg', ...previousImages],
-      },
+      title: `Log In - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`,
     }
 }
