@@ -54,6 +54,13 @@ model Post {
   updatedAt   DateTime     @updatedAt
 }
 
+model Views {
+  slug      String   @id
+  count     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 enum Status {
   DRAFT
   PUBLISHED

@@ -77,3 +77,20 @@ export async function logUserIn(user: logUserIn) {
         };
     }
 }
+
+export async function incrementPageViews(
+    slug: string
+) {
+    await prisma.views.upsert({
+      where: {
+        slug: slug
+      },
+      create: {
+        slug: slug,
+        count: 1
+      },
+      update: {
+        count: { increment: 1 }
+      }
+    });
+}
