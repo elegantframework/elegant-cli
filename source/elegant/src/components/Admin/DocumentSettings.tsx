@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import DateTimePicker from "../DateTimePicker";
 import Accordion from "./Accordion";
+import Input from "./Input";
+import TextArea from "./TextArea";
+import { Document, DocumentContextType } from "../Types";
+import { DocumentContext } from "./Pages/EditDocument";
 
 export default function DocumentSettings() {
+    const { document, hasChanges, setHasChanges } = useContext(DocumentContext);
     const [ tagInput, setTagInput ] = useState("");
     const [ newTags, setNewTags ] = useState<string[]>([]);
     
     return(
         <aside className="md:w-64 lg:fixed lg:bottom-0 lg:right-0 lg:top-16 lg:overflow-y-auto lg:border-l">
-             <div className="relative hidden w-full items-center justify-between md:mb-4 md:mt-8 md:flex px-4">
+            <div className="relative hidden w-full items-center justify-between md:mb-4 md:mt-8 md:flex px-4">
                 <DateTimePicker
                     id="publishedAt"
                     label="Date"
@@ -25,6 +30,9 @@ export default function DocumentSettings() {
                     name="status"
                     className="mt-2 block w-full rounded-md border-0 py-1.5 px-3 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     defaultValue="Draft"
+                    onChange={() => {
+                        setHasChanges(true)
+                    }}
                 >
                     <option>Published</option>
                     <option>Draft</option>
@@ -32,13 +40,22 @@ export default function DocumentSettings() {
             </div>
             <div className="w-full">
                 <Accordion title="Author">
-                    Hey
+                    <Input
+                        label="Name"
+                        id="author.name"
+                        // defaultValue={document.author?.name}
+                        defaultValue={'Hello World'}
+                        wrapperClass="mb-4"
+                    />
                 </Accordion>
                 <Accordion title="URL Slug">
                     There
                 </Accordion>
                 <Accordion title="Description">
-                    Now
+                    <TextArea
+                        id="description"
+                        label="Write a description (optional)"
+                    />
                 </Accordion>
                 <Accordion title="Cover Image">
                     and again
@@ -124,7 +141,7 @@ export default function DocumentSettings() {
                     )
                 })} */}
             </div>
-          </aside>
+        </aside>
     );
 }
 
