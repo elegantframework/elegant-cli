@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-
+import '@testing-library/jest-dom';
 import DateTimePicker from '.'
 import moment from 'moment'
 

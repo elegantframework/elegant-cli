@@ -17,9 +17,9 @@ import {
   usePathname,
   useSelectedLayoutSegments,
 } from "next/navigation";
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import { JSX, ReactNode, useEffect, useMemo, useState } from "react";
 import { ElegantLogo } from "@brandonowens/elegant-ui";
-import { Collection } from "../Types";
+import { Collection, NavigationItem } from "../Types";
 import { getAllCollections } from "@/utils/Db/Actions/Collection";
 
 const externalLinks = [
@@ -53,11 +53,18 @@ export default function Nav({ children }: { children: ReactNode }) {
   }, []);
 
   const tabs = useMemo(() => {
-    const collectionItems = [];
+    const navigation: NavigationItem[] = [];
+
+    navigation.push({
+      name: "Overview",
+      href: "/admin",
+      isActive: pathname === "/admin",
+      icon: <LayoutDashboard width={18} />,
+    });
 
     if(collections) {
       collections.forEach(collection => {
-        collectionItems.push({
+        navigation.push({
           name: collection.title,
           href: `/admin/${collection.title}`,
           isActive: segments.length === 2,
@@ -66,19 +73,7 @@ export default function Nav({ children }: { children: ReactNode }) {
       });
     }
 
-    return [
-      {
-        name: "Overview",
-        href: "/admin",
-        isActive: pathname === "/admin",
-        icon: <LayoutDashboard width={18} />,
-      },
-      {
-        name: "Posts",
-        href: `/site/${id}`,
-        isActive: segments.length === 2,
-        icon: <Newspaper width={18} />,
-      },
+    navigation.push(
       {
         name: "Collections",
         href: `/admin/collections`,
@@ -91,7 +86,11 @@ export default function Nav({ children }: { children: ReactNode }) {
         isActive: pathname === "/admin/settings",
         icon: <Settings width={18} />,
       },
-    ];
+    );
+
+    return(
+      navigation
+    );
   }, [segments, id, pathname, collections]);
 
   const [showSidebar, setShowSidebar] = useState(false);
@@ -138,7 +137,7 @@ export default function Nav({ children }: { children: ReactNode }) {
                 } rounded-lg px-2 py-1.5 transition-all duration-150 ease-in-out hover:bg-stone-200 active:bg-stone-300 dark:text-white dark:hover:bg-stone-700 dark:active:bg-stone-800`}
               >
                 {icon}
-                <span className="text-sm font-medium">{name}</span>
+                <span className="text-sm font-medium capitalize">{name}</span>
               </Link>
             ))}
           </div>

@@ -89,6 +89,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
     "prisma": "^5.15.0",
+    "react-test-renderer": "^18.3.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

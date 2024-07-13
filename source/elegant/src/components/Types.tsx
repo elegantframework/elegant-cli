@@ -19,7 +19,7 @@ export interface Collection {
     title: string;
 };
 
-export type Document = {
+export interface Document {
     /**
      * The author of this document.
      */
@@ -99,9 +99,28 @@ export interface DocumentContextType {
     setHasChanges: Dispatch<SetStateAction<boolean>>;
 };
 
-export type FileType = {
+export interface FileType {
     type: 'images';
     blob?: string;
     filename: string;
     content: string;
+};
+
+export interface NavigationItem {
+    /**
+     * The name of the navigation item to be displayed.
+     */
+    name: string; 
+    /**
+     * The url of the navigation item.
+     */
+    href: string; 
+    /**
+     * The this link active?
+     */
+    isActive: boolean; 
+    /**
+     * An icon to be displayed next to the navigation link.
+     */
+    icon: JSX.Element;
 };

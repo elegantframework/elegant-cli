@@ -42,9 +42,6 @@ export default function CMS({
         );
     }, [params.cms]);
 
-    // console.log('here --< ' + collections?.includes(params.cms[0]))
-    console.log(collections)
-
     if(!postgresUrl || !nonPoolingPUrl) {
         return(
             <Welcome 
