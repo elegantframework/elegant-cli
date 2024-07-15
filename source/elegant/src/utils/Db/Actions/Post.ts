@@ -50,15 +50,11 @@ export async function getPostById(post: GetPostById) {
     }
 }
 
-export interface GetPostByTitle {
-    name: string;
-}
-
-export async function getPostByTitle(post: GetPostByTitle) {
+export async function getPostByTitle(name: string) {
     try {
         const response = await prisma.post.findFirst({
             where: {
-                title: post.name,
+                title: name,
             }   
         });
 
@@ -69,6 +65,20 @@ export async function getPostByTitle(post: GetPostByTitle) {
             error: error.message,
         };
     }
+}
+
+export interface GetAllPostsForCollection {
+    name: string;
+};
+
+export async function getAllPostsForCollection(name: string) {
+    const response = await prisma.post.findMany({
+        where: {
+            title: name
+        }
+    });
+
+    return response;
 }
 
 export interface UpdatePost {
