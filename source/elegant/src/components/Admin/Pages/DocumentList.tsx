@@ -135,7 +135,7 @@ export default function DocumentList({
                 )}
                 {documents && documents.length === 0 && !isLoading && (
                     <div className="border-t border-gray-200 dark:border-white/10">
-                        <EmptyState />
+                        <EmptyState title={singular(title)}/>
                     </div>
                 )}
             </div>

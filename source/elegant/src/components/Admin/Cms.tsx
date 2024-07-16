@@ -96,27 +96,21 @@ export default function CMS({
         );
     }
 
-    // temp: mimic the functionality of below
-    if(params.cms[0] === 'docs' && !params.cms[1]) {
+    if(collections && collections.find(e => e.title === params.cms[0]) && !params.cms[1]) {
         return(
-            <DocumentList session={session} title="Docs"/>
+            <DocumentList session={session} title={params.cms[0]}/>
         );
     }
 
-    // check to see if the collection exists
-    // /admin/[collection_name]
-    // if not, continue to error below 
-
-    // temp: mimic the functionality of below
-    if(params.cms[0] === "docs" && params.cms[1].length > 0) {
+    if(collections && collections.find(e => e.title === params.cms[0]) && params.cms[1]) {
         return(
             <EditDocument session={session}/>
         );
     }
-    // check to see the collection and document exist
-    // /admin/docs/new
 
-    return(
-        <Error />
-    );
+    if(collections && !collections.find(e => e.title === params.cms[0])) {
+        return(
+            <Error />
+        );
+    }
 }

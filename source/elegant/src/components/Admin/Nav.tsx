@@ -67,7 +67,7 @@ export default function Nav({ children }: { children: ReactNode }) {
         navigation.push({
           name: collection.title,
           href: `/admin/${collection.title}`,
-          isActive: segments.length === 2,
+          isActive: pathname.includes(`/admin/${collection.title}`),
           icon: <Newspaper width={18} />,
         });
       });

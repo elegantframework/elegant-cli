@@ -13,7 +13,7 @@ export default function Heading({
     return(
         <div className="mt-8 flex max-w-2xl items-center justify-between gap-x-8 lg:mx-0 lg:max-w-none">
             <div className="flex items-center gap-x-6">
-                <h2 className="text-lg font-semibold leading-7 text-gray-900">
+                <h2 className="text-lg capitalize font-semibold leading-7 text-gray-900">
                     {title}
                 </h2>
             </div>
