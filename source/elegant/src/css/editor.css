@@ -39,6 +39,10 @@
   }
 }
 
+.ProseMirror.tiptap {
+  padding: 0;
+}
+
 [data-theme='slash-command'] {
   width: 1000vw;
 }

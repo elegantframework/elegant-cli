@@ -104,7 +104,7 @@ export default function CMS({
 
     if(collections && collections.find(e => e.title === params.cms[0]) && params.cms[1]) {
         return(
-            <EditDocument session={session}/>
+            <EditDocument session={session} collection={params.cms[0].toLowerCase()}/>
         );
     }
 

@@ -3,15 +3,17 @@ import DashboardLayout from "../DashboardLayout";
 import { useEditor } from "@/hooks/useEditor";
 import Editor from "@/components/Editor/Editor";
 import DocumentSettings from "../DocumentSettings";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Document, FileType } from "@/components/Types";
 import { DocumentContextType } from "@/components/Types";
-import { deepReplace } from "@/utils/Document/deepReplace";
+import { singular } from "pluralize";
 
 export default function EditDocument({
-    session
+    session,
+    collection
 }:{
-    session: Session | null
+    session: Session | null,
+    collection: string;
 }) {
     const { editor } = useEditor({});
     const loading = false;
@@ -19,19 +21,24 @@ export default function EditDocument({
     const [ document, setDocument ] = useState({} as Document);
     const [ files, setFiles ] = useState<FileType[]>([]);
 
-    const collection = "Hello World";
+    useEffect(() => {
+        editor && editor.on('update', ({ editor }) => {
+            const val = editor.getHTML()
 
-    const editDocument = (property: string, value: any) => {
-        const newValue = deepReplace(document, property, value)
-        setDocument(newValue);
-    }
+            if(val && !editor.isEmpty) {
+                document.content = val;
+                setDocument(document);
+                setHasChanges(true);
+            }
+        });
+    }, [editor]);
 
     return(
         <DocumentContext.Provider value={{ 
             collection,
             document,
+            setDocument,
             editor,
-            editDocument,
             files,
             hasChanges,
             setFiles,
@@ -50,6 +57,9 @@ export default function EditDocument({
                             type="submit"
                             disabled={loading}
                             className="w-full sm:w-auto justify-center sm:justify-between inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer"
+                            onClick={() => {
+                                console.log(document)
+                            }}
                         >
                             {loading ? (
                                 <>
@@ -95,10 +105,16 @@ export default function EditDocument({
                                 name="name"
                                 id="name"
                                 className="block w-full border-0 p-0 outline-none text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                placeholder="Your collection name title"
+                                placeholder={`Your ${singular(collection)} title`}
+                                defaultValue={document.title}
+                                onChange={(e) => {
+                                    document.title = e.target.value;
+                                    setDocument(document);
+                                    setHasChanges(true)
+                                }}
                             />
                         </div>
-                        <div className="rounded-md w-full md:w-[calc(100%-256px)] px-3 pb-1.5 pt-2.5 mt-10 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
+                        <div className="rounded-md w-full md:w-[calc(100%-256px)] mt-10 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
                             <Editor editor={editor} id="content" />
                         </div>
                     </div>

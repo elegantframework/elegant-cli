@@ -8,6 +8,7 @@ export interface InputProps {
     wrapperClass?: string;
     className?: string;
     defaultValue?: any;
+    onChange?: (value: string) => void;
 };
 
 export default function Input({
@@ -20,6 +21,7 @@ export default function Input({
     wrapperClass,
     className,
     defaultValue,
+    onChange,
     ...props
 }: InputProps) {
     return(
@@ -34,7 +36,6 @@ export default function Input({
             )}
             <div className="relative">
                 <input
-                    // {...register(id, registerOptions)}
                     {...props}
                     className={`block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500 ${className}`}
                     type={type}
@@ -44,6 +45,9 @@ export default function Input({
                     placeholder={placeholder}
                     aria-describedby={id}
                     defaultValue={defaultValue}
+                    onChange={(e) => {
+                        onChange ? onChange(e.target.value) : null;
+                    }}
                 />
             </div>
             {/* <>

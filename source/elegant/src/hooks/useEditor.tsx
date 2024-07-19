@@ -32,9 +32,7 @@ import Image from '@tiptap/extension-image';
 import { Markdown } from 'tiptap-markdown';
 import { History } from '@tiptap/extension-history';
 
-export const useEditor = ({ ...rhfMethods }) => {
-  const { setValue, trigger } = rhfMethods
-
+export const useEditor = ({}) => {
   const editor = useTipTap({
     autofocus: true,
     extensions: [
@@ -131,11 +129,6 @@ export const useEditor = ({ ...rhfMethods }) => {
         class: 'min-h-full',
       },
     },
-    onUpdate({ editor }) {
-      const val = editor.getHTML()
-      setValue('content', val && !editor.isEmpty ? val : '')
-      ;(async () => await trigger('content'))()
-    }
   })
 
   return { editor: editor as Editor }

@@ -5,6 +5,8 @@ export interface TextAreaProps {
     helperText?: string;
     readOnly?: boolean;
     wrapperClass?: string;
+    defaultValue?: string;
+    onChange?: (value: string) => void;
 };
 
 export default function TextArea({
@@ -14,6 +16,8 @@ export default function TextArea({
     id,
     readOnly = false,
     wrapperClass,
+    defaultValue,
+    onChange,
 }: TextAreaProps) {
     return(
         <div className={wrapperClass}>
@@ -34,6 +38,10 @@ export default function TextArea({
                     aria-describedby={id}
                     rows={5}
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500"
+                    defaultValue={defaultValue}
+                    onChange={(e) => {
+                        onChange ? onChange(e.target.value) : null;
+                    }}
                 />
             </div>
             <div className="mt-1">

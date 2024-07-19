@@ -1,13 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import DateTimePicker from "../DateTimePicker";
 import Accordion from "./Accordion";
 import Input from "./Input";
 import TextArea from "./TextArea";
-import { Document, DocumentContextType } from "../Types";
 import { DocumentContext } from "./Pages/EditDocument";
 
 export default function DocumentSettings() {
-    const { document, hasChanges, setHasChanges } = useContext(DocumentContext);
+    const { document, setDocument, hasChanges, setHasChanges } = useContext(DocumentContext);
     const [ tagInput, setTagInput ] = useState("");
     const [ newTags, setNewTags ] = useState<string[]>([]);
     
@@ -18,7 +17,11 @@ export default function DocumentSettings() {
                     id="publishedAt"
                     label="Date"
                     date={new Date()}
-                    setDate={(publishedAt) => {}}
+                    setDate={(publishedAt) => {
+                        document.publishedAt = publishedAt;
+                        setDocument(document);
+                        setHasChanges(true);
+                    }}
                 />
             </div>
             <div className="p-4">
@@ -29,13 +32,15 @@ export default function DocumentSettings() {
                     id="status"
                     name="status"
                     className="mt-2 block w-full rounded-md border-0 py-1.5 px-3 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    defaultValue="Draft"
-                    onChange={() => {
-                        setHasChanges(true)
+                    defaultValue={document.status}
+                    onChange={(e) => {
+                        // document.status = e.target.value;
+                        // setDocument(document);
+                        setHasChanges(true);
                     }}
                 >
-                    <option>Published</option>
-                    <option>Draft</option>
+                    <option value={"published"}>Published</option>
+                    <option value={"draft"}>Draft</option>
                 </select>
             </div>
             <div className="w-full">
@@ -53,12 +58,24 @@ export default function DocumentSettings() {
                         id="slug"
                         defaultValue={document.slug}
                         wrapperClass="mb-4"
+                        onChange={(value) => {
+                            document.slug = value;
+                            setDocument(document);
+                            setHasChanges(true);
+                        }}
+                        
                     />
                 </Accordion>
                 <Accordion title="Description">
                     <TextArea
                         id="description"
                         label="Write a description (optional)"
+                        defaultValue={document.description}
+                        onChange={(value) => {
+                            document.description = value;
+                            setDocument(document);
+                            setHasChanges(true);
+                        }}
                     />
                 </Accordion>
                 <Accordion title="Cover Image">
@@ -78,8 +95,8 @@ export default function DocumentSettings() {
                                         newTags.filter(e => e !== tag)
                                     );
 
-                                    // editDocument('tags', newTags.filter(e => e !== tag));
-
+                                    document.tags = newTags.filter(e => e !== tag);
+                                    setDocument(document);
                                     setHasChanges(true);
                                 }}
                             >
@@ -118,7 +135,8 @@ export default function DocumentSettings() {
                                 onClick={() => {
                                     setHasChanges(true);
                                     setNewTags([...newTags, tagInput]);
-                                    // editDocument('tags', [...newTags, tagInput]);
+                                    document.tags = [...newTags, tagInput];
+                                    setDocument(document);
                                     setTagInput("");
                                 }}
                             >

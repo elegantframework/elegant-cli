@@ -1,6 +1,6 @@
 'use client'
 import { Editor as TipTapEditor, EditorContent } from '@tiptap/react';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 import ActionMenu from './Menus/ActionMenu';
 import LinkMenu from './Menus/LinkMenu';
@@ -9,6 +9,7 @@ import { ColumnsMenu } from './Extensions/MultiColumn/menus';
 import ImageBlockMenu from './Extensions/ImageBlock/components/ImageBlockMenu';
 import { TextMenu } from './Menus/TextMenu';
 import React from 'react';
+import { DocumentContext } from '../Admin/Pages/EditDocument';
 
 interface EditorProps {
   /**
@@ -34,6 +35,7 @@ export default function Editor({
   //   formState: { errors }
   // } = useFormContext();
 
+  const { document, hasChanges, setHasChanges } = useContext(DocumentContext);
   const menuContainerRef = useRef(null);
   // const watchContent = watch('content');
 
@@ -42,9 +44,9 @@ export default function Editor({
       <div className="relative flex flex-col flex-1 h-full">
         <EditorContent 
           name="content" 
-          // value={watchContent} 
+          // value={document.content} 
           editor={editor} 
-          className="flex-1 overflow-y-auto"
+          className="flex-1 overflow-y-auto px-4 pt-6 pb-20"
         />
         {/* {editor && (<ActionMenu editor={editor} />)} */}
         {editor && (<LinkMenu editor={editor} appendTo={menuContainerRef} />)}

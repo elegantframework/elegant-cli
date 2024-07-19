@@ -72,15 +72,13 @@ export interface DocumentContextType {
      */
     document: Document;
     /**
+     * Set the document content.
+     */
+    setDocument:  Dispatch<SetStateAction<Document>>;
+    /**
      * The TipTap editor.
      */
     editor: Editor;
-    /**
-     * Edit the document.
-     * @param property The document field to edit.
-     * @param value The value to set in the field.
-     */
-    editDocument: (property: string, value: any) => void;
     /**
      * Any files such as images to included in the document.
      */
