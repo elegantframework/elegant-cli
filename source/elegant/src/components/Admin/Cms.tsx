@@ -104,7 +104,16 @@ export default function CMS({
 
     if(collections && collections.find(e => e.title === params.cms[0]) && params.cms[1]) {
         return(
-            <EditDocument session={session} collection={params.cms[0].toLowerCase()}/>
+            <EditDocument 
+                session={session} 
+                collection={
+                    collections.find(e => e.title === params.cms[0]) || {
+                        id: "",
+                        title: ""
+                    }
+                }
+                slug={params.cms[1]}
+            />
         );
     }
 

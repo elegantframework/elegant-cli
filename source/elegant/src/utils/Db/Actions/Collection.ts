@@ -46,6 +46,7 @@ export async function getCollectionByName(collection: GetCollectionByName) {
 export async function getAllCollections() {
     const response = await prisma.collection.findMany({
         select: {
+            id: true,
             title: true
         }
     });

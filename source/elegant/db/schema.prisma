@@ -50,6 +50,7 @@ model Post {
   slug        String?
   collections Collection[]
   tags        String[]
+  publishedAt DateTime
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
 }

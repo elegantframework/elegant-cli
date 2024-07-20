@@ -14,6 +14,10 @@ export interface Author {
 
 export interface Collection {
     /**
+     * The unique id of the collection.
+     */
+    id?: string;
+    /**
      * The title of the collection.
      */
     title: string;
@@ -39,7 +43,7 @@ export interface Document {
     /**
      * The status of this document.
      */
-    status: 'published' | 'draft';
+    status: 'DRAFT' | 'PUBLISHED';
     /**
      * The url slug of this document.
      */
@@ -55,7 +59,7 @@ export interface Document {
     /**
      * The category of this document.
      */
-    category?: string;
+    collection?: string[];
     /**
      * Tags that can be added to posts.
      */
@@ -64,9 +68,9 @@ export interface Document {
 
 export interface DocumentContextType {
     /**
-     * The name of the collection that this document belongs to.
+     * The collection that this document belongs to.
      */
-    collection: string;
+    collection: Collection;
     /**
      * The editable document.
      */

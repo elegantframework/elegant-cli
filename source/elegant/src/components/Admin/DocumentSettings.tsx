@@ -39,8 +39,8 @@ export default function DocumentSettings() {
                         setHasChanges(true);
                     }}
                 >
-                    <option value={"published"}>Published</option>
-                    <option value={"draft"}>Draft</option>
+                    <option value={"PUBLISHED"}>Published</option>
+                    <option value={"DRAFT"}>Draft</option>
                 </select>
             </div>
             <div className="w-full">

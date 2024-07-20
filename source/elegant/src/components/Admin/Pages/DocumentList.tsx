@@ -22,7 +22,7 @@ export default function DocumentList({
 
     const getDocuments = async() => {
         setIsLoading(true); 
-        const results = await getAllPostsForCollection('hello world');
+        const results = await getAllPostsForCollection('docs');
 
         console.log(results);
 

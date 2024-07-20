@@ -4,22 +4,46 @@ import { useEditor } from "@/hooks/useEditor";
 import Editor from "@/components/Editor/Editor";
 import DocumentSettings from "../DocumentSettings";
 import { createContext, useContext, useEffect, useState } from "react";
-import { Document, FileType } from "@/components/Types";
+import { Collection, Document, FileType } from "@/components/Types";
 import { DocumentContextType } from "@/components/Types";
 import { singular } from "pluralize";
+import { createPost, getPostBySlug } from "@/utils/Db/Actions/Post";
 
 export default function EditDocument({
     session,
-    collection
+    collection,
+    slug
 }:{
-    session: Session | null,
-    collection: string;
+    session: Session,
+    collection: Collection;
+    slug: string;
 }) {
     const { editor } = useEditor({});
-    const loading = false;
+    const [ saving, setSaving ] = useState(false);
     const [ hasChanges, setHasChanges ] = useState(false);
-    const [ document, setDocument ] = useState({} as Document);
+    const [ document, setDocument ] = useState({
+        title: "",
+        status: "DRAFT",
+        description: "",
+        coverImage: "",
+        content: "",
+        // todo: add author
+        slug: "",
+        tags: {},
+        publishedAt: new Date()
+
+    } as Document);
     const [ files, setFiles ] = useState<FileType[]>([]);
+
+    const getDocument = async() => {
+        const results = await getPostBySlug(slug, collection.title);
+
+        // setDocument(results);
+    };
+
+    useEffect(() => {
+        getDocument();
+    }, [slug]);
 
     useEffect(() => {
         editor && editor.on('update', ({ editor }) => {
@@ -32,6 +56,27 @@ export default function EditDocument({
             }
         });
     }, [editor]);
+
+    const onSave = async() => {
+        setSaving(true);
+
+        console.log(session)
+
+        await createPost({
+            title: document.title,
+            status: document.status,
+            description: document.description || "",
+            coverImage: document.coverImage || "",
+            content: document.content,
+            authorId: session.user?.id || "",
+            slug: document.slug,
+            collection: collection,
+            tags: document.tags,
+            publishedAt: document.publishedAt
+        }).then(() => {
+            setSaving(false);
+        });
+    };
 
     return(
         <DocumentContext.Provider value={{ 
@@ -55,13 +100,15 @@ export default function EditDocument({
                         </button>
                         <button
                             type="submit"
-                            disabled={loading}
+                            disabled={saving}
                             className="w-full sm:w-auto justify-center sm:justify-between inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer"
                             onClick={() => {
                                 console.log(document)
+
+                                onSave();
                             }}
                         >
-                            {loading ? (
+                            {saving ? (
                                 <>
                                     <svg
                                         className="mr-3 -ml-1 h-5 w-5 animate-spin text-white"
@@ -105,7 +152,7 @@ export default function EditDocument({
                                 name="name"
                                 id="name"
                                 className="block w-full border-0 p-0 outline-none text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                placeholder={`Your ${singular(collection)} title`}
+                                placeholder={`Your ${singular(collection.title)} title`}
                                 defaultValue={document.title}
                                 onChange={(e) => {
                                     document.title = e.target.value;

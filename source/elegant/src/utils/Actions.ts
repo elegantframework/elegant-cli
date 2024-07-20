@@ -35,19 +35,13 @@ export async function createAdmin(user: createAdmin) {
 export async function getUser(
     email: string
 ) {
-    try {
-        const response = await prisma.user.findUnique({
-            where: {
-                email: email            }
-        });
+    const response = await prisma.user.findUnique({
+        where: {
+            email: email            
+        }
+    });
 
-        return response;
-    } 
-    catch (error: any) {
-        return {
-            error: error.message,
-        };
-    }
+    return response;
 }
 
 export async function getAdminCount() {

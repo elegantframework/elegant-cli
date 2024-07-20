@@ -1,5 +1,6 @@
 'use server'
 
+import { Collection } from "@/components/Types";
 import prisma from "@/utils/Prisma";
 
 export interface CreatePost {
@@ -10,19 +11,43 @@ export interface CreatePost {
     content: string;
     authorId: string;
     slug: string;
-    collection: string;
+    collection: Collection;
     tags: string[];
+    publishedAt: Date
 };
 
 export async function createPost(post: CreatePost) {
     try {
+
+        console.log(post)
+
         const response = await prisma.post.create({
-            data: post
+            data: {
+                title: post.title,
+                status: post.status,
+                description: post.description,
+                coverImage: post.coverImage,
+                content: post.content,
+                authorId: post.authorId,
+                slug: post.slug,
+                collections: {
+                    connect: {
+                        id: post.collection.id,
+                    }
+                },
+                tags: post.tags,
+                publishedAt: post.publishedAt
+            },
+            include: {
+                collections: true
+            }
         });
 
         return response;
     } 
     catch (error: any) {
+
+        console.log(error)
         return {
             error: error.message,
         };
@@ -67,14 +92,33 @@ export async function getPostByTitle(name: string) {
     }
 }
 
+export async function getPostBySlug(slug: string, collection: string) {
+    const response = await prisma.post.findFirst({
+        where: {
+            slug: slug,
+            collections: {
+                some: {
+                    title: collection.toLowerCase()
+                }
+            }
+        }   
+    });
+
+    return response;
+}
+
 export interface GetAllPostsForCollection {
     name: string;
 };
 
 export async function getAllPostsForCollection(name: string) {
     const response = await prisma.post.findMany({
-        where: {
-            title: name
+        include: {
+            collections: {
+                where: {
+                    title: name
+                }
+            }
         }
     });
 
