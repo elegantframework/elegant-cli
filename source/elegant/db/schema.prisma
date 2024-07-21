@@ -34,8 +34,7 @@ model Collection {
   coverImage  String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  Post        Post?    @relation(fields: [postId], references: [id])
-  postId      String?
+  posts       Post[]
 }
 
 model Post {

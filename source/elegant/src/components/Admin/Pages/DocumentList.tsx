@@ -12,22 +12,24 @@ import EmptyState from "../Documents/EmptyState";
 
 export default function DocumentList({
     session,
-    title
+    collection
 }:{
     session: Session | null;
-    title: string;
+    collection: string;
 }) {
-    const [documents, setDocuments] = useState<Document[] | null>();
+    const [documents, setDocuments] = useState<{
+        title: string,
+        status: string;
+        publishedAt: Date;
+    }[] | null>();
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const getDocuments = async() => {
         setIsLoading(true); 
-        const results = await getAllPostsForCollection('docs');
-
-        console.log(results);
-
-        // setDocuments(results);
-        setDocuments([]);
+        const results = await getAllPostsForCollection(
+            collection.toLowerCase()
+        );
+        setDocuments(results);
         setIsLoading(false);
     };
 
@@ -38,14 +40,14 @@ export default function DocumentList({
     return(
         <DashboardLayout session={session}>
             <div className="flex max-w-screen-xl flex-col space-y-12 p-5 md:p-8">
-                <Heading title={title}>
+                <Heading title={collection}>
                     <div className="flex items-center gap-x-4 sm:gap-x-6">
                         <Link 
-                            href={`/admin/${title.toLowerCase()}/new`}
+                            href={`/admin/${collection.toLowerCase()}/new`}
                             className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             <PlusIcon className="-ml-0.5 mr-1.5 h-5 w-5" aria-hidden="true"/>
-                            New {singular(title)}
+                            New {singular(collection)}
                         </Link>
                     </div>
                 </Heading>
@@ -98,7 +100,7 @@ export default function DocumentList({
                 )}
                 {documents && documents.length > 0 && !isLoading && (
                     <div className="">
-                        {/* <div className="-mx-4 sm:-mx-0">
+                        <div className="-mx-4 sm:-mx-0">
                             <table className="min-w-full divide-y divide-gray-300">
                                 <thead>
                                     <tr>
@@ -108,8 +110,17 @@ export default function DocumentList({
                                         >
                                             Title
                                         </th>
-                                        <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
-                                            <span className="sr-only">Delete</span>
+                                        <th
+                                            scope="col"
+                                            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                                        >
+                                            Status
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell"
+                                        >
+                                            Date
                                         </th>
                                     </tr>
                                 </thead>
@@ -117,25 +128,37 @@ export default function DocumentList({
                                     {documents.map((document) => (
                                         <tr key={document.title}>
                                             <td className="px-3 py-4 text-sm font-medium text-gray-900 capitalize">
-                                                <Link href={`/admin/${collection.title}`}>
-                                                    {collection.title}
+                                                <Link href={`/admin/${collection}/${document.title}`}>
+                                                    {document.title}
                                                 </Link>
+                                                <dl className="font-normal lg:hidden">
+                                                    <dt className="sr-only">Status</dt>
+                                                    <dd className="mt-1 truncate text-gray-700 capitalize">{document.status.toLowerCase()}</dd>
+                                                </dl>
                                             </td>
-                                            <td className="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                    Delete<span className="sr-only"></span>
-                                                </a>
+                                            <td className="hidden px-3 py-4 text-sm text-gray-500 capitalize lg:table-cell">
+                                                {document.status.toLowerCase()}
+                                            </td>
+                                            <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
+                                                {document.publishedAt.toLocaleDateString(
+                                                    'en-US',
+                                                    {  
+                                                        year: 'numeric' as const,
+                                                        month: 'long' as const,
+                                                        day: 'numeric' as const
+                                                    }
+                                                )}
                                             </td>
                                         </tr>
                                     ))}
                                 </tbody>
                             </table>
-                        </div> */}
+                        </div>
                     </div>
                 )}
                 {documents && documents.length === 0 && !isLoading && (
                     <div className="border-t border-gray-200 dark:border-white/10">
-                        <EmptyState title={singular(title)}/>
+                        <EmptyState title={singular(collection)}/>
                     </div>
                 )}
             </div>

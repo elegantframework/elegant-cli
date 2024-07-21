@@ -98,7 +98,10 @@ export default function CMS({
 
     if(collections && collections.find(e => e.title === params.cms[0]) && !params.cms[1]) {
         return(
-            <DocumentList session={session} title={params.cms[0]}/>
+            <DocumentList 
+                session={session} 
+                collection={params.cms[0]}
+            />
         );
     }
 

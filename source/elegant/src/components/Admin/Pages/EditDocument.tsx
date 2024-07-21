@@ -29,7 +29,7 @@ export default function EditDocument({
         content: "",
         // todo: add author
         slug: "",
-        tags: {},
+        tags: [] as string[],
         publishedAt: new Date()
 
     } as Document);
@@ -59,8 +59,6 @@ export default function EditDocument({
 
     const onSave = async() => {
         setSaving(true);
-
-        console.log(session)
 
         await createPost({
             title: document.title,
@@ -103,8 +101,6 @@ export default function EditDocument({
                             disabled={saving}
                             className="w-full sm:w-auto justify-center sm:justify-between inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer"
                             onClick={() => {
-                                console.log(document)
-
                                 onSave();
                             }}
                         >

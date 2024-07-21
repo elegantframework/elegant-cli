@@ -1,3 +1,8 @@
+import clsx from "clsx";
+import {
+    AlertCircleIcon
+} from 'lucide-react';
+
 export interface InputProps {
     id: string;
     label?: string;
@@ -9,6 +14,7 @@ export interface InputProps {
     className?: string;
     defaultValue?: any;
     onChange?: (value: string) => void;
+    error?: string;
 };
 
 export default function Input({
@@ -22,6 +28,7 @@ export default function Input({
     className,
     defaultValue,
     onChange,
+    error,
     ...props
 }: InputProps) {
     return(
@@ -34,36 +41,36 @@ export default function Input({
                     {label}
                 </label>
             )}
-            <div className="relative">
+            <div className="relative mt-2 rounded-md shadow-sm">
                 <input
                     {...props}
-                    className={`block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 outline-none focus:border-indigo-500 focus:ring-indigo-500 ${className}`}
+                    className={
+                        clsx(
+                            `block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm outline-none ${className || ""}`,
+                            error ? " text-red-900 ring-red-300 placeholder:text-red-300 focus:ring-red-500 ring-1" : "text-gray-900 focus:border-indigo-500 focus:ring-indigo-500"
+                        )
+                    }
                     type={type}
                     name={id}
                     id={id}
                     readOnly={readOnly}
                     placeholder={placeholder}
-                    aria-describedby={id}
                     defaultValue={defaultValue}
+                    aria-invalid={error ? true : false}
+                    aria-describedby="error"
                     onChange={(e) => {
                         onChange ? onChange(e.target.value) : null;
                     }}
                 />
-            </div>
-            {/* <>
-                {(errors[id]?.message || helperText) && (
-                <div className="mt-1 first-letter:capitalize">
-                    {helperText && (
-                    <p className="text-xs text-gray-500">{helperText}</p>
-                    )}
-                    {errors[id]?.message && (
-                    <span className="text-sm text-red-500">
-                        {errors[id]?.message?.toString()}
-                    </span>
-                    )}
-                </div>
+                {error && (
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                        <AlertCircleIcon aria-hidden="true" className="h-5 w-5 fill-red-500 text-white" />
+                    </div>
                 )}
-            </> */}
+            </div>
+            <p id="error" className="mt-2 text-sm text-red-600">
+                {error}
+            </p>
         </div>
     );
 }

@@ -17,10 +17,9 @@ export interface CreatePost {
 };
 
 export async function createPost(post: CreatePost) {
+
+    console.log(post)
     try {
-
-        console.log(post)
-
         const response = await prisma.post.create({
             data: {
                 title: post.title,
@@ -38,16 +37,11 @@ export async function createPost(post: CreatePost) {
                 tags: post.tags,
                 publishedAt: post.publishedAt
             },
-            include: {
-                collections: true
-            }
         });
 
         return response;
     } 
     catch (error: any) {
-
-        console.log(error)
         return {
             error: error.message,
         };
@@ -107,15 +101,11 @@ export async function getPostBySlug(slug: string, collection: string) {
     return response;
 }
 
-export interface GetAllPostsForCollection {
-    name: string;
-};
-
 export async function getAllPostsForCollection(name: string) {
     const response = await prisma.post.findMany({
-        include: {
+        where: {
             collections: {
-                where: {
+                some: {
                     title: name
                 }
             }
