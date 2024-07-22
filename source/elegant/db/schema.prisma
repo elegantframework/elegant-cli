@@ -46,7 +46,7 @@ model Post {
   content     String?
   author      User         @relation(fields: [authorId], references: [id])
   authorId    String
-  slug        String?
+  slug        String
   collections Collection[]
   tags        String[]
   publishedAt DateTime

@@ -47,7 +47,9 @@ export default function Input({
                     className={
                         clsx(
                             `block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm outline-none ${className || ""}`,
-                            error ? " text-red-900 ring-red-300 placeholder:text-red-300 focus:ring-red-500 ring-1" : "text-gray-900 focus:border-indigo-500 focus:ring-indigo-500"
+                            error 
+                            ? "text-red-900 ring-red-300 placeholder:text-red-300 focus:ring-red-500 ring-1" 
+                            : "text-gray-900 focus:border-indigo-500 focus:ring-indigo-500"
                         )
                     }
                     type={type}

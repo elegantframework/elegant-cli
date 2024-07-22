@@ -11,11 +11,7 @@ import { TextMenu } from './Menus/TextMenu';
 import React from 'react';
 import { DocumentContext } from '../Admin/Pages/EditDocument';
 
-interface EditorProps {
-  /**
-   * 
-   */
-  id: string;
+export interface EditorProps {
   /**
    * The TipTap Editor.
    */
@@ -27,25 +23,15 @@ interface EditorProps {
  * @returns A detailed content editor powered by TipTap.
  */
 export default function Editor({
-    id, 
-    editor
+  editor
 }: EditorProps){
-  // const {
-  //   watch,
-  //   formState: { errors }
-  // } = useFormContext();
-
-  const { document, hasChanges, setHasChanges } = useContext(DocumentContext);
   const menuContainerRef = useRef(null);
-  // const watchContent = watch('content');
-
   return (
     <div className="flex h-full" ref={menuContainerRef}>
       <div className="relative flex flex-col flex-1 h-full">
         <EditorContent 
           name="content" 
-          // value={document.content} 
-          editor={editor} 
+          editor={editor}
           className="flex-1 overflow-y-auto px-4 pt-6 pb-20"
         />
         {/* {editor && (<ActionMenu editor={editor} />)} */}

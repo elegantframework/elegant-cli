@@ -34,7 +34,7 @@ import { History } from '@tiptap/extension-history';
 
 export const useEditor = ({}) => {
   const editor = useTipTap({
-    autofocus: true,
+    autofocus: false,
     extensions: [
       Document.extend({
         content: '(block|columns)+',

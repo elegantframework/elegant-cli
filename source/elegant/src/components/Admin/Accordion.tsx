@@ -6,15 +6,17 @@ export interface AccordionProps {
     callback?: () => void;
     children: React.ReactNode;
     error?: boolean;
+    expand?: boolean;
 };
 
 export default function Accordion({
     title,
     callback,
     children,
-    error = false
+    error = false,
+    expand = false
 }: AccordionProps) {
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(expand);
 
     const handleShow = () => {
         setShow(!show);

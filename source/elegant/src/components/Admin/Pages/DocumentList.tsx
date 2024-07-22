@@ -21,6 +21,7 @@ export default function DocumentList({
         title: string,
         status: string;
         publishedAt: Date;
+        slug: string;
     }[] | null>();
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -128,7 +129,7 @@ export default function DocumentList({
                                     {documents.map((document) => (
                                         <tr key={document.title}>
                                             <td className="px-3 py-4 text-sm font-medium text-gray-900 capitalize">
-                                                <Link href={`/admin/${collection}/${document.title}`}>
+                                                <Link href={`/admin/${collection}/${document.slug}`}>
                                                     {document.title}
                                                 </Link>
                                                 <dl className="font-normal lg:hidden">

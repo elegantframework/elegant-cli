@@ -25,6 +25,10 @@ export interface Collection {
 
 export interface Document {
     /**
+     * The unique id of the document.
+     */
+    id?: string;
+    /**
      * The author of this document.
      */
     author: Author;
@@ -99,6 +103,25 @@ export interface DocumentContextType {
      * Set if the document has changes or not.
      */
     setHasChanges: Dispatch<SetStateAction<boolean>>;
+    /**
+     * Validation errors within the editor.
+     */
+    errors: EditorError[];
+    /**
+     * Set validation errors.
+     */
+    setErrors: Dispatch<SetStateAction<EditorError[]>>; 
+};
+
+export interface EditorError {
+    /**
+     * The element with the error.
+     */
+    element: string;
+    /**
+     * The error message.
+     */
+    message: string;
 };
 
 export interface FileType {

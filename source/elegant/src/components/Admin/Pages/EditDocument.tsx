@@ -4,10 +4,12 @@ import { useEditor } from "@/hooks/useEditor";
 import Editor from "@/components/Editor/Editor";
 import DocumentSettings from "../DocumentSettings";
 import { createContext, useContext, useEffect, useState } from "react";
-import { Collection, Document, FileType } from "@/components/Types";
+import { Collection, Document, EditorError, FileType } from "@/components/Types";
 import { DocumentContextType } from "@/components/Types";
 import { singular } from "pluralize";
 import { createPost, getPostBySlug } from "@/utils/Db/Actions/Post";
+import clsx from "clsx";
+import { AlertCircleIcon } from "lucide-react";
 
 export default function EditDocument({
     session,
@@ -20,30 +22,56 @@ export default function EditDocument({
 }) {
     const { editor } = useEditor({});
     const [ saving, setSaving ] = useState(false);
+    const [ loaded, setLoaded ] = useState(false);    
     const [ hasChanges, setHasChanges ] = useState(false);
     const [ document, setDocument ] = useState({
+        id: "",
         title: "",
         status: "DRAFT",
         description: "",
         coverImage: "",
         content: "",
-        // todo: add author
         slug: "",
         tags: [] as string[],
         publishedAt: new Date()
-
     } as Document);
     const [ files, setFiles ] = useState<FileType[]>([]);
+    const [ errors, setErrors ] = useState<EditorError[]>([]);
 
     const getDocument = async() => {
-        const results = await getPostBySlug(slug, collection.title);
+        const result = await getPostBySlug(slug, collection.title);
 
-        // setDocument(results);
+        setDocument({
+            id: result?.id,
+            title: result?.title || "",
+            status: result?.status || "DRAFT",
+            description: result?.description || "",
+            coverImage: result?.coverImage || "",
+            content: result?.content || "",
+            slug: result?.slug || "",
+            tags: result?.tags || [] as string[],
+            publishedAt: result?.publishedAt || new Date(),
+            author: {
+                name: result?.author.name || "",
+                picture: result?.author.image || ""
+            }
+        });
     };
 
     useEffect(() => {
-        getDocument();
+        if(slug !== "new") {
+            getDocument();
+        }
     }, [slug]);
+
+    useEffect(() => {
+        if(editor && !loaded) {
+            setLoaded(true);
+            editor.commands.setContent(
+                document.content
+            );
+        }
+    }, [document.content]);
 
     useEffect(() => {
         editor && editor.on('update', ({ editor }) => {
@@ -61,6 +89,7 @@ export default function EditDocument({
         setSaving(true);
 
         await createPost({
+            id: document.id || "",
             title: document.title,
             status: document.status,
             description: document.description || "",
@@ -85,7 +114,9 @@ export default function EditDocument({
             files,
             hasChanges,
             setFiles,
-            setHasChanges
+            setHasChanges,
+            errors,
+            setErrors
         }}>
             <DashboardLayout session={session}>
                 {hasChanges && (
@@ -139,15 +170,36 @@ export default function EditDocument({
                 )}
                 <div className="flex max-w-screen-xl flex-col space-y-12 p-5 md:p-8">
                     <div className="min-h-full prose prose-xl">
-                        <div className="rounded-md w-full md:w-[calc(100%-256px)] px-3 pb-1.5 pt-2.5 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
-                            <label htmlFor="name" className="block text-xs font-medium text-gray-900">
+                        <div className={
+                            clsx(
+                                'relative rounded-md w-full md:w-[calc(100%-256px)] px-3 pb-1.5 pt-2.5 shadow-sm ring-1 ring-inset focus-within:ring-2',
+                                errors.some(error => error.element === "title")
+                                ? "ring-red-300 focus-within:ring-red-600" 
+                                : "ring-gray-300 focus-within:ring-indigo-600"
+                            )
+                        }>
+                            <label htmlFor="title" className={
+                                clsx(
+                                    "block text-xs font-medium",
+                                    errors.some(error => error.element === "title")
+                                    ? "text-red-500" 
+                                    : "text-gray-900"
+                                )
+                            }>
                                 Title
                             </label>
                             <input
                                 type="text"
-                                name="name"
-                                id="name"
-                                className="block w-full border-0 p-0 outline-none text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                name="title"
+                                id="title"
+                                className={
+                                    clsx(
+                                        'block w-full border-0 p-0 outline-none focus:ring-0 sm:text-sm sm:leading-6',
+                                        errors.some(error => error.element === "title")
+                                        ? "placeholder:text-red-300" 
+                                        : "text-gray-900 placeholder:text-gray-400"
+                                    )
+                                }
                                 placeholder={`Your ${singular(collection.title)} title`}
                                 defaultValue={document.title}
                                 onChange={(e) => {
@@ -156,10 +208,28 @@ export default function EditDocument({
                                     setHasChanges(true)
                                 }}
                             />
+                            {errors.some(error => error.element === "title") && (
+                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                                    <AlertCircleIcon aria-hidden="true" className="h-5 w-5 fill-red-500 text-white" />
+                                </div>
+                            )}
                         </div>
-                        <div className="rounded-md w-full md:w-[calc(100%-256px)] mt-10 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
-                            <Editor editor={editor} id="content" />
+                        <p id="title_error" className="mt-2 text-sm text-red-600">
+                            {errors.find(error => error.element === "title")?.message}
+                        </p>
+                        <div className={
+                            clsx(
+                                "rounded-md w-full md:w-[calc(100%-256px)] mt-10 shadow-sm ring-1 ring-inset focus-within:ring-2 focus-within:ring-indigo-600",
+                                errors.some(error => error.element === "editor")
+                                ? "ring-red-300" 
+                                : "ring-gray-300"
+                            )
+                        }>
+                            <Editor editor={editor}/>
                         </div>
+                        <p id="editor_error" className="mt-2 text-sm text-red-600">
+                            {errors.find(error => error.element === "editor")?.message}
+                        </p>
                     </div>
                     <div>
                         <DocumentSettings />

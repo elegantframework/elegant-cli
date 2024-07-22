@@ -6,7 +6,7 @@ import TextArea from "./TextArea";
 import { DocumentContext } from "./Pages/EditDocument";
 
 export default function DocumentSettings() {
-    const { document, setDocument, hasChanges, setHasChanges } = useContext(DocumentContext);
+    const { document, setDocument, setHasChanges, errors } = useContext(DocumentContext);
     const [ tagInput, setTagInput ] = useState("");
     const [ newTags, setNewTags ] = useState<string[]>([]);
     
@@ -32,15 +32,24 @@ export default function DocumentSettings() {
                     id="status"
                     name="status"
                     className="mt-2 block w-full rounded-md border-0 py-1.5 px-3 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 focus-visible:ring-indigo-600 outline-none sm:text-sm sm:leading-6"
-                    defaultValue={document.status}
                     onChange={(e) => {
                         document.status = (e.target.value === "DRAFT" ? "DRAFT" : "PUBLISHED");
                         setDocument(document);
                         setHasChanges(true);
                     }}
                 >
-                    <option value={'PUBLISHED'}>Published</option>
-                    <option value={'DRAFT'}>Draft</option>
+                    <option 
+                        value={'PUBLISHED'} 
+                        selected={document.status === 'PUBLISHED'}
+                    >
+                        Published
+                    </option>
+                    <option 
+                        value={'DRAFT'}
+                        selected={document.status === 'DRAFT'} 
+                    >
+                        Draft
+                    </option>
                 </select>
             </div>
             <div className="w-full">
@@ -52,7 +61,12 @@ export default function DocumentSettings() {
                         wrapperClass="mb-4"
                     />
                 </Accordion>
-                <Accordion title="URL Slug">
+                <Accordion 
+                    title="URL Slug"
+                    expand={
+                        errors.some(error => error.element === "slug")
+                    }
+                >
                     <Input
                         label="Write a slug (optional)"
                         id="slug"
@@ -63,6 +77,9 @@ export default function DocumentSettings() {
                             setDocument(document);
                             setHasChanges(true);
                         }}
+                        error={
+                            errors.find(error => error.element === "slug")?.message
+                        }
                     />
                 </Accordion>
                 <Accordion title="Description">
