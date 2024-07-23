@@ -22,7 +22,6 @@ export async function createPost(post: CreatePost) {
         const response = await prisma.post.upsert({
             where: {
                 id: post.id,
-                slug: post.slug,
                 collections: {
                     some: {
                         id: post.collection.id

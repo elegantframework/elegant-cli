@@ -10,6 +10,8 @@ import { singular } from "pluralize";
 import { createPost, getPostBySlug } from "@/utils/Db/Actions/Post";
 import clsx from "clsx";
 import { AlertCircleIcon } from "lucide-react";
+import convert from 'url-slug';
+import { useRouter } from "next/navigation";
 
 export default function EditDocument({
     session,
@@ -24,6 +26,7 @@ export default function EditDocument({
     const [ saving, setSaving ] = useState(false);
     const [ loaded, setLoaded ] = useState(false);    
     const [ hasChanges, setHasChanges ] = useState(false);
+    const [ hasCustomSlug, setHasCustomSlug ] = useState(false);
     const [ document, setDocument ] = useState({
         id: "",
         title: "",
@@ -37,6 +40,7 @@ export default function EditDocument({
     } as Document);
     const [ files, setFiles ] = useState<FileType[]>([]);
     const [ errors, setErrors ] = useState<EditorError[]>([]);
+    const router = useRouter();
 
     const getDocument = async() => {
         const result = await getPostBySlug(slug, collection.title);
@@ -73,36 +77,71 @@ export default function EditDocument({
         }
     }, [document.content]);
 
-    useEffect(() => {
-        editor && editor.on('update', ({ editor }) => {
-            const val = editor.getHTML()
-
-            if(val && !editor.isEmpty) {
-                document.content = val;
-                setDocument(document);
-                setHasChanges(true);
-            }
-        });
-    }, [editor]);
-
     const onSave = async() => {
-        setSaving(true);
+        let formErrors = [];
 
-        await createPost({
-            id: document.id || "",
-            title: document.title,
-            status: document.status,
-            description: document.description || "",
-            coverImage: document.coverImage || "",
-            content: document.content,
-            authorId: session.user?.id || "",
-            slug: document.slug,
-            collection: collection,
-            tags: document.tags,
-            publishedAt: document.publishedAt
-        }).then(() => {
-            setSaving(false);
-        });
+        if(document.title === "") {
+            formErrors.push({
+                element: "title",
+                message: "Title is required."
+            });
+        }
+
+        if(editor.isEmpty) {
+            formErrors.push({
+                element: "editor",
+                message: "Content is required."
+            });
+        }
+
+        if(document.slug === "") {
+            formErrors.push({
+                element: "slug",
+                message: "A URL slug is required."
+            });
+        }
+
+        if(slug === "new" && document.slug !== "") {
+            // check that this slug is unique
+            const result = await getPostBySlug(
+                document.slug,
+                collection.title.toLowerCase()
+            );
+
+            if(result) {
+                formErrors.push({
+                    element: "slug",
+                    message: "This URL slug is already in use."
+                });
+            }
+        }
+
+        if(formErrors.length > 0) {
+            setErrors(formErrors);
+        }
+        else {
+            setSaving(true);
+
+            await createPost({
+                id: document.id || "",
+                title: document.title,
+                status: document.status,
+                description: document.description || "",
+                coverImage: document.coverImage || "",
+                content: editor.getHTML(),
+                authorId: session.user?.id || "",
+                slug: document.slug,
+                collection: collection,
+                tags: document.tags,
+                publishedAt: document.publishedAt
+            }).then(() => {
+                setSaving(false);
+
+                if(slug === 'new' || slug !== document.slug) {
+                    router.push(`/admin/${collection.title.toLowerCase()}/${document.slug}`);
+                }
+            });
+        }
     };
 
     return(
@@ -113,6 +152,8 @@ export default function EditDocument({
             editor,
             files,
             hasChanges,
+            hasCustomSlug,
+            setHasCustomSlug,
             setFiles,
             setHasChanges,
             errors,
@@ -205,7 +246,27 @@ export default function EditDocument({
                                 onChange={(e) => {
                                     document.title = e.target.value;
                                     setDocument(document);
-                                    setHasChanges(true)
+                                    setHasChanges(true);
+
+                                    if(errors.some(error => error.element === "title")) {
+                                        setErrors(errors.filter(e => e.element !== "title"));
+                                    }
+                                }}
+                                onKeyDown={(e) => {
+                                    if (e.key.toLowerCase() === 'enter') {
+                                      e.preventDefault()
+                                      editor.commands.focus('start')
+                                    }
+                                }}
+                                onBlur={(e) => {
+                                    if (slug === 'new' && !hasCustomSlug) {
+                                        document.slug = convert(e.target.value.toLowerCase(), {
+                                            dictionary: { "'": '' }
+                                        });
+
+                                        setDocument(document);
+                                        setHasChanges(true);
+                                    }                                
                                 }}
                             />
                             {errors.some(error => error.element === "title") && (
@@ -217,19 +278,7 @@ export default function EditDocument({
                         <p id="title_error" className="mt-2 text-sm text-red-600">
                             {errors.find(error => error.element === "title")?.message}
                         </p>
-                        <div className={
-                            clsx(
-                                "rounded-md w-full md:w-[calc(100%-256px)] mt-10 shadow-sm ring-1 ring-inset focus-within:ring-2 focus-within:ring-indigo-600",
-                                errors.some(error => error.element === "editor")
-                                ? "ring-red-300" 
-                                : "ring-gray-300"
-                            )
-                        }>
-                            <Editor editor={editor}/>
-                        </div>
-                        <p id="editor_error" className="mt-2 text-sm text-red-600">
-                            {errors.find(error => error.element === "editor")?.message}
-                        </p>
+                        <Editor editor={editor}/>
                     </div>
                     <div>
                         <DocumentSettings />

@@ -1,5 +1,5 @@
 import { PlusIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export interface AccordionProps {
     title: string;
@@ -16,7 +16,11 @@ export default function Accordion({
     error = false,
     expand = false
 }: AccordionProps) {
-    const [show, setShow] = useState(expand);
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        setShow(expand)
+    }, [expand]);
 
     const handleShow = () => {
         setShow(!show);

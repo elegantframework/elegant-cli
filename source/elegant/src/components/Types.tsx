@@ -96,6 +96,10 @@ export interface DocumentContextType {
      */
     hasChanges: boolean;
     /**
+     * Has the user entered a custom url slug?
+     */
+    hasCustomSlug: boolean;
+    /**
      * Set the files to be uploaded.
      */
     setFiles: Dispatch<SetStateAction<FileType[]>>; 
@@ -103,6 +107,10 @@ export interface DocumentContextType {
      * Set if the document has changes or not.
      */
     setHasChanges: Dispatch<SetStateAction<boolean>>;
+       /**
+     * Set if the document has a custom url slug or not.
+     */
+    setHasCustomSlug: Dispatch<SetStateAction<boolean>>;
     /**
      * Validation errors within the editor.
      */

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DateTimePicker from "../DateTimePicker";
 import Accordion from "./Accordion";
 import Input from "./Input";
@@ -6,9 +6,17 @@ import TextArea from "./TextArea";
 import { DocumentContext } from "./Pages/EditDocument";
 
 export default function DocumentSettings() {
-    const { document, setDocument, setHasChanges, errors } = useContext(DocumentContext);
+    const { document, setDocument, setHasChanges, setHasCustomSlug, setErrors, errors } = useContext(DocumentContext);
     const [ tagInput, setTagInput ] = useState("");
     const [ newTags, setNewTags ] = useState<string[]>([]);
+    let tagsLoaded = false;
+
+    useEffect(() => {
+        if(document.tags && !tagsLoaded) {
+          setNewTags(document.tags);
+          tagsLoaded = true;
+        }
+    }, [document.tags]);
     
     return(
         <aside className="md:w-64 lg:fixed lg:bottom-0 lg:right-0 lg:top-16 lg:overflow-y-auto lg:border-l">
@@ -16,7 +24,7 @@ export default function DocumentSettings() {
                 <DateTimePicker
                     id="publishedAt"
                     label="Date"
-                    date={new Date()}
+                    date={document.publishedAt}
                     setDate={(publishedAt) => {
                         document.publishedAt = publishedAt;
                         setDocument(document);
@@ -76,6 +84,17 @@ export default function DocumentSettings() {
                             document.slug = value;
                             setDocument(document);
                             setHasChanges(true);
+
+                            if(value === "") {
+                                setHasCustomSlug(true);
+                            }
+                            else {
+                                setHasCustomSlug(false);
+                            }
+
+                            if(errors.some(error => error.element === "slug")) {
+                                setErrors(errors.filter(e => e.element !== "slug"));
+                            }
                         }}
                         error={
                             errors.find(error => error.element === "slug")?.message
