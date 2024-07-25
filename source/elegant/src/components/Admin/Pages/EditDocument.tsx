@@ -57,7 +57,7 @@ export default function EditDocument({
             publishedAt: result?.publishedAt || new Date(),
             author: {
                 name: result?.author.name || "",
-                picture: result?.author.image || ""
+                image: result?.author.image || ""
             }
         });
     };

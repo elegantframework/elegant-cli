@@ -13,7 +13,7 @@
     "schema": "db/schema.prisma"
   },
   "dependencies": {
-    "@brandonowens/elegant-ui": "^1.3.10",
+    "@brandonowens/elegant-ui": "^1.3.11",
     "@eleganthq/elegant-cms": "^0.0.5",
     "@headlessui/react": "^2.0.4",
     "@heroicons/react": "^2.1.3",

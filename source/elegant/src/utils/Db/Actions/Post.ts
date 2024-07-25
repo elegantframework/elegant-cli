@@ -143,6 +143,23 @@ export async function getPostBySlug(slug: string, collection: string) {
 
 export async function getAllPostsForCollection(name: string) {
     const response = await prisma.post.findMany({
+        select: {
+            id: true,
+            title: true,
+            status: true,
+            description: true,
+            coverImage: true,
+            content: true,
+            slug: true,
+            tags: true,
+            publishedAt: true,
+            author: {
+                select: {
+                    name: true,
+                    image: true
+                }
+            }
+        }, 
         where: {
             collections: {
                 some: {

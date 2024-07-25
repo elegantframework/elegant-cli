@@ -9,7 +9,7 @@ export interface Author {
     /**
      * The avatar image url of the author.
      */
-    picture?: string;
+    image?: string;
 };
 
 export interface Collection {

@@ -32,14 +32,14 @@ export default function DocumentSettings() {
                     }}
                 />
             </div>
-            <div className="p-4">
+            <div className="p-4 flex items-center justify-between">
                 <label htmlFor="status" className="block text-sm font-medium leading-6 text-gray-900">
                     Status
                 </label>
                 <select
                     id="status"
                     name="status"
-                    className="mt-2 block w-full rounded-md border-0 py-1.5 px-3 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 focus-visible:ring-indigo-600 outline-none sm:text-sm sm:leading-6"
+                    className="block rounded-md border-0 py-2 px-3 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 focus-visible:ring-indigo-600 outline-none sm:text-sm sm:leading-6"
                     onChange={(e) => {
                         document.status = (e.target.value === "DRAFT" ? "DRAFT" : "PUBLISHED");
                         setDocument(document);
