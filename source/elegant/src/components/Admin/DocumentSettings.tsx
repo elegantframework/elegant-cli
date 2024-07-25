@@ -65,7 +65,7 @@ export default function DocumentSettings() {
                     <Input
                         label="Name"
                         id="author.name"
-                        defaultValue={document.author?.name}
+                        defaultValue={document.author?.[0].name}
                         wrapperClass="mb-4"
                     />
                 </Accordion>

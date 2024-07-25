@@ -55,10 +55,10 @@ export default function EditDocument({
             slug: result?.slug || "",
             tags: result?.tags || [] as string[],
             publishedAt: result?.publishedAt || new Date(),
-            author: {
+            author: [{
                 name: result?.author.name || "",
                 image: result?.author.image || ""
-            }
+            }]
         });
     };
 

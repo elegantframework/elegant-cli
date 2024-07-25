@@ -29,9 +29,9 @@ export interface Document {
      */
     id?: string;
     /**
-     * The author of this document.
+     * A list of authors who contributed to this document.
      */
-    author: Author;
+    author: Author[];
     /**
      * The title of this document.
      */
