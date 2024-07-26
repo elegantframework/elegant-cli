@@ -10,13 +10,13 @@
 - finish header.tsx component
     - add dark mode selector back
     - test switching between dark mode and how the logo handles that
+    - logo on mobile resizes too small
 
 - set seo metadata
 - add .env file back
     - add example, starter, and test .env files back
 
 - add admin back
-- add custom 404 page
 - rss feed
 - sitemap
 - add dark mode back in tailwind
