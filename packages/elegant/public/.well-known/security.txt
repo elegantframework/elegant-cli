@@ -1,0 +1,5 @@
+Contact: mailto:security@elegantframework.com
+Encryption: https://www.elegantframework.com/.well-known/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://www.elegantframework.com/security.txt
+Expires: 2027-10-24T14:00:00.000Z
