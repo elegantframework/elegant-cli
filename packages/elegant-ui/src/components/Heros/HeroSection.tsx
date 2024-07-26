@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+export interface HeroSectionProps {
     /**
      * The heading text of the hero.
      */
@@ -18,7 +18,7 @@ interface Props {
 export default function HeroSection({
     heading,
     children
-}: Props) {
+}: HeroSectionProps) {
     return(
         <section className="relative mt-20 mb-20 sm:mt-32 md:mt-40">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">

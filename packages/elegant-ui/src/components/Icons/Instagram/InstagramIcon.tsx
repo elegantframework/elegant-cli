@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+export interface InstagramIconProps {
     /**
      * Custom css classnames to be applied to the icon
      */
@@ -13,7 +13,7 @@ interface Props {
  */
 export default function InstagramIcon({
     className = "w-5 h-5"
-}: Props) {
+}: InstagramIconProps) {
     return(
         <svg 
             viewBox="0 0 24 24"

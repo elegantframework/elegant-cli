@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+export interface VideoPlayerProps {
   /**
    * The title of the video.
    */
@@ -27,13 +27,13 @@ interface Props {
  * A simple video player component for displaying videos from external websites.
  * @returns An iframe element containing a Youtube video player.
  */
-const VideoPlayer = ({
+export default function VideoPlayer({
   title,
   videoId,
   width = '100%',
   height = 350,
   allowFullScreen = true
-}: Props) => {
+}: VideoPlayerProps) {
   return (
     <>
         <iframe
@@ -47,5 +47,3 @@ const VideoPlayer = ({
     </>
   );
 }
-
-export default VideoPlayer;

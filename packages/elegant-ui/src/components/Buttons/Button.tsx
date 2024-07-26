@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React from "react";
 import Link from 'next/link';
 
-interface Props {
+export interface ButtonProps {
     /**
      * The text to be displayed on the button.
      */
@@ -41,7 +41,7 @@ export default function Button({
     primary="bg-indigo-800 font-semibold text-indigo-100 hover:bg-indigo-700 active:bg-indigo-800 active:text-indigo-100/70 dark:bg-indigo-700 dark:hover:bg-indigo-600 dark:active:bg-indigo-700 dark:active:text-indigo-100/70",
     secondary="bg-indigo-50 font-medium text-indigo-900 hover:bg-indigo-100 active:bg-indigo-100 active:text-indigo-900/60 dark:bg-indigo-800/50 dark:text-indigo-300 dark:hover:bg-indigo-800 dark:hover:text-indigo-50 dark:active:bg-indigo-800/50 dark:active:text-indigo-50/70",
     ...props
-}:Props) {
+}:ButtonProps) {
     let color = primary;
 
     if(variant === "secondary") {

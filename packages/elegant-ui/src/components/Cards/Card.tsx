@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-interface Props {
+export interface CardProps {
     /**
      * Html that can be passed directly to the card component.
      */
@@ -24,10 +24,10 @@ export default function Card({
     children,
     className,
     padding = "p-8 px-4 md:p-8"
-}: Props) {
+}: CardProps) {
     return(
         <div className={clsx(
-            "text-center mb-20 flex max-w-2xl flex-col items-center text-black bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-800 shadow-md dark:shadow-[inset_0_0_0_1px_#ffffff1a]",
+            "text-center mb-20 flex max-w-2xl flex-col items-center text-black bg-white dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-800 shadow-sm dark:shadow-[inset_0_0_0_1px_#ffffff1a]",
             className,
             padding
         )}>

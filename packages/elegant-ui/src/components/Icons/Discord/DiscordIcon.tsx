@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+export interface DiscordIconProps {
     /**
      * Custom css classnames to be applied to the icon
      */
@@ -13,7 +13,7 @@ interface Props {
  */
 export default function DiscordIcon({
     className = "w-5 h-5"
-}: Props) {
+}: DiscordIconProps) {
     return(
         <svg
             viewBox="0 0 16 16"

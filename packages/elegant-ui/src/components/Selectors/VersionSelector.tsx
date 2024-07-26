@@ -1,8 +1,9 @@
+'use client'
 import React from 'react';
 import { Menu } from '@headlessui/react';
 import clsx from 'clsx';
 
-interface Props {
+export interface VersionSelectorProps {
     /**
      * The current version.
      */
@@ -30,7 +31,7 @@ export default function VersionSelector({
     pastVersions,
     linkColor="text-indigo-500 dark:text-indigo-400",
     className
-}: Props) {
+}: VersionSelectorProps) {
   return (
     <Menu as="div" className={clsx("relative z-50", className)}>
         <Menu.Button className="text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5">

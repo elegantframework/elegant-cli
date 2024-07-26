@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+export interface TwitterIconProps {
     /**
      * Custom css classnames to be applied to the icon
      */
@@ -13,7 +13,7 @@ interface Props {
  */
 export default function TwitterIcon({
     className = "w-5 h-5"
-}: Props) {
+}: TwitterIconProps) {
     return(
         <svg 
             viewBox="0 0 24 24"

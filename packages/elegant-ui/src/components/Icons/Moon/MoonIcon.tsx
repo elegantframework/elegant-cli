@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+export interface MoonIconProps {
     /**
      * Custom css classnames to be applied to the icon
      */
@@ -18,7 +18,7 @@ interface Props {
 export default function MoonIcon({
     className = "w-6 h-6",
     selected = false
-}: Props) {
+}: MoonIconProps) {
     return (
         <svg viewBox="0 0 24 24" fill="none" className={className}>
           <path
