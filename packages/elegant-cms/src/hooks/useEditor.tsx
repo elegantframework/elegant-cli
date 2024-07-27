@@ -1,4 +1,3 @@
-'use client'
 import Placeholder from '@tiptap/extension-placeholder';
 import { Editor, useEditor as useTipTap } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -33,11 +32,9 @@ import Image from '@tiptap/extension-image';
 import { Markdown } from 'tiptap-markdown';
 import { History } from '@tiptap/extension-history';
 
-export const useEditor = ({ ...rhfMethods }) => {
-  const { setValue, trigger } = rhfMethods
-
+export const useEditor = ({}) => {
   const editor = useTipTap({
-    autofocus: true,
+    autofocus: false,
     extensions: [
       Document.extend({
         content: '(block|columns)+',
@@ -132,11 +129,6 @@ export const useEditor = ({ ...rhfMethods }) => {
         class: 'min-h-full',
       },
     },
-    onUpdate({ editor }) {
-      const val = editor.getHTML()
-      setValue('content', val && !editor.isEmpty ? val : '')
-      ;(async () => await trigger('content'))()
-    }
   })
 
   return { editor: editor as Editor }

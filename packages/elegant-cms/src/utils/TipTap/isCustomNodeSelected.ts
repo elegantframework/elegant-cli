@@ -1,10 +1,10 @@
 import CodeBlock from '@tiptap/extension-code-block';
-import HorizontalRule from './../../components/Editor/Extensions/HorizontalRule'
-import { ImageBlock } from './../../components/Editor/Extensions/ImageBlock'
-import { ImageUpload } from './../../components/Editor/Extensions/ImageUpload'
-import Link from './../../components/Editor/Extensions/Link'
+import HorizontalRule from './../../components/Admin/Editor/Extensions/HorizontalRule'
+import { ImageBlock } from './../../components/Admin/Editor/Extensions/ImageBlock'
+import { ImageUpload } from './../../components/Admin/Editor/Extensions/ImageUpload'
+import Link from './../../components/Admin/Editor/Extensions/Link'
 import { Editor } from '@tiptap/react'
-import Figcaption from './../../components/Editor/Extensions/Figcaption';
+import Figcaption from './../../components/Admin/Editor/Extensions/Figcaption';
 
 // import { AiWriter, AiImage, Figcaption, HorizontalRule, ImageBlock, ImageUpload, Link, CodeBlock } from '@/extensions'
 

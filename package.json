@@ -8,6 +8,8 @@
     "dev": "cd source/elegant && npm run dev",
     "publish:innovators": "node scripts/publish-innovators-prerelease.ts",
     "publish:patch": "node scripts/publish-patch.ts",
+    "publish:cms-patch": "cd ./packages/elegant-cms && node scripts/publish-elegant-cms-patch.ts",
+    "publish:cms-minor-version": "cd ./packages/elegant-cms && node scripts/publish-elegant-cms-minor-version.ts",
     "publish:ui-patch": "cd ./packages/elegant-ui && node scripts/publish-elegant-ui-patch.ts",
     "publish:ui-minor-version": "cd ./packages/elegant-ui && node scripts/publish-elegant-ui-minor-version.ts",
     "test": "jest --watch --verbose ./integrations --detectOpenHandles --forceExit",

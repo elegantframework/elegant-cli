@@ -1,10 +1,12 @@
 
-import Editor from "./components/Editor/Editor";
-import { useEditor } from "./hooks/useEditor";
+import CMS from "./components/Admin/Cms";
+import R2 from "./utils/CloudFlare/R2";
+import S3Client from "./utils/CloudFlare/R2Client";
 import { generateMetadata } from "./utils/Metadata/GenerateMetadata";
 
 export {
-    Editor,
+    CMS,
     generateMetadata,
-    useEditor
+    S3Client,
+    R2,
 }

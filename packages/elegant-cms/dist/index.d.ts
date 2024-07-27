@@ -1,28 +1,31 @@
-import { Editor as Editor$1 } from '@tiptap/react';
 import React from 'react';
+import { NextResponse } from 'next/server';
+import { S3Client } from '@aws-sdk/client-s3';
 import { ResolvingMetadata, Metadata } from 'next';
 
-interface EditorProps {
+interface Props$1 {
     /**
-     *
+     * The url segments.
      */
-    id: string;
-    /**
-     * The TipTap Editor.
-     */
-    editor: Editor$1;
+    params: {
+        cms: string[];
+    };
 }
-/**
- * The rich-text content editor.
- * @returns A detailed content editor powered by TipTap.
- */
-declare function Editor({ id, editor }: EditorProps): React.JSX.Element;
+declare function CMS({ params }: Props$1): React.JSX.Element;
 
-declare const useEditor: ({ ...rhfMethods }: {
-    [x: string]: any;
-}) => {
-    editor: Editor$1;
-};
+/**
+ * Save an item to CloudFlare R2.
+ * @returns A url to access the stored item.
+ */
+declare function Save(file: File): Promise<NextResponse<{
+    url: string;
+}>>;
+
+/**
+ * The AWS S3 Client SDK Wrapper.
+ * @returns Returns an S3 compliant client for accessing storage services such as S3 and CloudFlare R2.
+ */
+declare function R2Client(accountID: string, accessKeyId: string, secretAccessKey: string): S3Client;
 
 interface Props {
     params: {
@@ -34,4 +37,4 @@ interface Props {
 }
 declare function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata>;
 
-export { Editor, generateMetadata, useEditor };
+export { CMS, Save as R2, R2Client as S3Client, generateMetadata };

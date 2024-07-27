@@ -20,6 +20,11 @@
     content: 'Click here to start writing …';
   }
 
+  & > * {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
   /* Blockquote Placeholder */
   blockquote .is-empty:not(.is-editor-empty):first-child:last-child::before {
     content: 'Enter a quote';
