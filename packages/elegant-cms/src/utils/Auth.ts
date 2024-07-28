@@ -49,6 +49,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             return null;
           };
 
+          // @ts-expect-error
           const passwordsMatch = comparePasswords(password, user.password);
 
           if(!passwordsMatch) {

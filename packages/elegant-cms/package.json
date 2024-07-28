@@ -8,10 +8,15 @@
     ".": "./dist/index.js",
     "./styles.css": "./dist/styles.css"
   },
+  "files": ["dist"],
   "scripts": {
-    "build": "tsup src/index.ts --dts --minify && tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "build": "tsup src/index.ts --dts --minify && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "test": "jest",
-    "test:ci": "jest --init"
+    "test:ci": "jest --init",
+    "postinstall": "prisma generate"
+  },
+  "prisma": {
+    "schema": "db/schema.prisma"
   },
   "repository": {
     "type": "git",

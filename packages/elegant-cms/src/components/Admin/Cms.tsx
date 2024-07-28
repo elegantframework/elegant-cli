@@ -1,31 +1,37 @@
-import type { Metadata, ResolvingMetadata } from 'next'
-import React from 'react';
+import React, { Suspense } from 'react';
+import CmsClient from './CmsClient';
+import { getAdminCount } from '../../utils/Actions';
  
 interface Props {
+    /**
+     * Our database url connection string.
+     */
+    postgresUrl: string;
+    /**
+     * Our non-pooling database url connection string.
+     */
+    nonPoolingPUrl: string;
     /**
      * The url segments.
      */
     params: {  cms: string[] };
 };
- 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  return {
-    title: "This is the elegant cms component",
-  }
-}
 
-export default function CMS({ params }: Props) {
-
-    // fetch admin count
-
-    // fetch collections
-
+export default async function CMS({ 
+    postgresUrl,
+    nonPoolingPUrl,
+    params 
+}: Props) {
+    // const session = await auth();
+    const adminCount = await getAdminCount();
+    
     return(
-        <>
-            Hello world
-        </>
+        <CmsClient 
+            postgresUrl={postgresUrl}
+            nonPoolingPUrl={nonPoolingPUrl}
+            adminCount={0}
+            session={null}
+            params={params}
+        />
     );
 }

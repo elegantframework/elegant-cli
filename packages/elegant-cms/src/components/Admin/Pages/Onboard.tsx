@@ -1,18 +1,17 @@
 'use client'
-import React from "react";
-import { Metadata } from "next";
+import React, { useEffect } from "react";
 import { Card, ElegantLogo, MetaTitle } from '@brandonowens/elegant-ui';
 import Link from "next/link";
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
 import { createAdmin } from "./../../../utils/Actions";
 import { useRouter } from "next/navigation";
 
-export const metadata: Metadata = {
-    title: `Create an admin account - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`,
-};
-
 export default function Onboard() {
     const router = useRouter();
+
+    useEffect(() => {
+        document.title = `Create an admin account - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+    }, []);
 
     return(
         <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
@@ -102,13 +101,13 @@ export default function Onboard() {
 }
 
 export async function createAdminUser(formData: FormData) {
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
+    // const name = formData.get("name") as string;
+    // const email = formData.get("email") as string;
+    // const password = formData.get("password") as string;
 
-    return await createAdmin({
-        name: name,
-        email: email,
-        password: password
-    });
+    // return await createAdmin({
+    //     name: name,
+    //     email: email,
+    //     password: password
+    // });
 }

@@ -1,7 +1,7 @@
 'use server'
 
 import { Collection } from "./../../../components/Types";
-import prisma from "./../../../utils/Prisma";
+import { prisma } from "./../../../utils/Prisma";
 
 export interface CreatePost {
     id: string;

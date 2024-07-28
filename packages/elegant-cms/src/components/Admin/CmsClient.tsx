@@ -1,6 +1,6 @@
 'use client'
+import React from "react";
 // import Dashboard from "./Pages/Dashboard";
-// import Welcome from "./Pages/Welcome";
 // import Error from "./Pages/Error";
 // import Onboard from "./Pages/Onboard";
 // import SiteSettings from "./Pages/SiteSettings";
@@ -13,8 +13,10 @@ import { useEffect, useState } from "react";
 // import DocumentList from "./Pages/DocumentList";
 // import EditDocument from "./Pages/EditDocument";
 // import { useEffect, useState } from "react";
-import { Collection } from "../Types";
-// import { getAllCollections } from "@/utils/Db/Actions/Collection";
+import { Collection } from '../Types';
+import { getAllCollections } from '../../utils/Db/Actions/Collection';
+import Onboard from "./Pages/Onboard";
+import Welcome from "./Pages/Welcome";
 
 export interface CMSProps {
     postgresUrl: string | undefined,
@@ -26,37 +28,37 @@ export interface CMSProps {
     } 
 };
 
-export default function CMS({
+export default function CmsClient({
     postgresUrl,
     nonPoolingPUrl,
     adminCount,
     session,
     params
 }: CMSProps) {
-    const [collections, setCollections] = useState<Collection[]>();
+    // const [collections, setCollections] = useState<Collection[]>();
 
-    useEffect(() => {
-        // getAllCollections().then(
-        //     collections => {
-        //         setCollections(collections)
-        //     }
-        // );
-    }, [params.cms]);
-
-    // if(!postgresUrl || !nonPoolingPUrl) {
-    //     return(
-    //         <Welcome 
-    //             postgresUrl={postgresUrl}
-    //             nonPoolingPUrl={nonPoolingPUrl}
-    //         />
+    // useEffect(() => {
+    //     getAllCollections().then(
+    //         collections => {
+    //             setCollections(collections)
+    //         }
     //     );
-    // }
+    // }, [params.cms]);
 
-    // if(adminCount === 0) {
-    //     return(
-    //         <Onboard />
-    //     );
-    // }
+    if(!postgresUrl || !nonPoolingPUrl) {
+        return(
+            <Welcome 
+                postgresUrl={postgresUrl}
+                nonPoolingPUrl={nonPoolingPUrl}
+            />
+        );
+    }
+
+    if(adminCount === 0) {
+        return(
+            <Onboard />
+        );
+    }
 
     // if(!session) { 
     //     return(
