@@ -24,12 +24,14 @@ export default async function CMS({
 }: Props) {
     // const session = await auth();
     const adminCount = await getAdminCount();
+
+    console.log(adminCount)
     
     return(
         <CmsClient 
             postgresUrl={postgresUrl}
             nonPoolingPUrl={nonPoolingPUrl}
-            adminCount={0}
+            adminCount={adminCount}
             session={null}
             params={params}
         />

@@ -8,7 +8,7 @@ import UserSettings from "./Pages/UserSettings";
 import { Session } from "next-auth";
 import Collections from "./Pages/Collections";
 import NewCollection from "./Pages/NewCollection";
-import Login from "./Pages/Login";
+import Login from "../../../../elegant-cms/src/components/Admin/Pages/Login";
 import DocumentList from "./Pages/DocumentList";
 import EditDocument from "./Pages/EditDocument";
 import { useEffect, useState } from "react";

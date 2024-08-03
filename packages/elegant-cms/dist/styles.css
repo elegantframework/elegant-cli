@@ -586,6 +586,10 @@ video {
   inset: -0.25rem;
 }
 
+.inset-0 {
+  inset: 0px;
+}
+
 .inset-y-0 {
   top: 0px;
   bottom: 0px;
@@ -668,6 +672,10 @@ video {
 
 .mb-6 {
   margin-bottom: 1.5rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
 }
 
 .mr-1 {
@@ -814,6 +822,10 @@ video {
   flex: none;
 }
 
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -845,6 +857,10 @@ video {
   cursor: pointer;
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -871,6 +887,14 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .gap-x-0 {
@@ -1040,6 +1064,10 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.fill-\[\#24292F\] {
+  fill: #24292F;
+}
+
 .fill-red-500 {
   fill: #ef4444;
 }
@@ -1111,6 +1139,11 @@ video {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .pb-12 {
@@ -1240,6 +1273,16 @@ video {
   color: rgb(99 102 241 / var(--tw-text-opacity));
 }
 
+.text-indigo-600 {
+  --tw-text-opacity: 1;
+  color: rgb(79 70 229 / var(--tw-text-opacity));
+}
+
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity));
+}
+
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
@@ -1248,6 +1291,11 @@ video {
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 
 .text-red-900 {
@@ -1387,6 +1435,11 @@ video {
   background-color: rgb(231 229 228 / var(--tw-bg-opacity));
 }
 
+.hover\:text-indigo-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(99 102 241 / var(--tw-text-opacity));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -1462,6 +1515,10 @@ video {
 .focus-visible\:ring-indigo-600:focus-visible {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity));
+}
+
+.focus-visible\:ring-transparent:focus-visible {
+  --tw-ring-color: transparent;
 }
 
 .active\:bg-stone-300:active {
@@ -1611,6 +1668,10 @@ video {
 
   .md\:w-64 {
     width: 16rem;
+  }
+
+  .md\:p-4 {
+    padding: 1rem;
   }
 }
 

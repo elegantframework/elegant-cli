@@ -1,16 +1,20 @@
 'use client'
-import React, { useState } from "react";
-import { Card, ElegantLogo } from '@brandonowens/elegant-ui';
+import React, { useEffect, useState } from "react";
+import { Card, ElegantLogo, MetaTitle } from '@brandonowens/elegant-ui';
 import Link from "next/link";
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
 import { useRouter } from "next/navigation";
-import { logUserIn } from "@/utils/Actions";
+import { logUserIn } from "./../../../utils/Actions";
 import { XCircleIcon } from "lucide-react";
 
 export default function Login() {
     const router = useRouter();
     const [error, setError] = useState("");
     router.replace('/admin');
+
+    useEffect(() => {
+        document.title = `Log In - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+    }, []);
 
     return(
         <main className="relative flex h-screen flex-col items-center justify-center z-10 p-0 md:p-4">

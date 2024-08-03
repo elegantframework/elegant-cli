@@ -9,7 +9,6 @@ import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 // import Collections from "./Pages/Collections";
 // import NewCollection from "./Pages/NewCollection";
-// import Login from "./Pages/Login";
 // import DocumentList from "./Pages/DocumentList";
 // import EditDocument from "./Pages/EditDocument";
 // import { useEffect, useState } from "react";
@@ -17,6 +16,7 @@ import { Collection } from '../Types';
 import { getAllCollections } from '../../utils/Db/Actions/Collection';
 import Onboard from "./Pages/Onboard";
 import Welcome from "./Pages/Welcome";
+import Login from "./Pages/Login";
 
 export interface CMSProps {
     postgresUrl: string | undefined,
@@ -60,11 +60,11 @@ export default function CmsClient({
         );
     }
 
-    // if(!session) { 
-    //     return(
-    //         <Login />
-    //     );
-    // }
+    if(!session) { 
+        return(
+            <Login />
+        );
+    }
 
     // if(!params.cms) {
     //     return(
