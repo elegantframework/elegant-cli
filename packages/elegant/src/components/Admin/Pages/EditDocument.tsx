@@ -1,7 +1,7 @@
 'use client'
 import { Session } from "next-auth";
 import DashboardLayout from "../DashboardLayout";
-import { useEditor } from "@/hooks/useEditor";
+import { useEditor } from "@/utils/Hooks/useEditor";
 import Editor from "@/components/Editor/Editor";
 import DocumentSettings from "../DocumentSettings";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -18,11 +18,13 @@ import { MetaTitle } from "@brandonowens/elegant-ui";
 export default function EditDocument({
     session,
     collection,
-    slug
+    slug,
+    collections
 }:{
     session: Session,
     collection: Collection;
     slug: string;
+    collections: Collection[];
 }) {
     useEffect(() => {
         if(slug === 'new') {
@@ -171,7 +173,10 @@ export default function EditDocument({
             errors,
             setErrors
         }}>
-            <DashboardLayout session={session}>
+            <DashboardLayout 
+                session={session}
+                collections={collections}
+            >
                 {hasChanges && (
                     <div className="sticky top-0 z-40 flex justify-end h-16 shrink-0 items-center gap-x-6 border-b border-white/5 px-4 shadow-sm sm:px-6 lg:px-8">
                         <button
@@ -221,7 +226,7 @@ export default function EditDocument({
                 {!hasChanges && (
                     <div className="sticky top-0 z-40 flex justify-end h-16 shrink-0 items-center gap-x-6 border-b border-white/5 px-4 shadow-sm sm:px-6 lg:px-8"></div>
                 )}
-                <div className="flex max-w-screen-xl flex-col space-y-12 p-5 md:p-8">
+                <div className="flex max-w-screen-xl flex-col space-y-12 p-5">
                     <div className="min-h-full prose prose-xl">
                         <div className={
                             clsx(

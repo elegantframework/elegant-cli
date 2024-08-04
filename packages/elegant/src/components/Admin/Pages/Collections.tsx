@@ -5,37 +5,28 @@ import Link from "next/link";
 import ContentLoader from 'react-content-loader';
 import EmptyState from "../Collections/EmptyState";
 import { PlusIcon } from "lucide-react";
-import { getAllCollections } from "@/utils/Db/Actions/Collection";
 import { Collection } from "@/components/Types";
 import Heading from "../Heading";
 import { MetaTitle } from "@brandonowens/elegant-ui";
 
 export default function Collections({
-    session
+    session,
+    collections
 }:{
-    session: Session | null
+    session: Session | null;
+    collections: Collection[];
 }) {
     useEffect(() => {
         document.title = `Collections - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
     }, []);
 
-    const [collections, setCollections] = useState<Collection[] | null>();
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const getCollections = async() => {
-        setIsLoading(true); 
-        const results = await getAllCollections();
-
-        setCollections(results);
-        setIsLoading(false);
-    };
-
-    useEffect(() => {
-        getCollections();
-    }, []);
-
     return(
-        <DashboardLayout session={session}>
+        <DashboardLayout 
+            session={session}
+            collections={collections}
+        >
             <div className="flex max-w-screen-xl flex-col space-y-12 p-5 md:p-8">
                 <Heading title={'Collections'}>
                     <div className="flex items-center gap-x-4 sm:gap-x-6">

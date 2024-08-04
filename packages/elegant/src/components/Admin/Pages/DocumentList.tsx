@@ -5,18 +5,20 @@ import { PlusIcon } from "lucide-react";
 import Heading from "../Heading";
 import { singular } from "pluralize";
 import { useEffect, useState } from "react";
-import { Document } from "@/components/Types";
 import { getAllPostsForCollection } from "@/utils/Db/Actions/Post";
 import ContentLoader from "react-content-loader";
 import EmptyState from "../Documents/EmptyState";
 import { MetaTitle } from "@brandonowens/elegant-ui";
+import { Collection } from "@/components/Types";
 
 export default function DocumentList({
     session,
-    collection
+    collection,
+    collections
 }:{
     session: Session | null;
     collection: string;
+    collections: Collection[];
 }) {
     useEffect(() => {
         document.title = `${collection[0].toUpperCase() + collection.slice(1)} - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
@@ -44,7 +46,10 @@ export default function DocumentList({
     }, []);
 
     return(
-        <DashboardLayout session={session}>
+        <DashboardLayout 
+            session={session}
+            collections={collections}
+        >
             <div className="flex max-w-screen-xl flex-col space-y-12 p-5 md:p-8">
                 <Heading title={collection}>
                     <div className="flex items-center gap-x-4 sm:gap-x-6">

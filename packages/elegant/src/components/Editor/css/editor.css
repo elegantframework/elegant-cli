@@ -41,6 +41,7 @@
 
 .ProseMirror.tiptap {
   padding: 0;
+  min-height: calc(100vh - 360px);
 }
 
 [data-theme='slash-command'] {

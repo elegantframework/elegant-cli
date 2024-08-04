@@ -5,8 +5,8 @@ import * as Popover from '@radix-ui/react-popover';
 import { Surface } from '../Toolbar/Surface';
 import { DropdownButton } from '../Toolbar/Dropdown';
 import { Plus, GripVertical, RemoveFormatting, Clipboard, Copy, Trash2 } from 'lucide-react';
-import useContentItemActions from '@/hooks/useContentItemActions';
-import { useData } from '@/hooks/useEditorData';
+import useContentItemActions from '@/utils/Hooks/useContentItemActions';
+import { useData } from '@/utils/Hooks/useEditorData';
 
 export type Props = {
     /**

@@ -1,9 +1,6 @@
 "use client";
 import Link from "next/link";
 import {
-  ArrowLeft,
-  BarChart3,
-  Edit3,
   LayoutDashboard,
   Menu,
   Newspaper,
@@ -17,10 +14,9 @@ import {
   usePathname,
   useSelectedLayoutSegments,
 } from "next/navigation";
-import { JSX, ReactNode, useEffect, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { ElegantLogo } from "@brandonowens/elegant-ui";
 import { Collection, NavigationItem } from "../Types";
-import { getAllCollections } from "@/utils/Db/Actions/Collection";
 
 const externalLinks = [
   {
@@ -35,22 +31,16 @@ const externalLinks = [
   },
 ];
 
-export default function Nav({ children }: { children: ReactNode }) {
+export default function Nav({
+  children,
+  collections
+}: {
+  children: ReactNode,
+  collections: Collection[]
+}) {
   const segments = useSelectedLayoutSegments();
   const pathname = usePathname();
   const { id } = useParams() as { id?: string };
-
-  const [collections, setCollections] = useState<Collection[] | null>();
-
-  const getCollections = async() => {
-    const results = await getAllCollections();
-
-    setCollections(results);
-  };
-
-  useEffect(() => {
-      getCollections();
-  }, []);
 
   const tabs = useMemo(() => {
     const navigation: NavigationItem[] = [];

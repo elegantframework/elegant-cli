@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import CmsClient from './CmsClient';
 import { getAdminCount } from '../../utils/Db/Actions/Actions';
 import { auth } from './../../utils/Auth';
+import { getAllCollections } from '@/utils/Db/Actions/Collection';
  
 interface Props {
     /**
@@ -25,6 +26,7 @@ export default async function CMS({
 }: Props) {
     const session = await auth();
     const adminCount = await getAdminCount();
+    const collections = await getAllCollections();
     
     return(
         <CmsClient 
@@ -33,6 +35,7 @@ export default async function CMS({
             adminCount={adminCount}
             session={session}
             params={params}
+            collections={collections}
         />
     );
 }

@@ -6,13 +6,11 @@ import Error from "./Pages/Error";
 import SiteSettings from "./Pages/SiteSettings";
 import UserSettings from "./Pages/UserSettings";
 import { Session } from "next-auth";
-import { useEffect, useState } from "react";
 import Collections from "./Pages/Collections";
 import NewCollection from "./Pages/NewCollection";
 import DocumentList from "./Pages/DocumentList";
 import EditDocument from "./Pages/EditDocument";
 import { Collection } from '../Types';
-import { getAllCollections } from '../../utils/Db/Actions/Collection';
 import Onboard from "./Pages/Onboard";
 import Welcome from "./Pages/Welcome";
 import Login from "./Pages/Login";
@@ -24,7 +22,8 @@ export interface CMSProps {
     session: Session | null,
     params: { 
         cms: string[]
-    } 
+    },
+    collections: Collection[]
 };
 
 export default function CmsClient({
@@ -32,18 +31,9 @@ export default function CmsClient({
     nonPoolingPUrl,
     adminCount,
     session,
-    params
+    params,
+    collections
 }: CMSProps) {
-    const [collections, setCollections] = useState<Collection[]>();
-
-    useEffect(() => {
-        getAllCollections().then(
-            collections => {
-                setCollections(collections)
-            }
-        );
-    }, [params.cms]);
-
     if(!postgresUrl || !nonPoolingPUrl) {
         return(
             <Welcome 
@@ -67,25 +57,37 @@ export default function CmsClient({
 
     if(!params.cms) {
         return(
-            <Dashboard session={session}/>
+            <Dashboard 
+                session={session}
+                collections={collections || []}
+            />
         );
     }
 
     if(params.cms[0] === "settings") {
         return(
-            <SiteSettings session={session}/>
+            <SiteSettings 
+                session={session}
+                collections={collections || []}
+            />
         );
     }
 
     if(params.cms[0] === "user") {
         return(
-            <UserSettings session={session}/>
+            <UserSettings 
+                session={session}
+                collections={collections || []}
+            />
         );
     }
 
     if(params.cms[0] === "collections" && !params.cms[1]) {
         return(
-            <Collections session={session}/>
+            <Collections 
+                session={session}
+                collections={collections || []}
+            />
         );
     }
 
@@ -93,7 +95,7 @@ export default function CmsClient({
         return(
             <NewCollection 
                 session={session}
-                collections={[]}
+                collections={collections || []}
             />
         );
     }
@@ -103,6 +105,7 @@ export default function CmsClient({
             <DocumentList 
                 session={session} 
                 collection={params.cms[0]}
+                collections={collections || []}
             />
         );
     }
@@ -118,6 +121,7 @@ export default function CmsClient({
                     }
                 }
                 slug={params.cms[1]}
+                collections={collections || []}
             />
         );
     }
