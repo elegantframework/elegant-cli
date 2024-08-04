@@ -2,11 +2,12 @@
 import { Session } from "next-auth";
 import DashboardLayout from "../DashboardLayout";
 import { plural } from 'pluralize';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { XCircleIcon } from "lucide-react";
 import { createCollection, getCollectionByName } from "@/utils/Db/Actions/Collection";
 import { useRouter } from "next/navigation";
 import Heading from "../Heading";
+import { MetaTitle } from "@brandonowens/elegant-ui";
 
 export default function NewCollection({
     session,
@@ -15,6 +16,10 @@ export default function NewCollection({
     session: Session | null,
     collections: string[]
 }) {
+    useEffect(() => {
+        document.title = `New Collection - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+    }, []);
+
     const [pluralized, setPlural] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');

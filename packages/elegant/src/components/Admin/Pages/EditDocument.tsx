@@ -1,3 +1,4 @@
+'use client'
 import { Session } from "next-auth";
 import DashboardLayout from "../DashboardLayout";
 import { useEditor } from "@/hooks/useEditor";
@@ -12,6 +13,7 @@ import clsx from "clsx";
 import { AlertCircleIcon } from "lucide-react";
 import convert from 'url-slug';
 import { useRouter } from "next/navigation";
+import { MetaTitle } from "@brandonowens/elegant-ui";
 
 export default function EditDocument({
     session,
@@ -22,12 +24,18 @@ export default function EditDocument({
     collection: Collection;
     slug: string;
 }) {
+    useEffect(() => {
+        if(slug === 'new') {
+            document.title = `New ${singular(collection.title)[0].toUpperCase() + singular(collection.title).slice(1)} - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+        }
+    }, []);
+
     const { editor } = useEditor({});
     const [ saving, setSaving ] = useState(false);
     const [ loaded, setLoaded ] = useState(false);    
     const [ hasChanges, setHasChanges ] = useState(false);
     const [ hasCustomSlug, setHasCustomSlug ] = useState(false);
-    const [ document, setDocument ] = useState({
+    const [ doc, setDocument ] = useState({
         id: "",
         title: "",
         status: "DRAFT",
@@ -60,6 +68,10 @@ export default function EditDocument({
                 image: result?.author.image || ""
             }]
         });
+
+        if(result){
+            document.title = `${result.title[0].toUpperCase() + result.title.slice(1)} - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+        }
     };
 
     useEffect(() => {
@@ -72,15 +84,15 @@ export default function EditDocument({
         if(editor && !loaded) {
             setLoaded(true);
             editor.commands.setContent(
-                document.content
+                doc.content
             );
         }
-    }, [document.content]);
+    }, [doc.content]);
 
     const onSave = async() => {
         let formErrors = [];
 
-        if(document.title === "") {
+        if(doc.title === "") {
             formErrors.push({
                 element: "title",
                 message: "Title is required."
@@ -94,17 +106,17 @@ export default function EditDocument({
             });
         }
 
-        if(document.slug === "") {
+        if(doc.slug === "") {
             formErrors.push({
                 element: "slug",
                 message: "A URL slug is required."
             });
         }
 
-        if(slug === "new" && document.slug !== "") {
+        if(slug === "new" && doc.slug !== "") {
             // check that this slug is unique
             const result = await getPostBySlug(
-                document.slug,
+                doc.slug,
                 collection.title.toLowerCase()
             );
 
@@ -123,22 +135,22 @@ export default function EditDocument({
             setSaving(true);
 
             await createPost({
-                id: document.id || "",
-                title: document.title,
-                status: document.status,
-                description: document.description || "",
-                coverImage: document.coverImage || "",
+                id: doc.id || "",
+                title: doc.title,
+                status: doc.status,
+                description: doc.description || "",
+                coverImage: doc.coverImage || "",
                 content: editor.getHTML(),
                 authorId: session.user?.id || "",
-                slug: document.slug,
+                slug: doc.slug,
                 collection: collection,
-                tags: document.tags,
-                publishedAt: document.publishedAt
+                tags: doc.tags,
+                publishedAt: doc.publishedAt
             }).then(() => {
                 setSaving(false);
 
-                if(slug === 'new' || slug !== document.slug) {
-                    router.push(`/admin/${collection.title.toLowerCase()}/${document.slug}`);
+                if(slug === 'new' || slug !== doc.slug) {
+                    router.push(`/admin/${collection.title.toLowerCase()}/${doc.slug}`);
                 }
             });
         }
@@ -147,7 +159,7 @@ export default function EditDocument({
     return(
         <DocumentContext.Provider value={{ 
             collection,
-            document,
+            document:doc,
             setDocument,
             editor,
             files,
@@ -242,10 +254,10 @@ export default function EditDocument({
                                     )
                                 }
                                 placeholder={`Your ${singular(collection.title)} title`}
-                                defaultValue={document.title}
+                                defaultValue={doc.title}
                                 onChange={(e) => {
-                                    document.title = e.target.value;
-                                    setDocument(document);
+                                    doc.title = e.target.value;
+                                    setDocument(doc);
                                     setHasChanges(true);
 
                                     if(errors.some(error => error.element === "title")) {
@@ -260,11 +272,11 @@ export default function EditDocument({
                                 }}
                                 onBlur={(e) => {
                                     if (slug === 'new' && !hasCustomSlug) {
-                                        document.slug = convert(e.target.value.toLowerCase(), {
+                                        doc.slug = convert(e.target.value.toLowerCase(), {
                                             dictionary: { "'": '' }
                                         });
 
-                                        setDocument(document);
+                                        setDocument(doc);
                                         setHasChanges(true);
                                     }                                
                                 }}

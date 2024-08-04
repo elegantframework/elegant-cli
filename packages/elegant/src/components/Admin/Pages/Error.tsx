@@ -1,13 +1,12 @@
-import React, { Suspense } from "react";
-import { Metadata } from "next";
+import React, { useEffect } from "react";
 import { Card, MetaTitle } from '@brandonowens/elegant-ui';
 import BackButton from "../BackButton";
 
-export const metadata: Metadata = {
-    title: `Page not found - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`,
-};
-
 export default function Error() {
+    useEffect(() => {
+        document.title = `Page not found - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+    }, []);
+    
     return(
         <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
             <Card>

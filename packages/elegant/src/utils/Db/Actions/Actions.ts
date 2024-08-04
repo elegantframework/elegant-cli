@@ -1,8 +1,8 @@
 'use server'
 
-import { signIn } from "./Auth";
-import { hashPassword } from "./Bcrypt";
-import prisma from "./Prisma";
+import { signIn } from "../../Auth";
+import { hashPassword } from "../../Bcrypt";
+import prisma from "../../Prisma";
 
 export interface createAdmin {
     name: string;

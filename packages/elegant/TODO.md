@@ -1,3 +1,4 @@
+- Add elegant favicon to admin panel
 
 - finish adding error handling to admin onboard field
 
@@ -16,7 +17,6 @@
 - add .env file back
     - add example, starter, and test .env files back
 
-- add admin back
 - rss feed
 - sitemap
 - add dark mode back in tailwind

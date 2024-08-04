@@ -8,12 +8,17 @@ import { PlusIcon } from "lucide-react";
 import { getAllCollections } from "@/utils/Db/Actions/Collection";
 import { Collection } from "@/components/Types";
 import Heading from "../Heading";
+import { MetaTitle } from "@brandonowens/elegant-ui";
 
 export default function Collections({
     session
 }:{
     session: Session | null
 }) {
+    useEffect(() => {
+        document.title = `Collections - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+    }, []);
+
     const [collections, setCollections] = useState<Collection[] | null>();
     const [isLoading, setIsLoading] = useState<boolean>(false);
 

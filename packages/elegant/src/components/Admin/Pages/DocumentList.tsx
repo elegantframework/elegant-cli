@@ -9,6 +9,7 @@ import { Document } from "@/components/Types";
 import { getAllPostsForCollection } from "@/utils/Db/Actions/Post";
 import ContentLoader from "react-content-loader";
 import EmptyState from "../Documents/EmptyState";
+import { MetaTitle } from "@brandonowens/elegant-ui";
 
 export default function DocumentList({
     session,
@@ -17,6 +18,10 @@ export default function DocumentList({
     session: Session | null;
     collection: string;
 }) {
+    useEffect(() => {
+        document.title = `${collection[0].toUpperCase() + collection.slice(1)} - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+    }, []);
+    
     const [documents, setDocuments] = useState<{
         title: string,
         status: string;

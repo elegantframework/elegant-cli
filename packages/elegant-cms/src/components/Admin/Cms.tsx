@@ -24,8 +24,6 @@ export default async function CMS({
 }: Props) {
     // const session = await auth();
     const adminCount = await getAdminCount();
-
-    console.log(adminCount)
     
     return(
         <CmsClient 

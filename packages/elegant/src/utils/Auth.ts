@@ -3,7 +3,7 @@ import { authConfig } from '../../auth.config';
 import GitHubProvider from "next-auth/providers/github";
 import Credentials from 'next-auth/providers/credentials';
 import { z, string } from 'zod';
-import { getUser } from './Actions';
+import { getUser } from './Db/Actions/Actions';
 import { comparePasswords } from './Bcrypt';
  
 export const { handlers, auth, signIn, signOut } = NextAuth({
