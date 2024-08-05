@@ -298,7 +298,9 @@ export default function EditDocument({
                         <Editor editor={editor}/>
                     </div>
                     <div>
-                        <DocumentSettings />
+                        <DocumentSettings 
+                            showDelete={slug !== 'new'}
+                        />
                     </div>
                 </div>
             </DashboardLayout>

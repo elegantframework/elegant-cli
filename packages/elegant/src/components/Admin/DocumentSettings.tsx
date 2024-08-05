@@ -4,8 +4,14 @@ import Accordion from "./Accordion";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import { DocumentContext } from "./Pages/EditDocument";
+import DeleteDocumentButton from "./DeleteDocumentButton";
 
-export default function DocumentSettings() {
+export default function DocumentSettings({
+    showDelete
+}:{
+    showDelete: boolean;
+}
+) {
     const { document, setDocument, setHasChanges, setHasCustomSlug, setErrors, errors } = useContext(DocumentContext);
     const [ tagInput, setTagInput ] = useState("");
     const [ newTags, setNewTags ] = useState<string[]>([]);
@@ -59,6 +65,22 @@ export default function DocumentSettings() {
                         Draft
                     </option>
                 </select>
+            </div>
+            <div
+                className={`flex w-full pb-4 px-4 ${
+                showDelete ? 'justify-between items-center' : 'justify-end'
+                }`}
+            >
+                {showDelete && (
+                    <DeleteDocumentButton
+                        disabled={false}
+                        slug={document.slug}
+                        onDeleted={() => {
+                            // router.push(`/admin/${collection}`)
+                        }}
+                        className="hover:bg-slate-200 max-h-[2.25rem]"
+                    />
+                )}
             </div>
             <div className="w-full">
                 <Accordion title="Author">

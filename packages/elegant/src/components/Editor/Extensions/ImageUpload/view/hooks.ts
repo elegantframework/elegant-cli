@@ -1,7 +1,6 @@
 import { DragEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
 import API from './api'
-import { FileType } from '../../../../../types/Index';
 
 export const useUploader = ({ onUpload }: { onUpload: (url: string) => void }) => {
   const [loading, setLoading] = useState(false);
