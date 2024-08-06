@@ -193,15 +193,11 @@ export async function updatePost(post: UpdatePost) {
     }
 }
 
-export interface DeletePost {
-    id: string;
-}
-
-export async function deletePost(post: DeletePost) {
+export async function deletePost(id: string) {
     try {
         const response = await prisma.post.delete({
             where: {
-                id: post.id,
+                id: id,
             }        
         });
 

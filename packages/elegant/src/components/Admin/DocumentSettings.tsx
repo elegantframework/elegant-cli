@@ -5,11 +5,14 @@ import Input from "./Input";
 import TextArea from "./TextArea";
 import { DocumentContext } from "./Pages/EditDocument";
 import DeleteDocumentButton from "./DeleteDocumentButton";
+import { Collection } from "../Types";
 
 export default function DocumentSettings({
-    showDelete
+    showDelete,
+    collection
 }:{
     showDelete: boolean;
+    collection: Collection;
 }
 ) {
     const { document, setDocument, setHasChanges, setHasCustomSlug, setErrors, errors } = useContext(DocumentContext);
@@ -74,10 +77,8 @@ export default function DocumentSettings({
                 {showDelete && (
                     <DeleteDocumentButton
                         disabled={false}
-                        slug={document.slug}
-                        onDeleted={() => {
-                            // router.push(`/admin/${collection}`)
-                        }}
+                        id={document.id || ""}
+                        collection={collection.title}
                         className="hover:bg-slate-200 max-h-[2.25rem]"
                     />
                 )}

@@ -300,6 +300,7 @@ export default function EditDocument({
                     <div>
                         <DocumentSettings 
                             showDelete={slug !== 'new'}
+                            collection={collection}
                         />
                     </div>
                 </div>

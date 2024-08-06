@@ -2,7 +2,6 @@
 
 - make r2 a mandatory env var 
 
-- Add delete functionality to document
 - Add delete functionality to collection
 
 - finish adding error handling to admin onboard field
