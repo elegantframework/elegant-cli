@@ -18,6 +18,10 @@
     - test switching between dark mode and how the logo handles that
     - logo on mobile resizes too small
 
+- create the public /blog/[post] page
+
+- create the docs /docs/[] page
+
 - set seo metadata
 - add .env file back
     - add example, starter, and test .env files back
@@ -25,7 +29,6 @@
 - rss feed
 - sitemap
 - add dark mode back in tailwind
-- add testing back
 
 - delete next.svg logo
 

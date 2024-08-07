@@ -156,7 +156,38 @@ export async function getAllPostsForCollection(name: string) {
             collection: {
                 title: name
             }
-        }
+        },
+        orderBy: [{
+            publishedAt: 'desc'
+        }]
+    });
+
+    return response;
+}
+
+export async function getAllPublishedPostsForCollection(name: string) {
+    const response = await prisma.post.findMany({
+        select: {
+            id: true,
+            title: true,
+            status: true,
+            description: true,
+            coverImage: true,
+            content: true,
+            slug: true,
+            tags: true,
+            publishedAt: true,
+            authors: true
+        }, 
+        where: {
+            collection: {
+                title: name
+            },
+            status: "PUBLISHED"
+        },
+        orderBy: [{
+            publishedAt: 'desc'
+        }]
     });
 
     return response;

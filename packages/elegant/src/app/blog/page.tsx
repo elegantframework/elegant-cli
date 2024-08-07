@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
 import { Metadata } from "next";
 import BlogPage from "./BlogPage";
-import { getAllPostsForCollection } from "@/utils/Db/Actions/Post";
-import { Author } from "@/components/Types";
+import { getAllPublishedPostsForCollection } from "@/utils/Db/Actions/Post";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 async function getPosts() {
-    return await getAllPostsForCollection('posts');
+    return await getAllPublishedPostsForCollection('posts');
 }
 
 export default async function Blog() {   

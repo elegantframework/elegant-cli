@@ -6,7 +6,6 @@ import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@heroicons/react/20/solid
 import clsx from "clsx";
 import { ArrowRightIcon, Newspaper } from "lucide-react";
 import moment from "moment";
-import { Metadata } from "next";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ShowNextButton } from '@brandonowens/elegant-ui';
