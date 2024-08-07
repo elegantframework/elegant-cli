@@ -78,17 +78,21 @@ export async function updateCollection(collection: UpdateCollection) {
     }
 }
 
-export interface DeleteCollection {
-    id: string;
-}
-
-export async function deleteCollection(collection: DeleteCollection) {
+export async function deleteCollection(id: string) {
     try {
-        const response = await prisma.collection.delete({
+        const documentsToBeDeleted = prisma.post.deleteMany({
             where: {
-                id: collection.id,
-            }        
+              collectionId: id,
+            }
         });
+        
+        const collectionToDelete = prisma.collection.delete({
+            where: {
+              id: id,
+            }
+        });
+        
+        const response = await prisma.$transaction([ documentsToBeDeleted, collectionToDelete ]);
 
         return response;
     } 

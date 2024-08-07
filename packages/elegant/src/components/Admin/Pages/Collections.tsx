@@ -8,6 +8,7 @@ import { PlusIcon } from "lucide-react";
 import { Collection } from "@/components/Types";
 import Heading from "../Heading";
 import { MetaTitle } from "@brandonowens/elegant-ui";
+import DeleteCollectionButton from "../DeleteCollectionButton";
 
 export default function Collections({
     session,
@@ -112,9 +113,10 @@ export default function Collections({
                                                 </Link>
                                             </td>
                                             <td className="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                    Delete<span className="sr-only"></span>
-                                                </a>
+                                                <DeleteCollectionButton 
+                                                    id={collection.id || ""}
+                                                    collection={collection.title}
+                                                />
                                             </td>
                                         </tr>
                                     ))}

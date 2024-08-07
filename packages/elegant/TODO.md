@@ -1,8 +1,9 @@
-- add r2 blob
+
+
+- finish adding r2 blob support
 
 - make r2 a mandatory env var 
 
-- Add delete functionality to collection
 
 - finish adding error handling to admin onboard field
 

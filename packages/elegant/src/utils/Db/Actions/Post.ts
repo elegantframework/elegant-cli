@@ -1,6 +1,6 @@
 'use server'
 
-import { Collection } from "@/components/Types";
+import { Author, Collection } from "@/components/Types";
 import prisma from "@/utils/Prisma";
 
 export interface CreatePost {
@@ -10,7 +10,9 @@ export interface CreatePost {
     description: string;
     coverImage: string;
     content: string;
-    authorId: string;
+    authors: {
+        id: string;
+    }[];
     slug: string;
     collection: Collection;
     tags: string[];
@@ -22,10 +24,8 @@ export async function createPost(post: CreatePost) {
         const response = await prisma.post.upsert({
             where: {
                 id: post.id,
-                collections: {
-                    some: {
-                        id: post.collection.id
-                    }
+                collection: {
+                    id: post.collection.id
                 }
             },
             create: {
@@ -34,9 +34,11 @@ export async function createPost(post: CreatePost) {
                 description: post.description,
                 coverImage: post.coverImage,
                 content: post.content,
-                authorId: post.authorId,
+                authors: {
+                    connect: post.authors.map(a => ({id: a.id}) || [])
+                },
                 slug: post.slug,
-                collections: {
+                collection: {
                     connect: {
                         id: post.collection.id,
                     }
@@ -50,9 +52,11 @@ export async function createPost(post: CreatePost) {
                 description: post.description,
                 coverImage: post.coverImage,
                 content: post.content,
-                authorId: post.authorId,
+                authors: {
+                    connect: post.authors.map(a => ({id: a.id}) || [])
+                },
                 slug: post.slug,
-                collections: {
+                collection: {
                     connect: {
                         id: post.collection.id,
                     }
@@ -121,19 +125,12 @@ export async function getPostBySlug(slug: string, collection: string) {
             slug: true,
             tags: true,
             publishedAt: true,
-            author: {
-                select: {
-                    name: true,
-                    image: true
-                }
-            }
+            authors: true
         },
         where: {
             slug: slug,
-            collections: {
-                some: {
-                    title: collection.toLowerCase()
-                }
+            collection: {
+                title: collection.toLowerCase()
             }
         }   
     });
@@ -153,18 +150,11 @@ export async function getAllPostsForCollection(name: string) {
             slug: true,
             tags: true,
             publishedAt: true,
-            author: {
-                select: {
-                    name: true,
-                    image: true
-                }
-            }
+            authors: true
         }, 
         where: {
-            collections: {
-                some: {
-                    title: name
-                }
+            collection: {
+                title: name
             }
         }
     });

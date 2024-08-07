@@ -31,7 +31,7 @@ export interface Document {
     /**
      * A list of authors who contributed to this document.
      */
-    author: Author[];
+    authors: Author[];
     /**
      * The title of this document.
      */
@@ -61,7 +61,7 @@ export interface Document {
      */
     coverImage?: string;
     /**
-     * The category of this document.
+     * The collection that this document belongs to.
      */
     collection?: string[];
     /**

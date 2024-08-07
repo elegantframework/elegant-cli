@@ -76,7 +76,6 @@ export default function DocumentSettings({
             >
                 {showDelete && (
                     <DeleteDocumentButton
-                        disabled={false}
                         id={document.id || ""}
                         collection={collection.title}
                         className="hover:bg-slate-200 max-h-[2.25rem]"

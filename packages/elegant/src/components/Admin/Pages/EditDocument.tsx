@@ -46,7 +46,8 @@ export default function EditDocument({
         content: "",
         slug: "",
         tags: [] as string[],
-        publishedAt: new Date()
+        publishedAt: new Date(),
+        authors: []
     } as Document);
     const [ files, setFiles ] = useState<FileType[]>([]);
     const [ errors, setErrors ] = useState<EditorError[]>([]);
@@ -65,10 +66,8 @@ export default function EditDocument({
             slug: result?.slug || "",
             tags: result?.tags || [] as string[],
             publishedAt: result?.publishedAt || new Date(),
-            author: [{
-                name: result?.author.name || "",
-                image: result?.author.image || ""
-            }]
+            //@todo: set authors
+            authors: []
         });
 
         if(result){
@@ -143,7 +142,9 @@ export default function EditDocument({
                 description: doc.description || "",
                 coverImage: doc.coverImage || "",
                 content: editor.getHTML(),
-                authorId: session.user?.id || "",
+                authors: [{
+                    id: session.user?.id || "",
+                }],
                 slug: doc.slug,
                 collection: collection,
                 tags: doc.tags,

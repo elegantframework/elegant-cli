@@ -2,17 +2,16 @@
 import { TrashIcon } from '@brandonowens/elegant-ui';
 import { useState } from 'react';
 import DeleteModal from './DeleteModal';
-import { deletePost } from '@/utils/Db/Actions/Post';
+import { deleteCollection } from '@/utils/Db/Actions/Collection';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
-export default function DeleteDocumentButton({
+export default function DeleteCollectionButton({
     id,
     collection,
-    className
 }:{
     id: string;
     collection: string;
-    className?: string;
 }) {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [deleting, setDeleting] = useState(false);
@@ -20,22 +19,19 @@ export default function DeleteDocumentButton({
 
     return(
         <>
-            <button
+            <Link
                 onClick={() => setShowDeleteModal(true)}
-                type="button"
-                disabled={deleting}
-                className={`z-10 inline-block text-gray-500 hover:bg-stone-100 hover:text-indigo-500 dark:hover:bg-stone-700 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-sm p-1.5 ${className}`}
-                title="Delete document"
+                href="#" 
+                className="text-indigo-600 hover:text-indigo-900"
             >
-                <span className="sr-only">Delete document</span>
-                <TrashIcon />
-            </button>
+                Delete<span className="sr-only"></span>
+            </Link>
             {showDeleteModal && (
                 <DeleteModal 
-                    title='Delete Document'
+                    title='Delete Collection'
                     open={showDeleteModal}
                     onClose={() => setShowDeleteModal(false)}
-                    message='Are you sure you want to delete this document? This action cannot be undone.'
+                    message='Are you sure you want to delete this collection? This will delete the collection and all associated documents. This action cannot be undone.'
                     children={
                         <>
                             <button
@@ -43,9 +39,9 @@ export default function DeleteDocumentButton({
                                 disabled={deleting}
                                 onClick={() => {
                                     setDeleting(true);
-                                    deleteDocument(id).then(() => {
+                                    deleteItem(id).then(() => {
                                         setDeleting(false);
-                                        router.push(`/admin/${collection}`);
+                                        router.push(`/admin/collections`);
                                     })
                                 }}
                                 className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
@@ -94,6 +90,6 @@ export default function DeleteDocumentButton({
     );
 }
 
-export async function deleteDocument(id: string) {
-    return await deletePost(id);
+export async function deleteItem(id: string) {
+    return await deleteCollection(id);
 }
