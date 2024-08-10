@@ -18,8 +18,16 @@ export default function Logo({
     return(
         <>
             <Image
-                className={className}
+                className={className + " dark:hidden"}
                 src="/logo_dark.svg"
+                alt={title}
+                width={148}
+                height={28}
+                priority
+            />
+            <Image
+                className={className + " hidden dark:flex"}
+                src="/logo.svg"
                 alt={title}
                 width={148}
                 height={28}

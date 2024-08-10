@@ -64,7 +64,7 @@ export default function TrademarkPolicy() {
                 Last Updated: 25th of July, 2024
             </p>
             <p className="pb-5">
-                The following policy outlines the guidelines and restrictions for the use of trademarks owned by <b>{`${process.env.NEXT_PUBLIC_APP_NAME || `Elegant`}`}</b> ("we" or "our"). By using any of our trademarks, you agree to comply with this policy.
+                The following policy outlines the guidelines and restrictions for the use of trademarks owned by <b>{`${process.env.NEXT_PUBLIC_APP_NAME || `Elegant`}`}</b> (&quot;we&quot; or "our"). By using any of our trademarks, you agree to comply with this policy.
             </p>
             <h2 id="ownership-and-usage" 
                 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl pt-5 pb-5"

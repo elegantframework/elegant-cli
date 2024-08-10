@@ -3,15 +3,25 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Router } from "next/router";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Dialog, DialogPanel } from '@headlessui/react';
-import { VersionSelector } from '@brandonowens/elegant-ui';
+import { GitHubIcon, VersionSelector } from '@brandonowens/elegant-ui';
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
-export default function Header() {
-    const isOpaque = true;
-    const hasNav = true;
-
+export default function Header({
+  hasNav = false,
+  isOpaque = false,
+  onNavToggle,
+  title,
+  section
+}:{
+  hasNav?: boolean;
+  isOpaque?: boolean;
+  onNavToggle?: () => void;
+  title?: string;
+  section?: string;
+}) {
     return(
     <div
         className={clsx(
@@ -28,52 +38,59 @@ export default function Header() {
                 )}
             >
             <div className="relative flex items-center">
-                <div className="flex">
-                  <Link
-                      href="/"
-                      className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
-                  >
-                    <Logo 
-                      className="w-auto h-7" 
-                      title={process.env.NEXT_PUBLIC_APP_NAME || `Elegant` + ` logo`}
-                    />
-                  </Link>
-                  {/* <VersionSelector
-                    version='3.x'
-                    pastVersions={[
-                        {label: "2.x", href: "https://www.v2.elegantframework.com/"},
-                        {label: "1.x", href: "https://www.v1.elegantframework.com/"}
-                    ]}
-                  /> */}
-                </div>
-              <div className="relative hidden lg:flex items-center ml-auto">
+              <Link
+                href="/"
+                className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
+              >
+                <Logo 
+                  className="w-auto h-7" 
+                  title={process.env.NEXT_PUBLIC_APP_NAME || `Elegant` + ` logo`}
+                />
+              </Link>
+              {/* <VersionSelector
+                version='3.x'
+                pastVersions={[
+                    {label: "2.x", href: "https://www.v2.elegantframework.com/"},
+                    {label: "1.x", href: "https://www.v1.elegantframework.com/"}
+                ]}
+              /> */}
+              <div className="relative hidden md:flex items-center ml-auto">
                 <nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
-                  {/* <ul className="flex space-x-8">
-                    <NavItems />
-                  </ul> */}
+                  <ul className="flex space-x-8">
+                    <Suspense>
+                      <NavItems />
+                    </Suspense>
+                  </ul>
                 </nav>
                 <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
-                  {/* <ThemeToggle panelClassName="mt-8" /> */}
-                  {/* {Config('app.repository').length > 0 && (
+                  <Suspense>
+                    <ThemeToggle />
+                  </Suspense>
+                  {process.env.NEXT_PUBLIC_APP_REPOSITORY && (
                     <a
-                      href={Config('app.repository')}
+                      href={process.env.NEXT_PUBLIC_APP_REPOSITORY || ""}
                       className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <span className="sr-only">{Config('app.name')} on GitHub</span>
+                      <span className="sr-only">{process.env.NEXT_PUBLIC_APP_NAME || "Elegant"} on GitHub</span>
                       <GitHubIcon className="w-5 h-5 text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"/>
                     </a>
-                  )} */}
+                  )}
                 </div>
               </div>
-              {/* <NavPopover className="ml-auto -my-1" display="lg:hidden" /> */}
+              <Suspense>
+                <NavPopover className="ml-auto -my-1" display="md:hidden" />
+              </Suspense>
             </div>
           </div>
-          {/* {hasNav && (
+          {hasNav && (
             <div className="flex items-center p-4 border-b border-slate-900/10 lg:hidden dark:border-slate-50/[0.06]">
               <button
                 type="button"
-                onClick={() => onNavToggle(!navIsOpen)}
+                onClick={() => {
+                  onNavToggle && (onNavToggle())
+                }}
                 className="text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
               >
                 <span className="sr-only">Navigation</span>
@@ -114,7 +131,7 @@ export default function Header() {
                 </ol>
               )}
             </div>
-          )} */}
+          )}
         </div>
       </div>
     );

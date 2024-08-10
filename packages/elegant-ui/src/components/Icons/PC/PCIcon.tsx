@@ -9,6 +9,14 @@ export interface PCIconProps {
      * Is the icon active?
      */
     selected?: boolean;
+    /**
+     * The selected icon fill color
+     */
+    fillColor?: string;
+    /**
+     * The selected icon stroke color
+     */
+    strokeColor?: string;
 };
 
 /**
@@ -17,7 +25,9 @@ export interface PCIconProps {
  */
 export default function PCIcon({
     className = "w-6 h-6",
-    selected = false
+    selected = false,
+    fillColor = "fill-indigo-400/20",
+    strokeColor = "stroke-indigo-500"
 }: PCIconProps) {
     return(
         <svg viewBox="0 0 24 24" fill="none" className={className}>
@@ -26,7 +36,7 @@ export default function PCIcon({
                 strokeWidth="2"
                 strokeLinejoin="round"
                 className={
-                    selected ? 'stroke-primary-500 fill-primary-400/20' : 'stroke-slate-400 dark:stroke-slate-500'
+                    selected ? `${fillColor} ${strokeColor}` : 'stroke-slate-400 dark:stroke-slate-500'
                 }
             />
             <path
@@ -35,7 +45,7 @@ export default function PCIcon({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className={
-                    selected ? 'stroke-primary-500' : 'stroke-slate-400 dark:stroke-slate-500'
+                    selected ? `${strokeColor}` : 'stroke-slate-400 dark:stroke-slate-500'
                 }
             />
         </svg>
