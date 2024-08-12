@@ -17,7 +17,7 @@
     "> 1%"
   ],
   "dependencies": {
-    "@apollo/client": "^3.7.17",
+    "@apollo/client": "^3.11.4",
     "@brandonowens/elegant-ui": "^1.2.8",
     "@hapi/iron": "^7.0.1",
     "@heroicons/react": "^2.0.18",
