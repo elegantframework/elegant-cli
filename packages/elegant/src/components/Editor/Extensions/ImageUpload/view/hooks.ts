@@ -1,33 +1,14 @@
 import { DragEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
-import API from './api'
+import SaveFile from '@/utils/CloudFlare/R2';
 
 export const useUploader = ({ onUpload }: { onUpload: (url: string) => void }) => {
   const [loading, setLoading] = useState(false);
-  // const { setFiles } = useContext(DocumentContext);
-
   const uploadFile = useCallback(async (file: File) => {
     setLoading(true)
     try {
-      const blob = await API.uploadImage(file);
-      const reader = new FileReader();
-
-      reader.readAsArrayBuffer(file);
-      reader.onloadend = () => {
-        const bytes = reader.result as string
-        const buffer = Buffer.from(bytes, 'binary')
-
-        // setFiles((files: FileType[]) => [
-        //   ...files,
-        //   {
-        //     type: 'images',
-        //     blob,
-        //     filename: file.name,
-        //     content: buffer.toString('base64')
-        //   }
-        // ])
-      };
-
+      const blob = await SaveFile(file);
+      
       onUpload(blob);
     } catch (errPayload: any) {
       const error = errPayload?.response?.data?.error || 'Something went wrong'

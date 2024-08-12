@@ -1,26 +1,20 @@
-import { PutObjectCommand } from '@aws-sdk/client-s3';
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
-import S3Client from './R2Client';
-import { NextResponse } from 'next/server';
+import axios from "axios";
+import { Save } from "./R2Server";
+import { v4 as uuidv4 } from 'uuid';
 
-/**
- * Save an item to CloudFlare R2.
- * @returns A url to access the stored item.
- */
-export default async function Save(file: File) {
-    const signedUrl = await getSignedUrl(
-        S3Client(
-            process.env.R2_ACCOUNT_ID || "",
-            process.env.R2_ACCESS_KEY_ID || "",
-            process.env.R2_SECRET_ACCESS_KEY || ""
-        ),
-        new PutObjectCommand({
-            Bucket: process.env.R2_BUCKET_NAME,
-            ContentType: file.type,
-            Key: file.name,
-        }),
-        { expiresIn: 60 }
-    )
+export default async function SaveFile(file: File) {
+    const fileName = uuidv4();
+    const [ preSignedUrl, publicUrl ] = await Save(
+        `${fileName}.${file.name.split('.').pop()}`, 
+        file.type, 
+        file.size
+    );
 
-    return NextResponse.json({ url: signedUrl });
+    await axios.put(preSignedUrl || "", file, {
+      headers: {
+        "Content-Type": file.type
+      }
+    });
+
+    return `${publicUrl}/${fileName}.${file.name.split('.').pop()}`;
 }

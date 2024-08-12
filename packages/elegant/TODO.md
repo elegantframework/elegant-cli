@@ -1,8 +1,10 @@
 
 
-- finish adding r2 blob support
+- connect r2 to the post image
 
 - make r2 a mandatory env var 
+
+- document setting up r2 in the readme
 
 
 - finish adding error handling to admin onboard field
