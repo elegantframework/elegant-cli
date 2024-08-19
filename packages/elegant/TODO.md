@@ -1,10 +1,23 @@
 
 
-- connect r2 to the post image
+- finish cover image manual url upload
+    - add validation to the input field
 
 - make r2 a mandatory env var 
 
 - document setting up r2 in the readme
+
+- document prisma
+    - document setting up prisma, upgrades, etc.
+    - document prisma studio
+
+- discard button on post needs to do something.
+
+- finish adding multi author support to the post
+
+- add toast when a user saves
+
+- add blog post loading to the frontend
 
 
 - finish adding error handling to admin onboard field

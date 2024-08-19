@@ -48,6 +48,7 @@
 - [What is Elegant?](#what-is-elegant)
 - [Screenshot](#screenshot)
 - [Demo](#demo)
+- [Features](#features)
 - [Install](#install)
 - [Hosting and Deployments](#deploying)
 - [Creating Content](#creating_content)
@@ -55,6 +56,7 @@
   - [Analytics](#analytics)
   - [Newsletter Subscriptions](#newsletter_subscriptions)
 - [Core Features](#core_features)
+  - [Database Support](#database_support)
   - [Sitemaps](#sitemaps)
   - [Robots.txt](#robots_txt)
   - [Rich Snippets](#rich_snippets)
@@ -84,6 +86,13 @@ Built with Next.js, Tailwind CSS, TipTap, and more. Elegant is perfect for blogg
 Online Demo: [https://demo.myelegant.app/](https://demo.myelegant.app/)
 
 Admin Demo: [https://demo.myelegant.app/admin](https://demo.myelegant.app/admin)
+
+## <a name="features">Features</a>
+
+-     Postgres for a database.
+-     Works with Vercel Storage, Neon, Supabase, and more.
+- 📊 Prisma as our ORM.
+- 🔤 100% written in TypeScript.
 
 ## <a name="install">Install</a>
 
@@ -149,6 +158,8 @@ NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/21224410/sub
 ```
 
 ## <a name="core_features">Core Features</a>
+
+### <a name="database_support">Serverless Database Support</a>
 
 
 ### <a name="sitemaps">Sitemaps</a>

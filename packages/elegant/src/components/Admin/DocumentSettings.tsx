@@ -6,6 +6,7 @@ import TextArea from "./TextArea";
 import { DocumentContext } from "./Pages/EditDocument";
 import DeleteDocumentButton from "./DeleteDocumentButton";
 import { Collection } from "../Types";
+import CoverImage from "./CoverImage";
 
 export default function DocumentSettings({
     showDelete,
@@ -87,7 +88,7 @@ export default function DocumentSettings({
                     <Input
                         label="Name"
                         id="author.name"
-                        defaultValue={document.author?.[0].name}
+                        // defaultValue={document.authors?.[0].name}
                         wrapperClass="mb-4"
                     />
                 </Accordion>
@@ -136,7 +137,14 @@ export default function DocumentSettings({
                     />
                 </Accordion>
                 <Accordion title="Cover Image">
-                    and again
+                    <CoverImage 
+                        image={document.coverImage || ""}
+                        onSave={(result) => {
+                            document.coverImage = result;
+                            setDocument(document);
+                            setHasChanges(true);
+                        }}
+                    />
                 </Accordion>
                 <Accordion title="Tags">
                     {newTags.map((tag) => (
