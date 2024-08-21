@@ -138,6 +138,32 @@ export async function getPostBySlug(slug: string, collection: string) {
     return response;
 }
 
+export async function getPublishedPostBySlug(slug: string, collection: string) {
+    const response = await prisma.post.findFirst({
+        select: {
+            id: true,
+            title: true,
+            status: true,
+            description: true,
+            coverImage: true,
+            content: true,
+            slug: true,
+            tags: true,
+            publishedAt: true,
+            authors: true
+        },
+        where: {
+            slug: slug,
+            collection: {
+                title: collection.toLowerCase()
+            },
+            status: "PUBLISHED"
+        }   
+    });
+
+    return response;
+}
+
 export async function getAllPostsForCollection(name: string) {
     const response = await prisma.post.findMany({
         select: {
@@ -229,4 +255,44 @@ export async function deletePost(id: string) {
             error: error.message,
         };
     }
+}
+
+export async function getPageViews(
+    slug: string
+){
+    return await prisma.views.findFirst({
+        where: {
+          slug: slug,
+        },
+        select: {
+          count: true
+        },
+    });
+}
+
+export async function getAllPageViews()
+{
+    return await prisma.views.findMany({
+        select: {
+            slug: true,
+            count: true
+        }
+    });
+}
+
+export async function incrementPageViews(
+    slug: string
+) {
+    await prisma.views.upsert({
+      where: {
+        slug: slug
+      },
+      create: {
+        slug: slug,
+        count: 1
+      },
+      update: {
+        count: { increment: 1 }
+      }
+    });
 }

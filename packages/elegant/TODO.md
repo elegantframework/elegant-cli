@@ -1,7 +1,17 @@
+- add pageviews to main blog articles list page
+
+- add tags to the blog
+
+- add multi-author support to the blog post view on the frontend
+
+- add a newsletter signup page like mankini.. Include note to check the email for confirmation like laravel news does
+- create newsletter signup success page.
 
 
 - finish cover image manual url upload
     - add validation to the input field
+
+- finish the docs /docs/[] page
 
 - make r2 a mandatory env var 
 
@@ -13,40 +23,36 @@
 
 - discard button on post needs to do something.
 
-- finish adding multi author support to the post
+- pre render static content? ISR?
+
+- finish adding multi author support to the post in the admin
 
 - add toast when a user saves
 
-- add blog post loading to the frontend
+
+- add mobile nav back to frontend header
 
 
 - finish adding error handling to admin onboard field
 
-
-- finish header on main page
-
-    - add the dark mode selector back
-    - copy the code from wesley's site to make things KISS
-
-- finish header.tsx component
-    - add dark mode selector back
-    - test switching between dark mode and how the logo handles that
-    - logo on mobile resizes too small
-
-- create the public /blog/[post] page
-
-- create the docs /docs/[] page
-
 - set seo metadata
+    - update the existing SEO component to use the new metadata code instead of nextseo?
+
+
 - add .env file back
     - add example, starter, and test .env files back
 
 - rss feed
 - sitemap
-- add dark mode back in tailwind
+
+- fix dark mode.. It should match the demo site
 
 - delete next.svg logo
 
-- add ga back
+- add google analytics back
 
 - admin navigation lock?
+
+- delete the old package
+
+- hook up the npm install script to download the new package
