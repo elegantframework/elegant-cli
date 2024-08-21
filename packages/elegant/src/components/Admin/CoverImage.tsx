@@ -15,6 +15,7 @@ export default function CoverImage({
     const [showImageOptions, setShowImageOptions] = useState(true);
     const [showLink, setShowLink] = useState(false);
     const [imageUrl, setImageUrl] = useState('');
+    const [imageUrlError, setImageUrlError] = useState('');
     const [previewLoading, setPreviewLoading] = useState(true);
     const [loadingError, setLoadingError] = useState(false);
     const [saving, setSaving ] = useState(false);
@@ -156,8 +157,10 @@ export default function CoverImage({
                         id="cover-image-input"
                         wrapperClass="mb-4"
                         onChange={(value) => {
+                            setImageUrlError('');
                             setImageUrl(value);
                         }}
+                        error={imageUrlError}
                     />
                     <div className="w-full flex justify-end shrink-0 items-center gap-x-6 mt-2">
                         <button
@@ -173,12 +176,17 @@ export default function CoverImage({
                         </button>
                         <button
                             type="submit"
-                            disabled={saving || imageUrl.length === 0}
+                            disabled={saving}
                             className="w-full sm:w-auto justify-center sm:justify-between inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-indigo-300 dark:focus:ring-offset-indigo-900 dark:focus:ring-indigo-700 cursor-pointer"
                             onClick={() => {
-                                onSave(imageUrl);
-                                setShowImageOptions(false);
-                                setShowLink(false);
+                                if(imageUrl.length === 0) {
+                                    setImageUrlError('Please enter a valid url.');
+                                }
+                                else {
+                                    onSave(imageUrl);
+                                    setShowImageOptions(false);
+                                    setShowLink(false);
+                                }
                             }}
                         >
                             {saving ? (

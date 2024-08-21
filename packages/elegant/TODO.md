@@ -1,6 +1,6 @@
 - add pageviews to main blog articles list page
 
-- add tags to the blog
+- add tags to the blog frontend
 
 - add multi-author support to the blog post view on the frontend
 
@@ -8,8 +8,6 @@
 - create newsletter signup success page.
 
 
-- finish cover image manual url upload
-    - add validation to the input field
 
 - finish the docs /docs/[] page
 
