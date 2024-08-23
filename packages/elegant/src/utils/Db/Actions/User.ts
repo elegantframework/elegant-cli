@@ -21,44 +21,50 @@ export async function createUser(user: CreateUser) {
     }
 }
 
-export interface GetUserById {
-    id: string;
+export async function getUserById(id: string) {
+    const response = await prisma.user.findUnique({
+        select: {
+            name: true,
+            image: true,
+            twitterHandle: true
+        },
+        where: {
+            id: id,
+        }   
+    });
+
+    return response;
 }
 
-export async function getUsertById(user: GetUserById) {
+export async function updateUser(
+    value: string,
+    id: string,
+    key: string,
+  ) {  
     try {
-        const response = await prisma.user.findUnique({
-            where: {
-                id: user.id,
-            }   
-        });
-
-        return response;
-    } 
-    catch (error: any) {
+      const response = await prisma.user.update({
+        select: {
+            name: true,
+            image: true,
+            twitterHandle: true
+        },
+        where: {
+          id: id,
+        },
+        data: {
+          [key]: value,
+        },
+      });
+      return response;
+    } catch (error: any) {
+      if (error.code === "P2002") {
         return {
-            error: error.message,
+          error: `This ${key} is already in use`,
         };
-    }
-}
-
-export interface UpdateUser {
-    id: string;
-}
-
-export async function updateUser(user: UpdateUser) {
-    try {
-        const response = await prisma.user.findFirst({
-            where: {
-                id: user.id,
-            }   
-        });
-
-        return response;
-    } 
-    catch (error: any) {
+      } else {
         return {
-            error: error.message,
+          error: error.message,
         };
+      }
     }
-}
+  };
