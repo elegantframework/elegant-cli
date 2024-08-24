@@ -1,8 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Nav from "./Nav";
 import Profile from "./Profile";
 import { Session } from "next-auth";
 import { Collection } from "../Types";
+import { getUserById } from "@/utils/Db/Actions/User";
 
 export default function DashboardLayout({ 
   session, 
@@ -13,12 +14,39 @@ export default function DashboardLayout({
   children: ReactNode,
   collections: Collection[]
 }) {
-    return (
-      <div>
-        <Nav collections={collections}>
-          <Profile session={session}/>
-        </Nav>
-        <div className="min-h-screen bg-white dark:bg-black sm:pl-60">{children}</div>
-      </div>
-    );
+  const [user, setUser] = useState<{
+    name: string;
+    image: string;
+    twitterHandle: string;
+  }>({
+    name: "",
+    image: "",
+    twitterHandle: ""
+  });
+
+  const getUser = async() => {
+    const result = await getUserById(session?.user?.id || "");
+
+    setUser({
+      name: result?.name || "",
+      image: result?.image || "",
+      twitterHandle: result?.twitterHandle || ""
+    });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+  
+  return (
+    <div>
+      <Nav collections={collections}>
+        <Profile
+          name={user.name}
+          image={user.image}
+        />
+      </Nav>
+      <div className="min-h-screen bg-white dark:bg-black sm:pl-60">{children}</div>
+    </div>
+  );
   }
