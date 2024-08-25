@@ -1,3 +1,5 @@
+
+
 - add pageviews to main blog articles list page
 
 - add tags to the blog frontend
@@ -23,7 +25,6 @@
 
 - pre render static content? ISR?
 
-- finish adding multi author support to the post in the admin
 
 - add toast when a user saves
 
@@ -54,3 +55,6 @@
 - delete the old package
 
 - hook up the npm install script to download the new package
+
+- add some initial dashboard functionality
+    - a welcome message to a new user

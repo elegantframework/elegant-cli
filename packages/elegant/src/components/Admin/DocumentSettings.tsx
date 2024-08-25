@@ -7,13 +7,16 @@ import { DocumentContext } from "./Pages/EditDocument";
 import DeleteDocumentButton from "./DeleteDocumentButton";
 import { Collection } from "../Types";
 import CoverImage from "./CoverImage";
+import { Session } from "next-auth";
 
 export default function DocumentSettings({
     showDelete,
-    collection
+    collection,
+    session
 }:{
     showDelete: boolean;
     collection: Collection;
+    session: Session;
 }
 ) {
     const { document, setDocument, setHasChanges, setHasCustomSlug, setErrors, errors } = useContext(DocumentContext);
@@ -88,8 +91,9 @@ export default function DocumentSettings({
                     <Input
                         label="Name"
                         id="author.name"
-                        // defaultValue={document.authors?.[0].name}
+                        defaultValue={session.user?.name}
                         wrapperClass="mb-4"
+                        readOnly
                     />
                 </Accordion>
                 <Accordion 

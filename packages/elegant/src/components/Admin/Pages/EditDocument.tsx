@@ -302,6 +302,7 @@ export default function EditDocument({
                         <DocumentSettings 
                             showDelete={slug !== 'new'}
                             collection={collection}
+                            session={session}
                         />
                     </div>
                 </div>

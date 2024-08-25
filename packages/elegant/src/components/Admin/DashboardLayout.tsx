@@ -16,11 +16,11 @@ export default function DashboardLayout({
 }) {
   const [user, setUser] = useState<{
     name: string;
-    image: string;
+    image: string | null;
     twitterHandle: string;
   }>({
     name: "",
-    image: "",
+    image: null,
     twitterHandle: ""
   });
 

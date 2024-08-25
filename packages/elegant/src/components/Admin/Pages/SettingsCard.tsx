@@ -38,23 +38,8 @@ export default function SettingsCard({
                     </div>
                     <div className="mt-5 sm:flex sm:items-center">
                         <div className="w-full sm:max-w-xs">
-                            {/* <label htmlFor="name" className="sr-only">
-                                {heading}
-                            </label>
-                            <input
-                                id="name"
-                                name="name"
-                                type="text"
-                                defaultValue={
-                                    defaultValue
-                                }
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                onChange={(e) => {
-                                    setValue(e.target.value);
-                                }}
-                            /> */}
                             <Input 
-                                label= {heading}
+                                label={heading}
                                 id="name"
                                 defaultValue={defaultValue}
                                 onChange={(value) => {
@@ -65,7 +50,7 @@ export default function SettingsCard({
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col items-center justify-center space-y-2 rounded-b-lg border-t border-stone-200 bg-stone-50 p-3 dark:border-stone-700 dark:bg-stone-800 sm:flex-row sm:justify-between sm:space-y-0 sm:px-10">
+                <div className="flex flex-col items-center justify-center space-y-2 rounded-b-lg border-t border-stone-200 bg-stone-50 p-3 dark:border-stone-700 dark:bg-stone-800 sm:flex-row sm:justify-between sm:space-y-0 sm:px-10 md:pr-6">
                     <p className="text-sm text-stone-500 dark:text-stone-400">
                         {helperText}
                     </p>
