@@ -6,6 +6,8 @@ import { getPublishedPostBySlug } from "@/utils/Db/Actions/Post";
 import MetaTitle from "@/utils/Meta/MetaTitle";
 import { Metadata, ResolvingMetadata } from "next";
 import { Suspense } from "react";
+import "@/components/Editor/css/editor.css";
+import DocsFooter from "@/components/DocsFooter";
 
 async function getPost(slug: string) {
     return await getPublishedPostBySlug(slug, 'docs');
@@ -73,24 +75,84 @@ export default async function Docs({ params }: { params: { slug: string } }) {
         <>
             <Suspense>
                 <Header />
-                <Sidebar nav={[{
-                    title: "Welcome",
-                    links: [
-                    {
-                        title: "Welcome to Elegant",
-                        href: "/docs/welcome"
-                    },
-                    ]
-                }]}>
-                    Hey now!
-                </Sidebar>
             </Suspense>
-            <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
-                <DocumentationHeading 
-                    title={post.title}
-                    section={"Hello again"}
-                />
-                Hello World
+            <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
+                <Suspense>
+                    {/* <Sidebar nav={[{
+                        title: "Welcome",
+                        links: [
+                        {
+                            title: "Welcome to Elegant",
+                            href: "/docs/welcome"
+                        },
+                        {
+                            title: "Welcome to Elegant",
+                            href: "/docs/welcome"
+                        },
+                        {
+                            title: "Welcome to Elegant",
+                            href: "/docs/welcome"
+                        },
+                        {
+                            title: "Welcome to Elegant",
+                            href: "/docs/welcome"
+                        },
+                        {
+                            title: "Welcome to Elegant",
+                            href: "/docs/welcome"
+                        },
+                        {
+                            title: "Welcome to Elegant",
+                            href: "/docs/welcome"
+                        },
+                        ]
+                    }]}>
+                        <></>
+                    </Sidebar> */}
+                </Suspense>
+                <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
+                    <DocumentationHeading 
+                        title={post.title}
+                        section={"Hello again"}
+                    />
+                    <div
+                        id="content-wrapper"
+                        className="relative z-20 prose prose-slate mt-8 dark:prose-dark tiptap ProseMirror"
+                    >
+                        <div dangerouslySetInnerHTML={{ __html: post.content || "" }} />
+                    </div>
+                    <DocsFooter 
+                        nav={[{
+                            title: "Welcome",
+                            links: [
+                            {
+                                title: "Welcome to Elegant",
+                                href: "/docs/welcome"
+                            },
+                            {
+                                title: "Welcome to Elegant",
+                                href: "/docs/welcome"
+                            },
+                            {
+                                title: "Welcome to Elegant",
+                                href: "/docs/welcome"
+                            },
+                            {
+                                title: "Welcome to Elegant",
+                                href: "/docs/welcome"
+                            },
+                            {
+                                title: "Welcome to Elegant",
+                                href: "/docs/welcome"
+                            },
+                            {
+                                title: "Welcome to Elegant",
+                                href: "/docs/welcome"
+                            },
+                            ]
+                        }]}
+                    />
+                </div>
             </div>
         </>
     ); 

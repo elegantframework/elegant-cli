@@ -7,6 +7,7 @@ import moment from "moment";
 import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
+import "@/components/Editor/css/editor.css";
 
 async function getPost(slug: string) {
     return await getPublishedPostBySlug(slug, 'posts');
@@ -69,6 +70,12 @@ export default async function Blog({ params }: { params: { slug: string } }) {
         content: string | null;
         publishedAt: Date;
         coverImage: string | null;
+        authors: {
+            id: string,
+            name: string | null,
+            image: string | null,
+            twitterHandle: string | null
+        }[]
     } | null = await getPost(params.slug);
 
     if(!post){
@@ -154,35 +161,44 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                                 </div>
                                 <div className="mt-6">
                                     <ul className="flex flex-wrap text-sm leading-6 -mt-6 -mx-5">
-                                        {/* <li
-                                            key={Config('app.twitter_handle')}
-                                            className="flex items-center font-medium whitespace-nowrap px-5 mt-6"
-                                        >
-                                            <img
-                                                src={post.author?.picture}
-                                                alt=""
-                                                className="mr-3 w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800"
-                                                decoding="async"
-                                            />
-                                            <div className="text-sm leading-4">
-                                                <div className="text-slate-900 dark:text-slate-200">
-                                                    {post.author?.name}
-                                                </div>
-                                                <div className="mt-1">
-                                                    {Config('app.twitter_handle') && (
+                                        {post.authors.map((author: {
+                                            id: string,
+                                            name: string | null,
+                                            image: string | null,
+                                            twitterHandle: string | null
+                                        }) => (
+                                            <li
+                                             key={author.id}
+                                             className="flex items-center font-medium whitespace-nowrap px-5 mt-6"
+                                            >
+                                                <img
+                                                    src={author?.image || ""}
+                                                    alt=""
+                                                    className="mr-3 w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800"
+                                                    decoding="async"
+                                                />
+                                                <div className="text-sm leading-4">
+                                                    <div className="text-slate-900 dark:text-slate-200">
+                                                        {author?.name}
+                                                    </div>
+                                                    <div className="mt-1">
+                                                        {author?.twitterHandle && author.twitterHandle.length > 0 && (
                                                         <a
-                                                            href={`https://twitter.com/${Config('app.twitter_handle').replace('@', '')}`}
+                                                            href={author.twitterHandle}
                                                             className="text-primary-500 hover:text-primary-600 dark:text-primary-400"
+                                                            rel="noopener noreferrer"
+                                                            target="_blank"
                                                         >
-                                                            {Config('app.twitter_handle')}
-                                                        </a>
-                                                    )}
+                                                            @{author.twitterHandle.replace('https://x.com/', '').replace('https://twitter.com/', '')}
+                                                        </a> 
+                                                        )}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li> */}
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
-                                <div className="mt-12 prose prose-slate dark:prose-dark">
+                                <div className="mt-12 prose prose-slate dark:prose-dark tiptap ProseMirror">
                                     <div dangerouslySetInnerHTML={{ __html: post?.content || "" }} />
                                 </div>
                             </article>

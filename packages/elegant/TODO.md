@@ -1,8 +1,12 @@
-
+- finish the docs /docs/[] page
+    - finish sidebar
+    - finish navigation menu
 
 - add pageviews to main blog articles list page
 
 - add tags to the blog frontend
+
+- frontend content needs to be parsed to add styling to text like existing site
 
 - add multi-author support to the blog post view on the frontend
 
@@ -11,7 +15,6 @@
 
 
 
-- finish the docs /docs/[] page
 
 - make r2 a mandatory env var 
 
@@ -58,3 +61,11 @@
 
 - add some initial dashboard functionality
     - a welcome message to a new user
+
+- add a slick svg image for the beams background? 
+    -Colors could auto change based on theme colors 
+
+
+-- Elegant 5 should update the cli
+    - create a 'create-elegant-app' package like next.js
+    -  cli should be able to take args to install repos or core example package that we create such as the current docs theme, a launch theme, etc.
