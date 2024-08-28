@@ -8,6 +8,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { Suspense } from "react";
 import "@/components/Editor/css/editor.css";
 import DocsFooter from "@/components/DocsFooter";
+import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
 
 async function getPost(slug: string) {
     return await getPublishedPostBySlug(slug, 'docs');
@@ -119,7 +120,7 @@ export default async function Docs({ params }: { params: { slug: string } }) {
                         id="content-wrapper"
                         className="relative z-20 prose prose-slate mt-8 dark:prose-dark tiptap ProseMirror"
                     >
-                        <div dangerouslySetInnerHTML={{ __html: post.content || "" }} />
+                        <div dangerouslySetInnerHTML={{ __html: await MarkdownToHtml(post.content || "")}} />
                     </div>
                     <DocsFooter 
                         nav={[{

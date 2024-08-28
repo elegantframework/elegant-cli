@@ -141,7 +141,7 @@ export default function EditDocument({
                 status: doc.status,
                 description: doc.description || "",
                 coverImage: doc.coverImage || "",
-                content: editor.getHTML(),
+                content: editor.storage.markdown.getMarkdown(),
                 authors: [{
                     id: session.user?.id || "",
                 }],

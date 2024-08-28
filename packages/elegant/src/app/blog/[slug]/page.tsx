@@ -8,6 +8,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import "@/components/Editor/css/editor.css";
+import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
 
 async function getPost(slug: string) {
     return await getPublishedPostBySlug(slug, 'posts');
@@ -198,8 +199,11 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="mt-12 prose prose-slate dark:prose-dark tiptap ProseMirror">
-                                    <div dangerouslySetInnerHTML={{ __html: post?.content || "" }} />
+                                <div 
+                                    id="content-wrapper"
+                                    className="mt-12 prose prose-slate dark:prose-dark tiptap ProseMirror"
+                                >
+                                    <div dangerouslySetInnerHTML={{ __html: await MarkdownToHtml(post.content || "") }} />
                                 </div>
                             </article>
                         </main>

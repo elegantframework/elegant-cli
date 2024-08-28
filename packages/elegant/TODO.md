@@ -2,6 +2,8 @@
     - finish sidebar
     - finish navigation menu
 
+- fix prose not loading dark mode fonts and auto link heading svg images on posts
+
 - add pageviews to main blog articles list page
 
 - add tags to the blog frontend
@@ -12,8 +14,6 @@
 
 - add a newsletter signup page like mankini.. Include note to check the email for confirmation like laravel news does
 - create newsletter signup success page.
-
-
 
 
 - make r2 a mandatory env var 
@@ -31,7 +31,6 @@
 
 - add toast when a user saves
 
-
 - add mobile nav back to frontend header
 
 
@@ -40,9 +39,6 @@
 - set seo metadata
     - update the existing SEO component to use the new metadata code instead of nextseo?
 
-
-- add .env file back
-    - add example, starter, and test .env files back
 
 - rss feed
 - sitemap
