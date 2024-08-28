@@ -62,35 +62,21 @@ console.log(
 );
 
 // copy the docs project into the users project
-fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => {
+fs.cp(module_path + 'packages/elegant/', outputPath, { recursive: true}, (err) => {
   if (err) {
     
   }
   else
   {
     // copy the starter env file into the users project as their env file
-    fs.cp(module_path + 'source/elegant/.env.starter', outputPath + '.env', (err) => {
-      if (err) {
-        console.error(err);
-      }
-    });
-
-    // copy the sample env file into the users project as their env file
-    fs.cp(module_path + 'source/elegant/.env.example', outputPath + '.env.example', (err) => {
+    fs.cp(module_path + 'packages/elegant/.env.starter', outputPath + '.env', (err) => {
       if (err) {
         console.error(err);
       }
     });
 
     // copy the git ignore file over
-    fs.cp(module_path + 'source/elegant/.gitignore.starter', outputPath + '.gitignore', (err) => {
-      if (err) {
-        console.error(err);
-      }
-    });
-
-     // copy the .npmrc file over
-     fs.cp(module_path + 'source/elegant/.npmrc.starter', outputPath + '.npmrc', (err) => {
+    fs.cp(module_path + 'packages/elegant/.gitignore.starter', outputPath + '.gitignore', (err) => {
       if (err) {
         console.error(err);
       }
@@ -103,11 +89,6 @@ fs.cp(module_path + 'source/elegant/', outputPath, { recursive: true}, (err) => 
 
     // delete the starter .env file
     fs.unlink(outputPath + '.env.starter', function(err,results){
-      // do nothing
-    });
-
-    // delete the starter .npmrc file
-    fs.unlink(outputPath + '.npmrc.starter', function(err,results){
       // do nothing
     });
 

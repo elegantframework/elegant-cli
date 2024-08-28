@@ -1,11 +1,11 @@
 {
   "name": "elegant-cli",
-  "version": "3.2.0",
+  "version": "4.0.0-alpha-innovators",
   "description": "Build SEO-friendly websites, super fast full-stack web applications, and much more with Elegant.",
   "scripts": {
-    "build:elegant": "cd source/elegant && npm install && npm run build",
+    "build:elegant": "cd packages/elegant && npm install && npm run build",
     "build:elegant-ui": "cd packages/elegant-ui && npm install && npm run build",
-    "dev": "cd source/elegant && npm run dev",
+    "dev": "cd packages/elegant && npm run dev",
     "publish:innovators": "node scripts/publish-innovators-prerelease.ts",
     "publish:patch": "node scripts/publish-patch.ts",
     "publish:cms-patch": "cd ./packages/elegant-cms && node scripts/publish-elegant-cms-patch.ts",
@@ -13,8 +13,8 @@
     "publish:ui-patch": "cd ./packages/elegant-ui && node scripts/publish-elegant-ui-patch.ts",
     "publish:ui-minor-version": "cd ./packages/elegant-ui && node scripts/publish-elegant-ui-minor-version.ts",
     "test": "jest --watch --verbose ./integrations --detectOpenHandles --forceExit",
-    "test:ci": "jest --ci ./integrations --detectOpenHandles --forceExit && cd source/elegant && npm run test:ci",
-    "test:elegant": "cd source/elegant && npm run test --watch"
+    "test:ci": "jest --ci ./integrations --detectOpenHandles --forceExit && cd packages/elegant && npm run test:ci",
+    "test:elegant": "cd packages/elegant && npm run test --watch"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,10 @@
     "elegant",
     "elegant framework",
     "elegant cli",
-    "elegant-cli"
+    "elegant-cli",
+    "tiptap",
+    "postgresql",
+    "prisma"
   ],
   "author": "Brandon Owens",
   "license": "MIT",

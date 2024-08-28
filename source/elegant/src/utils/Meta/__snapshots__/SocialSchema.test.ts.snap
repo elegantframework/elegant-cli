@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Social Schema returns the social schema object with data 1`] = `
-[
-  "http://instagram.com/yourProfile",
-]
-`;

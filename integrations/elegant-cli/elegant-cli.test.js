@@ -1,4 +1,4 @@
-const init = require('../../source/init');
+const init = require('../../packages/init');
 
 let {
     readOutputFile,

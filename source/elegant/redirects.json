@@ -1,4 +1,0 @@
-[
-  { "source": "/docs/example-redirect", "destination": "/", "permanent": false },
-  { "source": "/docs", "destination": "/docs/welcome", "permanent": false }
-]
