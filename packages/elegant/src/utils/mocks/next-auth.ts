@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals';
+
 export class AuthError extends Error {
 	type: string;
 	constructor(type: string) {
