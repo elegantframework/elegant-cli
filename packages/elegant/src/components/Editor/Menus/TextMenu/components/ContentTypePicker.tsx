@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { icons } from 'lucide-react'
-import { useMemo } from 'react'
+
 import * as Dropdown from '@radix-ui/react-dropdown-menu'
 import { Toolbar } from './../../../Toolbar/Toolbar'
 import { Icon } from './../../../Toolbar/Icon'

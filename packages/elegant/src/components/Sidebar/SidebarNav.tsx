@@ -15,6 +15,9 @@ export default function SidebarNav({
     mobile?: boolean;
     nav: NavigationSection[];
 }) {    
+
+    const pathname = usePathname();
+
     return(
         <nav className="lg:text-sm lg:leading-6 relative">
             <div className="sticky top-0 -ml-0.5 pointer-events-none">
@@ -38,7 +41,7 @@ export default function SidebarNav({
                                 <li key={item.title}>
                                     <NavItem 
                                         href={item.href}
-                                        isActive={item.href === usePathname().split('#')[0].split('?')[0]}
+                                        isActive={item.href === pathname.split('#')[0].split('?')[0]}
                                         label={item.title}
                                     />
                                 </li>

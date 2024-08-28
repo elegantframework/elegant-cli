@@ -169,7 +169,7 @@ export function NavItems() {
 }
 
 export function NavPopover({ display = 'md:hidden', className = "", ...props }) {
-  let [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     if (!isOpen) return

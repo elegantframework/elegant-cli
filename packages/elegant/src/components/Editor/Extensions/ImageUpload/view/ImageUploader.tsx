@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { ChangeEvent, useCallback } from 'react'
 import { useDropZone, useFileUpload, useUploader } from './hooks'
-import { ChangeEvent, useCallback } from 'react'
+
 import clsx from 'clsx'
 import { Icon } from './../../../Toolbar/Icon'
 import { Button } from './../../../Toolbar/Button'

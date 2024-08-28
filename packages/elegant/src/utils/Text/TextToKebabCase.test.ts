@@ -12,12 +12,12 @@ describe('Text To kebab Case', () => {
 
     it('handles a string with a - in it',() => {
 
-      let result = TextToKebabCase("hello world - The test thing");
+      const result = TextToKebabCase("hello world - The test thing");
       expect(result).toBe("Hello World - The Test Thing");
     });
 
     it('handles no string gracefully', () => {
-      let result = TextToKebabCase("");
+      const result = TextToKebabCase("");
       expect(result).toBe("");
     })
 });

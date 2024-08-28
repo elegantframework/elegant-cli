@@ -1,6 +1,6 @@
 'use server'
 
-import { Author, Collection } from "@/components/Types";
+import { Collection } from "@/components/Types";
 import prisma from "@/utils/Prisma";
 
 export interface CreatePost {

@@ -15,7 +15,7 @@ interface Props {
 /**
  * The possible selected items
  */
-let settings = [
+const settings = [
   {
     value: 'light',
     label: 'Light',
@@ -85,7 +85,7 @@ export default ThemeToggle;
 export const ThemeSelect = () => {
   const { theme, setTheme } = useTheme();
 
-  let label = settings.find((x) => x.value === theme);
+  const label = settings.find((x) => x.value === theme);
 
   return (
     <div className="flex items-center justify-between">

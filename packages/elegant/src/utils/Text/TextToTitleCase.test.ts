@@ -11,7 +11,7 @@ describe('Text To Title Case', () => {
     });
 
     it('handles a null string gracefully', () => {
-      let result = TextToTitleCase("");
+      const result = TextToTitleCase("");
       expect(result).toBe("");
     });
 });

@@ -27,8 +27,8 @@ export default function DocsFooter({
 
     function usePrevNext() {
         const pathname = usePathname();
-        let pages = nav.flatMap((section) => section.links);
-        let pageIndex = pages.findIndex((page) => page.href === pathname.split('#')[0]);
+        const pages = nav.flatMap((section) => section.links);
+        const pageIndex = pages.findIndex((page) => page.href === pathname.split('#')[0]);
         
         return {
           previous: pageIndex > -1 ? pages[pageIndex - 1] : undefined,

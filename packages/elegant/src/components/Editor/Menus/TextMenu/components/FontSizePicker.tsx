@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { DropdownButton } from './../../../Toolbar/Dropdown';
 import { Icon } from './../../../Toolbar/Icon';
 import { Surface } from './../../../Toolbar/Surface';
 import { Toolbar } from './../../../Toolbar/Toolbar';
 import * as Dropdown from '@radix-ui/react-dropdown-menu';
-import { useCallback } from 'react';
+
 
 const FONT_SIZES = [
   { label: 'Smaller', value: '12px' },

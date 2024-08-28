@@ -1,9 +1,9 @@
-import { useCallback, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { HexColorPicker } from 'react-colorful'
 import { ColorButton } from './ColorButton'
 import { Toolbar } from '../../Toolbar/Toolbar'
 import { Icon } from '../../Toolbar/Icon'
-import React from 'react'
+
 
 export type ColorPickerProps = {
   color?: string

@@ -5,8 +5,8 @@ import { useEditor } from "@/utils/Hooks/useEditor";
 import Editor from "@/components/Editor/Editor";
 import DocumentSettings from "../DocumentSettings";
 import { createContext, useContext, useEffect, useState } from "react";
-import { Collection, Document, EditorError, FileType } from "@/components/Types";
-import { DocumentContextType } from "@/components/Types";
+import { Collection, Document, EditorError, FileType , DocumentContextType } from "@/components/Types";
+
 import { singular } from "pluralize";
 import { createPost, getPostBySlug } from "@/utils/Db/Actions/Post";
 import clsx from "clsx";
@@ -91,7 +91,7 @@ export default function EditDocument({
     }, [doc.content]);
 
     const onSave = async() => {
-        let formErrors = [];
+        const formErrors = [];
 
         if(doc.title === "") {
             formErrors.push({

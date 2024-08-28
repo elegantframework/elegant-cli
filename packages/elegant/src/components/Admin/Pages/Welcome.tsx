@@ -50,7 +50,7 @@ export default function Welcome({
                     You will need to restart Next.js to apply the changes.
                 </p>
                 <p className='w-full text-left dark:text-slate-200'>
-                    See the <a href="https://www.elegantframework.com/docs/getting-started-with-elegant-cms#configuring-authentication" className="hover:underline font-mono font-medium text-indigo-500 dark:text-indigo-400" target={"_blank"}>documentation</a> for further help.
+                    See the <a href="https://www.elegantframework.com/docs/getting-started-with-elegant-cms#configuring-authentication" className="hover:underline font-mono font-medium text-indigo-500 dark:text-indigo-400" target={"_blank"} rel="noreferrer">documentation</a> for further help.
                 </p>
             </Card>
             <div className="sm:mx-auto sm:w-full max-w-2xl xs:pl-0 sm:pl-4 text-left mt-10 dark:text-white">

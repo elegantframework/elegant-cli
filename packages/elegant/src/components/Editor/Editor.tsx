@@ -1,6 +1,6 @@
 'use client'
 import { Editor as TipTapEditor, EditorContent } from '@tiptap/react';
-import { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
 import ActionMenu from './Menus/ActionMenu';
 import LinkMenu from './Menus/LinkMenu';
@@ -8,7 +8,7 @@ import { TableColumnMenu, TableRowMenu } from './Extensions/Table/menus';
 import { ColumnsMenu } from './Extensions/MultiColumn/menus';
 import ImageBlockMenu from './Extensions/ImageBlock/components/ImageBlockMenu';
 import { TextMenu } from './Menus/TextMenu';
-import React from 'react';
+
 import clsx from 'clsx';
 import { DocumentContext } from '../Admin/Pages/EditDocument';
 

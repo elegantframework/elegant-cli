@@ -1,8 +1,8 @@
 import { Node } from '@tiptap/pm/model'
 import { Editor, NodeViewWrapper } from '@tiptap/react'
 import clsx from 'clsx'
-import React from 'react'
-import { useCallback, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
+
 
 interface ImageBlockViewProps {
   editor: Editor

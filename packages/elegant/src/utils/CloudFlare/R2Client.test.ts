@@ -3,7 +3,7 @@ import R2Client from './R2Client';
 describe('CloudFlare R2 Client', () => {
     it('returns a client object',() => {
 
-      let result = R2Client(
+      const result = R2Client(
         "",
         "",
         ""

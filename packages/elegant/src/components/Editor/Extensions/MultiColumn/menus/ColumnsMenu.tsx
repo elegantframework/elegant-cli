@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { BubbleMenu as BaseBubbleMenu } from '@tiptap/react'
-import { useCallback } from 'react'
+
 import { sticky } from 'tippy.js'
 import { v4 as uuid } from 'uuid'
 import { ColumnLayout } from '../Columns'
