@@ -3,15 +3,18 @@ import React, { useEffect } from "react";
 import { Card, ElegantLogo, MetaTitle } from '@brandonowens/elegant-ui';
 import Link from "next/link";
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
+import { R2Config } from "@/components/Types";
 
 export interface WelcomeProps {
     postgresUrl: string | undefined,
-    nonPoolingPUrl: string | undefined
+    nonPoolingPUrl: string | undefined,
+    r2Config: R2Config | undefined
 };
 
 export default function Welcome({
     postgresUrl,
-    nonPoolingPUrl
+    nonPoolingPUrl,
+    r2Config
 }: WelcomeProps) {
 
     useEffect(() => {
@@ -42,6 +45,41 @@ export default function Welcome({
                         <li key={'db_url_non_pooling'} className="mb-1 text-left dark:text-slate-200">
                             {`❌`}{' '}
                             <span className="font-semibold">{'POSTGRES_URL_NON_POOLING'}</span>{' '}
+                            {`is not set!`}
+                        </li>
+                    }
+                    {!r2Config?.accountId && 
+                        <li key={'r2_config_accountId'} className="mb-1 text-left dark:text-slate-200">
+                            {`❌`}{' '}
+                            <span className="font-semibold">{'R2_ACCOUNT_ID'}</span>{' '}
+                            {`is not set!`}
+                        </li>
+                    }
+                    {!r2Config?.accessKeyId && 
+                        <li key={'r2_config_accessKeyId'} className="mb-1 text-left dark:text-slate-200">
+                            {`❌`}{' '}
+                            <span className="font-semibold">{'R2_ACCESS_KEY_ID'}</span>{' '}
+                            {`is not set!`}
+                        </li>
+                    }
+                    {!r2Config?.secretAccessKey && 
+                        <li key={'r2_config_secretAccessKey'} className="mb-1 text-left dark:text-slate-200">
+                            {`❌`}{' '}
+                            <span className="font-semibold">{'R2_SECRET_ACCESS_KEY'}</span>{' '}
+                            {`is not set!`}
+                        </li>
+                    }
+                    {!r2Config?.bucketName && 
+                        <li key={'r2_config_bucketName'} className="mb-1 text-left dark:text-slate-200">
+                            {`❌`}{' '}
+                            <span className="font-semibold">{'R2_BUCKET_NAME'}</span>{' '}
+                            {`is not set!`}
+                        </li>
+                    }
+                    {!r2Config?.publicBucketUrl && 
+                        <li key={'r2_config_publicBucketUrl'} className="mb-1 text-left dark:text-slate-200">
+                            {`❌`}{' '}
+                            <span className="font-semibold">{'R2_PUBLIC_BUCKET_URL'}</span>{' '}
                             {`is not set!`}
                         </li>
                     }

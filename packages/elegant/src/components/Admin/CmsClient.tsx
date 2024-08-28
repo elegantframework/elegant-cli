@@ -10,7 +10,7 @@ import Collections from "./Pages/Collections";
 import NewCollection from "./Pages/NewCollection";
 import DocumentList from "./Pages/DocumentList";
 import EditDocument from "./Pages/EditDocument";
-import { Collection } from '../Types';
+import { Collection, R2Config } from '../Types';
 import Onboard from "./Pages/Onboard";
 import Welcome from "./Pages/Welcome";
 import Login from "./Pages/Login";
@@ -18,6 +18,7 @@ import Login from "./Pages/Login";
 export interface CMSProps {
     postgresUrl: string | undefined,
     nonPoolingPUrl: string | undefined,
+    r2Config: R2Config | undefined;
     adminCount: number,
     session: Session | null,
     params: { 
@@ -29,16 +30,18 @@ export interface CMSProps {
 export default function CmsClient({
     postgresUrl,
     nonPoolingPUrl,
+    r2Config,
     adminCount,
     session,
     params,
     collections
 }: CMSProps) {
-    if(!postgresUrl || !nonPoolingPUrl) {
+    if(!postgresUrl || !nonPoolingPUrl || !r2Config) {
         return(
             <Welcome 
                 postgresUrl={postgresUrl}
                 nonPoolingPUrl={nonPoolingPUrl}
+                r2Config={r2Config}
             />
         );
     }

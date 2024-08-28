@@ -3,6 +3,7 @@ import CmsClient from './CmsClient';
 import { getAdminCount } from '../../utils/Db/Actions/Actions';
 import { auth } from './../../utils/Auth';
 import { getAllCollections } from '@/utils/Db/Actions/Collection';
+import { R2Config } from '../Types';
  
 interface Props {
     /**
@@ -14,6 +15,10 @@ interface Props {
      */
     nonPoolingPUrl: string;
     /**
+     * Our Cloudflare R2 bucket storage configuration object.
+     */
+    r2Config: R2Config;
+    /**
      * The url segments.
      */
     params: {  cms: string[] };
@@ -22,16 +27,26 @@ interface Props {
 export default async function CMS({ 
     postgresUrl,
     nonPoolingPUrl,
+    r2Config,
     params 
 }: Props) {
     const session = await auth();
-    const adminCount = await getAdminCount();
-    const collections = await getAllCollections();
-    
+    const adminCount = (
+        process.env.POSTGRES_PRISMA_URL && process.env.POSTGRES_PRISMA_URL.length > 0 ? 
+        await getAdminCount() :
+        0
+    );
+    const collections = (
+        process.env.POSTGRES_PRISMA_URL && process.env.POSTGRES_PRISMA_URL.length > 0 ? 
+        await getAllCollections() :
+        []
+    );
+        
     return(
         <CmsClient 
             postgresUrl={postgresUrl}
             nonPoolingPUrl={nonPoolingPUrl}
+            r2Config={r2Config}
             adminCount={adminCount}
             session={session}
             params={params}

@@ -9,7 +9,14 @@ export default function Admin({ params }: Props) {
     return(
       <CMS 
         postgresUrl={process.env.POSTGRES_PRISMA_URL || ""}
-        nonPoolingPUrl={process.env.POSTGRES_URL_NON_POOLING || ""}      
+        nonPoolingPUrl={process.env.POSTGRES_URL_NON_POOLING || ""} 
+        r2Config={{
+          accountId: process.env.R2_ACCOUNT_ID || "",
+          accessKeyId: process.env.R2_ACCESS_KEY_ID || "",
+          secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || "",
+          bucketName: process.env.R2_BUCKET_NAME || "",
+          publicBucketUrl: process.env.R2_PUBLIC_BUCKET_URL || ""
+        }}
         params={params}
       />
     );

@@ -189,3 +189,11 @@ export interface NavigationSection {
      */
     links: NavigationLink[];
 };
+
+export interface R2Config {
+    accountId: string;
+    accessKeyId: string;
+    secretAccessKey: string;
+    bucketName: string;
+    publicBucketUrl: string;
+};

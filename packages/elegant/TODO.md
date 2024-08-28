@@ -1,28 +1,26 @@
+
 - finish the docs /docs/[] page
     - finish sidebar
     - finish navigation menu
 
 - fix prose not loading dark mode fonts and auto link heading svg images on posts
 
+- styling is not loading properly on the home page.. Doesn't match the current demo site
+
 - add pageviews to main blog articles list page
 
 - add tags to the blog frontend
 
-- frontend content needs to be parsed to add styling to text like existing site
-
-- add multi-author support to the blog post view on the frontend
-
 - add a newsletter signup page like mankini.. Include note to check the email for confirmation like laravel news does
 - create newsletter signup success page.
-
-
-- make r2 a mandatory env var 
 
 - document setting up r2 in the readme
 
 - document prisma
     - document setting up prisma, upgrades, etc.
     - document prisma studio
+
+- document setting up auth.js and the env encryption key
 
 - discard button on post needs to do something.
 
