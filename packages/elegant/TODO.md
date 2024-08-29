@@ -5,7 +5,8 @@
 
 - fix prose not loading dark mode fonts and auto link heading svg images on posts
 
-- styling is not loading properly on the home page.. Doesn't match the current demo site
+- add mobile nav back to frontend header
+
 
 - add pageviews to main blog articles list page
 
@@ -29,14 +30,13 @@
 
 - add toast when a user saves
 
-- add mobile nav back to frontend header
 
 
 - finish adding error handling to admin onboard field
 
 - set seo metadata
+    - all of the jsonid tags from the old layout files need to be migrated
     - update the existing SEO component to use the new metadata code instead of nextseo?
-
 
 - rss feed
 - sitemap

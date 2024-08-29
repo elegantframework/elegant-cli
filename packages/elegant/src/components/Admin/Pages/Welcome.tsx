@@ -93,7 +93,7 @@ export default function Welcome({
             </Card>
             <div className="sm:mx-auto sm:w-full max-w-2xl xs:pl-0 sm:pl-4 text-left mt-10 dark:text-white">
                 <Link href="/" className="hover:underline">
-                    <ArrowLongLeftIcon className="h-6 w-6 inline mr-2"/>Go to {process.env.NEXT_PUBLIC_APP_NAME || ""}
+                    <ArrowLongLeftIcon className="h-6 w-6 inline mr-2"/>Go to {process.env.NEXT_PUBLIC_APP_NAME || "Elegant"}
                 </Link>
             </div>
         </main>

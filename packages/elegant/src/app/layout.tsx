@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from 'next-themes';
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
+import clsx from "clsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <SessionProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>
+        <body className={clsx(
+          "bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
+          inter.className
+        )}>
           <ThemeProvider attribute="class">
             {children}
           </ThemeProvider>
