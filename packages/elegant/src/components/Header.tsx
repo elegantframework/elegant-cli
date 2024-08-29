@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Router } from "next/router";
 import { Suspense, useEffect, useState } from "react";
-import { Dialog, DialogPanel } from '@headlessui/react';
+import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import { GitHubIcon, VersionSelector } from '@brandonowens/elegant-ui';
 import Logo from "./Logo";
 import ThemeToggle, { ThemeSelect } from "./ThemeToggle";
@@ -70,7 +70,7 @@ export default function Header({
               <div className="relative flex items-center">
                 <Link
                   href="/"
-                  className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
+                  className="mr-3 flex-none w-auto overflow-hidden md:w-auto"
                 >
                   <Logo 
                     className="w-auto h-7" 
@@ -237,43 +237,45 @@ export function NavPopover({ display = 'md:hidden', className = "", ...props }) 
         open={isOpen}
         onClose={setIsOpen}
       >
-        <DialogPanel className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80" />
-        <div className="fixed top-4 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400 dark:highlight-white/5">
-          <button
-            type="button"
-            className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
-            onClick={() => setIsOpen(false)}
-          >
-            <span className="sr-only">Close navigation</span>
-            <svg viewBox="0 0 10 10" className="w-2.5 h-2.5 overflow-visible" aria-hidden="true">
-              <path
-                d="M0 0L10 10M10 0L0 10"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
-          <ul className="space-y-6">
-            <NavItems />
-            {process.env.NEXT_PUBLIC_APP_REPOSITORY && (
-              <li>
-                <a
-                  href={process.env.NEXT_PUBLIC_APP_REPOSITORY || ""}
-                  className="hover:text-primary-500 dark:hover:text-primary-400"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </li>
-            )}
-          </ul>
-          <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-200/10">
-            <ThemeSelect />
+        <DialogPanel className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80">
+          <DialogTitle className="hidden">Switch Theme</DialogTitle>
+          <div className="fixed top-4 right-4 w-full max-w-xs bg-white rounded-lg shadow-lg p-6 text-base font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-400 dark:highlight-white/5">
+            <button
+              type="button"
+              className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
+              onClick={() => setIsOpen(false)}
+            >
+              <span className="sr-only">Close navigation</span>
+              <svg viewBox="0 0 10 10" className="w-2.5 h-2.5 overflow-visible" aria-hidden="true">
+                <path
+                  d="M0 0L10 10M10 0L0 10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+            <ul className="space-y-6">
+              <NavItems />
+              {process.env.NEXT_PUBLIC_APP_REPOSITORY && (
+                <li>
+                  <a
+                    href={process.env.NEXT_PUBLIC_APP_REPOSITORY || ""}
+                    className="hover:text-primary-500 dark:hover:text-primary-400"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </li>
+              )}
+            </ul>
+            <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-200/10">
+              <ThemeSelect />
+            </div>
           </div>
-        </div>
+        </DialogPanel>
       </Dialog>
     </div>
   )
