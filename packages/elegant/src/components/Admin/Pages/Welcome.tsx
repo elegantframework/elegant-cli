@@ -22,7 +22,7 @@ export default function Welcome({
     }, []);
 
     return(
-        <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4">
+        <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4 mt-20">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <ElegantLogo className="w-auto h-8 mx-auto"/>
             </div>
@@ -91,7 +91,7 @@ export default function Welcome({
                     See the <a href="https://www.elegantframework.com/docs/getting-started-with-elegant-cms#configuring-authentication" className="hover:underline font-mono font-medium text-indigo-500 dark:text-indigo-400" target={"_blank"} rel="noreferrer">documentation</a> for further help.
                 </p>
             </Card>
-            <div className="sm:mx-auto sm:w-full max-w-2xl xs:pl-0 sm:pl-4 text-left mt-10 dark:text-white">
+            <div className="sm:mx-auto sm:w-full max-w-2xl xs:pl-0 sm:pl-4 text-left mt-10 text-neutral-950">
                 <Link href="/" className="hover:underline">
                     <ArrowLongLeftIcon className="h-6 w-6 inline mr-2"/>Go to {process.env.NEXT_PUBLIC_APP_NAME || "Elegant"}
                 </Link>
