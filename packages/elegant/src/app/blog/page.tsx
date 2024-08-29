@@ -10,11 +10,7 @@ export const metadata: Metadata = {
 };
 
 async function getPosts() {
-    if(process.env.POSTGRES_PRISMA_URL && process.env.POSTGRES_PRISMA_URL?.length > 0) {
-        return await getAllPublishedPostsForCollection('posts');
-    }
-
-    return[];
+    return await getAllPublishedPostsForCollection('posts');
 }
 
 export default async function Blog() {   

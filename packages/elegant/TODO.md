@@ -7,6 +7,9 @@
 
 - add mobile nav back to frontend header
 
+- discard button on post needs to do something.
+
+- existing post on save should reload the url
 
 - add pageviews to main blog articles list page
 
@@ -15,21 +18,19 @@
 - add a newsletter signup page like mankini.. Include note to check the email for confirmation like laravel news does
 - create newsletter signup success page.
 
-- document setting up r2 in the readme
+- we need to kick a new build off somehow or purge the vercel cache when new content is published
 
+- ensure that the project builds locally when you set up a new database that hasn't had any migrations pushed to it yet.. Currently throwing an error during build because it is trying to look at the users table, but that table doesn't exist yet  ... Could a try catch fix this?
+
+- create an auto ci/cd migration script --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate
+
+- document setting up r2 in the readme
+    - document that user needs to add their production urls to the cors policy for production
 - document prisma
     - document setting up prisma, upgrades, etc.
     - document prisma studio
-
 - document setting up auth.js and the env encryption key
-
-- discard button on post needs to do something.
-
-- pre render static content? ISR?
-
-
-- add toast when a user saves
-
+- document launching to production ... The db is gonna need to be migrated
 
 
 - finish adding error handling to admin onboard field
@@ -49,15 +50,9 @@
 
 - admin navigation lock?
 
-- delete the old package
-
-- hook up the npm install script to download the new package
 
 - add some initial dashboard functionality
     - a welcome message to a new user
-
-- add a slick svg image for the beams background? 
-    -Colors could auto change based on theme colors 
 
 
 -- Elegant 5 should update the cli
