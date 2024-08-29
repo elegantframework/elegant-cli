@@ -7,7 +7,7 @@ import { Suspense, useEffect, useState } from "react";
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { GitHubIcon, VersionSelector } from '@brandonowens/elegant-ui';
 import Logo from "./Logo";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle, { ThemeSelect } from "./ThemeToggle";
 
 export default function Header({
   hasNav = false,
@@ -271,7 +271,7 @@ export function NavPopover({ display = 'md:hidden', className = "", ...props }) 
             )}
           </ul>
           <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-200/10">
-            {/* <ThemeSelect /> */}
+            <ThemeSelect />
           </div>
         </div>
       </Dialog>

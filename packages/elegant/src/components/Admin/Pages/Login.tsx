@@ -17,7 +17,7 @@ export default function Login() {
     }, []);
 
     return(
-        <main className="relative flex h-screen flex-col items-center justify-center z-10 p-0 md:p-4">
+        <main className="bg-gray-50 dark:bg-gray-900 relative flex h-screen flex-col items-center justify-center z-10 p-0 md:p-4">
             <div className="mr-3 flex-none w-[2.0625rem] overflow-hidden">
                 <ElegantLogo className="w-auto h-8 mx-auto"/>
             </div>
@@ -65,7 +65,7 @@ export default function Login() {
                         }
                     >
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                 Email address
                             </label>
                             <div className="mt-2">
@@ -75,12 +75,12 @@ export default function Login() {
                                     type="email"
                                     autoComplete="email"
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:focus:ring-2 dark:focus:ring-inset dark:focus:ring-indigo-500"
                                 />
                             </div>
                         </div>
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                 Password
                             </label>
                             <div className="mt-2">
@@ -90,7 +90,7 @@ export default function Login() {
                                     type="password"
                                     autoComplete="current-password"
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:focus:ring-2 dark:focus:ring-inset dark:focus:ring-indigo-500"
                                 />
                             </div>
                         </div>

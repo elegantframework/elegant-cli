@@ -22,7 +22,7 @@ export default function Welcome({
     }, []);
 
     return(
-        <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4 mt-20">
+        <main className="relative flex h-screen flex-col items-center justify-center z-10 p-4 mt-20 mb-20">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <ElegantLogo className="w-auto h-8 mx-auto"/>
             </div>
