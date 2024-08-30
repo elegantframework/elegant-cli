@@ -13,12 +13,12 @@ export default function Login() {
     router.replace('/admin');
 
     useEffect(() => {
-        document.title = `Log In - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "", "Elegant CMS")}`;
+        document.title = `Log In - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "Elegant", "Elegant CMS")}`;
     }, []);
 
     return(
-        <main className="bg-gray-50 dark:bg-gray-900 relative flex h-screen flex-col items-center justify-center z-10 p-0 md:p-4">
-            <div className="mr-3 flex-none w-[2.0625rem] overflow-hidden">
+        <main className="relative flex bg-gray-50 dark:bg-gray-900 flex-col items-center justify-center z-10 p-0 md:p-4 mb-20">
+            <div className="mt-20 mr-3 flex-none w-[2.0625rem] overflow-hidden">
                 <ElegantLogo className="w-auto h-8 mx-auto"/>
             </div>
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -163,9 +163,9 @@ export default function Login() {
                     </div> */}
                 </div>
             </Card>
-            <div className="sm:mx-auto sm:w-full max-w-xl xs:pl-0 sm:pl-4 text-left mt-10 dark:text-white">
+            <div className="sm:mx-auto sm:w-full max-w-2xl xs:pl-0 sm:pl-4 text-left mt-10 mb-20 text-neutral-950 dark:text-white">
                 <Link href="/" className="hover:underline">
-                    <ArrowLongLeftIcon className="h-6 w-6 inline mr-2"/>Go to {process.env.NEXT_PUBLIC_APP_NAME || ""}
+                    <ArrowLongLeftIcon className="h-6 w-6 inline mr-2"/>Go to {process.env.NEXT_PUBLIC_APP_NAME || "Elegant"}
                 </Link>
             </div>
         </main>

@@ -7,7 +7,7 @@ interface Props {
 
 export default function Admin({ params }: Props) {
     return(
-      <div className="text-neutral-950 dark:text-white">
+      <div className="h-full text-neutral-950 dark:text-white">
         <CMS 
           postgresUrl={process.env.POSTGRES_PRISMA_URL || ""}
           nonPoolingPUrl={process.env.POSTGRES_URL_NON_POOLING || ""} 

@@ -1,3 +1,4 @@
+- verify that on delete cascade of post and others doesnt delete the site lol
 
 - finish the docs /docs/[] page
     - finish sidebar
@@ -9,16 +10,13 @@
 
 - discard button on post needs to do something.
 
-- existing post on save should reload the url
-
 - add pageviews to main blog articles list page
+    - pageviews only increment on page refresh.. Won't increment when navigating from the blog list page
 
 - add tags to the blog frontend
 
 - add a newsletter signup page like mankini.. Include note to check the email for confirmation like laravel news does
 - create newsletter signup success page.
-
-- we need to kick a new build off somehow or purge the vercel cache when new content is published
 
 - ensure that the project builds locally when you set up a new database that hasn't had any migrations pushed to it yet.. Currently throwing an error during build because it is trying to look at the users table, but that table doesn't exist yet  ... Could a try catch fix this?
 
@@ -32,8 +30,7 @@
 - document setting up auth.js and the env encryption key
 - document launching to production ... The db is gonna need to be migrated
 
-
-- finish adding error handling to admin onboard field
+- prerender and download the content for static rendering using the isr functions
 
 - set seo metadata
     - all of the jsonid tags from the old layout files need to be migrated
@@ -41,8 +38,6 @@
 
 - rss feed
 - sitemap
-
-- fix dark mode.. It should match the demo site
 
 - delete next.svg logo
 
@@ -54,6 +49,7 @@
 - add some initial dashboard functionality
     - a welcome message to a new user
 
+- add better session checking to db calls and admin profile component like the vercel platforms does.. They have a nice looking auth.ts setup that looks extra tight and secure
 
 -- Elegant 5 should update the cli
     - create a 'create-elegant-app' package like next.js

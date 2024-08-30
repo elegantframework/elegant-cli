@@ -19,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <SessionProvider>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" className="h-full" suppressHydrationWarning>
         <body className={clsx(
-          "bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
+          "h-full bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
           inter.className
         )}>
           <ThemeProvider attribute="class">

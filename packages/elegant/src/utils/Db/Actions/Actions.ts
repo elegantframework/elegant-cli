@@ -17,7 +17,10 @@ export async function createAdmin(user: createAdmin) {
                 name: user.name,
                 email: user.email,
                 password: await hashPassword(user.password),
-                role: "admin"
+                role: "root_admin",
+                sites: {
+                    create: {}
+                }
             }
         });
 
@@ -47,7 +50,7 @@ export async function getUser(
 export async function getAdminCount() {
     const response = await prisma.user.findMany({
         where: {
-            role: "admin"            
+            role: "root_admin"            
         }
     });
 

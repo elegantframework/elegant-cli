@@ -1,9 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import LogoutButton from "./LogoutButton";
-import { Session } from "next-auth";
 import { UserRound } from "lucide-react";
-import ContentLoader from "react-content-loader";
 
 export default function Profile({
   name,
@@ -12,7 +10,6 @@ export default function Profile({
   name: string;
   image: string | null;
 }) {
-
   return (
     <div className="flex w-full items-center justify-between">
       <Link
@@ -28,7 +25,7 @@ export default function Profile({
             className="h-6 w-6 rounded-full"
           />
         )}
-        {image && image.length === 0 &&(
+        {image?.length === 0 &&(
           <div className="h-6 w-6 rounded-full bg-neutral-200">
             <UserRound className="text-neutral-500"/>
           </div>

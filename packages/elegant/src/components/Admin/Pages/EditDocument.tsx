@@ -155,6 +155,9 @@ export default function EditDocument({
                 if(slug === 'new' || slug !== doc.slug) {
                     router.push(`/admin/${collection.title.toLowerCase()}/${doc.slug}`);
                 }
+                else{
+                    window.location.reload();
+                }
             });
         }
     };
