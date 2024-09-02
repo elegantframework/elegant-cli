@@ -3,14 +3,17 @@ import React, { useEffect, useState } from "react";
 import { Card, ElegantLogo, MetaTitle } from '@brandonowens/elegant-ui';
 import Link from "next/link";
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
-import { createAdmin } from "../../../utils/Db/Actions/Actions";
 import { XCircleIcon } from "lucide-react";
+import { createRootAdmin } from "@/utils/Db/Actions/User";
+import { useRouter } from "next/navigation";
 
 export default function Onboard() {
     const [error, setError] = useState("");
+    const router = useRouter();
 
     useEffect(() => {
         document.title = `Create an admin account - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "Elegant", "Elegant CMS")}`;
+        router.replace('/admin');
     }, []);
 
     return(
@@ -119,7 +122,7 @@ export async function createAdminUser(formData: FormData) {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    return await createAdmin({
+    return await createRootAdmin({
         name: name,
         email: email,
         password: password

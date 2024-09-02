@@ -19,12 +19,12 @@ export default async function Blog() {
         slug: string;
         description: string;
         publishedAt: Date;
-    }[] = await getPosts();
+    }[] | null = await getPosts();
 
     return(
         <Suspense>
             <Header />
-            <BlogPage posts={posts} />
+            <BlogPage posts={posts || []} />
         </Suspense>
     );
 }

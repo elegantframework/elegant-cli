@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import "@/components/Editor/css/editor.css";
 import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
+import Image from "next/image";
 
 async function getPost(slug: string) {
     return await getPublishedPostBySlug(slug, 'posts');
@@ -172,9 +173,11 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                                              key={author.id}
                                              className="flex items-center font-medium whitespace-nowrap px-5 mt-6"
                                             >
-                                                <img
-                                                    src={author?.image || ""}
-                                                    alt=""
+                                                <Image
+                                                    src={author.image || ""}
+                                                    width={100}
+                                                    height={100}
+                                                    alt={`${author.name} profile picture.`}
                                                     className="mr-3 w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800"
                                                     decoding="async"
                                                 />

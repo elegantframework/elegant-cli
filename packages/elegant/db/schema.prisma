@@ -15,12 +15,14 @@ model Site {
   id          String       @id @default(cuid())
   name        String?
   description String?      @db.Text
+  domain      String?      @unique
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   user        User?        @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId      String?
   posts       Post[]
   collections Collection[]
+  views       Views[]
 
   @@index([userId])
 }
@@ -34,12 +36,15 @@ model User {
   password      String?
   image         String?
   role          String?
+  activeSiteId  String
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   accounts      Account[]
   sessions      Session[]
   sites         Site[]
   posts         Post[]
+
+  @@index([activeSiteId])
 }
 
 model Account {
@@ -118,10 +123,16 @@ model Post {
 }
 
 model Views {
-  slug      String   @id
+  id        String   @id @default(cuid())
+  slug      String
   count     Int
+  site      Site?    @relation(fields: [siteId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  siteId    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@unique([slug, siteId], name: "siteId_slug")
+  @@index([slug])
 }
 
 enum Status {

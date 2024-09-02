@@ -1,9 +1,9 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import CmsClient from './CmsClient';
-import { getAdminCount } from '../../utils/Db/Actions/Actions';
-import { auth } from './../../utils/Auth';
+import { getSession } from '@/utils/Auth/Auth';
 import { getAllCollections } from '@/utils/Db/Actions/Collection';
 import { R2Config } from '../Types';
+import { getAdminCount } from '@/utils/Db/Actions/User';
  
 interface Props {
     /**
@@ -30,7 +30,8 @@ export default async function CMS({
     r2Config,
     params 
 }: Props) {
-    const session = await auth();
+    const session = await getSession();
+
     const adminCount = (
         process.env.POSTGRES_PRISMA_URL && process.env.POSTGRES_PRISMA_URL.length > 0 ? 
         await getAdminCount() :
@@ -50,7 +51,7 @@ export default async function CMS({
             adminCount={adminCount}
             session={session}
             params={params}
-            collections={collections}
+            collections={collections || []}
         />
     );
 }

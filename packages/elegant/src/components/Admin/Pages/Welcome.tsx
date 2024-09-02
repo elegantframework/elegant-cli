@@ -4,6 +4,7 @@ import { Card, ElegantLogo, MetaTitle } from '@brandonowens/elegant-ui';
 import Link from "next/link";
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
 import { R2Config } from "@/components/Types";
+import { useRouter } from "next/navigation";
 
 export interface WelcomeProps {
     postgresUrl: string | undefined,
@@ -16,9 +17,11 @@ export default function Welcome({
     nonPoolingPUrl,
     r2Config
 }: WelcomeProps) {
+    const router = useRouter();
 
     useEffect(() => {
         document.title = `Welcome to Elegant CMS - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "Welcome", "Elegant CMS")}`;
+        router.replace('/admin');
     }, []);
 
     return(

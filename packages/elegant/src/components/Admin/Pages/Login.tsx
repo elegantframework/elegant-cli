@@ -4,16 +4,16 @@ import { Card, ElegantLogo, MetaTitle } from '@brandonowens/elegant-ui';
 import Link from "next/link";
 import ArrowLongLeftIcon from '@heroicons/react/20/solid/ArrowLongLeftIcon';
 import { useRouter } from "next/navigation";
-import { logUserIn } from "../../../utils/Db/Actions/Actions";
 import { XCircleIcon } from "lucide-react";
+import { logUserIn } from "@/utils/Db/Actions/User";
 
 export default function Login() {
     const router = useRouter();
     const [error, setError] = useState("");
-    router.replace('/admin');
 
     useEffect(() => {
         document.title = `Log In - ${MetaTitle(process.env.NEXT_PUBLIC_APP_NAME || "Elegant", "Elegant CMS")}`;
+        router.replace('/admin');
     }, []);
 
     return(

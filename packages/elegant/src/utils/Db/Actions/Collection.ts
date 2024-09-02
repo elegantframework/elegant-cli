@@ -1,6 +1,8 @@
 'use server'
 
-import prisma from "@/utils/Prisma";
+import { getSession } from "@/utils/Auth/Auth";
+import prisma from "@/utils/Db/Prisma";
+import { revalidateTag } from "next/cache";
 
 export interface CreateCollection {
     title: string;
@@ -8,10 +10,34 @@ export interface CreateCollection {
 };
 
 export async function createCollection(collection: CreateCollection) {
+    const session = await getSession();
+    if (!session?.user?.id) {
+      return {
+        error: "Not authenticated",
+      };
+    }
+    
     try {
-        const response = await prisma.collection.create({
-            data: collection
+        const siteId = await prisma.user.findUnique({
+            select: {
+                activeSiteId: true
+            },
+            where: {
+                id: session.user.id
+            },
         });
+
+        const response = await prisma.collection.create({
+            data: {
+                title: collection.title,
+                coverImage: collection.coverImage,
+                siteId: siteId?.activeSiteId
+            },
+        });
+        
+        await revalidateTag(
+            `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL}-collections`,
+        );
 
         return response;
     } 
@@ -27,14 +53,42 @@ export interface GetCollectionByName {
 };
 
 export async function getCollectionByName(collection: GetCollectionByName) {
+    const session = await getSession();
+    if (!session?.user?.id) {
+      return {
+        error: "Not authenticated",
+      };
+    }
+
+    const siteId = await prisma.user.findUnique({
+        select: {
+            activeSiteId: true,
+            id: true
+        },
+        where: {
+            id: session.user?.id
+        },
+    });
+
+    if (!siteId || siteId.id !== session.user.id) {
+        return {
+          error: "Collection not found",
+        };
+    }
+    
     try {
-        const response = await prisma.collection.findFirst({
+        const data = await prisma.collection.findFirst({
             where: {
-                title: collection.title
+                title: collection.title,
+                siteId: siteId?.activeSiteId
             }
         });
 
-        return response;
+        if (!data) {
+            return null;
+        }
+
+        return data;
     } 
     catch (error: any) {
         return {
@@ -44,14 +98,34 @@ export async function getCollectionByName(collection: GetCollectionByName) {
 };
 
 export async function getAllCollections() {
-    const response = await prisma.collection.findMany({
+    const session = await getSession();
+    if (!session?.user?.id) {
+      return null;
+    }
+
+    const siteId = await prisma.user.findUnique({
+        select: {
+            activeSiteId: true,
+            id: true
+        },
+        where: {
+            id: session.user?.id
+        },
+    });
+
+    if (!siteId || siteId.id !== session.user.id) {
+        return null;
+    }
+
+    return await prisma.collection.findMany({
         select: {
             id: true,
             title: true
+        },
+        where: {
+            siteId: siteId?.activeSiteId
         }
     });
-
-    return response;
 };
 
 export interface UpdateCollection {
@@ -61,6 +135,29 @@ export interface UpdateCollection {
 };
 
 export async function updateCollection(collection: UpdateCollection) {
+    const session = await getSession();
+    if (!session?.user?.id) {
+      return {
+        error: "Not authenticated",
+      };
+    }
+
+    const siteId = await prisma.user.findUnique({
+        select: {
+            activeSiteId: true,
+            id: true
+        },
+        where: {
+            id: session.user?.id
+        },
+    });
+
+    if (!siteId || siteId.id !== session.user.id) {
+        return {
+          error: "No collections found",
+        };
+    }
+
     try {
         const response = await prisma.collection.update({
             where: {
@@ -68,6 +165,13 @@ export async function updateCollection(collection: UpdateCollection) {
             },
             data: collection
         });
+
+        await revalidateTag(
+            `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL}-collections`,
+        );
+        await revalidateTag(
+        `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL}-${collection.id}`,
+        );
 
         return response;
     } 
@@ -79,6 +183,29 @@ export async function updateCollection(collection: UpdateCollection) {
 }
 
 export async function deleteCollection(id: string) {
+    const session = await getSession();
+    if (!session?.user?.id) {
+      return {
+        error: "Not authenticated",
+      };
+    }
+
+    const siteId = await prisma.user.findUnique({
+        select: {
+            activeSiteId: true,
+            id: true
+        },
+        where: {
+            id: session.user?.id
+        },
+    });
+
+    if (!siteId || siteId.id !== session.user.id) {
+        return {
+          error: "No collections found",
+        };
+    }
+
     try {
         const documentsToBeDeleted = prisma.post.deleteMany({
             where: {
