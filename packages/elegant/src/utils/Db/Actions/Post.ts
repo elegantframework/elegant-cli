@@ -3,7 +3,7 @@
 import { Collection } from "@/components/Types";
 import { getSession } from "@/utils/Auth/Auth";
 import prisma from "@/utils/Db/Prisma";
-import { revalidateTag, unstable_cache } from "next/cache";
+import { revalidateTag, unstable_cache, unstable_noStore } from "next/cache";
 import pluralize from "pluralize";
 
 export interface CreatePost {
@@ -409,8 +409,8 @@ export async function incrementPageViews(
     if (!site) {
         return null;
     }
-
-    await prisma.views.upsert({
+    
+    return await prisma.views.upsert({
       where: {
         siteId_slug: {
             slug: slug,
@@ -424,6 +424,9 @@ export async function incrementPageViews(
       },
       update: {
         count: { increment: 1 }
+      },
+      select: {
+        count: true
       }
     });
 }

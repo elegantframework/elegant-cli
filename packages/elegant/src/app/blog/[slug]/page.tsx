@@ -1,7 +1,7 @@
 import NotFound from "@/app/not-found";
 import Header from "@/components/Header";
 import NewsletterForm from "@/components/NewsletterForm";
-import { getPageViews, getPublishedPostBySlug, incrementPageViews } from "@/utils/Db/Actions/Post";
+import { getAllPublishedPostsForCollection, getPageViews, getPublishedPostBySlug, incrementPageViews } from "@/utils/Db/Actions/Post";
 import MetaTitle from "@/utils/Meta/MetaTitle";
 import moment from "moment";
 import { Metadata, ResolvingMetadata } from "next";
@@ -16,12 +16,20 @@ async function getPost(slug: string) {
 }
 
 async function getViews(slug: string) {
-    const pageViews = await getPageViews(slug);
-
-    await incrementPageViews(slug);
+    const pageViews = await incrementPageViews(slug);
 
     return pageViews?.count || 0;
 }
+
+// export async function generateStaticParams() {
+//     const posts =  await getAllPublishedPostsForCollection('posts') || [];
+
+//     const slugs = posts.map((post) => {
+//         return post.slug
+//     });
+
+//     return slugs;
+// }
 
 export async function generateMetadata(
     { params }: { params: { slug: string } },

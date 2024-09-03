@@ -72,6 +72,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.52.0",
     "react-hot-toast": "^2.4.1",
+    "sharp": "^0.33.5",
     "tiptap-markdown": "^0.8.9",
     "url-slug": "^4.0.1",
     "uuid": "^9.0.1",
