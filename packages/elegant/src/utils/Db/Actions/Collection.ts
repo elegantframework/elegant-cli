@@ -1,6 +1,6 @@
 'use server'
 
-import { getSession } from "@/utils/Auth/Auth";
+import { auth } from "@/utils/Auth/Auth";
 import prisma from "@/utils/Db/Prisma";
 import { revalidateTag } from "next/cache";
 
@@ -10,7 +10,7 @@ export interface CreateCollection {
 };
 
 export async function createCollection(collection: CreateCollection) {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return {
         error: "Not authenticated",
@@ -53,7 +53,7 @@ export interface GetCollectionByName {
 };
 
 export async function getCollectionByName(collection: GetCollectionByName) {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return {
         error: "Not authenticated",
@@ -98,7 +98,7 @@ export async function getCollectionByName(collection: GetCollectionByName) {
 };
 
 export async function getAllCollections() {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return null;
     }
@@ -135,7 +135,7 @@ export interface UpdateCollection {
 };
 
 export async function updateCollection(collection: UpdateCollection) {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return {
         error: "Not authenticated",
@@ -183,7 +183,7 @@ export async function updateCollection(collection: UpdateCollection) {
 }
 
 export async function deleteCollection(id: string) {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return {
         error: "Not authenticated",

@@ -1,7 +1,7 @@
 'use server'
 
 import { Collection } from "@/components/Types";
-import { getSession } from "@/utils/Auth/Auth";
+import { auth } from "@/utils/Auth/Auth";
 import prisma from "@/utils/Db/Prisma";
 import { revalidateTag, unstable_cache, unstable_noStore } from "next/cache";
 import pluralize from "pluralize";
@@ -23,7 +23,7 @@ export interface CreatePost {
 };
 
 export async function createPost(post: CreatePost) {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return {
         error: "Not authenticated",
@@ -116,7 +116,7 @@ export async function createPost(post: CreatePost) {
 }
 
 export async function getPostBySlug(slug: string, collection: string) {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return null;
     }
@@ -211,7 +211,7 @@ export async function getPublishedPostBySlug(slug: string, collection: string) {
 }
 
 export async function getAllPostsForCollection(name: string) {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return null;
     }
@@ -310,7 +310,7 @@ export async function getAllPublishedPostsForCollection(name: string) {
 }
 
 export async function deletePost(id: string) {
-    const session = await getSession();
+    const session = await auth();
     if (!session?.user?.id) {
       return {
         error: "Not authenticated",
