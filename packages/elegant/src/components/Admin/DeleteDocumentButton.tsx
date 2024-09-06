@@ -43,7 +43,7 @@ export default function DeleteDocumentButton({
                                 disabled={deleting}
                                 onClick={() => {
                                     setDeleting(true);
-                                    deleteDocument(id).then(() => {
+                                    deleteDocument(id, collection).then(() => {
                                         setDeleting(false);
                                         router.push(`/admin/${collection}`);
                                     })
@@ -94,6 +94,6 @@ export default function DeleteDocumentButton({
     );
 }
 
-export async function deleteDocument(id: string) {
-    return await deletePost(id);
+export async function deleteDocument(id: string, collection: string) {
+    return await deletePost(id, collection);
 }

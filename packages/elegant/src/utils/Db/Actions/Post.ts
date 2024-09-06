@@ -301,7 +301,7 @@ export async function getAllPublishedPostsForCollection(name: string) {
     
             return data;
         },
-        [`${site.id}-${pluralize(name.toLowerCase())}`],
+        [`${site.id}-${pluralize(name.toLowerCase())}` ],
         {
           revalidate: 900, // 15 minutes
           tags: [`${site.id}-${pluralize(name.toLowerCase())}`],
@@ -309,7 +309,7 @@ export async function getAllPublishedPostsForCollection(name: string) {
       )();
 }
 
-export async function deletePost(id: string) {
+export async function deletePost(id: string, collection: string) {
     const session = await auth();
     if (!session?.user?.id) {
       return {
@@ -338,8 +338,14 @@ export async function deletePost(id: string) {
             where: {
                 id: id,
                 siteId: siteId.activeSiteId
-            }        
+            }     
         });
+
+        await revalidateTag(
+            `${siteId?.activeSiteId}-${pluralize(
+                collection.toLowerCase()
+            )}`,
+        );
 
         return response;
     } 
