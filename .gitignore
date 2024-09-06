@@ -3,3 +3,6 @@
 packages/elegant-ui/node_modules/
 node_modules/
 packages/elegant-cms/dist/
+packages/elegant/public/sitemap.xml
+packages/elegant/public/robots.txt
+packages/elegant/public/sitemap-0.xml

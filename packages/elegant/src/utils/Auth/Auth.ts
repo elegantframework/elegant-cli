@@ -7,8 +7,6 @@ import { getUser } from '../Db/Actions/User';
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "@/utils/Db/Prisma";
 
-const VERCEL_DEPLOYMENT = !!process.env.VERCEL_URL;
-
 export const { handlers, auth, signIn, signOut } = NextAuth({
     providers: [
         GitHubProvider({
@@ -106,7 +104,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
             return session;
         },
-    }
+    },
+    trustHost: true
   })
 
 export function getSession() {

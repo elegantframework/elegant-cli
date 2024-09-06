@@ -1,8 +1,12 @@
-- add cache busting and auth
-    -- to posts
-        - look at the image blur url stuff
+- finish sitemap
+    - add blog and docs
+        -- check if they exist
+    - query for other collections and posts and auto add them 
 
-    -- take a look at vercels pages using generate static params with db getters
+- rss feed
+
+- look at the image blur url stuff in vercels code
+-- take a look at vercels pages using generate static params with db getters
 
 
 
@@ -29,7 +33,6 @@
 - discard button on post needs to do something.
 
 - add pageviews to main blog articles list page
-    - pageviews only increment on page refresh.. Won't increment when navigating from the blog list page
 
 - add tags to the blog frontend
 
@@ -56,8 +59,6 @@
     - all of the jsonid tags from the old layout files need to be migrated
     - update the existing SEO component to use the new metadata code instead of nextseo?
 
-- rss feed
-- sitemap
 
 - delete next.svg logo
 
