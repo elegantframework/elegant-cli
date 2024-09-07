@@ -14,7 +14,6 @@
     - create interface
     - add vercel blob storage as well
 
-- admin sign in page error message doesnt look good in dark mode
 
 - finish the docs /docs/[] page
     - finish sidebar
@@ -64,11 +63,9 @@
 
 - add google analytics back
 
-- admin navigation lock?
 
 
-
-- add better session checking to db calls and admin profile component like the vercel platforms does.. They have a nice looking auth.ts setup that looks extra tight and secure
+- verify the below if now still an issue
     - i was able to accidentally session stuff by having a session already in production set, and then running a migration that dumped the db and forced the setup of a new site .. The old session kept me logged in; but blank data was loaded
 
 -- Elegant 5 should update the cli

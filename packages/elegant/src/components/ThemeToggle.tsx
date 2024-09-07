@@ -1,140 +1,62 @@
-'use client'
-import { Listbox } from '@headlessui/react';
-import clsx from 'clsx';
-import { Fragment } from 'react';
-import { MoonIcon, PCIcon, SunIcon } from '@brandonowens/elegant-ui';
-import { useTheme } from 'next-themes';
+"use client"
 
-interface Props {
-  /**
-   * A custom css class name that can be applied to the panel
-   */
-  panelClassName?: string;
-};
+import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
+import { Moon, Sun, Laptop } from "lucide-react"
 
-/**
- * The possible selected items
- */
-const settings = [
-  {
-    value: 'light',
-    label: 'Light',
-    icon: SunIcon,
-  },
-  {
-    value: 'dark',
-    label: 'Dark',
-    icon: MoonIcon,
-  },
-  {
-    value: 'system',
-    label: 'System',
-    icon: PCIcon,
-  },
-];
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { cn } from "@/utils/utils"
 
-/**
- * The dark mode/light mode toggle component in the header.
- * @returns A light/dark mode theme toggle.
- */
-const ThemeToggle = ({
-  panelClassName = 'mt-4'
-}: Props) =>  {
-  const { theme, setTheme } = useTheme();
+export default function ThemeSelector() {
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   return (
-    <Listbox value={theme} onChange={setTheme}>
-      <Listbox.Label className="sr-only">Theme</Listbox.Label>
-      <Listbox.Button type="button">
-        <span className="dark:hidden">
-          <SunIcon className="w-6 h-6" selected={theme !== 'system'} />
-        </span>
-        <span className="hidden dark:inline">
-          <MoonIcon className="w-6 h-6" selected={theme !== 'system'} />
-        </span>
-      </Listbox.Button>
-      <Listbox.Options
-        className={clsx(
-          'absolute z-50 top-full right-0 bg-white rounded-lg ring-1 ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-slate-700 font-semibold dark:bg-slate-800 dark:ring-0 dark:highlight-white/5 dark:text-slate-300',
-          panelClassName
-        )}
-      >
-        {settings.map(({ value, label, icon: Icon }) => (
-          <Listbox.Option key={value} value={value} as={Fragment}>
-            {({ active, selected }) => (
-              <li
-                className={clsx(
-                  'py-1 px-2 flex items-center cursor-pointer',
-                  selected && 'text-primary-500',
-                  active && 'bg-slate-50 dark:bg-slate-600/30'
-                )}
-              >
-                <Icon selected={selected} className="w-6 h-6 mr-2" />
-                {label}
-              </li>
-            )}
-          </Listbox.Option>
-        ))}
-      </Listbox.Options>
-    </Listbox>
-  )
-};
-
-export default ThemeToggle;
-
-export const ThemeSelect = () => {
-  const { theme, setTheme } = useTheme();
-
-  const label = settings.find((x) => x.value === theme);
-
-  return (
-    <div className="flex items-center justify-between">
-      <label htmlFor="theme" className="text-slate-700 font-normal dark:text-slate-400">
-        Switch theme
-      </label>
-      <div className="relative flex items-center ring-1 ring-slate-900/10 rounded-lg shadow-sm p-2 text-slate-700 font-semibold dark:bg-slate-600 dark:ring-0 dark:highlight-white/5 dark:text-slate-200">
-        <SunIcon className="w-6 h-6 mr-2 dark:hidden" />
-        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 mr-2 hidden dark:block">
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
-            className="fill-transparent"
-          />
-          <path
-            d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
-            className="fill-slate-400"
-          />
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
-            className="fill-slate-400"
-          />
-        </svg>
-        {label?.label}
-        <svg className="w-6 h-6 ml-2 text-slate-400" fill="none">
-          <path
-            d="m15 11-3 3-3-3"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <select
-          id="theme"
-          value={theme}
-          onChange={(e) => setTheme(e.target.value)}
-          className="absolute appearance-none inset-0 w-full h-full opacity-0"
-        >
-          {settings.map(({ value, label }) => (
-            <option key={value} value={value}>
-              {label}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="icon" className="w-9 px-0">
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 fill-primary-400/20 stroke-primary-500" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 fill-primary-400/20 stroke-primary-500" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => setTheme("light")}>
+          <Sun className={cn(
+            "mr-2 h-4 w-4",
+            theme === "light" ? "ill-primary-400/20 stroke-primary-500" : ""
+          )} />
+          <span className={cn(theme === "light" ? "text-primary-500" : "")}>Light</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("dark")}>
+          <Moon className={cn(
+            "mr-2 h-4 w-4",
+            theme === "dark" ? "ill-primary-400/20 stroke-primary-500" : ""
+          )} />
+          <span className={cn(theme === "dark" ? "text-primary-500" : "")}>Dark</span>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("system")}>
+          <Laptop className={cn(
+            "mr-2 h-4 w-4",
+            theme === "system" ? "ill-primary-400/20 stroke-primary-500" : ""
+          )} />
+          <span className={cn(theme === "system" ? "text-primary-500" : "")}>System</span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
