@@ -13,7 +13,6 @@ export default async function SaveFile(file: File) {
     await axios.put(preSignedUrl || "", file, {
       headers: {
         "Content-Type": file.type,
-        "Access-Control-Allow-Origin": "*"
       }
     });
 
