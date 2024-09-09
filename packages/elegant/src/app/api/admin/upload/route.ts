@@ -1,38 +1,32 @@
-import { auth } from "@/utils/Auth/Auth";
-import { GetSignedUrl } from "@/utils/CloudFlare/R2";
-import axios from "axios";
+import chalk from "chalk";
 import { NextResponse } from "next/server";
-import { v4 as uuidv4 } from 'uuid';
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
+import { PutObjectCommand } from '@aws-sdk/client-s3';
+import R2Client from "@/utils/CloudFlare/R2Client";
 
 export const runtime = "edge";
 
 export async function POST(req: Request) {
-    const session = await auth();
-    if (!session?.user?.id) {
-        return new Response(
-            "Not authenticated.",
-            {
-            status: 403,
-            },
-        );
-    }
+    console.log(chalk.yellow(`Generating an upload URL!`))
 
-    const file = req.body || "";
     const contentType = req.headers.get("content-type") || "text/plain";
-    const filename = `${uuidv4()}.${contentType.split("/")[1]}`;
+    const filename = req.headers.get("filename") || "";
 
-    const signedUrl = await GetSignedUrl(
-        filename,
-        contentType
-    );
+    const signedUrl = await getSignedUrl(
+        R2Client(
+            process.env.R2_ACCOUNT_ID || "",
+            process.env.R2_ACCESS_KEY_ID || "",
+            process.env.R2_SECRET_ACCESS_KEY || ""
+        ),
+        new PutObjectCommand({
+            Bucket: process.env.R2_BUCKET_NAME,
+            Key: filename,
+            ContentType: contentType,
+        }),
+        { expiresIn: 60 }
+    )
 
-    await axios.put(signedUrl, file, {
-        headers: {
-          "Content-Type": contentType,
-        }
-    });
+    console.log(chalk.green(`Success generating upload URL!`))
 
-    const blob = `${process.env.R2_PUBLIC_BUCKET_URL}/${filename}`;
-
-    return NextResponse.json(blob);
+    return NextResponse.json({ url: signedUrl })
 }

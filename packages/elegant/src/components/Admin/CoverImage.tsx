@@ -236,9 +236,14 @@ async function saveCoverImage({
 
         const response = await fetch('/api/admin/upload', {
             method: 'POST',
-            body: file
+            headers: { 
+                "content-type": file?.type || "application/octet-stream",
+                "filename": `${uuidv4()}.${file.type.split("/")[1]}`
+            },
         });
 
-        return await response.json();
+        console.log(response)
+
+        return "";
     }
 }
