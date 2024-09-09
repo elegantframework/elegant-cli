@@ -3,6 +3,8 @@
 import { ChangeEvent, useEffect, useState } from "react"
 import Input from "./Input";
 import SaveFile from "@/utils/CloudFlare/R2";
+import { v4 as uuidv4 } from 'uuid';
+import axios from "axios";
 
 export default function CoverImage({
     image,
@@ -229,8 +231,14 @@ async function saveCoverImage({
 }:ChangeEvent<HTMLInputElement>){
     if (currentTarget.files?.length && currentTarget.files?.[0] !== null) {
         const file = currentTarget.files[0];
-        const blob = await SaveFile(file);        ;
+        const formData = new FormData();
+        formData.append('file', file);
 
-        return blob;
+        const response = await fetch('/api/admin/upload', {
+            method: 'POST',
+            body: file
+        });
+
+        return await response.json();
     }
 }

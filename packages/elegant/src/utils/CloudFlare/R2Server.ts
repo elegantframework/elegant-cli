@@ -13,7 +13,6 @@ export async function Save(
     fileType: string,
     fileSize: number
 ) {
-
     const signedUrl = await getSignedUrl(
         S3Client(
             process.env.R2_ACCOUNT_ID || "",
