@@ -7,8 +7,7 @@ import R2Client from "@/utils/CloudFlare/R2Client";
 export const runtime = "edge";
 
 export async function POST(req: Request) {
-    console.log(chalk.yellow(`Generating an upload URL!`))
-
+    const publicURL = process.env.R2_PUBLIC_BUCKET_URL;
     const contentType = req.headers.get("content-type") || "text/plain";
     const filename = req.headers.get("filename") || "";
 
@@ -26,7 +25,8 @@ export async function POST(req: Request) {
         { expiresIn: 60 }
     )
 
-    console.log(chalk.green(`Success generating upload URL!`))
-
-    return NextResponse.json({ url: signedUrl })
+    return NextResponse.json({ 
+        signedUrl: signedUrl,
+        publicUrl: publicURL
+     })
 }

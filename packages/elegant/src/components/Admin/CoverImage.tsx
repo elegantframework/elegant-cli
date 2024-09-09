@@ -2,9 +2,7 @@
 
 import { ChangeEvent, useEffect, useState } from "react"
 import Input from "./Input";
-import SaveFile from "@/utils/CloudFlare/R2";
 import { v4 as uuidv4 } from 'uuid';
-import axios from "axios";
 
 export default function CoverImage({
     image,
@@ -95,6 +93,7 @@ export default function CoverImage({
                                 setSaving(true);
                                 await saveCoverImage(e).then(
                                     (result) => {
+                                        console.log(result)
                                         setSaving(false);
                                         onSave(result || "");
                                     }
@@ -231,19 +230,28 @@ async function saveCoverImage({
 }:ChangeEvent<HTMLInputElement>){
     if (currentTarget.files?.length && currentTarget.files?.[0] !== null) {
         const file = currentTarget.files[0];
+        const filename = `${uuidv4()}.${file.type.split("/")[1]}`;
         const formData = new FormData();
         formData.append('file', file);
 
         const response = await fetch('/api/admin/upload', {
             method: 'POST',
             headers: { 
-                "content-type": file?.type || "application/octet-stream",
-                "filename": `${uuidv4()}.${file.type.split("/")[1]}`
+                "content-type": file.type || "application/octet-stream",
+                "filename": filename
             },
         });
 
-        console.log(response)
+        const { signedUrl, publicUrl } = await response.json();
 
-        return "";
+        await fetch(signedUrl, {
+            method: 'PUT',
+            body: file,
+            headers: {
+                "Content-Type": file.type,
+            }
+        });
+
+        return `${publicUrl}/${filename}`;
     }
 }
