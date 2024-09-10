@@ -4,6 +4,12 @@ module.exports = {
     generateRobotsTxt: true,
     exclude: [
         "/admin",
-        "*.ico"
-    ]
+        "*.ico",
+       "/server-sitemap-index.xml" 
+    ],
+    robotsTxtOptions: {
+        additionalSitemaps: [
+          "/server-sitemap-index.xml"
+        ],
+    },
 };

@@ -1,12 +1,9 @@
-- finish sitemap
-    - add blog and docs
-        -- check if they exist
-    - query for other collections and posts and auto add them 
+
+
 
 - rss feed
 
-- look at the image blur url stuff in vercels code
--- take a look at vercels pages using generate static params with db getters
+- add google analytics back
 
 
 - finish the docs /docs/[] page
@@ -19,6 +16,11 @@
     - if collections exists, look for recent post data
     - if post data exists, so the most recent posts first.. or maybe load the page view data?
 
+- look at the image blur url stuff in vercels code
+-- take a look at vercels pages using generate static params with db getters
+
+- finish out how to make the sitemap dynamic.. It currently only add urls to the server sitemap when next build is run
+
 - fix prose not loading dark mode fonts and auto link heading svg images on posts
 
 - add mobile nav back to frontend header
@@ -26,6 +28,8 @@
 - discard button on post needs to do something.
 
 - add pageviews to main blog articles list page
+
+- update the blog post pages to try and use static generation with the pageviews using a single upset call with the response as the value
 
 - add tags to the blog frontend
 
@@ -54,8 +58,6 @@
 
 
 - delete next.svg logo
-
-- add google analytics back
 
 
 
