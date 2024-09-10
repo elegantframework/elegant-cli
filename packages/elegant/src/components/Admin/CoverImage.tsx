@@ -93,7 +93,6 @@ export default function CoverImage({
                                 setSaving(true);
                                 await saveCoverImage(e).then(
                                     (result) => {
-                                        console.log(result)
                                         setSaving(false);
                                         onSave(result || "");
                                     }
