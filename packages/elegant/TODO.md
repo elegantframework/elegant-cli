@@ -9,12 +9,6 @@
 -- take a look at vercels pages using generate static params with db getters
 
 
-
-- update r2 to an image storage api route
-    - create interface
-    - add vercel blob storage as well
-
-
 - finish the docs /docs/[] page
     - finish sidebar
     - finish navigation menu

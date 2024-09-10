@@ -2,7 +2,7 @@
 
 import { ChangeEvent, useEffect, useState } from "react"
 import Input from "./Input";
-import { v4 as uuidv4 } from 'uuid';
+import SaveFile from "@/utils/CloudFlare/R2";
 
 export default function CoverImage({
     image,
@@ -230,28 +230,8 @@ async function saveCoverImage({
 }:ChangeEvent<HTMLInputElement>){
     if (currentTarget.files?.length && currentTarget.files?.[0] !== null) {
         const file = currentTarget.files[0];
-        const filename = `${uuidv4()}.${file.type.split("/")[1]}`;
-        const formData = new FormData();
-        formData.append('file', file);
+        const blob = await SaveFile(file); 
 
-        const response = await fetch('/api/admin/upload', {
-            method: 'POST',
-            headers: { 
-                "content-type": file.type || "application/octet-stream",
-                "filename": filename
-            },
-        });
-
-        const { signedUrl, publicUrl } = await response.json();
-
-        await fetch(signedUrl, {
-            method: 'PUT',
-            body: file,
-            headers: {
-                "Content-Type": file.type,
-            }
-        });
-
-        return `${publicUrl}/${filename}`;
+        return blob;
     }
 }
