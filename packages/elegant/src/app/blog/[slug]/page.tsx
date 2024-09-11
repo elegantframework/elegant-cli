@@ -96,20 +96,25 @@ export default async function Blog({ params }: { params: { slug: string } }) {
     
     const views = await getViews(`blog/${params.slug}`);
 
+    let authors: { "@type": string; name: string | null; }[] = [];
+
+    post.authors.forEach(author => {
+        authors.push(
+            {
+                "@type": "Person",
+                "name": author.name
+            }
+        );
+    });
+
     const jsonLd = {
         '@context': 'https://schema.org',
-        '@type': 'Product',
+        '@type': 'Article',
         title: post?.title,
         images: [post?.coverImage],
         description: post?.description,
         datePublished: post?.publishedAt,
-        // @todo: add multiauthor support
-        // authorName: [
-        //     {
-        //         name: post?.author?.name,
-        //         url: Config('app.twitter_handle').replace('@', '')
-        //     }
-        // ],
+        authors: authors,
         isAccessibleForFree: true
     }
 
