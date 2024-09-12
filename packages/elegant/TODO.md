@@ -1,8 +1,5 @@
 
 
-
-- rss feed
-
 - add google analytics back
 
 

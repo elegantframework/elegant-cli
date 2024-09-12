@@ -61,6 +61,7 @@
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "feed": "^4.2.2",
     "jest-mock-extended": "^3.0.7",
     "lowlight": "^2.9.0",
     "lucide-react": "^0.303.0",

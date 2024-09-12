@@ -1,7 +1,7 @@
 import { getAllPublishedPostsForCollection } from '@/utils/Db/Actions/Post';
 import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
 
-export async function GET(request: Request) {
+export async function GET() {
     const posts = await getAllPublishedPostsForCollection('posts');
     const docs = await getAllPublishedPostsForCollection('docs');
   
