@@ -4,6 +4,8 @@ import { ThemeProvider } from 'next-themes';
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import clsx from "clsx";
+import Analytics from "@/components/Analytics";
+import VercelAnalytics from "@/components/VercelAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +29,9 @@ export default function RootLayout({
   return (
     <SessionProvider>
       <html lang="en" className="h-full" suppressHydrationWarning>
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+          <Analytics GA_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""}/>
+        )}
         <body className={clsx(
           "h-full bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
           inter.className
@@ -34,6 +39,9 @@ export default function RootLayout({
           <ThemeProvider attribute="class">
             {children}
           </ThemeProvider>
+          {process.env.VERCEL_ANALYTICS && (
+            <VercelAnalytics />
+          )}
         </body>
       </html>
     </SessionProvider>

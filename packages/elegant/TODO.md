@@ -1,8 +1,4 @@
 
-
-- add google analytics back
-
-
 - finish the docs /docs/[] page
     - finish sidebar
     - finish navigation menu
@@ -16,7 +12,9 @@
 - look at the image blur url stuff in vercels code
 -- take a look at vercels pages using generate static params with db getters
 
-- finish out how to make the sitemap dynamic.. It currently only add urls to the server sitemap when next build is run
+- test google analytics and vercel analytics on production urls
+
+- figure out how to make the sitemap dynamic.. It currently only add urls to the server sitemap when next build is run
 
 - fix prose not loading dark mode fonts and auto link heading svg images on posts
 
@@ -46,6 +44,7 @@
     - document prisma studio
 - document setting up auth.js and the env encryption key
 - document launching to production ... The db is gonna need to be migrated
+- document enabling vercel analytics and turning it on for your project
 
 - prerender and download the content for static rendering using the isr functions
 
