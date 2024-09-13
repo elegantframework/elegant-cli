@@ -3,7 +3,7 @@
 import { Collection } from "@/components/Types";
 import { auth } from "@/utils/Auth/Auth";
 import prisma from "@/utils/Db/Prisma";
-import { revalidateTag, unstable_cache, unstable_noStore } from "next/cache";
+import { revalidateTag, unstable_cache, unstable_noStore as noStore } from "next/cache";
 import pluralize from "pluralize";
 
 export interface CreatePost {
@@ -306,6 +306,101 @@ export async function getAllPublishedPostsForCollection(name: string) {
           revalidate: 900, // 15 minutes
           tags: [`${site.id}-${pluralize(name.toLowerCase())}`],
         },
+    )();
+}
+
+export async function getAllPublishedPostsForTag(tag: string, collection: string) {
+    const site = await prisma.site.findFirst({
+        where: {
+            domain: process.env.NEXT_PUBLIC_APP_URL
+        },
+    });
+
+    if (!site) {
+        return null;
+    }
+
+    return await unstable_cache(
+        async () => {
+            const data = await prisma.post.findMany({
+                select: {
+                    id: true,
+                    title: true,
+                    status: true,
+                    description: true,
+                    coverImage: true,
+                    content: true,
+                    slug: true,
+                    tags: true,
+                    publishedAt: true,
+                    authors: true
+                }, 
+                where: {
+                    collection: {
+                        title: collection
+                    },
+                    status: "PUBLISHED",
+                    siteId: site.id,
+                    tags: {
+                        has: tag
+                    },
+                },
+                orderBy: [{
+                    publishedAt: 'desc'
+                }]
+            }); 
+    
+            if (!data) {
+                return null;
+            }
+    
+            return data;
+        },
+        [`${site.id}-${pluralize(collection.toLowerCase())}` ],
+        {
+          revalidate: 900, // 15 minutes
+          tags: [`${site.id}-${pluralize(collection.toLowerCase())}`],
+        },
+    )();
+}
+
+export async function getAllPublishedTagsForCollection(name: string) {
+    const site = await prisma.site.findFirst({
+        where: {
+            domain: process.env.NEXT_PUBLIC_APP_URL
+        },
+    });
+
+    if (!site) {
+        return null;
+    }
+
+    return await unstable_cache(
+        async () => {
+            const data = await prisma.post.findMany({
+                select: {
+                    tags: true,
+                }, 
+                where: {
+                    collection: {
+                        title: name
+                    },
+                    status: "PUBLISHED",
+                    siteId: site.id
+                }
+            }); 
+    
+            if (!data) {
+                return null;
+            }
+    
+            return data;
+        },
+        [`${site.id}-${pluralize(name.toLowerCase())}-tags` ],
+        {
+          revalidate: 900, // 15 minutes
+          tags: [`${site.id}-${pluralize(name.toLowerCase())}-tags`],
+        },
       )();
 }
 
@@ -392,6 +487,7 @@ export async function getAllPageViews()
         return null;
     }
 
+    noStore();
     return await prisma.views.findMany({
         select: {
             slug: true,

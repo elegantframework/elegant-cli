@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import { Metadata } from "next";
-import BlogPage from "./BlogPage";
-import { getAllPublishedPostsForCollection } from "@/utils/Db/Actions/Post";
+import BlogPage from "./blog-page";
+import { getAllPageViews, getAllPublishedPostsForCollection } from "@/utils/Db/Actions/Post";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
@@ -17,14 +17,16 @@ export default async function Blog() {
     const posts: {
         title: string;
         slug: string;
+        tags: string[],
         description: string;
         publishedAt: Date;
     }[] | null = await getPosts();
+    const views = await getAllPageViews();
 
     return(
         <Suspense>
             <Header />
-            <BlogPage posts={posts || []} />
+            <BlogPage posts={posts || []} views={views || []}/>
         </Suspense>
     );
 }

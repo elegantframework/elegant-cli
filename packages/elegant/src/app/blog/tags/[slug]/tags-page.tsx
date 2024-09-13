@@ -1,27 +1,32 @@
 'use client'
-import Header from "@/components/Header";
 import NewsletterForm from "@/components/NewsletterForm";
-import { Document } from "@/components/Types";
 import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@heroicons/react/20/solid';
 import clsx from "clsx";
-import { ArrowRightIcon, Newspaper } from "lucide-react";
+import { Newspaper } from "lucide-react";
 import moment from "moment";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ShowNextButton } from '@brandonowens/elegant-ui';
+import PageViews from "./../../page-views";
 
-export interface BlogPageProps {
+export interface TagsPageProps {
     posts: {
         title: string;
         slug: string;
+        tags: string[],
         description: string;
         publishedAt: Date;
     }[];
+    views: {
+        slug: string;
+        count: number;
+    }[];
 };
 
-export default function BlogPage({
-    posts
-}: BlogPageProps) {
+export default function TagsPage({
+    posts,
+    views
+}: TagsPageProps) {
     const searchParams = useSearchParams();
     const page = searchParams.get('page') ?? 1;
     const perPage = 6;
@@ -71,13 +76,14 @@ export default function BlogPage({
                                 title: string;
                                 slug: string;
                                 description: string;
+                                tags: string[];
                                 publishedAt: Date;
                             }) => (
                                 <article key={post.slug} className="relative group">
                                     <div className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl group-hover:bg-slate-50/70 dark:group-hover:bg-slate-800/50" />
                                     <svg
                                         viewBox="0 0 9 9"
-                                    className="hidden absolute right-full mr-6 top-2 text-slate-200 dark:text-slate-600 md:mr-12 w-[calc(0.5rem+1px)] h-[calc(0.5rem+1px)] overflow-visible sm:block"
+                                        className="hidden absolute right-full mr-6 top-2 text-slate-200 dark:text-slate-600 md:mr-12 w-[calc(0.5rem+1px)] h-[calc(0.5rem+1px)] overflow-visible sm:block"
                                     >
                                         <circle
                                             cx="4.5"
@@ -94,6 +100,18 @@ export default function BlogPage({
                                         </h3>
                                         <div className="mt-2 mb-4 prose prose-slate prose-a:relative prose-a:z-10 dark:prose-dark line-clamp-2">
                                             {post.description}
+                                        </div>
+                                        <div className="mb-4 flex">
+                                            {post.tags?.map((tag) => (
+                                                <Link
+                                                    href={`/blog/tags/${tag}`}
+                                                    className="relative mr-4 z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-sm text-gray-600 hover:bg-gray-100"
+                                                    key={tag}
+                                                    >
+                                                    {tag}
+                                                </Link>
+                                            ))}
+                                            <PageViews slug={`blog/${post.slug}`} views={views}/>
                                         </div>
                                         <dl className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
                                             <dt className="sr-only">Date</dt>

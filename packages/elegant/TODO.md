@@ -1,3 +1,4 @@
+- all env vars need a default or they will build as undefined
 
 - finish the docs /docs/[] page
     - finish sidebar
@@ -15,6 +16,7 @@
 - test google analytics and vercel analytics on production urls
 
 - figure out how to make the sitemap dynamic.. It currently only add urls to the server sitemap when next build is run
+    - just update it to return an xml object like the rss feed.
 
 - fix prose not loading dark mode fonts and auto link heading svg images on posts
 
@@ -22,11 +24,6 @@
 
 - discard button on post needs to do something.
 
-- add pageviews to main blog articles list page
-
-- update the blog post pages to try and use static generation with the pageviews using a single upset call with the response as the value
-
-- add tags to the blog frontend
 
 - add a newsletter signup page like mankini.. Include note to check the email for confirmation like laravel news does
 - create newsletter signup success page.

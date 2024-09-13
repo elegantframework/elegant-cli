@@ -21,16 +21,6 @@ async function getViews(slug: string) {
     return pageViews?.count || 0;
 }
 
-// export async function generateStaticParams() {
-//     const posts =  await getAllPublishedPostsForCollection('posts') || [];
-
-//     const slugs = posts.map((post) => {
-//         return post.slug
-//     });
-
-//     return slugs;
-// }
-
 export async function generateMetadata(
     { params }: { params: { slug: string } },
     parent: ResolvingMetadata
@@ -85,7 +75,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
             name: string | null,
             image: string | null,
             twitterHandle: string | null
-        }[]
+        }[];
     } | null = await getPost(params.slug);
 
     if(!post){
