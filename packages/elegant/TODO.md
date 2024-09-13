@@ -32,8 +32,6 @@
 
 - ensure that the project builds locally when you set up a new database that hasn't had any migrations pushed to it yet.. Currently throwing an error during build because it is trying to look at the users table, but that table doesn't exist yet  ... Could a try catch fix this?
 
-- create an auto ci/cd migration script --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate
-
 - document setting up r2 in the readme
     - document that user needs to add their production urls to the cors policy for production
 - document prisma
@@ -41,6 +39,8 @@
     - document prisma studio
 - document setting up auth.js and the env encryption key
 - document launching to production ... The db is gonna need to be migrated
+    -- document setting up the db url key in github --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate --> https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
+
 - document enabling vercel analytics and turning it on for your project
 
 - prerender and download the content for static rendering using the isr functions
