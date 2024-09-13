@@ -1,3 +1,5 @@
+- do redirects work?
+
 - all env vars need a default or they will build as undefined
 
 - finish the docs /docs/[] page
@@ -29,8 +31,6 @@
 - create newsletter signup success page.
 
 - ensure that the project builds locally when you set up a new database that hasn't had any migrations pushed to it yet.. Currently throwing an error during build because it is trying to look at the users table, but that table doesn't exist yet  ... Could a try catch fix this?
-
-- create fresh db migration before deploying
 
 - create an auto ci/cd migration script --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate
 
