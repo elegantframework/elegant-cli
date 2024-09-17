@@ -1,10 +1,23 @@
+
 - do redirects work?
+
+- respond to people on GH.. Look at how prisma does it
+
+- figure out production migrations
 
 - all env vars need a default or they will build as undefined
 
 - finish the docs /docs/[] page
     - finish sidebar
     - finish navigation menu
+
+- a new site will show an unset author image as broken on the front end
+
+- update all clsx calls to the cn tw utility class
+
+- when launching elegantframework.com-v4 to production; I wasn't shown the welcome page when I hadn't configured R2 yet.
+
+- no auth token set in the env will break things.. You can log in and stuff, but the backend throws errors
 
 - add some initial dashboard functionality
     - a welcome message to a new user on first log in
@@ -40,6 +53,7 @@
 - document setting up auth.js and the env encryption key
 - document launching to production ... The db is gonna need to be migrated
     -- document setting up the db url key in github --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate --> https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
+    -- document adding ?pgbouncer=true to your db url if using supabase ---> https://github.com/prisma/prisma/issues/11643
 
 - document enabling vercel analytics and turning it on for your project
 
