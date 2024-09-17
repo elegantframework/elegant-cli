@@ -1,6 +1,8 @@
 import { getAllPublishedPostsForCollection } from '@/utils/Db/Actions/Post';
 import { getServerSideSitemap, ISitemapField } from 'next-sitemap';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
     const posts = await getAllPublishedPostsForCollection('posts');
     const docs = await getAllPublishedPostsForCollection('docs');

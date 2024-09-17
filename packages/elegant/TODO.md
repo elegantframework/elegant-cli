@@ -1,20 +1,22 @@
-- auto link heading svg images on posts not loading
-
-- do redirects work?
-
-- respond to people on GH.. Look at how prisma does it
-
-- figure out production migrations
-
 - all env vars need a default or they will build as undefined
 
 - finish the docs /docs/[] page
     - finish sidebar
     - finish navigation menu
 
-- when launching elegantframework.com-v4 to production; I wasn't shown the welcome page when I hadn't configured R2 yet.
-
 - no auth token set in the env will break things.. You can log in and stuff, but the backend throws errors
+
+- auto link heading svg images on posts not loading
+
+- the ` ` code highlighting issue still exists
+
+- do redirects work?
+
+- respond to people on GH.. Look at how prisma does it
+
+- figure out production migrations.. update the supabase url in GH
+
+- when launching elegantframework.com-v4 to production; I wasn't shown the welcome page when I hadn't configured R2 yet.
 
 - add some initial dashboard functionality
     - a welcome message to a new user on first log in
@@ -27,8 +29,6 @@
 
 - test google analytics and vercel analytics on production urls
 
-- figure out how to make the sitemap dynamic.. It currently only add urls to the server sitemap when next build is run
-    - just update it to return an xml object like the rss feed.
 
 - add mobile nav back to frontend header
 
@@ -59,7 +59,6 @@
     - update the existing SEO component to use the new metadata code instead of nextseo?
 
 
-- delete next.svg logo
 
 
 
