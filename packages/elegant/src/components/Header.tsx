@@ -1,5 +1,4 @@
 'use client'
-import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Router } from "next/router";
@@ -9,6 +8,7 @@ import { GitHubIcon, VersionSelector } from '@brandonowens/elegant-ui';
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 import ThemeSelector from "./ThemeSelector";
+import { cn } from "@/utils/utils";
 
 export default function Header({
   hasNav = false,
@@ -55,7 +55,7 @@ export default function Header({
           </div>
         )}
         <div
-          className={clsx(
+          className={cn(
             'sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]',
             isOpaque
               ? 'bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75'
@@ -63,7 +63,7 @@ export default function Header({
           )}
         >
           <div className="max-w-8xl mx-auto">
-              <div className={clsx(
+              <div className={cn(
                   'py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10',
                       hasNav ? 'mx-4 lg:mx-0' : 'px-4'
                   )}
@@ -175,7 +175,7 @@ export function NavItems() {
       <Link
         href="/docs/welcome"
         className={
-            clsx(
+            cn(
               'hover:text-primary-500 dark:hover:text-primary-400', 
               (pathname.indexOf('/docs/') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
             )
@@ -187,7 +187,7 @@ export function NavItems() {
       <Link
         href="/blog"
         className={
-            clsx(
+            cn(
               'hover:text-primary-500 dark:hover:text-primary-400', 
               (pathname.indexOf('/blog') > -1 ? 'text-primary-500 dark:text-primary-400' : '')
             )
@@ -213,7 +213,7 @@ export function NavPopover({ display = 'md:hidden', className = "", ...props }) 
   }, [isOpen])
 
   return (
-    <div className={clsx(className, display)} {...props}>
+    <div className={cn(className, display)} {...props}>
       <button
         type="button"
         className="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
@@ -232,7 +232,7 @@ export function NavPopover({ display = 'md:hidden', className = "", ...props }) 
       </button>
       <Dialog
         as="div"
-        className={clsx('fixed z-50 inset-0', display)}
+        className={cn('fixed z-50 inset-0', display)}
         open={isOpen}
         onClose={setIsOpen}
       >

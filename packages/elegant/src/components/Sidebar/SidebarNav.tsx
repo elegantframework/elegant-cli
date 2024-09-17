@@ -1,8 +1,8 @@
 'use client'
-import clsx from 'clsx';
 import { NavigationSection } from '../Types';
 import { usePathname } from 'next/navigation';
 import NavItem from './NavItem';
+import { cn } from "@/utils/utils";
 
 /**
  * The navigation menu to be used within the sidebar.
@@ -33,7 +33,7 @@ export default function SidebarNav({
                         <h5 className="mb-8 lg:mb-3 font-semibold text-slate-900 dark:text-slate-200">
                             {section.title}
                         </h5>
-                        <ul className={clsx(
+                        <ul className={cn(
                             'space-y-6 lg:space-y-2 border-l border-slate-100',
                             mobile ? 'dark:border-slate-700' : 'dark:border-slate-800'
                         )}>

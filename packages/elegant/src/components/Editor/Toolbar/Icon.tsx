@@ -1,6 +1,6 @@
-import clsx from 'clsx';
 import { icons } from 'lucide-react';
 import { memo } from 'react';
+import { cn } from "@/utils/utils";
 
 export type IconProps = {
   name: keyof typeof icons
@@ -15,7 +15,7 @@ export const Icon = memo(({ name, className, strokeWidth }: IconProps) => {
     return null
   }
 
-  return <IconComponent className={clsx('w-4 h-4', className)} strokeWidth={strokeWidth || 2.5} />
+  return <IconComponent className={cn('w-4 h-4', className)} strokeWidth={strokeWidth || 2.5} />
 })
 
 Icon.displayName = 'Icon'

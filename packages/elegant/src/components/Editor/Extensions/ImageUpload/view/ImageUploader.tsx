@@ -1,10 +1,9 @@
-import React, { ChangeEvent, useCallback } from 'react'
-import { useDropZone, useFileUpload, useUploader } from './hooks'
-
-import clsx from 'clsx'
-import { Icon } from './../../../Toolbar/Icon'
-import { Button } from './../../../Toolbar/Button'
-import { Spinner } from './../../../Toolbar/Spinner'
+import React, { ChangeEvent, useCallback } from 'react';
+import { useDropZone, useFileUpload, useUploader } from './hooks';
+import { Icon } from './../../../Toolbar/Icon';
+import { Button } from './../../../Toolbar/Button';
+import { Spinner } from './../../../Toolbar/Spinner';
+import { cn } from "@/utils/utils";
 
 export const ImageUploader = ({ onUpload }: { onUpload: (url: string) => void }) => {
   const { loading, uploadFile } = useUploader({ onUpload })
@@ -25,7 +24,7 @@ export const ImageUploader = ({ onUpload }: { onUpload: (url: string) => void })
     )
   }
 
-  const wrapperClass = clsx(
+  const wrapperClass = cn(
     'flex flex-col items-center justify-center px-8 py-10 rounded-lg bg-opacity-80',
     draggedInside && 'bg-neutral-100',
   )

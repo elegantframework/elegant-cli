@@ -1,3 +1,4 @@
+- auto link heading svg images on posts not loading
 
 - do redirects work?
 
@@ -10,10 +11,6 @@
 - finish the docs /docs/[] page
     - finish sidebar
     - finish navigation menu
-
-- a new site will show an unset author image as broken on the front end
-
-- update all clsx calls to the cn tw utility class
 
 - when launching elegantframework.com-v4 to production; I wasn't shown the welcome page when I hadn't configured R2 yet.
 
@@ -32,8 +29,6 @@
 
 - figure out how to make the sitemap dynamic.. It currently only add urls to the server sitemap when next build is run
     - just update it to return an xml object like the rss feed.
-
-- fix prose not loading dark mode fonts and auto link heading svg images on posts
 
 - add mobile nav back to frontend header
 

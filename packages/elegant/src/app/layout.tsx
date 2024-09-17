@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from 'next-themes';
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
-import clsx from "clsx";
 import Analytics from "@/components/Analytics";
 import VercelAnalytics from "@/components/VercelAnalytics";
+import { cn } from "@/utils/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +32,7 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
           <Analytics GA_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""}/>
         )}
-        <body className={clsx(
+        <body className={cn(
           "h-full bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
           inter.className
         )}>

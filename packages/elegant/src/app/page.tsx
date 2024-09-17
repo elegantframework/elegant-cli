@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { GitHubIcon, VersionSelector } from "@brandonowens/elegant-ui";
 import ThemeToggle from "@/components/ThemeToggle";
 import { NavPopover, NavItems } from "@/components/Header";
-import clsx from "clsx";
+import { cn } from "@/utils/utils";
 import styles from './index.module.css';
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <header className="relative">
         <div className="px-4 sm:px-6 md:px-8">
           <div
-            className={clsx(
+            className={cn(
               'absolute inset-0 bottom-0 bg-bottom bg-no-repeat bg-slate-50 dark:bg-[#0B1120]',
               styles.beams
             )}

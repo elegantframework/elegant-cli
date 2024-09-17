@@ -1,13 +1,13 @@
 'use client'
 import NewsletterForm from "@/components/NewsletterForm";
 import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@heroicons/react/20/solid';
-import clsx from "clsx";
 import { Newspaper } from "lucide-react";
 import moment from "moment";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ShowNextButton } from '@brandonowens/elegant-ui';
 import PageViews from "./page-views";
+import { cn } from "@/utils/utils";
 
 export interface BlogPageProps {
     posts: {
@@ -115,7 +115,7 @@ export default function BlogPage({
                                         </div>
                                         <dl className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
                                             <dt className="sr-only">Date</dt>
-                                            <dd className={clsx('whitespace-nowrap text-sm leading-6 dark:text-slate-400')}>
+                                            <dd className={cn('whitespace-nowrap text-sm leading-6 dark:text-slate-400')}>
                                             <time dateTime={post.publishedAt.toString()}>
                                                 {moment.utc(post.publishedAt).format('MMMM Do YYYY').toString()}
                                             </time>

@@ -1,9 +1,9 @@
 'use client'
-import clsx from "clsx";
 import Link from "next/link";
 import { BuiltWithElegant } from "@brandonowens/elegant-ui";
 import { NavigationSection } from "./Types";
 import { usePathname } from "next/navigation";
+import { cn } from "@/utils/utils";
 
 interface Props {
     /**
@@ -39,7 +39,7 @@ export default function DocsFooter({
     const { previous, next } = usePrevNext();
 
     return (
-        <footer className={clsx('text-sm leading-6', previous || next ? 'mt-12' : 'mt-16')}>
+        <footer className={cn('text-sm leading-6', previous || next ? 'mt-12' : 'mt-16')}>
             {(previous || next) && (
                 <div className="mb-10 text-slate-700 font-semibold flex items-center dark:text-slate-200">
                     {previous && (
@@ -91,7 +91,7 @@ export default function DocsFooter({
                 </div>
             )}
             <div className={
-                clsx(
+                cn(
                     "py-8 border-y border-slate-200 sm:flex text-slate-500 dark:border-slate-200/5",
                     children ? "justify-between" : "justify-center" 
                 )

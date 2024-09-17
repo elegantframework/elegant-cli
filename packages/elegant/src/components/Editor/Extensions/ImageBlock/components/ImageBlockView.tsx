@@ -1,8 +1,7 @@
-import { Node } from '@tiptap/pm/model'
-import { Editor, NodeViewWrapper } from '@tiptap/react'
-import clsx from 'clsx'
-import React, { useCallback, useRef } from 'react'
-
+import { Node } from '@tiptap/pm/model';
+import { Editor, NodeViewWrapper } from '@tiptap/react';
+import React, { useCallback, useRef } from 'react';
+import { cn } from "@/utils/utils";
 
 interface ImageBlockViewProps {
   editor: Editor
@@ -20,7 +19,7 @@ export const ImageBlockView = (props: ImageBlockViewProps) => {
   const imageWrapperRef = useRef<HTMLDivElement>(null)
   const { src } = node.attrs
 
-  const wrapperClassName = clsx(
+  const wrapperClassName = cn(
     node.attrs.align === 'left' ? 'ml-0' : 'ml-auto',
     node.attrs.align === 'right' ? 'mr-0' : 'mr-auto',
     node.attrs.align === 'center' && 'mx-auto',
@@ -41,4 +40,4 @@ export const ImageBlockView = (props: ImageBlockViewProps) => {
   )
 }
 
-export default ImageBlockView
+export default ImageBlockView;

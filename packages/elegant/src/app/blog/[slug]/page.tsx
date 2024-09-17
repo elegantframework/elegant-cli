@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import "@/components/Editor/css/editor.css";
 import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
 import Image from "next/image";
+import { UserRound } from "lucide-react";
 
 async function getPost(slug: string) {
     return await getPublishedPostBySlug(slug, 'posts');
@@ -176,14 +177,21 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                                              key={author.id}
                                              className="flex items-center font-medium whitespace-nowrap px-5 mt-6"
                                             >
-                                                <Image
-                                                    src={author.image || ""}
-                                                    width={100}
-                                                    height={100}
-                                                    alt={`${author.name} profile picture.`}
-                                                    className="mr-3 w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800"
-                                                    decoding="async"
-                                                />
+                                                {author.image && author.image.length > 0 &&(
+                                                    <Image
+                                                        src={author.image || ""}
+                                                        width={100}
+                                                        height={100}
+                                                        alt={`${author.name} profile picture.`}
+                                                        className="mr-3 w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800"
+                                                        decoding="async"
+                                                    />
+                                                )}
+                                                {!author.image &&(
+                                                    <div className="h-9 w-9 mr-3 rounded-full bg-neutral-200">
+                                                        <UserRound className="text-neutral-500 relative top-1 left-1.5"/>
+                                                    </div>
+                                                )}
                                                 <div className="text-sm leading-4">
                                                     <div className="text-slate-900 dark:text-slate-200">
                                                         {author?.name}

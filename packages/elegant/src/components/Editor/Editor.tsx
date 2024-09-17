@@ -8,9 +8,8 @@ import { TableColumnMenu, TableRowMenu } from './Extensions/Table/menus';
 import { ColumnsMenu } from './Extensions/MultiColumn/menus';
 import ImageBlockMenu from './Extensions/ImageBlock/components/ImageBlockMenu';
 import { TextMenu } from './Menus/TextMenu';
-
-import clsx from 'clsx';
 import { DocumentContext } from '../Admin/Pages/EditDocument';
+import { cn } from "@/utils/utils";
 
 export interface EditorProps {
   /**
@@ -43,7 +42,7 @@ export default function Editor({
   return (
     <>
         <div className={
-            clsx(
+            cn(
                 "rounded-md w-full md:w-[calc(100%-256px)] mt-10 shadow-sm ring-1 ring-inset focus-within:ring-2 focus-within:ring-indigo-600",
                 errors.some(error => error.element === "editor")
                 ? "ring-red-300" 

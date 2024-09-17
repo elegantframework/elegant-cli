@@ -6,14 +6,13 @@ import Editor from "@/components/Editor/Editor";
 import DocumentSettings from "../DocumentSettings";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Collection, Document, EditorError, FileType , DocumentContextType } from "@/components/Types";
-
 import { singular } from "pluralize";
 import { createPost, getPostBySlug } from "@/utils/Db/Actions/Post";
-import clsx from "clsx";
 import { AlertCircleIcon } from "lucide-react";
 import convert from 'url-slug';
 import { useRouter } from "next/navigation";
 import { MetaTitle } from "@brandonowens/elegant-ui";
+import { cn } from "@/utils/utils";
 
 export default function EditDocument({
     session,
@@ -233,7 +232,7 @@ export default function EditDocument({
                 <div className="flex max-w-screen-xl flex-col space-y-12 p-5">
                     <div className="min-h-full prose prose-xl">
                         <div className={
-                            clsx(
+                            cn(
                                 'relative rounded-md w-full md:w-[calc(100%-256px)] px-3 pb-1.5 pt-2.5 shadow-sm ring-1 ring-inset focus-within:ring-2',
                                 errors.some(error => error.element === "title")
                                 ? "ring-red-300 focus-within:ring-red-600" 
@@ -241,7 +240,7 @@ export default function EditDocument({
                             )
                         }>
                             <label htmlFor="title" className={
-                                clsx(
+                                cn(
                                     "block text-xs font-medium",
                                     errors.some(error => error.element === "title")
                                     ? "text-red-500" 
@@ -255,7 +254,7 @@ export default function EditDocument({
                                 name="title"
                                 id="title"
                                 className={
-                                    clsx(
+                                    cn(
                                         'block w-full border-0 p-0 outline-none focus:ring-0 sm:text-sm sm:leading-6',
                                         errors.some(error => error.element === "title")
                                         ? "placeholder:text-red-300" 

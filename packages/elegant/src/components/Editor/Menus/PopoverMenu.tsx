@@ -3,7 +3,7 @@ import { icons } from 'lucide-react';
 import { forwardRef } from 'react';
 import { Toolbar } from '../Toolbar/Toolbar';
 import { Surface } from '../Toolbar/Surface';
-import clsx from 'clsx';
+import { cn } from "@/utils/utils";
 
 export const Trigger = Popover.Trigger;
 export const Portal = Popover.Portal;
@@ -79,7 +79,7 @@ export const Item = ({
   onClick: () => void
   isActive?: boolean
 }) => {
-  const className = clsx(
+  const className = cn(
     'flex items-center gap-2 p-1.5 text-sm font-medium text-neutral-500 text-left bg-transparent w-full rounded',
     !isActive && !disabled,
     'hover:bg-neutral-100 hover:text-neutral-800 dark:hover:bg-neutral-900 dark:hover:text-neutral-200',

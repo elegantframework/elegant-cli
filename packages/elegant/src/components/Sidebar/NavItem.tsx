@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Link from "next/link";
+import { cn } from "@/utils/utils";
 
 interface Props {
     /**
@@ -28,7 +28,7 @@ export default function NavItem({
     return(
         <Link
             href={href}
-            className={clsx('block border-l pl-4 -ml-px', {
+            className={cn('block border-l pl-4 -ml-px', {
                 'text-primary-500 border-current font-semibold dark:text-primary-400': isActive,
                 'border-transparent hover:border-slate-400 dark:hover:border-slate-500': !isActive
             })}

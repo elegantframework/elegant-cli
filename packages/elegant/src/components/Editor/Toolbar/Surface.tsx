@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import { HTMLProps, forwardRef } from 'react';
+import { cn } from "@/utils/utils";
 
 export type SurfaceProps = HTMLProps<HTMLDivElement> & {
   withShadow?: boolean
@@ -8,7 +8,7 @@ export type SurfaceProps = HTMLProps<HTMLDivElement> & {
 
 export const Surface = forwardRef<HTMLDivElement, SurfaceProps>(
   ({ children, className, withShadow = true, withBorder = true, ...props }, ref) => {
-    const surfaceClass = clsx(
+    const surfaceClass = cn(
       className,
       'bg-white rounded-lg dark:bg-black',
       withShadow ? 'shadow-sm' : '',
