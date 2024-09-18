@@ -4,19 +4,9 @@
     - finish sidebar
     - finish navigation menu
 
-- no auth token set in the env will break things.. You can log in and stuff, but the backend throws errors
-
 - auto link heading svg images on posts not loading
 
 - the ` ` code highlighting issue still exists
-
-- do redirects work?
-
-- respond to people on GH.. Look at how prisma does it
-
-- figure out production migrations.. update the supabase url in GH
-
-- when launching elegantframework.com-v4 to production; I wasn't shown the welcome page when I hadn't configured R2 yet.
 
 - add some initial dashboard functionality
     - a welcome message to a new user on first log in
@@ -27,16 +17,24 @@
 - look at the image blur url stuff in vercels code
 -- take a look at vercels pages using generate static params with db getters
 
-- test google analytics and vercel analytics on production urls
-
-
 - add mobile nav back to frontend header
-
-- discard button on post needs to do something.
 
 
 - add a newsletter signup page like mankini.. Include note to check the email for confirmation like laravel news does
 - create newsletter signup success page.
+
+- test google analytics and vercel analytics on production urls
+
+- no auth token set in the env will break things.. You can log in and stuff, but the backend throws errors
+
+- do redirects work?
+
+- respond to people on GH.. Look at how prisma does it
+
+- figure out production migrations.. update the supabase url in GH
+
+- when launching elegantframework.com-v4 to production; I wasn't shown the welcome page when I hadn't configured R2 yet.
+
 
 - ensure that the project builds locally when you set up a new database that hasn't had any migrations pushed to it yet.. Currently throwing an error during build because it is trying to look at the users table, but that table doesn't exist yet  ... Could a try catch fix this?
 

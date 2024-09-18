@@ -13,6 +13,7 @@ import convert from 'url-slug';
 import { useRouter } from "next/navigation";
 import { MetaTitle } from "@brandonowens/elegant-ui";
 import { cn } from "@/utils/utils";
+import DeleteModal from "../DeleteModal";
 
 export default function EditDocument({
     session,
@@ -50,6 +51,7 @@ export default function EditDocument({
     } as Document);
     const [ files, setFiles ] = useState<FileType[]>([]);
     const [ errors, setErrors ] = useState<EditorError[]>([]);
+    const [ showDiscardModal, setShowDiscardModal ] = useState(false);
     const router = useRouter();
 
     const getDocument = async() => {
@@ -185,6 +187,7 @@ export default function EditDocument({
                         <button
                             type="button"
                             className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                            onClick={() => setShowDiscardModal(true)}
                         >
                             Discard
                         </button>
@@ -308,6 +311,35 @@ export default function EditDocument({
                         />
                     </div>
                 </div>
+                {showDiscardModal && (
+                    <DeleteModal 
+                        title='Discard Changes'
+                        open={showDiscardModal}
+                        onClose={() => setShowDiscardModal(false)}
+                        message='Are you sure you want to discard the changes you have made?'
+                        children={
+                            <>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        window.location.reload();
+                                    }}
+                                    className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                                >
+                                    Discard
+                                </button>
+                                <button
+                                    type="button"
+                                    data-autofocus
+                                    onClick={() => setShowDiscardModal(false)}
+                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                >
+                                    Cancel
+                                </button>
+                            </>
+                        }
+                    />
+                )}
             </DashboardLayout>
         </DocumentContext.Provider>
     );
