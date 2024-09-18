@@ -5,11 +5,11 @@ module.exports = {
     exclude: [
         "/admin",
         "*.ico",
-       "/server-sitemap-index.xml" 
+       "/server-sitemap.xml" 
     ],
     robotsTxtOptions: {
         additionalSitemaps: [
-          "/server-sitemap-index.xml"
+          `${process.env.NEXT_PUBLIC_APP_URL || ""}/server-sitemap.xml`
         ],
     },
 };
