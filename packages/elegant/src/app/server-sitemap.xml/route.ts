@@ -12,7 +12,7 @@ export async function GET() {
     if(posts) {
         posts.forEach(post => {
             urls.push({
-                loc: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
+                loc: `${process.env.NEXT_PUBLIC_APP_URL || ""}/blog/${post.slug}`,
                 lastmod: new Date(post.publishedAt).toISOString(),
                 changefreq: "daily",
                 priority: 0.7
@@ -23,7 +23,7 @@ export async function GET() {
     if(docs) {
         docs.forEach(post => {
             urls.push({
-                loc: `${process.env.NEXT_PUBLIC_APP_URL}/docs/${post.slug}`,
+                loc: `${process.env.NEXT_PUBLIC_APP_URL || ""}/docs/${post.slug}`,
                 lastmod: new Date(post.publishedAt).toISOString(),
                 changefreq: "daily",
                 priority: 0.7

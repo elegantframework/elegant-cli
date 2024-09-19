@@ -116,6 +116,10 @@ export async function createPost(post: CreatePost) {
 }
 
 export async function getPostBySlug(slug: string, collection: string) {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const session = await auth();
     if (!session?.user?.id) {
       return null;
@@ -161,6 +165,10 @@ export async function getPostBySlug(slug: string, collection: string) {
 }
 
 export async function getPublishedPostBySlug(slug: string, collection: string) {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const site = await prisma.site.findFirst({
         where: {
             domain: process.env.NEXT_PUBLIC_APP_URL
@@ -211,6 +219,10 @@ export async function getPublishedPostBySlug(slug: string, collection: string) {
 }
 
 export async function getAllPostsForCollection(name: string) {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const session = await auth();
     if (!session?.user?.id) {
       return null;
@@ -258,6 +270,10 @@ export async function getAllPostsForCollection(name: string) {
 }
 
 export async function getAllPublishedPostsForCollection(name: string) {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const site = await prisma.site.findFirst({
         where: {
             domain: process.env.NEXT_PUBLIC_APP_URL
@@ -310,6 +326,10 @@ export async function getAllPublishedPostsForCollection(name: string) {
 }
 
 export async function getAllPublishedPostsForTag(tag: string, collection: string) {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const site = await prisma.site.findFirst({
         where: {
             domain: process.env.NEXT_PUBLIC_APP_URL
@@ -365,6 +385,10 @@ export async function getAllPublishedPostsForTag(tag: string, collection: string
 }
 
 export async function getAllPublishedTagsForCollection(name: string) {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const site = await prisma.site.findFirst({
         where: {
             domain: process.env.NEXT_PUBLIC_APP_URL
@@ -454,6 +478,10 @@ export async function deletePost(id: string, collection: string) {
 export async function getPageViews(
     slug: string
 ){
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const site = await prisma.site.findFirst({
         where: {
             domain: process.env.NEXT_PUBLIC_APP_URL
@@ -477,6 +505,10 @@ export async function getPageViews(
 
 export async function getAllPageViews()
 {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const site = await prisma.site.findFirst({
         where: {
             domain: process.env.NEXT_PUBLIC_APP_URL
@@ -502,6 +534,10 @@ export async function getAllPageViews()
 export async function incrementPageViews(
     slug: string
 ) {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
     const site = await prisma.site.findFirst({
         where: {
             domain: process.env.NEXT_PUBLIC_APP_URL

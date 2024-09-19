@@ -56,7 +56,7 @@ export async function generateMetadata(
             process.env.NEXT_PUBLIC_APP_TAGLINE || ""
         )
       }`,
-      description: `${post?.description || process.env.NEXT_PUBLIC_APP_DESCRIPTION}`,
+      description: `${post?.description || process.env.NEXT_PUBLIC_APP_DESCRIPTION || ""}`,
       openGraph: {
         images: [post?.coverImage || "", ...previousImages],
       },
@@ -232,7 +232,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
                                         </h2>
                                         <div className="mt-5 max-w-md">
                                             <NewsletterForm 
-                                                action={process.env.NEXT_PUBLIC_CONVERTKIT_ACTION_URL} 
+                                                action={process.env.NEXT_PUBLIC_CONVERTKIT_ACTION_URL || ""} 
                                             />
                                         </div>
                                     </section>

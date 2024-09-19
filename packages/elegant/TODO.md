@@ -1,5 +1,3 @@
-- all env vars need a default or they will build as undefined
-
 - finish the docs /docs/[] page
     - finish sidebar
     - finish navigation menu

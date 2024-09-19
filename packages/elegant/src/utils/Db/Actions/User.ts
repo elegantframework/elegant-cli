@@ -58,7 +58,7 @@ export async function createRootAdmin(user: createAdmin) {
       )
 
       await revalidateTag(
-        `${savedUser.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL}-metadata`,
+        `${savedUser.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL || ""}-metadata`,
       );
 
       return response;

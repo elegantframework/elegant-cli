@@ -20,7 +20,7 @@ export async function Save(
             process.env.R2_SECRET_ACCESS_KEY || ""
         ),
         new PutObjectCommand({
-            Bucket: process.env.R2_BUCKET_NAME,
+            Bucket: process.env.R2_BUCKET_NAME || "",
             Key: filename,
             ContentType: fileType,
             ContentLength: fileSize
@@ -28,7 +28,7 @@ export async function Save(
         { expiresIn: 3600 }
     );
 
-    const publicURL = process.env.R2_PUBLIC_BUCKET_URL;
+    const publicURL = process.env.R2_PUBLIC_BUCKET_URL || "";
 
     return [ signedUrl, publicURL ];
 }

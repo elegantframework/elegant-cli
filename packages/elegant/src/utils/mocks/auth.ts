@@ -6,7 +6,7 @@ const NAMock = {
 			jwt: true,
 		},
 		jwt: {
-			secret: process.env.AUTH_SECRET,
+			secret: process.env.AUTH_SECRET || "",
 		},
 	},
 	signIn: jest.fn(),

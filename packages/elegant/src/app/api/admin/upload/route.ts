@@ -7,7 +7,7 @@ import R2Client from "@/utils/CloudFlare/R2Client";
 export const runtime = "edge";
 
 export async function POST(req: Request) {
-    const publicURL = process.env.R2_PUBLIC_BUCKET_URL;
+    const publicURL = process.env.R2_PUBLIC_BUCKET_URL || "";
     const contentType = req.headers.get("content-type") || "text/plain";
     const filename = req.headers.get("filename") || "";
 
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
             process.env.R2_SECRET_ACCESS_KEY || ""
         ),
         new PutObjectCommand({
-            Bucket: process.env.R2_BUCKET_NAME,
+            Bucket: process.env.R2_BUCKET_NAME || "",
             Key: filename,
             ContentType: contentType,
         }),

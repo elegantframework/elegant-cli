@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import "@/components/Editor/css/editor.css";
 import DocsFooter from "@/components/DocsFooter";
 import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
+import { documentationNav } from "./navigation";
 
 async function getPost(slug: string) {
     return await getPublishedPostBySlug(slug, 'docs');
@@ -48,7 +49,7 @@ export async function generateMetadata(
             process.env.NEXT_PUBLIC_APP_TAGLINE || ""
         )
       }`,
-      description: `${post?.description || process.env.NEXT_PUBLIC_APP_DESCRIPTION}`,
+      description: `${post?.description || process.env.NEXT_PUBLIC_APP_DESCRIPTION || ""}`,
       openGraph: {
         images: [post?.coverImage || "", ...previousImages],
       },
@@ -70,51 +71,23 @@ export default async function Docs({ params }: { params: { slug: string } }) {
         return(
             <NotFound />
         );
-    }   
+    }
     
     return(
         <>
             <Suspense>
                 <Header />
+                <Sidebar nav={
+                    documentationNav
+                }>
+                    <></>
+                </Sidebar> 
             </Suspense>
-            <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
-                <Suspense>
-                    {/* <Sidebar nav={[{
-                        title: "Welcome",
-                        links: [
-                        {
-                            title: "Welcome to Elegant",
-                            href: "/docs/welcome"
-                        },
-                        {
-                            title: "Welcome to Elegant",
-                            href: "/docs/welcome"
-                        },
-                        {
-                            title: "Welcome to Elegant",
-                            href: "/docs/welcome"
-                        },
-                        {
-                            title: "Welcome to Elegant",
-                            href: "/docs/welcome"
-                        },
-                        {
-                            title: "Welcome to Elegant",
-                            href: "/docs/welcome"
-                        },
-                        {
-                            title: "Welcome to Elegant",
-                            href: "/docs/welcome"
-                        },
-                        ]
-                    }]}>
-                        <></>
-                    </Sidebar> */}
-                </Suspense>
+            <div className="lg:pl-[19.5rem]">
                 <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
                     <DocumentationHeading 
                         title={post.title}
-                        section={"Hello again"}
+                        nav={documentationNav}
                     />
                     <div
                         id="content-wrapper"

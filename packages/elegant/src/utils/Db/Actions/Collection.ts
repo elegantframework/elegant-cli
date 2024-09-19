@@ -36,7 +36,7 @@ export async function createCollection(collection: CreateCollection) {
         });
         
         await revalidateTag(
-            `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL}-collections`,
+            `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL || ""}-collections`,
         );
 
         return response;
@@ -167,10 +167,10 @@ export async function updateCollection(collection: UpdateCollection) {
         });
 
         await revalidateTag(
-            `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL}-collections`,
+            `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL || ""}-collections`,
         );
         await revalidateTag(
-        `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL}-${collection.id}`,
+        `${siteId?.activeSiteId}.${process.env.NEXT_PUBLIC_APP_URL || ""}-${collection.id}`,
         );
 
         return response;
