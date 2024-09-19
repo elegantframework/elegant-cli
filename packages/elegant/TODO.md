@@ -1,7 +1,3 @@
-- finish the docs /docs/[] page
-    - finish sidebar
-    - finish navigation menu
-
 - auto link heading svg images on posts not loading
 
 - the ` ` code highlighting issue still exists
@@ -14,9 +10,6 @@
 
 - look at the image blur url stuff in vercels code
 -- take a look at vercels pages using generate static params with db getters
-
-- add mobile nav back to frontend header
-
 
 - add a newsletter signup page like mankini.. Include note to check the email for confirmation like laravel news does
 - create newsletter signup success page.

@@ -1,15 +1,12 @@
 import NotFound from "@/app/not-found";
-import DocumentationHeading from "@/components/DocumentationHeading";
-import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar/Sidebar";
 import { getPublishedPostBySlug } from "@/utils/Db/Actions/Post";
 import MetaTitle from "@/utils/Meta/MetaTitle";
 import { Metadata, ResolvingMetadata } from "next";
 import { Suspense } from "react";
 import "@/components/Editor/css/editor.css";
-import DocsFooter from "@/components/DocsFooter";
 import MarkdownToHtml from "@/utils/Rehype/MarkdownToHtml";
-import { documentationNav } from "./navigation";
+import DocsPage from "./docs-page";
+import HtmlToToc from "@/utils/Rehype/HtmlToToc";
 
 async function getPost(slug: string) {
     return await getPublishedPostBySlug(slug, 'docs');
@@ -72,62 +69,18 @@ export default async function Docs({ params }: { params: { slug: string } }) {
             <NotFound />
         );
     }
+
+    const content = await MarkdownToHtml(post.content || "");
     
     return(
-        <>
-            <Suspense>
-                <Header />
-                <Sidebar nav={
-                    documentationNav
-                }>
-                    <></>
-                </Sidebar> 
-            </Suspense>
-            <div className="lg:pl-[19.5rem]">
-                <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">
-                    <DocumentationHeading 
-                        title={post.title}
-                        nav={documentationNav}
-                    />
-                    <div
-                        id="content-wrapper"
-                        className="relative z-20 prose prose-slate mt-8 dark:prose-dark tiptap ProseMirror"
-                    >
-                        <div dangerouslySetInnerHTML={{ __html: await MarkdownToHtml(post.content || "")}} />
-                    </div>
-                    <DocsFooter 
-                        nav={[{
-                            title: "Welcome",
-                            links: [
-                            {
-                                title: "Welcome to Elegant",
-                                href: "/docs/welcome"
-                            },
-                            {
-                                title: "Welcome to Elegant",
-                                href: "/docs/welcome"
-                            },
-                            {
-                                title: "Welcome to Elegant",
-                                href: "/docs/welcome"
-                            },
-                            {
-                                title: "Welcome to Elegant",
-                                href: "/docs/welcome"
-                            },
-                            {
-                                title: "Welcome to Elegant",
-                                href: "/docs/welcome"
-                            },
-                            {
-                                title: "Welcome to Elegant",
-                                href: "/docs/welcome"
-                            },
-                            ]
-                        }]}
-                    />
-                </div>
-            </div>
-        </>
+        <Suspense>
+            <DocsPage 
+                post={post}
+                content={content}
+                toc={
+                    await HtmlToToc(content)
+                }
+            />
+        </Suspense>
     ); 
 }

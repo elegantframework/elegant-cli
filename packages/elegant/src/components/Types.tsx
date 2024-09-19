@@ -139,6 +139,20 @@ export interface FileType {
     content: string;
 };
 
+/**
+ * An html heading element.
+ */
+export interface Heading {
+    /**
+     * The id of this heading.
+     */
+    id: string;
+    /**
+     * The top of this headings position.
+     */
+    top: number;
+};
+
 export interface NavigationItem {
     /**
      * The name of the navigation item to be displayed.
@@ -196,4 +210,22 @@ export interface R2Config {
     secretAccessKey: string;
     bucketName: string;
     publicBucketUrl: string;
+};
+
+/**
+ * A navigation item to be used within the auto generated table of contents.
+ */
+export interface TableOfContentsItem {
+    /**
+     * The title of this table of contents item.
+     */
+    title: string;
+    /**
+     * The url slug for this table of contents item.
+     */
+    slug: string;
+    /** 
+     * Children table of contents elements.
+     */
+    children: TableOfContentsItem[];
 };
