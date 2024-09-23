@@ -188,7 +188,7 @@ export function NavItems() {
   return <>
     <li>
       <Link
-        href="/docs/welcome"
+        href="/docs"
         className={
             cn(
               'hover:text-primary-500 dark:hover:text-primary-400', 
