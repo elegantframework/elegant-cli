@@ -33,7 +33,7 @@ export default async function MarkdownToHtml(content: string) {
               node.tagName === 'h3'
             )
           ) {
-            node.properties.className = '-ml-4 flex group pl-4 whitespace-pre-wrap';
+            node.properties.className = '-ml-4 flex group whitespace-pre-wrap cursor-pointer';
           }
         }
       })
@@ -41,7 +41,7 @@ export default async function MarkdownToHtml(content: string) {
       // .use(rehypePrism)
       .use(rehypeAutolinkHeadings, {
         properties: {
-          className: "absolute -ml-10 mt-[3px] flex items-center opacity-0 border-0 group-hover:opacity-100",
+          className: "-ml-10 mt-[3px] mr-3 flex items-center opacity-0 border-0 group-hover:opacity-100",
           ariaLabel: "Anchor"
         },
         content: {
