@@ -18,8 +18,6 @@
 
 - no auth token set in the env will break things.. You can log in and stuff, but the backend throws errors
 
-- do redirects work?
-
 - respond to people on GH.. Look at how prisma does it
 
 - figure out production migrations.. update the supabase url in GH
