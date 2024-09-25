@@ -428,6 +428,56 @@ export async function getAllPublishedTagsForCollection(name: string) {
       )();
 }
 
+export async function getMostRecentPostsForDashboard() {
+    if(!process.env.POSTGRES_PRISMA_URL) {
+        return null;
+    }
+
+    const session = await auth();
+    if (!session?.user?.id) {
+      return null;
+    }
+
+    const siteId = await prisma.user.findUnique({
+        select: {
+            activeSiteId: true,
+            id: true
+        },
+        where: {
+            id: session.user?.id
+        },
+    });
+
+    if (!siteId || siteId.id !== session.user.id) {
+        return null;
+    }
+
+    const response = await prisma.post.findMany({
+        select: {
+            id: true,
+            title: true,
+            status: true,
+            description: true,
+            coverImage: true,
+            content: true,
+            slug: true,
+            tags: true,
+            publishedAt: true,
+            authors: true,
+            collection: true
+        }, 
+        where: {
+            siteId: siteId.activeSiteId
+        },
+        orderBy: [{
+            updatedAt: 'desc'
+        }],
+        take: 5
+    });
+
+    return response;
+}
+
 export async function deletePost(id: string, collection: string) {
     const session = await auth();
     if (!session?.user?.id) {

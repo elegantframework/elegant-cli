@@ -1,12 +1,13 @@
+
+
+- finish our seo... The seo in the layout.tsx file never got updated from Create Next App
+
+
+- task list css is not loading on a new line 
+
 - auto link heading svg images on posts not loading
 
 - the ` ` code highlighting issue still exists
-
-- add some initial dashboard functionality
-    - a welcome message to a new user on first log in
-    - on the initial load of a new site, it should prompt you to create your first collection.
-    - if collections exists, look for recent post data
-    - if post data exists, so the most recent posts first.. or maybe load the page view data?
 
 - look at the image blur url stuff in vercels code
 -- take a look at vercels pages using generate static params with db getters

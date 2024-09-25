@@ -8,7 +8,7 @@ import { Collection } from "@/components/Types";
 import { getUserById, updateUser } from "@/utils/Db/Actions/User";
 import { UserRound } from "lucide-react";
 import Image from 'next/image';
-import SettingsCard from "./SettingsCard";
+import SettingsCard from "../SettingsCard";
 import SaveFile from "@/utils/CloudFlare/R2";
 import Input from "../Input";
 
