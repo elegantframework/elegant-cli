@@ -5,6 +5,9 @@
     &::selection {
       @apply bg-white/30;
     }
+
+    background-color: #f7f7f7 !important;
+    color: hsla(0,0%,9%,1) !important;
   }
 
   pre {

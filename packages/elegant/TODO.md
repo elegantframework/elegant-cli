@@ -7,8 +7,6 @@
 
 - auto link heading svg images on posts not loading
 
-- the ` ` code highlighting issue still exists
-
 - look at the image blur url stuff in vercels code
 -- take a look at vercels pages using generate static params with db getters
 

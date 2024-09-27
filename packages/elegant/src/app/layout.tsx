@@ -33,7 +33,7 @@ export default function RootLayout({
           <Analytics GA_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""}/>
         )}
         <body className={cn(
-          "h-full bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
+          "bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
           inter.className
         )}>
           <ThemeProvider attribute="class">
