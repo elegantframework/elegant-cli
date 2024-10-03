@@ -1,11 +1,6 @@
 
 
-- finish our seo... The seo in the layout.tsx file never got updated from Create Next App
-
-
 - task list css is not loading on a new line 
-
-- auto link heading svg images on posts not loading
 
 - look at the image blur url stuff in vercels code
 -- take a look at vercels pages using generate static params with db getters
@@ -44,6 +39,7 @@
     - all of the jsonid tags from the old layout files need to be migrated
     - update the existing SEO component to use the new metadata code instead of nextseo?
 
+- it would be cool to set seo metadata in the layout.tsx file dynamically from database driven content that is set in the admin/settings panel; such as twitter url, and other info.. Similar to how the author seo content is powered.
 
 
 

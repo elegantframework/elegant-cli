@@ -41,7 +41,7 @@ export default async function MarkdownToHtml(content: string) {
       // .use(rehypePrism)
       .use(rehypeAutolinkHeadings, {
         properties: {
-          className: "-ml-10 mt-[3px] mr-3 flex items-center opacity-0 border-0 group-hover:opacity-100",
+          className: "-ml-10 mt-[3px] mr-3 flex items-center opacity-70 border-0 hover:opacity-100",
           ariaLabel: "Anchor"
         },
         content: {
