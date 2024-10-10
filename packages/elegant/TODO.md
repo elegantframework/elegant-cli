@@ -1,4 +1,59 @@
+-- GO Live --
 
+ - update docs for v4 .. see below items
+
+    - continue into the Elegant CMS section
+        - show new welcome screen
+            --> Welcome should require db, auth, and r2 ... The docs should point to those pages for setting up
+
+        - document the root admin set up
+
+    - prisma
+        - document setting up prisma, upgrades, etc.
+
+        - document launching to production ... The db is gonna need to be migrated
+        -- document setting up the db url key in github --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate --> https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-
+        
+
+
+
+    - tiptap
+
+    - full-stack next.js
+
+    - cloudflare r2
+        - document setting up r2 in the readme
+            - document that user needs to add their production urls to the cors policy for production
+
+    - add a supabase page.. Add it to the nav
+        - show how to configure the project to work with supabase
+
+    - add a neon page ---> Do the same from above
+
+    - document enabling vercel analytics and turning it on for your project
+
+
+
+
+     - create a new "Getting Started" video for v4.0 for the installation page.
+
+
+- add a .env secret check to the admin panel; show welcome if it doesn't exist
+
+ - add v4 url to .com version selector
+
+ - create a 4.0.0 alpha release
+
+ - make announcement about it and new changes
+
+ - set v4 as the default branch
+
+- migrate and update any homepage and other static page content from .com such as pricing page
+    - migrate any header footer content
+
+- update release notes and upgrade guide.
+
+--- Post live --
 
 - task list css is not loading on a new line 
 
@@ -21,17 +76,7 @@
 
 - ensure that the project builds locally when you set up a new database that hasn't had any migrations pushed to it yet.. Currently throwing an error during build because it is trying to look at the users table, but that table doesn't exist yet  ... Could a try catch fix this?
 
-- document setting up r2 in the readme
-    - document that user needs to add their production urls to the cors policy for production
-- document prisma
-    - document setting up prisma, upgrades, etc.
-    - document prisma studio
-- document setting up auth.js and the env encryption key
-- document launching to production ... The db is gonna need to be migrated
-    -- document setting up the db url key in github --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate --> https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
-    -- document adding ?pgbouncer=true to your db url if using supabase ---> https://github.com/prisma/prisma/issues/11643
 
-- document enabling vercel analytics and turning it on for your project
 
 - prerender and download the content for static rendering using the isr functions
 
