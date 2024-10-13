@@ -16,11 +16,11 @@ type EnvVarsObjType = {
 
 const initialEnvVars: EnvVarsType = {
   required: {
-    NEXT_PUBLIC_CMS_GITHUB_ID: false,
-    NEXT_PUBLIC_CMS_GITHUB_SECRET: false,
-    NEXT_PUBLIC_CMS_TOKEN_SECRET: false,
-    NEXT_PUBLIC_CMS_REPOSITORY_SLUG: false,
-    NEXT_PUBLIC_CMS_REPOSITORY_OWNER: false
+    CMS_GITHUB_ID: false,
+    CMS_GITHUB_SECRET: false,
+    CMS_TOKEN_SECRET: false,
+    CMS_REPOSITORY_SLUG: false,
+    CMS_REPOSITORY_OWNER: false
   },
   optional: {
     NEXT_PUBLIC_CMS_CONTENT_PATH: false,
@@ -39,11 +39,11 @@ export const envVars = (function () {
   // The repo slug takes precedence over VERCEL_GIT_REPO_SLUG,
   // if both are empty, then we default to asking for the repo slug
   if (Config('admin.cms_repository_slug')) {
-    initialEnvVars.required.NEXT_PUBLIC_CMS_REPOSITORY_SLUG = true
+    initialEnvVars.required.CMS_REPOSITORY_SLUG = true
   } else if (process.env.VERCEL_GIT_REPO_SLUG) {
     initialEnvVars.required.VERCEL_GIT_REPO_SLUG = true
   } else {
-    initialEnvVars.required.NEXT_PUBLIC_CMS_REPOSITORY_SLUG = false
+    initialEnvVars.required.CMS_REPOSITORY_SLUG = false
   }
 
   Object.entries(initialEnvVars.required).forEach(([key]) => {
