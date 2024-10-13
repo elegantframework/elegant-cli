@@ -35,7 +35,7 @@ const AdminConfig = () => {
         |
         |
         */
-        'cms_github_id': process.env.NEXT_PUBLIC_CMS_GITHUB_ID || '',
+        'cms_github_id': process.env.CMS_GITHUB_ID || '',
 
         /*
         |--------------------------------------------------------------------------
@@ -46,7 +46,7 @@ const AdminConfig = () => {
         |
         |
         */
-        'cms_github_secret': process.env.NEXT_PUBLIC_CMS_GITHUB_SECRET || '',
+        'cms_github_secret': process.env.CMS_GITHUB_SECRET || '',
 
         /*
         |--------------------------------------------------------------------------
@@ -60,7 +60,7 @@ const AdminConfig = () => {
         |
         |
         */
-        'cms_token_secret': process.env.NEXT_PUBLIC_CMS_TOKEN_SECRET || '',
+        'cms_token_secret': process.env.CMS_TOKEN_SECRET || '',
 
         /*
         |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ const AdminConfig = () => {
         |
         |
         */
-        'cms_repository_slug': process.env.NEXT_PUBLIC_CMS_REPOSITORY_SLUG || '',
+        'cms_repository_slug': process.env.CMS_REPOSITORY_SLUG || '',
 
         /*
         |--------------------------------------------------------------------------
@@ -83,7 +83,7 @@ const AdminConfig = () => {
         | If the repository owner is not set, the GitHub username of the logged in account will be used.
         |
         */
-        'cms_repository_owner': process.env.NEXT_PUBLIC_CMS_REPOSITORY_OWNER || '',
+        'cms_repository_owner': process.env.CMS_REPOSITORY_OWNER || '',
 
         /*
         |--------------------------------------------------------------------------
