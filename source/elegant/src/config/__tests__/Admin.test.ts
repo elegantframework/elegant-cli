@@ -23,10 +23,10 @@ describe('Admin Config', () => {
     it('returns a proper CMS repository branch', () => {
         expect(AdminConfig().cms_repository_branch).toBe("unit/test");
 
-        process.env.NEXT_PUBLIC_CMS_REPOSITORY_BRANCH = undefined;
+        process.env.CMS_REPOSITORY_BRANCH = undefined;
         expect(AdminConfig().cms_repository_branch).toBe("main");
 
-        process.env.NEXT_PUBLIC_CMS_REPOSITORY_BRANCH = "hello/world";
+        process.env.CMS_REPOSITORY_BRANCH = "hello/world";
         expect(AdminConfig().cms_repository_branch).toBe("hello/world");
     });
 

@@ -24,7 +24,7 @@ const AdminConfig = () => {
         |
         |
         */
-        'cms_repository_branch': process.env.NEXT_PUBLIC_CMS_REPOSITORY_BRANCH || 'main',
+        'cms_repository_branch': process.env.CMS_REPOSITORY_BRANCH || 'main',
 
         /*
         |--------------------------------------------------------------------------
