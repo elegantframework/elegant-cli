@@ -6,15 +6,11 @@
         - show new welcome screen
             --> Welcome should require db, auth, and r2 ... The docs should point to those pages for setting up
 
-        - document the root admin set up
-
     - prisma
         - document setting up prisma, upgrades, etc.
 
         - document launching to production ... The db is gonna need to be migrated
         -- document setting up the db url key in github --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate --> https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-
-        
-
 
 
     - tiptap
@@ -40,7 +36,6 @@
 
 - add a .env secret check to the admin panel; show welcome if it doesn't exist
 
- - add v4 url to .com version selector
 
  - create a 4.0.0 alpha release
 

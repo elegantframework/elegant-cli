@@ -22,6 +22,16 @@ export const metadata: Metadata = {
       'application/atom+xml': `${process.env.NEXT_PUBLIC_APP_URL || ""}/feeds/atom.xml`,
       'application/json': `${process.env.NEXT_PUBLIC_APP_URL || ""}/feeds/feed.json`
     },
+  },
+  openGraph: {
+    title:  MetaTitle(
+      process.env.NEXT_PUBLIC_APP_NAME || "Elegant", 
+      process.env.NEXT_PUBLIC_APP_TAGLINE || ""
+    ),
+    description: process.env.NEXT_PUBLIC_APP_DESCRIPTION || "",
+    images: [
+      {url: "/social-card-large.jpg"}
+    ]
   }
 };
 
