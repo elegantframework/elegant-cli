@@ -2,36 +2,16 @@
 
  - update docs for v4 .. see below items
 
-    - continue into the Elegant CMS section
-        - show new welcome screen
-            --> Welcome should require db, auth, and r2 ... The docs should point to those pages for setting up
 
-    - prisma
-        - document setting up prisma, upgrades, etc.
+    - update the Creating Posts page with new screenshots
 
-        - document launching to production ... The db is gonna need to be migrated
-        -- document setting up the db url key in github --> https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate --> https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-
-
-
-    - tiptap
-
-    - full-stack next.js
-
-    - cloudflare r2
-        - document setting up r2 in the readme
-            - document that user needs to add their production urls to the cors policy for production
-
-    - add a supabase page.. Add it to the nav
-        - show how to configure the project to work with supabase
-
-    - add a neon page ---> Do the same from above
+    
 
     - document enabling vercel analytics and turning it on for your project
 
-
-
-
      - create a new "Getting Started" video for v4.0 for the installation page.
+
+
 
 
 - add a .env secret check to the admin panel; show welcome if it doesn't exist
@@ -47,6 +27,8 @@
     - migrate any header footer content
 
 - update release notes and upgrade guide.
+
+- update docs to use elegantframework.com urls ... Tiptap doesn't allow urls without a domain, so I didn't want the links to connect to the v4-demo site.
 
 --- Post live --
 

@@ -55,15 +55,7 @@ export default function DocsPage ({
                         <div dangerouslySetInnerHTML={{ __html: content}} />
                     </div>
                     <DocsFooter 
-                        nav={[{
-                            title: "Welcome",
-                            links: [
-                                {
-                                    title: "Welcome to Elegant",
-                                    href: "/docs/welcome"
-                                }
-                            ]
-                        }]}
+                        nav={documentationNav}
                     />
                      <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
                         {toc.length > 0 && (
