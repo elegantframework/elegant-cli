@@ -50,14 +50,14 @@
 - [What is Elegant?](#what-is-elegant)
 - [Screenshot](#screenshot)
 - [Demo](#demo)
-- [Features](#features)
 - [Install](#install)
+- [Configuration](#configuration)
 - [Hosting and Deployments](#deploying)
 - [Creating Content](#creating_content)
 - [Growing Your Audience](#growing_your_audience)
   - [Analytics](#analytics)
   - [Newsletter Subscriptions](#newsletter_subscriptions)
-- [Core Features](#core_features)
+- [Features](#features)
   - [Database Support](#database_support)
   - [Sitemaps](#sitemaps)
   - [Robots.txt](#robots_txt)
@@ -89,13 +89,6 @@ Online Demo: [https://demo.myelegant.app/](https://demo.myelegant.app/)
 
 Admin Demo: [https://demo.myelegant.app/admin](https://demo.myelegant.app/admin)
 
-## <a name="features">Features</a>
-
--     Postgres for a database.
--     Works with Vercel Storage, Neon, Supabase, and more.
-- 📊 Prisma as our ORM.
-- 🔤 100% written in TypeScript.
-
 ## <a name="install">Install</a>
 
 To get started using Elegant, simply install our CLI tool:
@@ -110,6 +103,9 @@ npx elegant-init
 ```
 
 Visit [https://www.elegantframework.com/docs/installation](https://www.elegantframework.com/docs/installation) for the complete installation guide.
+
+## <a name="configuration">Configuration</a>
+
 
 ## <a name="deploying">Hosting and Deployments</a>
 
@@ -159,9 +155,15 @@ If you are interested in using ConvertKit with your Elegant application, you may
 NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/21224410/subscriptions"
 ```
 
-## <a name="core_features">Core Features</a>
+## <a name="features">Features</a>
 
 ### <a name="database_support">Serverless Database Support</a>
+
+
+-     Postgres for a database.
+-     Works with Vercel Storage, Neon, Supabase, and more.
+- 📊 Prisma as our ORM.
+- 🔤 100% written in TypeScript.
 
 
 ### <a name="sitemaps">Sitemaps</a>
