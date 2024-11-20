@@ -35,6 +35,8 @@
 
 **💰 Simple Hosting**: Deploy your application on the latest and most affordable serverless tech. No need for any complicated server setups or vendor-locked services.
 
+**📰 Data Management**: Seamless integration with PostgreSQL and Prisma, with simplified database management that allows you to focus on building your application. 
+
 **🖼️ Content Creation**: Create amazing content with a next-level rich text editor. Perfect for writing blog posts, user guides, and documentation.
 
 **✅ Professional Themes**: Use our professionally crafted themes that are built with Tailwind CSS, or create your own.
