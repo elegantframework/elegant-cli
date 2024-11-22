@@ -85,9 +85,11 @@ Built with Next.js, Tailwind CSS, TipTap, and more. Elegant is perfect for blogg
 
 **With Base Theme**
 
-Online Demo: [https://demo.myelegant.app/](https://demo.myelegant.app/)
+*Note: The demo below is for Elegant version 3. The demo will be updated with version 4 shortly.*
 
-Admin Demo: [https://demo.myelegant.app/admin](https://demo.myelegant.app/admin)
+Online Demo - Version 3: [https://demo.myelegant.app/](https://demo.myelegant.app/)
+
+Admin Demo - Version 3: [https://demo.myelegant.app/admin](https://demo.myelegant.app/admin)
 
 ## <a name="install">Install</a>
 
