@@ -161,11 +161,9 @@ NEXT_PUBLIC_CONVERTKIT_ACTION_URL="https://app.convertkit.com/forms/21224410/sub
 
 ### <a name="database_support">Serverless Database Support</a>
 
+With this framework, you can easily integrate your Next.js app with a range of serverless databases, including AWS Aurora Serverless, Google Cloud SQL, Vercel Storage, Neon, and Supabase. By leveraging Prisma and Postgres, you can choose the best storage solution for your needs and enjoy cost-effective, scalable data storage that adapts to your application's demands.
 
--     Postgres for a database.
--     Works with Vercel Storage, Neon, Supabase, and more.
-- 📊 Prisma as our ORM.
-- 🔤 100% written in TypeScript.
+![image](https://github.com/user-attachments/assets/57ad971e-d917-45bd-b9a7-9629119b27a9)
 
 
 ### <a name="sitemaps">Sitemaps</a>
