@@ -75,7 +75,7 @@ elegant-cli
 
 **How to Begin Developing**
 
-The core Elegant code that is used to power a web application is located under \`**source/elegant/src/**\`.
+The core Elegant code that is used to power a web application is located under \`**packages/elegant/src/**\`.
 
 ![image](https://github.com/elegantframework/elegant-cli/assets/10189130/86b0fee0-e057-4130-bbc6-a815fcf293a1)
 

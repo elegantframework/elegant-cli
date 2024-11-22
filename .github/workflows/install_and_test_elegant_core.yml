@@ -33,7 +33,7 @@ jobs:
 
       # Install required deps for elegant framework subfolder
       - name: Install Elegant Package Dependencies
-        run:  cd source/elegant && npm install --legacy-peer-deps
+        run:  cd packages/elegant && npm install --legacy-peer-deps
 
       # Finally, run our CI tests
       - name: Run the tests
