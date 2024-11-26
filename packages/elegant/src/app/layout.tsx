@@ -41,23 +41,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SessionProvider>
-      <html lang="en" className="h-full" suppressHydrationWarning>
-        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
-          <Analytics GA_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""}/>
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+        <Analytics GA_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""}/>
+      )}
+      <body className={cn(
+        "bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
+        inter.className
+      )}>
+        <ThemeProvider attribute="class">
+          {children}
+        </ThemeProvider>
+        {process.env.VERCEL_ANALYTICS && (
+          <VercelAnalytics />
         )}
-        <body className={cn(
-          "bg-white dark:bg-slate-900 antialiased text-slate-500 dark:text-slate-400",
-          inter.className
-        )}>
-          <ThemeProvider attribute="class">
-            {children}
-          </ThemeProvider>
-          {process.env.VERCEL_ANALYTICS && (
-            <VercelAnalytics />
-          )}
-        </body>
-      </html>
-    </SessionProvider>
+      </body>
+    </html>
   );
 }
