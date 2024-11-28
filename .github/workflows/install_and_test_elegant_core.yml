@@ -2,7 +2,7 @@ name: Install and Test Elegant core
 on: 
   push:
     paths:
-      - source/**
+      - packages/elegant/**
 jobs:
   test:
     runs-on: ubuntu-latest
