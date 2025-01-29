@@ -37,7 +37,7 @@
   "homepage": "https://github.com/elegantframework/elegant#readme",
   "dependencies": {
     "clsx": "^2.1.1",
-    "next": "14.2.3",
+    "next": "14.2.18",
     "react": "^18",
     "resize-observer-polyfill": "^1.5.1"
   },
